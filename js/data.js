@@ -25,7 +25,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21252457668913213/d826912dd87bf5c0a672bbbb14c73f1b_body.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      admin: true
     },
     {
       name: "Luís Oliveira",
@@ -34,7 +35,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21252359614088350/80d93e238fc71e2a2bd23599b5d84904_body.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      admin: true
     },
     {
       name: "Nuno \"TheSnail\" PT",
@@ -565,8 +567,28 @@ const SITE_DATA = {
         "event": "Civic Cup",
         "sub": "Evento Especial",
         "category": "Civic Cup",
-        "cover": "",
-        "images": []
+        "cover": "images/CIVIC CUP/CivicCUP_1.jpeg",
+        "images": [
+            "images/CIVIC CUP/CivicCUP_1.jpeg",
+            "images/CIVIC CUP/CivicCUP_2.jpeg",
+            "images/CIVIC CUP/CivicCUP_3.jpeg",
+            "images/CIVIC CUP/CivicCUP_4.jpeg",
+            "images/CIVIC CUP/CivicCUP_5.jpeg",
+            "images/CIVIC CUP/CivicCUP_6.jpeg",
+            "images/CIVIC CUP/CivicCUP_7.jpeg",
+            "images/CIVIC CUP/CivicCUP_8.jpeg",
+            "images/CIVIC CUP/CivicCUP_9.jpeg",
+            "images/CIVIC CUP/CivicCUP_10.jpeg",
+            "images/CIVIC CUP/CivicCUP_11.jpeg",
+            "images/CIVIC CUP/CivicCUP_12.jpeg",
+            "images/CIVIC CUP/CivicCUP_13.jpeg",
+            "images/CIVIC CUP/CivicCUP_14.jpeg",
+            "images/CIVIC CUP/CivicCUP_15.jpeg",
+            "images/CIVIC CUP/CivicCUP_16.jpeg",
+            "images/CIVIC CUP/CivicCUP_17.jpeg",
+            "images/CIVIC CUP/CivicCUP_18.jpeg",
+            "images/CIVIC CUP/CivicCUP_19.jpeg"
+        ]
     },
     {
         "event": "6H Barcelona",
@@ -579,45 +601,23 @@ const SITE_DATA = {
 
   /* ─────────────────────────────────────────────
      SPONSORS
-     Fields: name, logo, url, tier ("gold" | "silver" | "bronze")
+     Fields: name, logo, url
      ───────────────────────────────────────────── */
   sponsors: [
     {
       name: "3D2You",
       logo: "images/3d2you.jpeg",
-      url: "https://www.instagram.com/3d2you.pt/",
-      tier: "gold"
+      url: "https://www.instagram.com/3d2you.pt/"
     },
     {
       name: "Joias Soltas",
       logo: "images/JOIAS SOLTAS.jpeg",
-      url: "https://www.instagram.com/joiassoltas?igsh=MTBhY3huY2hjenJpZQ==",
-      tier: "gold"
+      url: "https://www.instagram.com/joiassoltas?igsh=MTBhY3huY2hjenJpZQ=="
     },
-    {
-      name: "",
-      logo: "",
-      url: "",
-      tier: "silver"
-    },
-    {
-      name: "",
-      logo: "",
-      url: "",
-      tier: "silver"
-    },
-    {
-      name: "",
-      logo: "",
-      url: "",
-      tier: "bronze"
-    },
-    {
-      name: "",
-      logo: "",
-      url: "",
-      tier: "bronze"
-    }
+    { name: "", logo: "", url: "" },
+    { name: "", logo: "", url: "" },
+    { name: "", logo: "", url: "" },
+    { name: "", logo: "", url: "" }
   ]
 
 };

@@ -23,6 +23,53 @@
    ===================================================================== */
 
 const GARAGE_DATA = [
+  // ─── ENDURANCE ───
+  {
+    id: "porsche-992-6h-barcelona",
+    name: "Porsche 911 GT3 RS (992) '22 — 6h Barcelona",
+    manufacturer: "Porsche",
+    group: "Gr.3",
+    competition: "Endurance",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422252979860524/d4bdd815c07985ceeeaa7a3ebdf1dedc_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422252979860524/d4bdd815c07985ceeeaa7a3ebdf1dedc_thumb_l_x2.jpg"
+  },
+  // ─── CIVIC CUP ───
+  {
+    id: "honda-civic-ek-98",
+    name: "Honda Civic Type R (EK) '98",
+    manufacturer: "Honda",
+    group: "Road Car",
+    competition: "CivicCup",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422167070711922/27ca44b6d1bb401f9c8464c16a5bfba4_thumb_s.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422167070711922/c8f6ff4c74ccd51ff6d5376c02e3e575_thumb_l_x2.jpg"
+  },
+  {
+    id: "honda-civic-ek-touring-1",
+    name: "Honda Civic Type R (EK) Touring Car",
+    manufacturer: "Honda",
+    group: "Road Car",
+    competition: "CivicCup",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422725687504538/bcf8648a01dbac67079061d1ff060964_thumb_s.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422725687504538/1979300b693b1f1c342f2ab6091d9ef2_thumb_l_x2.jpg"
+  },
+  {
+    id: "honda-civic-ek-touring-2",
+    name: "Honda Civic Type R (EK) Touring Car",
+    manufacturer: "Honda",
+    group: "Road Car",
+    competition: "CivicCup",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422555895116460/930efd0faca090eb63f3b8e0430cafae_thumb_s.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422555895116460/f5be5d1be92322ed511c8bade6926e67_thumb_l_x2.jpg"
+  },
+  {
+    id: "honda-civic-ek-touring-3",
+    name: "Civic Type R (EK) Touring Car",
+    manufacturer: "Honda",
+    group: "Road Car",
+    competition: "CivicCup",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422342041924174/d254a95e69dae5f0cfa4a8bb9a88798d_thumb_s.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422342041924174/81a53cf252947dd813dd43d0c90d3b6a_thumb_l_x2.jpg"
+  },
   // ─── EXAMPLE CARS (replace with your real data) ───
   {
     id: "alfa-romeo-155-gt4",

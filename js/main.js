@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="driver-number">#${d.number}</div>
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">${d.flag} ${d.name}</h3>
+          <h3 class="driver-name">${d.flag} ${d.name}${d.admin ? ' <span style="background:#CCFF00;color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:1px;vertical-align:middle;text-transform:uppercase;">Admin</span>' : ''}</h3>
           <p class="driver-role">${d.role}</p>
           <p class="driver-series">${d.series}</p>
         </div>
@@ -357,28 +357,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ══════════════════════════════════════════════════════════════════
-     RENDER SPONSORS — Separated into Gold / Silver / Bronze rows
-     with different card sizes per tier
+     RENDER SPONSORS — Single row, no tier categories
      ══════════════════════════════════════════════════════════════════ */
   const sponsorsContainer = document.getElementById("sponsors-container");
   if (sponsorsContainer && SITE_DATA.sponsors) {
-    const tiers = { gold: [], silver: [], bronze: [] };
-    SITE_DATA.sponsors.forEach(s => {
-      if (tiers[s.tier]) tiers[s.tier].push(s);
-    });
-
-    let html = "";
-
-    // Helper to render a single sponsor card
-    function sponsorCard(s, tierClass, i) {
+    function sponsorCard(s, i) {
       const isEmpty = !s.name && !s.logo;
       const tag = isEmpty ? 'div' : 'a';
       const attrs = isEmpty
-        ? `class="sponsor-card sponsor-${tierClass} sponsor-empty anim-fade-up delay-${Math.min(i % 3, 2)}"`
-        : `href="${s.url}" target="_blank" rel="noopener noreferrer" class="sponsor-card sponsor-${tierClass} anim-fade-up delay-${Math.min(i % 3, 2)}" aria-label="${s.name}"`;
+        ? `class="sponsor-card sponsor-gold sponsor-empty anim-fade-up delay-${Math.min(i % 3, 2)}"`
+        : `href="${s.url}" target="_blank" rel="noopener noreferrer" class="sponsor-card sponsor-gold anim-fade-up delay-${Math.min(i % 3, 2)}" aria-label="${s.name}"`;
       return `
         <${tag} ${attrs}>
-          <div class="sponsor-tier-badge">${tierClass}</div>
           <div class="sponsor-logo-wrap">
             ${isEmpty
               ? `<div class="sponsor-placeholder sponsor-available"><span>O seu logo aqui</span></div>`
@@ -393,35 +383,11 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
-    // GOLD row (largest cards)
-    if (tiers.gold.length) {
-      html += `<div class="sponsors-tier-section">
-        <h3 class="sponsors-tier-title gold-title anim-fade-up">🥇 Gold Partners</h3>
-        <div class="sponsors-row sponsors-row-gold">
-          ${tiers.gold.map((s, i) => sponsorCard(s, "gold", i)).join("")}
-        </div>
-      </div>`;
-    }
-
-    // SILVER row (medium cards)
-    if (tiers.silver.length) {
-      html += `<div class="sponsors-tier-section">
-        <h3 class="sponsors-tier-title silver-title anim-fade-up">🥈 Silver Partners</h3>
-        <div class="sponsors-row sponsors-row-silver">
-          ${tiers.silver.map((s, i) => sponsorCard(s, "silver", i)).join("")}
-        </div>
-      </div>`;
-    }
-
-    // BRONZE row (smallest cards)
-    if (tiers.bronze.length) {
-      html += `<div class="sponsors-tier-section">
-        <h3 class="sponsors-tier-title bronze-title anim-fade-up">🥉 Bronze Partners</h3>
-        <div class="sponsors-row sponsors-row-bronze">
-          ${tiers.bronze.map((s, i) => sponsorCard(s, "bronze", i)).join("")}
-        </div>
-      </div>`;
-    }
+    const html = `<div class="sponsors-tier-section">
+      <div class="sponsors-row sponsors-row-gold">
+        ${SITE_DATA.sponsors.map((s, i) => sponsorCard(s, i)).join("")}
+      </div>
+    </div>`;
 
     sponsorsContainer.innerHTML = html;
     sponsorsContainer.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
