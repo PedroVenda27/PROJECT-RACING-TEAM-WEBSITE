@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
           />
           <div class="garage-thumb-placeholder" style="display:none;">
-            <span>🏎️</span>
+            <span style="font-size:1rem;font-weight:800;color:#CCFF00;letter-spacing:2px;text-transform:uppercase;">Brevemente</span>
           </div>
           <div class="garage-thumb-overlay">
             <span class="garage-zoom-icon">
