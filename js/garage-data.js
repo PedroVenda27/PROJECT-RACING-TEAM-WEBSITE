@@ -80,7 +80,7 @@ const GARAGE_DATA = [
   { id: "hyundai-genesis-gt3", name: "Genesis Gr.3", manufacturer: "Hyundai", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
   { id: "hyundai-genesis-gt4", name: "Genesis Gr.4", manufacturer: "Hyundai", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
   { id: "ferrari-458-gt3", name: "458 Italia GT3 '12", manufacturer: "Ferrari", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "nissan-gtr-18-gt3", name: "GT-R NISMO GT3 '18", manufacturer: "Nissan", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
+  { id: "nissan-gtr-18-gt3", name: "GT-R NISMO GT3 '18", manufacturer: "Nissan", group: "Gr.3", competition: "GR3", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421780233638831/14e821c3981e6f19e143e3a0c4ec87fb_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421780233638831/14e821c3981e6f19e143e3a0c4ec87fb_thumb_l_x2.jpg" },
   { id: "bmw-m6-sprint-gt3", name: "M6 GT3 Sprint Model '16", manufacturer: "BMW", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
   { id: "subaru-wrx-gt3", name: "WRX Gr.3", manufacturer: "Subaru", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
   { id: "mitsubishi-lancer-gt3", name: "Lancer Evolution Final Gr.3", manufacturer: "Mitsubishi", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
