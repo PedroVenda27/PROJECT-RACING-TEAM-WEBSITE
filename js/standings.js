@@ -81,5 +81,47 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  contentEl.innerHTML = SITE_DATA.standings.map(s => renderStanding(s)).join("");
+  function renderTeams(s) {
+    const logo = s.logo ? `<img src="${s.logo}" alt="${s.label}" class="cal-comp-logo" />` : "";
+    const headerHTML = `
+      <div class="cal-block" id="standings-${s.competition.toLowerCase()}" style="margin-bottom:1.5rem;">
+        <div class="cal-block-header">
+          ${logo}
+          <div>
+            <h2 class="cal-comp-title">${s.title || s.label}</h2>
+            ${s.subtitle ? `<p class="cal-comp-sub">${s.subtitle}</p>` : ""}
+          </div>
+        </div>
+      </div>
+    `;
+
+    const rows = s.teams.map((team, i) => {
+      const pos = i + 1;
+      const isPitbox = team.toUpperCase().includes("PITBOX");
+      return `
+        <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${isPitbox ? " row-pitbox" : ""}">
+          <td class="cell-pos">${pos}</td>
+          <td class="cell-name">${team}</td>
+        </tr>
+      `;
+    }).join("");
+
+    return headerHTML + `
+      <div class="standings-table-wrap" style="margin-bottom:3rem;">
+        <div class="standings-table-scroll">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th class="th-pos">POS</th>
+                <th class="th-name">Equipa</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  contentEl.innerHTML = SITE_DATA.standings.map(s => s.type === "teams" ? renderTeams(s) : renderStanding(s)).join("");
 });

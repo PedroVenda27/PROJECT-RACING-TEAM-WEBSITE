@@ -609,6 +609,102 @@ const SITE_DATA = {
 ],
 
   /* ─────────────────────────────────────────────
+     STANDINGS
+     ───────────────────────────────────────────── */
+  standings: [
+    {
+      competition: "GR3",
+      label: "Pitbox GR3 Championship",
+      logo: "images/PITBOX_GR3_LOGO.png",
+      title: "Pitbox <span class=\"text-yellow\">GR3 Championship</span>",
+      subtitle: "Campeonato interno semanal — Sábados · Categoria Gr.3 · 21:30 Hora Local · 16 Pilotos em Pista",
+      rounds: ["Sprint 1","Race 1","Sprint 2","Race 2","Sprint 3","Race 3","Race 4","Sprint 5","Race 5","Sprint 6","Race 6","Sprint 7","Race 7","Sprint 8","Race 8"],
+      roundLabels: ["R1","R2","R3","R4","R5","R6","R7","R8"],
+      roundFlags: ["hr","at","jp","de","it","be","us","fr"],
+      drivers: [
+        { name: "Guilherme",       rounds: [40,8,35,41,28,38,0,null], total: 190 },
+        { name: "Gil",             rounds: [24,20,38,35,37,17,0,null], total: 171 },
+        { name: "Luís Oliveira",   rounds: [18,18,19,27,26,18,41,null], total: 167 },
+        { name: "Francisco Silva", rounds: [1,27,0,10,28,6,32,null], total: 104 },
+        { name: "Pedro Venda",     rounds: [30,18,0,12,7,12,24,null], total: 103 },
+        { name: "Nuno Fonseca",    driverRef: "Nuno \"TheSnail\" PT", rounds: [0,16,12,20,10,20,15,null], total: 93 },
+        { name: "Pedro Oliveira",  rounds: [18,0,29,24,0,0,6,null], total: 78 },
+        { name: "Marco Silva",     rounds: [0,29,15,0,0,8,17,null], total: 69 },
+        { name: "Tiago Pacheco",   rounds: [0,0,6,16,20,26,0,null], total: 68 },
+        { name: "Pedro Lima",      rounds: [0,0,0,30,11,24,0,null], total: 65 },
+        { name: "Ricardo",         rounds: [7,25,2,0,1,13,14,null], total: 62 },
+        { name: "Filipe Marroko",  rounds: [17,0,8,18,6,2,0,null], total: 51 },
+        { name: "António Brissos", rounds: [1,8,5,8,3,0,16,null], total: 41 },
+        { name: "Lon3R_Jhon",      rounds: [0,18,0,6,16,0,0,null], total: 40 },
+        { name: "Rocha",           rounds: [5,3,14,0,4,7,0,null], total: 33 },
+        { name: "Tiago Freitas",   rounds: [5,0,0,0,0,0,18,null], total: 23 },
+        { name: "Simão Melo",      driverRef: "Simão Teixeira de Melo", rounds: [0,0,0,22,0,0,0,null], total: 22 },
+        { name: "Renato Oliveira", rounds: [0,0,5,14,0,0,0,null], total: 19 },
+        { name: "Hélio Sequeira",  rounds: [18,0,0,0,0,0,0,null], total: 18 },
+        { name: "Francisco",       rounds: [2,0,3,0,0,6,0,null], total: 11 },
+        { name: "Rodrigo Amorim",  rounds: [8,0,2,0,0,0,0,null], total: 10 },
+        { name: "Ricardo Duarte",  rounds: [0,6,0,0,0,0,0,null], total: 6 },
+        { name: "André Gaspar",    rounds: [0,1,4,0,0,0,0,null], total: 5 },
+        { name: "D.Sousa",         rounds: [3,0,0,0,0,0,0,null], total: 3 },
+      ]
+    },
+    {
+      competition: "GR2",
+      label: "Pitbox Apex Cup GR2",
+      logo: "images/PITBOX_GR2_LOGO.png",
+      title: "Pitbox <span class=\"text-yellow\">Apex Cup GR2</span>",
+      subtitle: "Campeonato interno semanal — Sextas-Feiras · Categoria Gr.2 · 4 Rondas · 4 Circuitos Icónicos",
+      roundLabels: ["R1","R2","R3","R4"],
+      roundFlags: ["jp","fr","be","fr"],
+      drivers: [
+        { name: "Ricardo_Melo_23",  driverRef: "Ricardo Melo",         rounds: [3,20,25,null], total: 48 },
+        { name: "DAVIDNORONHA-84",                                      rounds: [16,12,20,null], total: 48 },
+        { name: "Oraculo 95",       driverRef: "Pedro Oliveira",       rounds: [21,6,16,null], total: 43 },
+        { name: "Xicofininho",      driverRef: "Francisco Silva",      rounds: [8,25,4,null], total: 37 },
+        { name: "luismco1983",      driverRef: "Luís Oliveira",        rounds: [12,10,6,null], total: 28 },
+        { name: "frm_pribeiro",                                         rounds: [25,0,0,null], total: 25 },
+        { name: "Marroko#99",       driverRef: "Filipe Marroko",       rounds: [6,16,0,null], total: 22 },
+        { name: "PTdeltaPT",        driverRef: "Nuno \"TheSnail\" PT", rounds: [4,0,13,null], total: 17 },
+        { name: "ricardinho_rs3",   driverRef: "Ricardo",              rounds: [10,2,2,null], total: 14 },
+        { name: "tiagofreitas_27",  driverRef: "Tiago Freitas",        rounds: [0,1,10,null], total: 11 },
+        { name: "MaRcOSiLvaRiDeR", driverRef: "Marco Silva",          rounds: [0,8,0,null], total: 8 },
+        { name: "Rsantos059",                                           rounds: [0,0,8,null], total: 8 },
+        { name: "Ratax55",          driverRef: "Rui Rei",              rounds: [0,4,3,null], total: 7 },
+        { name: "Brissos69",        driverRef: "António Brissos",      rounds: [0,3,0,null], total: 3 },
+        { name: "PRT_SILVAJOHNNY",                                      rounds: [2,0,0,null], total: 2 },
+        { name: "alvaro_menino",                                        rounds: [0,0,0,null], total: 0 },
+        { name: "Basaroco75",                                           rounds: [0,0,0,null], total: 0 },
+        { name: "lon3r_jhon",       driverRef: "Lon3R_Jhon",           rounds: [0,0,0,null], total: 0 },
+        { name: "Pedro venda",      driverRef: "Pedro Venda",          rounds: [0,0,0,null], total: 0 },
+        { name: "ajudasete7",       driverRef: "Rocha",                rounds: [0,0,0,null], total: 0 },
+      ]
+    },
+    {
+      competition: "6H-BCN",
+      type: "teams",
+      label: "6 Horas de Barcelona",
+      logo: "",
+      title: "6 Horas de <span class=\"text-yellow\">Barcelona</span>",
+      subtitle: "Corrida de resistência por equipas · Circuito de Barcelona-Catalunya",
+      teams: [
+        "LODARES",
+        "PREDATOR 1",
+        "IMD MOTOR GANG",
+        "LSR",
+        "MBTECH",
+        "GREYHOUND",
+        "PREDATOR 2",
+        "SUPERCARS",
+        "NCM",
+        "PITBOX-TBT",
+        "1 TO 1",
+        "BINDE PÁ FESTA TEAM",
+        "SOUSA RACING TEAM"
+      ]
+    }
+  ],
+
+  /* ─────────────────────────────────────────────
      SPONSORS
      Fields: name, logo, url
      ───────────────────────────────────────────── */
