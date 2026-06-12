@@ -272,7 +272,7 @@ const SITE_DATA = {
     {
       name: "Taça <br> Portugal GT",
       platform: "GT7",
-      description: "Campeonato externo de Gran Turismo 7.",
+      description: "Taça de Portugal GT — Campeonato externo de Gran Turismo 7 que reúne as melhores equipas portuguesas de Sim Racing.",
       logo: "images/TPGT_LOGO.png",
       url: ""
     },
