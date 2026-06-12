@@ -97,11 +97,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const rows = s.teams.map((team, i) => {
       const pos = i + 1;
-      const isPitbox = team.toUpperCase().includes("PITBOX");
+      const isPitbox = team.name.toUpperCase().includes("PITBOX");
+      const logoHTML = team.logo
+        ? `<img src="${team.logo}" alt="${team.name}" class="st-avatar" style="border-radius:4px;object-position:center;">`
+        : `<div class="st-avatar-placeholder">${team.name.charAt(0)}</div>`;
       return `
         <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${isPitbox ? " row-pitbox" : ""}">
           <td class="cell-pos">${pos}</td>
-          <td class="cell-name">${team}</td>
+          <td class="cell-name">
+            <div class="st-driver-wrap">${logoHTML}<span>${team.name}</span></div>
+          </td>
         </tr>
       `;
     }).join("");
