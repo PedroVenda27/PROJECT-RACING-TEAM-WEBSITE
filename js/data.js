@@ -269,6 +269,13 @@ const SITE_DATA = {
       logo: "images/GreyHonund6h_LOGO.png",
       url: ""
     },
+    {
+      name: "Taça <br> Portugal GT",
+      platform: "GT7",
+      description: "Campeonato externo de Gran Turismo 7.",
+      logo: "images/TPGT_LOGO.png",
+      url: ""
+    },
   ],
 
   /* ─────────────────────────────────────────────
