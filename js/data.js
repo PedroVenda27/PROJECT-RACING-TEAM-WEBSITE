@@ -31,12 +31,21 @@ const SITE_DATA = {
     {
       name: "Luís Oliveira",
       number: "7",
-      role: "luismco1983",
+      role: "Luismco1983",
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251486335757484/c8a54ebc9fc37e8a7cb2220702524a4e_body.png",
       flag: "🇵🇹",
       admin: true
+    },
+    {
+      name: "Pedro Oliveira",
+      number: "14",
+      role: "oraculo95",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251669371073716/f1289388633d0c88610c99f4b8f2b180_body.png",
+      flag: "🇵🇹"
     },
     {
       name: "Nuno \"TheSnail\" PT",
@@ -75,105 +84,6 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
-      name: "Marco Silva",
-      number: "18",
-      role: "BOBMarleyMS",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Tiago Pacheco",
-      number: "46",
-      role: "PatoBravo46",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Simão Melo",
-      number: "8",
-      role: "simaotmelo",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251486335757484/c8a54ebc9fc37e8a7cb2220702524a4e_body.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Francisco",
-      number: "46",
-      role: "IRT_Fancisco_vr46",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252042360228720/0006fa911451f050de89055b7d50f69c_body.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "André Gaspar",
-      number: "44",
-      role: "ANDRE_BOSS",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://www.gran-turismo.com/common/dist/gt7/companion/images/0f71c1f701e0aa00014efaf283a12312.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Aurelio",
-      number: "07",
-      role: "Aureliod95",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Pedro Lima",
-      number: "13",
-      role: "Lyymax",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Rodrigo Amorim",
-      number: "12",
-      role: "Amorim_Rodrigo",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251921339234160/9b366b82d5d3687576039252c67d84ce_body.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Francisco Silva",
-      number: "7",
-      role: "XicoFininho83",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251558231891384/6bb08711a289acae1a9dc151fee45626_body.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Tiago Freitas",
-      number: "27",
-      role: "tiagofreitas_27",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252126902542239/d525f1402d1cd4bd260fdbfe1a20fdfd_body.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Pedro Oliveira",
-      number: "14",
-      role: "oraculo95",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251669371073716/f1289388633d0c88610c99f4b8f2b180_body.png",
-      flag: "🇵🇹"
-    },
-    {
       name: "Renato Oliveira",
       number: "21",
       role: "JhonnyRenas",
@@ -192,12 +102,111 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
+      name: "Marco Silva",
+      number: "18",
+      role: "MaRcOSiLvaRiDeR",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251393885997468/60e3c99b42579be3d7e6afbe9e81488a_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Tiago Pacheco",
+      number: "46",
+      role: "PatoBravo46",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252342187402789/85a74a49221d944a1d79c91dfb7494db_body.png",
+      flag: "🇵🇹"
+    },
+    {
       name: "Rocha",
       number: "26",
       role: "ajudasete7",
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251947261659178/504ef1b097664c13eeda12fdc7f42aa8_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Francisco Silva",
+      number: "7",
+      role: "XicoFiNinHo83",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251558231891384/6bb08711a289acae1a9dc151fee45626_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Simão Teixeira de Melo",
+      number: "8",
+      role: "simaotmelo",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251486335757484/c8a54ebc9fc37e8a7cb2220702524a4e_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Tiago Freitas",
+      number: "27",
+      role: "tiagofreitas_27",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252126902542239/d525f1402d1cd4bd260fdbfe1a20fdfd_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Rui Rei",
+      number: "5",
+      role: "ratax55",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251920298943512/04b9dc3a5d8677135d3ee7785bfa2fa0_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Pedro Pires",
+      number: "21",
+      role: "TheTrueVirex",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251587542493181/834545d4f0e3520e49bae256e940890c_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "André Gaspar",
+      number: "44",
+      role: "ANDRE_BOSS",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://www.gran-turismo.com/common/dist/gt7/companion/images/0f71c1f701e0aa00014efaf283a12312.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Rodrigo Amorim",
+      number: "12",
+      role: "Amorim_Rodrigo",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251921339234160/9b366b82d5d3687576039252c67d84ce_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Sérgio Figueira",
+      number: "19",
+      role: "Raiden-tuga",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Diogo Sousa",
+      number: "7",
+      role: "RaZzilla_drak",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "",
       flag: "🇵🇹"
     },
     {
@@ -209,14 +218,14 @@ const SITE_DATA = {
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251394765052392/ab73a36383d7a21f7e730ff89d2f2c60_body.png",
       flag: "🇵🇹"
     },
-        {
-      name: "Rui Rei",
-      number: "99",
-      role: "Ratax55",
-      nationality: "Portugal",
+    {
+      name: "Ricardo Melo",
+      number: "239",
+      role: "Ricardo_Melo_23",
+      nationality: "Brasil",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251920298943512/04b9dc3a5d8677135d3ee7785bfa2fa0_body.png",
-      flag: "🇵🇹"
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251963118315985/3f488c8dbd8bc9ef1286dfee97ce5152_body.png",
+      flag: "🇧🇷"
     },
   ],
 

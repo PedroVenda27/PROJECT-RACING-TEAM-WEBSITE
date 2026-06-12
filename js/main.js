@@ -112,9 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
             : `<div class="driver-placeholder"><span>${d.number}</span></div>`
           }
           <div class="driver-number">#${d.number}</div>
+          <div class="driver-nationality-badge">
+            <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br'}[d.nationality]||'pt')}.png" alt="${d.nationality}" width="18" height="13">
+            <span>${d.nationality}</span>
+          </div>
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">${d.flag} ${d.name}${d.admin ? ' <span style="background:#CCFF00;color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:1px;vertical-align:middle;text-transform:uppercase;">Admin</span>' : ''}</h3>
+          <h3 class="driver-name">${d.name}${d.admin ? ' <span style="background:#CCFF00;color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:1px;vertical-align:middle;text-transform:uppercase;">Admin</span>' : ''}</h3>
           <p class="driver-role">${d.role}</p>
           <p class="driver-series">${d.series}</p>
         </div>

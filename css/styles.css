@@ -679,6 +679,37 @@ img {
   font-size: 0.7rem;
   color: var(--gray-400);
 }
+.driver-flag-img {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  object-fit: cover;
+  vertical-align: middle;
+}
+.driver-nationality-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 3px 8px 3px 5px;
+  z-index: 2;
+}
+.driver-nationality-badge img {
+  border-radius: 2px;
+  display: block;
+}
+.driver-nationality-badge span {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
 
 /* Responsive driver grid */
 @media (max-width: 1024px) {
