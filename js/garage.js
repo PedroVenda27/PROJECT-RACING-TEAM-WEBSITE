@@ -4,6 +4,17 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ── Competition display names ── */
+  const compLabels = {
+    "GR3":       "Pitbox GR3",
+    "GR2":       "Pitbox GR2",
+    "LPGT":      "Liga Portugal GT",
+    "NCM":       "TT Motorfest NCM",
+    "Endurance": "Endurance",
+    "CivicCup":  "Civic Cup",
+    "TPGT":      "Taça Portugal GT"
+  };
+
   /* ── References ── */
   const grid              = document.getElementById("garage-grid");
   const lightbox          = document.getElementById("garage-lightbox");
@@ -145,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3 class="garage-card-name">${car.name}</h3>
           <div class="garage-card-tags">
             <span class="garage-tag garage-tag-group">${car.group}</span>
-            <span class="garage-tag garage-tag-comp">${car.competition}</span>
+            <span class="garage-tag garage-tag-comp">${compLabels[car.competition] || car.competition}</span>
           </div>
           <span class="garage-card-mfg">${car.manufacturer}</span>
         </div>
