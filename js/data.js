@@ -166,7 +166,7 @@ const SITE_DATA = {
     },
     {
       name: "Pedro Pires",
-      number: "21",
+      number: "96",
       role: "TheTrueVirex",
       nationality: "Portugal",
       series: "Gran Turismo 7",
@@ -216,6 +216,15 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251394765052392/ab73a36383d7a21f7e730ff89d2f2c60_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Ruben Santos",
+      number: "",
+      role: "Rsantos059",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "",
       flag: "🇵🇹"
     },
     {
