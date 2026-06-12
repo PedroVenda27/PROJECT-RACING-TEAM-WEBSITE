@@ -683,7 +683,7 @@ const SITE_DATA = {
       competition: "6H-BCN",
       type: "teams",
       label: "6 Horas de Barcelona",
-      logo: "",
+      logo: "images/GreyHonund6h_LOGO.png",
       title: "6 Horas de <span class=\"text-yellow\">Barcelona</span>",
       subtitle: "Corrida de resistência por equipas · Circuito de Barcelona-Catalunya",
       teams: [
