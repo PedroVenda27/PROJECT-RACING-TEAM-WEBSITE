@@ -101,12 +101,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const logoHTML = team.logo
         ? `<img src="${team.logo}" alt="${team.name}" class="st-avatar" style="border-radius:4px;object-position:center;">`
         : `<div class="st-avatar-placeholder">${team.name.charAt(0)}</div>`;
+      const driversHTML = team.drivers && team.drivers.length
+        ? team.drivers.join(", ")
+        : "";
       return `
         <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${isPitbox ? " row-pitbox" : ""}">
           <td class="cell-pos">${pos}</td>
           <td class="cell-name">
             <div class="st-driver-wrap">${logoHTML}<span>${team.name}</span></div>
           </td>
+          <td class="cell-name" style="font-size:0.85em;opacity:0.85;">${driversHTML}</td>
         </tr>
       `;
     }).join("");
@@ -119,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <tr>
                 <th class="th-pos">POS</th>
                 <th class="th-name">Equipa</th>
+                <th class="th-name">Pilotos</th>
               </tr>
             </thead>
             <tbody>${rows}</tbody>

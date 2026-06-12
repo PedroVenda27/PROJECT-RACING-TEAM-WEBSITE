@@ -678,29 +678,6 @@ const SITE_DATA = {
         { name: "Pedro venda",      driverRef: "Pedro Venda",          rounds: [0,0,0,null], total: 0 },
         { name: "ajudasete7",       driverRef: "Rocha",                rounds: [0,0,0,null], total: 0 },
       ]
-    },
-    {
-      competition: "6H-BCN",
-      type: "teams",
-      label: "6 Horas de Barcelona",
-      logo: "images/GreyHonund6h_LOGO.png",
-      title: "6 Horas de <span class=\"text-yellow\">Barcelona</span>",
-      subtitle: "Corrida de resistência por equipas · Circuito de Barcelona-Catalunya",
-      teams: [
-        { name: "LODARES",           logo: "" },
-        { name: "PREDATOR 1",        logo: "" },
-        { name: "IMD MOTOR GANG",    logo: "images/team_imd.webp" },
-        { name: "LSR",               logo: "images/team_lsr.webp" },
-        { name: "MBTECH",            logo: "" },
-        { name: "GREYHOUND",         logo: "" },
-        { name: "PREDATOR 2",        logo: "" },
-        { name: "SUPERCARS",         logo: "" },
-        { name: "NCM",               logo: "images/team_ncm.webp" },
-        { name: "PITBOX-TBT",        logo: "images/team_pitbox.webp" },
-        { name: "1 TO 1",            logo: "images/team_1to1.png" },
-        { name: "BINDE PÁ FESTA TEAM", logo: "" },
-        { name: "SOUSA RACING TEAM", logo: "" }
-      ]
     }
   ],
 
