@@ -98,6 +98,7 @@ const GARAGE_DATA = [
   { id: "audi-rs5-gt2", name: "RS 5 Turbo DTM '19", manufacturer: "Audi", group: "Gr.2", competition: "GR2", thumbnail: "", fullsize: "" },
   { id: "lexus-rc-f-gt2", name: "RC F GT500 '16", manufacturer: "Lexus", group: "Gr.2", competition: "GR2", thumbnail: "", fullsize: "" },
   { id: "honda-nsx-concept-gt2", name: "NSX Concept-GT '16", manufacturer: "Honda", group: "Gr.2", competition: "GR2", thumbnail: "", fullsize: "" },
+  { id: "porsche-911-rsr-lpgt", name: "911 RSR (991) '17", manufacturer: "Porsche", group: "Gr.3", competition: "LPGT", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422865444462840/35b18c50de670f4465123527bf85bbb0_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422865444462840/35b18c50de670f4465123527bf85bbb0_thumb_l_x2.jpg" },
   { id: "nissan-gtr-gt2", name: "GT-R GT500 '08", manufacturer: "Nissan", group: "Gr.2", competition: "LPGT", thumbnail: "", fullsize: "" },
   { id: "honda-nsx-gt2", name: "NSX GT500 '08", manufacturer: "Honda", group: "Gr.2", competition: "LPGT", thumbnail: "", fullsize: "" },
   { id: "lexus-sc430-gt2", name: "SC430 GT500 '08", manufacturer: "Lexus", group: "Gr.2", competition: "LPGT", thumbnail: "", fullsize: "" },
