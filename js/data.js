@@ -629,6 +629,31 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   standings: [
     {
+      competition: "LPGT",
+      label: "Liga Portugal GT",
+      logo: "images/LPGT_WORLDSERIES_LOGO.jpg",
+      title: "Liga <span class=\"text-yellow\">Portugal GT</span>",
+      subtitle: "Campeonato de Portugal · Gran Turismo 7",
+      roundLabels: ["C1","C2"],
+      roundFlags: [],
+      drivers: [
+        { name: "GT3RT-Flecha",    rounds: [16,16], total: 32 },
+        { name: "Jatedouarroz",    rounds: [20,10], total: 30 },
+        { name: "Pedro Venda",     rounds: [6,20],  total: 26 },
+        { name: "Zeuskunha_TBT",   rounds: [11,9],  total: 20 },
+        { name: "Santimoreira",    rounds: [7,13],  total: 20 },
+        { name: "Miguel85",        rounds: [9,11],  total: 20 },
+        { name: "Anderson Costa",  rounds: [13,6],  total: 19 },
+        { name: "Tenworms",        rounds: [10,8],  total: 18 },
+        { name: "Clarinetes",      rounds: [8,7],   total: 15 },
+        { name: "Barbas77",        rounds: [5,3],   total: 8 },
+        { name: "Rafael Silva",    rounds: [0,5],   total: 5 },
+        { name: "xapas",           rounds: [0,4],   total: 4 },
+        { name: "Nyx-Racer",       rounds: [0,2],   total: 2 },
+        { name: "Sport-Evo_Bruno", rounds: [0,1],   total: 1 },
+      ]
+    },
+    {
       competition: "GR3",
       label: "Pitbox GR3 Championship",
       logo: "images/PITBOX_GR3_LOGO.png",
