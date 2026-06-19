@@ -634,8 +634,8 @@ const SITE_DATA = {
       logo: "images/LPGT_WORLDSERIES_LOGO.jpg",
       title: "Liga <span class=\"text-yellow\">Portugal GT</span>",
       subtitle: "Campeonato de Portugal · Gran Turismo 7",
-      roundLabels: ["C1","C2"],
-      roundFlags: [],
+      roundLabels: ["RONDA-C1","RONDA-C2"],
+      roundFlags: ["ae","ae"],
       drivers: [
         { name: "GT3RT-Flecha",    rounds: [16,16], total: 32 },
         { name: "Jatedouarroz",    rounds: [20,10], total: 30 },
