@@ -47,8 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const rows = s.drivers.map((d, i) => {
       const pos = i + 1;
       const roundCells = d.rounds.map(v => `<td class="${v === null ? "cell-empty" : v === 0 ? "cell-zero" : "cell-round"}">${v === null ? "" : v}</td>`).join("");
+      const isPitbox = d.pitbox === true;
       return `
-        <tr class="${pos <= 3 ? "row-pos-" + pos : ""}">
+        <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${isPitbox ? " row-pitbox" : ""}">
           <td class="cell-pos">${pos}</td>
           <td class="cell-name">
             <div class="st-driver-wrap">

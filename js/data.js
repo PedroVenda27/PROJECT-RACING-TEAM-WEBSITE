@@ -639,7 +639,7 @@ const SITE_DATA = {
       drivers: [
         { name: "GT3RT-Flecha",    rounds: [16,16], total: 32 },
         { name: "Jatedouarroz",    rounds: [20,10], total: 30 },
-        { name: "Pedro Venda (PILOTO-PITBOX)", driverRef: "Pedro Venda", rounds: [6,20], total: 26 },
+        { name: "Pedro Venda (PILOTO-PITBOX)", driverRef: "Pedro Venda", pitbox: true, rounds: [6,20], total: 26 },
         { name: "Zeuskunha_TBT",   rounds: [11,9],  total: 20 },
         { name: "Santimoreira",    rounds: [7,13],  total: 20 },
         { name: "Miguel85",        rounds: [9,11],  total: 20 },
