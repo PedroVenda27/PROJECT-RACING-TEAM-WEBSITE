@@ -40,6 +40,7 @@ const SITE_DATA = {
       name: "Pedro Dias",
       number: "24",
       role: "RTP_Travincas24",
+      edgeId: "Travincas24",
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
