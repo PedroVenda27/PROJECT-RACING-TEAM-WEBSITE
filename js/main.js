@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3 class="driver-name">${d.name}${d.admin ? ' <span style="background:#CCFF00;color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:1px;vertical-align:middle;text-transform:uppercase;">Admin</span>' : ''}</h3>
           <p class="driver-role">${d.role}</p>
           <p class="driver-series">${d.series}</p>
-          <a href="https://www.dg-edge.com/players/${d.edgeId || d.role}" target="_blank" rel="noopener" title="Ver perfil Edge de ${d.role}">
+          <a href="https://www.dg-edge.com/players/${d.role}" target="_blank" rel="noopener" title="Ver perfil Edge de ${d.role}">
             <img src="images/EDGE.png" alt="Edge" style="height:28px;width:auto;margin-top:0.5rem;opacity:0.9;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'" />
           </a>
         </div>
