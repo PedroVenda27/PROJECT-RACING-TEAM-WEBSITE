@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : SITE_DATA.gallery.filter(g => g.category === activeCategory);
 
       galleryGrid.innerHTML = filtered.map((g, i) => `
-        <div class="gallery-item gallery-event-card anim-fade-in delay-${i % 3}" data-event-index="${SITE_DATA.gallery.indexOf(g)}">
+        <div class="gallery-item gallery-event-card" data-event-index="${SITE_DATA.gallery.indexOf(g)}">
           ${g.cover
             ? `<img src="${g.cover}" alt="${g.event}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
                <div class="gallery-placeholder" style="display:none;"><span class="gallery-brevemente">Brevemente</span></div>`
