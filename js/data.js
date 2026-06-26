@@ -227,11 +227,11 @@ const SITE_DATA = {
      Fields: image, caption, category (optional)
      ───────────────────────────────────────────── */
   gallery: [
-    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
-    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
-    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
-    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
-    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "", cover: "", images: [] },
     { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] }
   ],
 
