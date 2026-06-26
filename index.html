@@ -78,10 +78,34 @@
             <span class="stat-number" data-count="18">0</span>
             <span class="stat-label" data-i18n="about.stat.drivers">Drivers</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-number" data-count="X">0</span>
+          <div class="stat-card stat-card-clickable" id="titles-card" style="cursor:pointer;position:relative;" title="Ver títulos">
+            <span class="stat-number" data-count="1">0</span>
             <span class="stat-label" data-i18n="about.stat.individual">Individual Titles</span>
+            <span style="font-size:0.65rem;color:var(--yellow);letter-spacing:1px;margin-top:0.2rem;display:block;">▼ ver lista</span>
           </div>
+          <!-- Titles dropdown -->
+          <div id="titles-list" style="display:none;position:absolute;z-index:100;background:#1a1a1a;border:1px solid var(--yellow);border-radius:8px;padding:1rem 1.5rem;min-width:260px;box-shadow:0 8px 32px rgba(0,0,0,0.5);margin-top:0.5rem;">
+            <h4 style="font-family:var(--font-display);font-size:0.75rem;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;">🏆 Títulos Individuais</h4>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;">
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid var(--yellow);padding-left:0.75rem;">
+                <strong style="color:#fff;">Exemplo — Campeonato XYZ 2025</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">FVenda117 · Gran Turismo 7</span>
+              </li>
+            </ul>
+          </div>
+          <script>
+            (function(){
+              const card = document.getElementById('titles-card');
+              const list = document.getElementById('titles-list');
+              if(card && list){
+                card.addEventListener('click', function(e){
+                  e.stopPropagation();
+                  list.style.display = list.style.display === 'none' ? 'block' : 'none';
+                });
+                document.addEventListener('click', function(){ list.style.display = 'none'; });
+              }
+            })();
+          </script>
           <div class="stat-card">
             <span class="stat-number" data-count="X">0</span>
             <span class="stat-label" data-i18n="about.stat.team">Team Titles</span>
