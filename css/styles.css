@@ -1639,6 +1639,14 @@ img {
   text-transform: uppercase;
   pointer-events: none;
 }
+@media (max-width: 600px) {
+  .garage-designer-credit {
+    position: static;
+    text-align: center;
+    margin-top: 0.5rem;
+    display: block;
+  }
+}
 .garage-designer-credit span {
   color: var(--yellow);
 }
@@ -2471,7 +2479,10 @@ img {
   margin: 0;
 }
 @media (max-width: 600px) {
-  .cal-tabs { flex-direction: column; }
+  .cal-tabs { flex-wrap: wrap; gap: 0.5rem; }
+  .cal-tab-btn { flex: 1 1 calc(50% - 0.5rem); min-width: 140px; padding: 0.75rem 0.5rem; }
+  .cal-tab-btn h3 { font-size: 0.7rem; }
+  .cal-tab-btn p { font-size: 0.68rem; }
 }
 
 /* ── Calendar Training Info Box ── */
