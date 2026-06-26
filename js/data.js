@@ -226,7 +226,14 @@ const SITE_DATA = {
      GALLERY
      Fields: image, caption, category (optional)
      ───────────────────────────────────────────── */
-  gallery: [],
+  gallery: [
+    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] },
+    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] }
+  ],
 
   /* ─────────────────────────────────────────────
      SPONSORS
