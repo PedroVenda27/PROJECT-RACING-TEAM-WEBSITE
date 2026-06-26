@@ -739,9 +739,12 @@ img {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
   }
-  .driver-info { padding: 0.8rem; }
-  .driver-name { font-size: 0.75rem; }
+  .driver-info { padding: 0.8rem; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .driver-name { font-size: 0.72rem; }
+  .driver-role { font-size: 0.7rem; }
+  .driver-series { font-size: 0.68rem; }
   .driver-placeholder span { font-size: 2rem; }
+  .driver-info a img { height: 18px; }
 }
 
 
@@ -2403,7 +2406,13 @@ img {
 
 @media (max-width: 600px) {
   .cal-block-header { flex-direction: column; text-align: center; }
-  .cal-table th, .cal-table td { padding: 0.65rem 0.75rem; font-size: 0.8rem; }
+  .cal-table th, .cal-table td { padding: 0.5rem 0.5rem; font-size: 0.75rem; }
+  .cal-table-wrap { -webkit-overflow-scrolling: touch; }
+}
+@media (max-width: 480px) {
+  .cal-comp-logo { height: 40px; }
+  .cal-comp-title { font-size: 1.1rem; }
+  .cal-standings-btn { font-size: 0.7rem; padding: 0.4rem 0.8rem; }
 }
 
 /* ── Calendar Tabs ── */
