@@ -102,7 +102,7 @@ const SITE_DATA = {
     {
       name: "João Festas",
       number: "16",
-      role: "Festas Racing",
+      role: "pastorenrabador",
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
