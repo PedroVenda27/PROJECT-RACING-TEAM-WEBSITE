@@ -1629,9 +1629,6 @@ img {
 
 /* ── Designer credit ── */
 .garage-designer-credit {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
   font-size: 0.72rem;
   font-family: var(--font-display);
   letter-spacing: 0.08em;
@@ -1639,13 +1636,8 @@ img {
   text-transform: uppercase;
   pointer-events: none;
 }
-@media (max-width: 600px) {
-  .garage-designer-credit {
-    position: static;
-    text-align: center;
-    margin-top: 0.5rem;
-    display: block;
-  }
+@media (max-width: 480px) {
+  .garage-designer-credit { display: none; }
 }
 .garage-designer-credit span {
   color: var(--yellow);
