@@ -171,6 +171,15 @@ const SITE_DATA = {
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
       flag: "🇵🇹"
     },
+    {
+      name: "Pinto Moreira",
+      number: "42",
+      role: "Lord_Tripeiro",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
+      flag: "🇵🇹"
+    },
   ],
 
   /* ─────────────────────────────────────────────
