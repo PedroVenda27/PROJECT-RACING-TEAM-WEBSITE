@@ -232,6 +232,13 @@ const SITE_DATA = {
      SPONSORS
      Fields: name, logo, url
      ───────────────────────────────────────────── */
-  sponsors: []
+  sponsors: [
+    { name: "", logo: "", url: "" },
+    { name: "", logo: "", url: "" },
+    { name: "", logo: "", url: "" },
+    { name: "", logo: "", url: "" },
+    { name: "", logo: "", url: "" },
+    { name: "", logo: "", url: "" }
+  ]
 
 };
