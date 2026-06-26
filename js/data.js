@@ -232,7 +232,7 @@ const SITE_DATA = {
     { event: "Brevemente", sub: "", category: "", cover: "", images: [] },
     { event: "Brevemente", sub: "", category: "", cover: "", images: [] },
     { event: "Brevemente", sub: "", category: "", cover: "", images: [] },
-    { event: "Brevemente", sub: "", category: "GR3", cover: "", images: [] }
+    { event: "Brevemente", sub: "", category: "", cover: "", images: [] }
   ],
 
   /* ─────────────────────────────────────────────
