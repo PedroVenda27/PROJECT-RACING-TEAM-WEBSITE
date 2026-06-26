@@ -30,7 +30,7 @@ const SITE_DATA = {
     {
       name: "Bruno Teixeira",
       number: "12",
-      role: "RTP_Brunocm97",
+      role: "BrunoCm1997",
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
