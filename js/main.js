@@ -134,14 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <span>${d.nationality}</span>
           </div>
         </div>
-        <div class="driver-info" style="display:flex;justify-content:space-between;align-items:center;">
+        <div class="driver-info" style="display:flex;justify-content:space-between;align-items:flex-end;">
           <div>
             <h3 class="driver-name">${d.name}${d.admin ? ' <span style="background:#CCFF00;color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:1px;vertical-align:middle;text-transform:uppercase;">Admin</span>' : ''}</h3>
             <p class="driver-role">${d.role}</p>
             <p class="driver-series">${d.series}</p>
           </div>
           <a href="https://www.dg-edge.com/players/${d.role}" target="_blank" rel="noopener" title="Ver perfil Edge de ${d.role}">
-            <img src="images/EDGE.png" alt="Edge" style="height:32px;width:auto;opacity:0.9;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'" />
+            <img src="images/EDGE.png" alt="Edge" style="height:20px;width:auto;opacity:0.9;transition:opacity 0.2s;margin-bottom:2px;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'" />
           </a>
         </div>
       </article>
