@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("footer-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ── Hero wallpaper slideshow ── */
+  const slides = document.querySelectorAll(".hero-wallpaper-slide");
+  if (slides.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 6000);
+  }
+
   /* ══════════════════════════════════════════════════════════════════
      MOBILE NAV
      ══════════════════════════════════════════════════════════════════ */
@@ -61,6 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ══════════════════════════════════════════════════════════════════
      COUNTER ANIMATION
      ══════════════════════════════════════════════════════════════════ */
+  // Update driver count dynamically from SITE_DATA
+  const driverCountEl = document.querySelector(".stat-number[data-count='20']");
+  if (driverCountEl && typeof SITE_DATA !== "undefined") {
+    driverCountEl.setAttribute("data-count", SITE_DATA.drivers.length);
+  }
+
   const counters = document.querySelectorAll(".stat-number[data-count]");
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -113,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           <div class="driver-number">#${d.number}</div>
           <div class="driver-nationality-badge">
-            <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br'}[d.nationality]||'pt')}.png" alt="${d.nationality}" width="18" height="13">
+            <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br','Cabo Verde':'cv'}[d.nationality]||'pt')}.png" alt="${d.nationality}" width="18" height="13">
             <span>${d.nationality}</span>
           </div>
         </div>
@@ -423,9 +440,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const body = `Name: ${name}%0AEmail: ${email}%0A%0A${encodeURIComponent(message)}`;
-        const mailto = `mailto:prt.pitboxracingteam@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        const mailto = `mailto:rtp.racingteamproject@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
         window.location.href = mailto;
-        status.textContent = "A abrir o teu cliente de email... Se nada acontecer, contacta-nos diretamente em prt.pitboxracingteam@gmail.com";
+        status.textContent = "A abrir o teu cliente de email... Se nada acontecer, contacta-nos diretamente em rtp.racingteamproject@gmail.com";
         status.className = "form-status success";
         return;
       }
@@ -442,7 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
           headers: { "Accept": "application/json" }
         });
         if (res.ok) {
-          status.textContent = "Obrigado pelo contacto! Vamos responder o mais brevemente possível. — PITBOX";
+          status.textContent = "Obrigado pelo contacto! Vamos responder o mais brevemente possível. — RTP";
           status.className = "form-status success";
           form.reset();
         } else {

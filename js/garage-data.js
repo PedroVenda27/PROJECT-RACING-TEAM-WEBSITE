@@ -1,106 +1,176 @@
 /* =====================================================================
    GARAGE-DATA.JS — EDIT THIS FILE TO MANAGE YOUR GARAGE CARS
    =====================================================================
-   
+
    HOW TO EDIT:
    • Each car is one object in the GARAGE_DATA array below.
-   • To ADD a car: copy any existing { ... } block, paste it, change values.
+   • To ADD a car: copy any existing { ... } block, paste it, and change the values.
    • To REMOVE a car: delete the entire { ... } block (including the comma).
-   
+
    FIELDS:
    • id          — unique identifier (use lowercase, no spaces, e.g., "porsche-911-gt3")
    • name        — display name shown under the thumbnail
    • manufacturer— car manufacturer (used in the Manufacturer text filter)
    • group       — one of: "Gr.1", "Gr.2", "Gr.3", "Gr.4", "Gr.B", "Road Car"
-   • competition — one of: "Original", "EPIC", "CPGT", "BPF", "Toyota WWW", "Other"
-   • thumbnail   — path to 250×140px thumbnail in images/garage/thumbnails/
-   • fullsize    — path to 1280×720px (16:9) image in images/garage/fullsize/
-   
+   • competition — one of: "LPGT", "TPGT", "NCM", "GT3TC"
+   • thumbnail   — path to thumbnail image (leave "" if no image yet)
+   • fullsize    — path to full-size image (leave "" if no image yet)
+
    IMAGE FOLDERS:
    • Thumbnails go in: images/garage/thumbnails/  (≈250×275 px)
    • Full-size go in:  images/garage/fullsize/    (1280×720 px, 16:9)
-   
+
    ===================================================================== */
 
 const GARAGE_DATA = [
-  // ─── ENDURANCE ───
-  {
-    id: "porsche-992-6h-barcelona",
-    name: "911 GT3 RS (992) '22 — 6h Barcelona",
-    manufacturer: "Porsche",
-    group: "Gr.3",
-    competition: "Endurance",
-    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422252979860524/d4bdd815c07985ceeeaa7a3ebdf1dedc_thumb_l_x2.jpg",
-    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422252979860524/d4bdd815c07985ceeeaa7a3ebdf1dedc_thumb_l_x2.jpg"
-  },
-  // ─── CIVIC CUP ───
-  {
-    id: "honda-civic-ek-98",
-    name: "Civic Type R (EK) '98",
-    manufacturer: "Honda",
-    group: "Road Car",
-    competition: "CivicCup",
-    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422167070711922/27ca44b6d1bb401f9c8464c16a5bfba4_thumb_s.jpg",
-    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422167070711922/c8f6ff4c74ccd51ff6d5376c02e3e575_thumb_l_x2.jpg"
-  },
-  {
-    id: "honda-civic-ek-touring-1",
-    name: "Civic Type R (EK) Touring Car",
-    manufacturer: "Honda",
-    group: "Road Car",
-    competition: "CivicCup",
-    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422725687504538/bcf8648a01dbac67079061d1ff060964_thumb_s.jpg",
-    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422725687504538/1979300b693b1f1c342f2ab6091d9ef2_thumb_l_x2.jpg"
-  },
-  {
-    id: "honda-civic-ek-touring-2",
-    name: "Civic Type R (EK) Touring Car",
-    manufacturer: "Honda",
-    group: "Road Car",
-    competition: "CivicCup",
-    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422555895116460/930efd0faca090eb63f3b8e0430cafae_thumb_s.jpg",
-    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422555895116460/f5be5d1be92322ed511c8bade6926e67_thumb_l_x2.jpg"
-  },
-  {
-    id: "honda-civic-ek-touring-3",
-    name: "Civic Type R (EK) Touring Car",
-    manufacturer: "Honda",
-    group: "Road Car",
-    competition: "CivicCup",
-    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422342041924174/d254a95e69dae5f0cfa4a8bb9a88798d_thumb_s.jpg",
-    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422342041924174/81a53cf252947dd813dd43d0c90d3b6a_thumb_l_x2.jpg"
-  },
-  // ─── EXAMPLE CARS (replace with your real data) ───
-  { id: "alfa-romeo-155-gt4", name: "155 2.5 V6 TI '93", manufacturer: "Alfa Romeo", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "nissan-gtr-gt4", name: "GT-R Gr.4", manufacturer: "Nissan", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "ferrari-458-gt4", name: "458 Italia Gr.4", manufacturer: "Ferrari", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "bmw-m4-gt4", name: "M4 Gr.4", manufacturer: "BMW", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "aston-martin-vantage-gt3", name: "V12 Vantage GT3 '12", manufacturer: "Aston Martin", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "jaguar-f-type-gt4", name: "F-type Gr.4", manufacturer: "Jaguar", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "hyundai-genesis-gt3", name: "Genesis Gr.3", manufacturer: "Hyundai", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "hyundai-genesis-gt4", name: "Genesis Gr.4", manufacturer: "Hyundai", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "ferrari-458-gt3", name: "458 Italia GT3 '12", manufacturer: "Ferrari", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "nissan-gtr-18-gt3", name: "GT-R NISMO GT3 '18", manufacturer: "Nissan", group: "Gr.3", competition: "GR3", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421780233638831/14e821c3981e6f19e143e3a0c4ec87fb_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421780233638831/14e821c3981e6f19e143e3a0c4ec87fb_thumb_l_x2.jpg" },
-  { id: "bmw-m6-sprint-gt3", name: "M6 GT3 Sprint Model '16", manufacturer: "BMW", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "subaru-wrx-gt3", name: "WRX Gr.3", manufacturer: "Subaru", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "mitsubishi-lancer-gt3", name: "Lancer Evolution Final Gr.3", manufacturer: "Mitsubishi", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "hyundai-elantra-gt4", name: "ELANTRA N TC '24", manufacturer: "Hyundai", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "bugatti-veyron-gt4", name: "Veyron Gr.4", manufacturer: "Bugatti", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "toyota-supra-gt3", name: "GR Supra Racing Concept '18", manufacturer: "Toyota", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "renault-clio-v6", name: "Clio V6 24V '00", manufacturer: "Renault", group: "Road Car", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "porsche-992-gt3", name: "911 GT3 R (992) '22", manufacturer: "Porsche", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "audi-r8-evo-gt3", name: "R8 LMS Evo '19", manufacturer: "Audi", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "dodge-viper-gt4", name: "Viper Gr.4", manufacturer: "Dodge", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "ford-gt-race-car-gt3", name: "GT Race Car '18", manufacturer: "Ford", group: "Gr.3", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "toyota-supra-gt4", name: "Supra Race Car '19", manufacturer: "Toyota", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "gt-by-citroen-gt4", name: "GT by Citroen Gr.4", manufacturer: "Citroen", group: "Gr.4", competition: "GR3", thumbnail: "", fullsize: "" },
-  { id: "nissan-gtr-nismo-gt2", name: "GT-R NISMO GT500 '16", manufacturer: "Nissan", group: "Gr.2", competition: "GR2", thumbnail: "", fullsize: "" },
-  { id: "audi-rs5-gt2", name: "RS 5 Turbo DTM '19", manufacturer: "Audi", group: "Gr.2", competition: "GR2", thumbnail: "", fullsize: "" },
-  { id: "lexus-rc-f-gt2", name: "RC F GT500 '16", manufacturer: "Lexus", group: "Gr.2", competition: "GR2", thumbnail: "", fullsize: "" },
-  { id: "honda-nsx-concept-gt2", name: "NSX Concept-GT '16", manufacturer: "Honda", group: "Gr.2", competition: "GR2", thumbnail: "", fullsize: "" },
-  { id: "porsche-911-rsr-lpgt", name: "911 RSR (991) '17", manufacturer: "Porsche", group: "Gr.3", competition: "LPGT", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422865444462840/35b18c50de670f4465123527bf85bbb0_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422865444462840/35b18c50de670f4465123527bf85bbb0_thumb_l_x2.jpg" },
-  { id: "nissan-gtr-gt2", name: "GT-R GT500 '08", manufacturer: "Nissan", group: "Gr.2", competition: "LPGT", thumbnail: "", fullsize: "" },
-  { id: "honda-nsx-gt2", name: "NSX GT500 '08", manufacturer: "Honda", group: "Gr.2", competition: "LPGT", thumbnail: "", fullsize: "" },
-  { id: "lexus-sc430-gt2", name: "SC430 GT500 '08", manufacturer: "Lexus", group: "Gr.2", competition: "LPGT", thumbnail: "", fullsize: "" },
-  { id: "toyota-gt-one-gt2", name: "GT-One (TS020) '99", manufacturer: "Toyota", group: "Gr.2", competition: "GR2", thumbnail: "", fullsize: "" }
+
+  // ─── GT3 TOURING CHALANGE ───
+  { id: "alfa-romeo-4c-gr3",              name: "Alfa Romeo 4C Gr.3",                            manufacturer: "Alfa Romeo",    group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422752467046088/02154dfe01c6d432ea24a5f0000304d9_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422752467046088/02154dfe01c6d432ea24a5f0000304d9_thumb_l_x2.jpg" },
+  { id: "aston-martin-dbr9-gt1-10",       name: "Aston Martin DBR9 GT1 '10",                     manufacturer: "Aston Martin",  group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "aston-martin-v12-vantage-gt3-12",name: "Aston Martin V12 Vantage GT3 '12",              manufacturer: "Aston Martin",  group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422111456199148/3bb7f5611994b762e73fb84788109218_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422111456199148/3bb7f5611994b762e73fb84788109218_thumb_l_x2.jpg" },
+  { id: "audi-r8-lms-15",                 name: "Audi R8 LMS '15",                               manufacturer: "Audi",          group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "audi-r8-lms-evo-19",             name: "Audi R8 LMS Evo '19",                           manufacturer: "Audi",          group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422034361969665/679398f07fcaa5a99a2d66c92dec6612_thumb_s.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422034361969665/679398f07fcaa5a99a2d66c92dec6612_thumb_s.jpg" },
+  { id: "bmw-m3-gt-11",                   name: "BMW M3 GT '11",                                  manufacturer: "BMW",           group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422853668358615/358ac8d2470746985648b697f8e8ea63_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422853668358615/358ac8d2470746985648b697f8e8ea63_thumb_l_x2.jpg" },
+  { id: "bmw-m6-gt3-endurance-16",        name: "BMW M6 GT3 Endurance Model '16",                 manufacturer: "BMW",           group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422754301291668/b73a38aef832d65f3d2b120f0f4ce2b7_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422754301291668/b73a38aef832d65f3d2b120f0f4ce2b7_thumb_l_x2.jpg" },
+  { id: "bmw-m6-gt3-sprint-16",           name: "BMW M6 GT3 Sprint Model '16",                    manufacturer: "BMW",           group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422152221975959/1366e61a3a9b47cd5cec3773353c7160_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422152221975959/1366e61a3a9b47cd5cec3773353c7160_thumb_l_x2.jpg" },
+  { id: "bmw-z4-gt3-11",                  name: "BMW Z4 GT3 '11",                                 manufacturer: "BMW",           group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "chevrolet-corvette-c7-gr3",      name: "Chevrolet Corvette C7 Gr.3",                     manufacturer: "Chevrolet",     group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422641238219743/5943756bc1b8fd20575d0fa1a48a49b4_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422641238219743/5943756bc1b8fd20575d0fa1a48a49b4_thumb_l_x2.jpg" },
+  { id: "dodge-viper-srt-gt3r-15",        name: "Dodge Viper SRT GT3-R '15",                      manufacturer: "Dodge",         group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422773571561025/ba804bd68b776a49c8981ba06d459dc8_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422773571561025/ba804bd68b776a49c8981ba06d459dc8_thumb_l_x2.jpg" },
+  { id: "ferrari-296-gt3-23",             name: "Ferrari 296 GT3 '23",                            manufacturer: "Ferrari",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422488875909622/62721f084358704c8b166402d8feeb8a_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422488875909622/62721f084358704c8b166402d8feeb8a_thumb_l_x2.jpg" },
+  { id: "ferrari-458-italia-gt3-13",      name: "Ferrari 458 Italia GT3 '13",                     manufacturer: "Ferrari",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422451294493571/5515c2e8ff713b3e1f1ac110571109a8_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422451294493571/5515c2e8ff713b3e1f1ac110571109a8_thumb_l_x2.jpg" },
+  { id: "ford-gt-lm-race-car-spec-ii",    name: "Ford GT LM Race Car Spec II",                    manufacturer: "Ford",          group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422060630317105/d0282260f440eb42efaaa093f8f7b72a_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422060630317105/d0282260f440eb42efaaa093f8f7b72a_thumb_l_x2.jpg" },
+  { id: "ford-gt-lm-spec-ii-test",        name: "Ford GT LM Spec II Test Car",                    manufacturer: "Ford",          group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422060630317105/d0282260f440eb42efaaa093f8f7b72a_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422060630317105/d0282260f440eb42efaaa093f8f7b72a_thumb_l_x2.jpg" },
+  { id: "ford-gt-race-car-18",            name: "Ford GT Race Car '18",                           manufacturer: "Ford",          group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421824315870582/66d5099735dedbf960a5b40708ed635a_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421824315870582/66d5099735dedbf960a5b40708ed635a_thumb_l_x2.jpg" },
+  { id: "ford-mustang-gr3",               name: "Ford Mustang Gr.3",                              manufacturer: "Ford",          group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421978137727863/4dbd3124c8332afdec9110f0d48abdd6_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421978137727863/4dbd3124c8332afdec9110f0d48abdd6_thumb_l_x2.jpg" },
+  { id: "genesis-x-gr3",                  name: "Genesis X GR3",                                  manufacturer: "Genesis",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421897809351990/2f2d05e96362c0cf78a0a1e8dee3966d_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421897809351990/2f2d05e96362c0cf78a0a1e8dee3966d_thumb_l_x2.jpg" },
+  { id: "gt-by-citroen-gr3",              name: "GT by Citroën Race Car (Gr.3)",                  manufacturer: "Citroën",       group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "honda-castrol-mugen-nsx-00",     name: "Honda Castrol MUGEN NSX '00",                    manufacturer: "Honda",         group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "honda-nsx-gr3",                  name: "Honda NSX Gr.3",                                 manufacturer: "Honda",         group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422827258032903/a543ef265d437ccf6df8faefd0b76688_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422827258032903/a543ef265d437ccf6df8faefd0b76688_thumb_l_x2.jpg" },
+  { id: "honda-nsx-gt500-00",             name: "Honda NSX GT500 '00",                            manufacturer: "Honda",         group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "hyundai-genesis-gr3",            name: "Hyundai Genesis Gr.3",                           manufacturer: "Hyundai",       group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "jaguar-f-type-gr3",              name: "Jaguar F-type Gr.3",                             manufacturer: "Jaguar",        group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422340009089263/93bfe98b32c020b551146270591cf093_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422340009089263/93bfe98b32c020b551146270591cf093_thumb_l_x2.jpg" },
+  { id: "lamborghini-huracan-gt3-15",     name: "Lamborghini Huracán GT3 '15",                    manufacturer: "Lamborghini",   group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422753602504407/1de458e10caf458d29ff1829d3432290_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422753602504407/1de458e10caf458d29ff1829d3432290_thumb_l_x2.jpg" },
+  { id: "lexus-rc-f-gt3-17",             name: "Lexus RC F GT3 '17",                             manufacturer: "Lexus",         group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422302392003586/3dfa5963be2bbce3500dbbd18bb25ccc_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422302392003586/3dfa5963be2bbce3500dbbd18bb25ccc_thumb_l_x2.jpg" },
+  { id: "lexus-rc-f-gt3-prototype-16",    name: "Lexus RC F GT3 prototype '16",                   manufacturer: "Lexus",         group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mazda-atenza-gr3",               name: "Mazda Atenza Gr.3",                              manufacturer: "Mazda",         group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mazda-rx-vision-gt3-concept",    name: "MAZDA RX-VISION GT3 CONCEPT",                    manufacturer: "Mazda",         group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422439404972447/c0a7dabf87fcf6f0a46fe9020b6aeb70_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422439404972447/c0a7dabf87fcf6f0a46fe9020b6aeb70_thumb_l_x2.jpg" },
+  { id: "mazda-rx-vision-gt3-stealth",    name: "MAZDA RX-VISION GT3 CONCEPT Stealth Model",      manufacturer: "Mazda",         group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421950122718560/db2bae066120eb7c5439fcd0fa282a82_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421950122718560/db2bae066120eb7c5439fcd0fa282a82_thumb_l_x2.jpg" },
+  { id: "mclaren-650s-gt3-15",            name: "McLaren 650S GT3 '15",                           manufacturer: "McLaren",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422799472846658/c2355880c50c425a201a8de112404d2c_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422799472846658/c2355880c50c425a201a8de112404d2c_thumb_l_x2.jpg" },
+  { id: "mclaren-f1-gtr-bmw-95",          name: "McLaren F1 GTR - BMW '95",                       manufacturer: "McLaren",       group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mercedes-amg-gt3-16",            name: "Mercedes-AMG GT3 '16",                           manufacturer: "Mercedes-AMG",  group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422662160751460/a1a5e3098c3a4b35ead9036e61996fd8_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422662160751460/a1a5e3098c3a4b35ead9036e61996fd8_thumb_l_x2.jpg" },
+  { id: "mercedes-amg-gt3-20",            name: "Mercedes-AMG GT3 '20",                           manufacturer: "Mercedes-AMG",  group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422370161949859/d6949d701e18e7b1337d3c3a8c7684e4_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422370161949859/d6949d701e18e7b1337d3c3a8c7684e4_thumb_l_x2.jpg" },
+  { id: "mercedes-benz-sls-amg-gt3-11",   name: "Mercedes-Benz SLS AMG GT3 '11",                  manufacturer: "Mercedes-Benz", group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mitsubishi-lancer-evo-gr3",      name: "Mitsubishi Lancer Evolution Final Edition Gr.3", manufacturer: "Mitsubishi",    group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421774408551674/e974250fd8815a20909b0fe050cb2773_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421774408551674/e974250fd8815a20909b0fe050cb2773_thumb_l_x2.jpg" },
+  { id: "nissan-gtr-nismo-gt3-18",        name: "Nissan GT-R NISMO GT3 '18",                      manufacturer: "Nissan",        group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422532955546466/7455b89dc4977b5ba25e13ea65330869_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422532955546466/7455b89dc4977b5ba25e13ea65330869_thumb_l_x2.jpg" },
+  { id: "nissan-gtr-nismo-gt3-n24-13",    name: "Nissan GT-R NISMO GT3 N24 Schulze Motorsport '13", manufacturer: "Nissan",     group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-pennzoil-nismo-gtr-99",   name: "Nissan PENNZOIL Nismo GT-R '99",                 manufacturer: "Nissan",        group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-skyline-silhouette-84",   name: "Nissan Skyline Super Silhouette Group 5 '84",    manufacturer: "Nissan",        group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "peugeot-rcz-gr3",               name: "Peugeot RCZ Gr.3",                               manufacturer: "Peugeot",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422630184302229/3a2d52d6d7f5af72f4f575b0d0899a70_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422630184302229/3a2d52d6d7f5af72f4f575b0d0899a70_thumb_l_x2.jpg" },
+  { id: "peugeot-vision-gt-gr3",          name: "PEUGEOT Vision Gran Turismo (Gr.3)",              manufacturer: "Peugeot",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422637713030579/835606b4fdad7fa3adba5a98a10b3a1d_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422637713030579/835606b4fdad7fa3adba5a98a10b3a1d_thumb_l_x2.jpg" },
+  { id: "porsche-911-gt3-r-992-22",       name: "Porsche 911 GT3 R (992) '22",                    manufacturer: "Porsche",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422501248356587/249a0dc203044687cccb557d04f6e0ab_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422501248356587/249a0dc203044687cccb557d04f6e0ab_thumb_l_x2.jpg" },
+  { id: "porsche-911-rsr-991-17",         name: "Porsche 911 RSR (991) '17",                      manufacturer: "Porsche",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421866912335228/4baab922aad1a4dcdacc0eb768525e19_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421866912335228/4baab922aad1a4dcdacc0eb768525e19_thumb_l_x2.jpg" },
+  { id: "renault-rs01-gt3-16",            name: "Renault Sport R.S.01 GT3 '16",                   manufacturer: "Renault",       group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421817407766166/a8a6067897fbc2e6abdc3eae8c8ee57f_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421817407766166/a8a6067897fbc2e6abdc3eae8c8ee57f_thumb_l_x2.jpg" },
+  { id: "subaru-brz-gt300-21",            name: "Subaru BRZ GT300 '21",                           manufacturer: "Subaru",        group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421978159542464/c18787a2e2d4319700c1704f3bb4904d_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421978159542464/c18787a2e2d4319700c1704f3bb4904d_thumb_l_x2.jpg" },
+  { id: "subaru-wrx-gr3",                 name: "Subaru WRX Gr.3",                                manufacturer: "Subaru",        group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422482486803288/743bb279ad0642575165f6c3cd86dc94_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422482486803288/743bb279ad0642575165f6c3cd86dc94_thumb_l_x2.jpg" },
+  { id: "suzuki-vision-gt-gr3",           name: "SUZUKI Vision Gran Turismo (Gr.3 Version)",      manufacturer: "Suzuki",        group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422152852752260/57e0bd8fd39d6bea0737d92f56f8a11a_thumb_s.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422152852752260/57e0bd8fd39d6bea0737d92f56f8a11a_thumb_s.jpg" },
+  { id: "toyota-ft1-vision-gt-gr3",       name: "Toyota FT-1 Vision Gran Turismo (Gr.3)",         manufacturer: "Toyota",        group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-gr-supra-racing-18",      name: "Toyota GR Supra Racing Concept '18",             manufacturer: "Toyota",        group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422044672560039/e8288fc88d846c21ddadd52602b85431_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422044672560039/e8288fc88d846c21ddadd52602b85431_thumb_l_x2.jpg" },
+  { id: "toyota-supra-gt500-97",          name: "Toyota Supra GT500 '97",                         manufacturer: "Toyota",        group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+  { id: "volkswagen-beetle-gr3",          name: "Volkswagen Beetle Gr.3",                         manufacturer: "Volkswagen",    group: "Gr.3", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422574525094455/7272c988d848b8b2fd2d579a1d52b9e3_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422574525094455/7272c988d848b8b2fd2d579a1d52b9e3_thumb_l_x2.jpg" },
+  { id: "volkswagen-gti-vision-gt-gr3",   name: "Volkswagen GTI Vision Gran Turismo (Gr.3)",      manufacturer: "Volkswagen",    group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
+
+
+  // ─── GR.1 ───
+  { id: "alpine-vision-gt-17",              name: "Alpine Vision Gran Turismo 2017",                           manufacturer: "Alpine",    group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "audi-r18-16",                      name: "Audi R18 '16",                                             manufacturer: "Audi",      group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "audi-r18-tdi-11",                  name: "Audi R18 TDI '11",                                         manufacturer: "Audi",      group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "audi-r18-tdi-lemans-11",           name: "Audi R18 TDI (Le Mans 2011)",                              manufacturer: "Audi",      group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "audi-vision-gt",                   name: "Audi Vision Gran Turismo",                                 manufacturer: "Audi",      group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "bmw-m-hybrid-v8-25",               name: "BMW M Hybrid V8 '25",                                      manufacturer: "BMW",       group: "Gr.1", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422158863903194/ef1162283b1ae2f80228236cf8033eda_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422158863903194/ef1162283b1ae2f80228236cf8033eda_thumb_l_x2.jpg" },
+  { id: "bugatti-vision-gt-gr1",            name: "Bugatti Vision Gran Turismo (Gr.1)",                       manufacturer: "Bugatti",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "dodge-tomahawk-vision-gt-gr1",     name: "Dodge SRT Tomahawk Vision Gran Turismo (Gr.1)",            manufacturer: "Dodge",     group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "ferrari-499p-23",                  name: "Ferrari 499P '23",                                         manufacturer: "Ferrari",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "genesis-x-gran-racer-vgt",         name: "Genesis X Gran Racer Vision Gran Turismo Concept",         manufacturer: "Genesis",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "hyundai-n-2025-vision-gt-gr1",     name: "HYUNDAI N 2025 Vision Gran Turismo (Gr.1)",                manufacturer: "Hyundai",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "jaguar-xjr9-88",                   name: "Jaguar XJR-9 '88",                                         manufacturer: "Jaguar",    group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mazda-787b-91",                    name: "Mazda 787B '91",                                           manufacturer: "Mazda",     group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mazda-lm55-vision-gt-gr1",         name: "Mazda LM55 Vision Gran Turismo (Gr.1)",                    manufacturer: "Mazda",     group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mclaren-ultimate-vision-gt-gr1",   name: "McLaren Ultimate Vision Gran Turismo (Gr.1)",              manufacturer: "McLaren",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-gtr-lm-nismo-15",           name: "Nissan GT-R LM NISMO '15",                                 manufacturer: "Nissan",    group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-r92cp-92",                  name: "Nissan R92CP '92",                                         manufacturer: "Nissan",    group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "peugeot-908-hdi-10",               name: "Peugeot 908 HDi FAP - Team Peugeot Total '10",             manufacturer: "Peugeot",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "peugeot-9x8-25",                   name: "Peugeot 9X8 '25",                                          manufacturer: "Peugeot",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "peugeot-l750r-hybrid-vgt-17",      name: "Peugeot L750R HYbrid Vision Gran Turismo, 2017",           manufacturer: "Peugeot",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "porsche-919-hybrid-16",            name: "Porsche 919 Hybrid '16",                                   manufacturer: "Porsche",   group: "Gr.1", competition: "", thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422803147817790/7c161be5cb080625d1f910735d9efeae_thumb_l_x2.jpg", fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422803147817790/7c161be5cb080625d1f910735d9efeae_thumb_l_x2.jpg" },
+  { id: "porsche-962c-88",                  name: "Porsche 962 C '88",                                        manufacturer: "Porsche",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "porsche-963-24",                   name: "Porsche 963 '24",                                          manufacturer: "Porsche",   group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "sauber-mercedes-c9-89",            name: "Sauber Mercedes C9 '89",                                   manufacturer: "Sauber",    group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-gr010-hybrid-21",           name: "TOYOTA GR010 HYBRID '21",                                  manufacturer: "Toyota",    group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-ts030-hybrid-12",           name: "Toyota TS030 Hybrid '12",                                  manufacturer: "Toyota",    group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-ts050-hybrid-16",           name: "Toyota TS050 - Hybrid '16",                                manufacturer: "Toyota",    group: "Gr.1", competition: "", thumbnail: "", fullsize: "" },
+
+  // ─── GR.4 ───
+  { id: "alfa-romeo-155-v6-ti-93",          name: "Alfa Romeo 155 2.5 V6 TI '93",                manufacturer: "Alfa Romeo",    group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "alfa-romeo-4c-gr4",                name: "Alfa Romeo 4C Gr.4",                          manufacturer: "Alfa Romeo",    group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "aston-martin-vantage-gr4",         name: "Aston Martin Vantage Gr.4",                   manufacturer: "Aston Martin",  group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "audi-tt-cup-16",                   name: "Audi TT Cup '16",                             manufacturer: "Audi",          group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "bmw-m4-gr4",                       name: "BMW M4 Gr.4",                                 manufacturer: "BMW",           group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "bugatti-veyron-gr4",               name: "Bugatti Veyron Gr.4",                         manufacturer: "Bugatti",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "chevrolet-corvette-c7-gr4",        name: "Chevrolet Corvette C7 Gr.4",                  manufacturer: "Chevrolet",     group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "dodge-viper-gr4",                  name: "Dodge Viper Gr.4",                            manufacturer: "Dodge",         group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "ferrari-458-italia-gr4",           name: "Ferrari 458 Italia Gr.4",                     manufacturer: "Ferrari",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "ford-mustang-gr4",                 name: "Ford Mustang Gr.4",                           manufacturer: "Ford",          group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "genesis-g70-gr4",                  name: "Genesis G70 GR4",                             manufacturer: "Genesis",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "gt-by-citroen-gr4",                name: "GT by Citroën Gr.4",                          manufacturer: "Citroën",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "honda-nsx-gr4",                    name: "Honda NSX Gr.4",                              manufacturer: "Honda",         group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "hyundai-elantra-n-tc-24",          name: "Hyundai ELANTRA N TC '24",                    manufacturer: "Hyundai",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "hyundai-genesis-gr4",              name: "Hyundai Genesis Gr.4",                        manufacturer: "Hyundai",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "jaguar-f-type-gr4",                name: "Jaguar F-type Gr.4",                          manufacturer: "Jaguar",        group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "lamborghini-huracan-gr4",          name: "Lamborghini Huracán Gr.4",                    manufacturer: "Lamborghini",   group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "lexus-rc-f-gr4",                   name: "Lexus RC F Gr.4",                             manufacturer: "Lexus",         group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mazda-atenza-gr4",                 name: "Mazda Atenza Gr.4",                           manufacturer: "Mazda",         group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mazda3-gr4",                       name: "MAZDA3 Gr.4",                                 manufacturer: "Mazda",         group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mclaren-650s-gr4",                 name: "McLaren 650S Gr.4",                           manufacturer: "McLaren",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mercedes-benz-sls-amg-gr4",        name: "Mercedes-Benz SLS AMG Gr.4",                  manufacturer: "Mercedes-Benz", group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mitsubishi-lancer-evo-gr4",        name: "Mitsubishi Lancer Evolution Final Edition Gr.4", manufacturer: "Mitsubishi", group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-gtr-gr4",                   name: "Nissan GT-R Gr.4",                            manufacturer: "Nissan",        group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-silvia-s15-touring",        name: "Nissan Silvia spec-R Aero (S15) Touring Car", manufacturer: "Nissan",        group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "peugeot-rcz-gr4",                  name: "Peugeot RCZ Gr.4",                            manufacturer: "Peugeot",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "porsche-cayman-gt4-clubsport-16",  name: "Porsche Cayman GT4 Clubsport '16",            manufacturer: "Porsche",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "renault-megane-gr4",               name: "Renault Sport Mégane Gr.4",                   manufacturer: "Renault",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "renault-megane-trophy-11",         name: "Renault Sport Mégane Trophy '11",             manufacturer: "Renault",       group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "subaru-wrx-gr4",                   name: "Subaru WRX Gr.4",                             manufacturer: "Subaru",        group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "suzuki-swift-katana-gr4",          name: "Suzuki Swift Sport KATANA Edition Gr.4",      manufacturer: "Suzuki",        group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-86-gr4",                    name: "TOYOTA 86 Gr.4",                              manufacturer: "Toyota",        group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-gr-supra-race-car-19",      name: "Toyota GR Supra Race Car '19",                manufacturer: "Toyota",        group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+  { id: "volkswagen-scirocco-gr4",          name: "Volkswagen Scirocco Gr.4",                    manufacturer: "Volkswagen",    group: "Gr.4", competition: "", thumbnail: "", fullsize: "" },
+
+  // ─── GR.B ───
+  { id: "audi-sport-quattro-s1-pikes-peak-87", name: "Audi Sport quattro S1 Pikes Peak '87",                    manufacturer: "Audi",       group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "ford-focus-grb",                      name: "Ford Focus Gr.B Rally Car",                               manufacturer: "Ford",       group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "ford-mustang-grb",                    name: "Ford Mustang Gr.B Rally Car",                             manufacturer: "Ford",       group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "honda-nsx-grb",                       name: "Honda NSX Gr.B Rally Car",                                manufacturer: "Honda",      group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "hyundai-genesis-grb",                 name: "Hyundai Genesis Gr.B Rally Car",                          manufacturer: "Hyundai",    group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "lancia-delta-hf-integrale-92",        name: "Lancia Delta HF Integrale Rally Car '92",                 manufacturer: "Lancia",     group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mitsubishi-lancer-evo-grb",           name: "Mitsubishi Lancer Evolution Final Edition Gr.B Rally Car",manufacturer: "Mitsubishi", group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-gtr-grb",                      name: "Nissan GT-R Gr.B Rally Car",                              manufacturer: "Nissan",     group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "peugeot-205-turbo-16-evo2-86",        name: "Peugeot 205 Turbo 16 Evolution 2 '86",                    manufacturer: "Peugeot",    group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "peugeot-rcz-grb",                     name: "Peugeot RCZ Gr.B Rally Car",                              manufacturer: "Peugeot",    group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "subaru-impreza-rally-98",             name: "Subaru Impreza Rally Car '98",                            manufacturer: "Subaru",     group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "subaru-wrx-grb",                      name: "Subaru WRX Gr.B Rally Car",                               manufacturer: "Subaru",     group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-86-grb",                       name: "TOYOTA 86 Gr.B Rally Car",                                manufacturer: "Toyota",     group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-celica-gt-four-st205-95",      name: "Toyota Celica GT-FOUR Rally Car (ST205) '95",             manufacturer: "Toyota",     group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
+
+  // ─── GR.2 ───
+  { id: "audi-rs5-turbo-dtm-19",           name: "Audi RS 5 Turbo DTM '19",                manufacturer: "Audi",          group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "bmw-mclaren-f1-gtr-97",           name: "BMW McLaren F1 GTR Race Car '97",        manufacturer: "BMW",           group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "honda-nsx-concept-gt-16",         name: "Honda NSX CONCEPT-GT '16",               manufacturer: "Honda",         group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "honda-nsx-gt500-08",              name: "Honda NSX GT500 '08",                    manufacturer: "Honda",         group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "lexus-petronas-toms-sc430-08",    name: "Lexus PETRONAS TOM'S SC430 '08",         manufacturer: "Lexus",         group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "lexus-rc-f-gt500-16",             name: "Lexus RC F GT500 '16",                   manufacturer: "Lexus",         group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "mercedes-benz-clk-lm-98",         name: "Mercedes-Benz CLK-LM '98",               manufacturer: "Mercedes-Benz", group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-gtr-nismo-gt500-16",       name: "Nissan GT-R NISMO GT500 '16",            manufacturer: "Nissan",        group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-xanavi-nismo-gtr-08",      name: "Nissan XANAVI NISMO GT-R '08",           manufacturer: "Nissan",        group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-gt-one-ts020-99",          name: "Toyota GT-One (TS020) '99",              manufacturer: "Toyota",        group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+
 ];

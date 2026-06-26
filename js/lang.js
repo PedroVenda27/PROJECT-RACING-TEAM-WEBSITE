@@ -17,9 +17,9 @@ const TRANSLATIONS = {
     "nav.contact":          "Contact Us",
 
     // Hero (index.html)
-    "hero.line1":           "Pitbox",
+    "hero.line1":           "RTP",
     "hero.line2":           "Racing",
-    "hero.line3":           "Team",
+    "hero.line3":           "Team Project",
     "hero.subtitle":        "Precision. Speed. Victory.",
     "hero.cta1":            "Discover More",
     "hero.cta2":            "Join the Team",
@@ -28,7 +28,7 @@ const TRANSLATIONS = {
     "about.tag":            "Who We Are",
     "about.title1":         "Born to Race.",
     "about.title2":         "Built to Win.",
-    "about.p1":             "Pitbox Racing Team is a competitive sim racing team dedicated to pushing the boundaries of virtual motorsport. Founded by passionate racers, we compete across multiple platforms and series worldwide.",
+    "about.p1":             "RTP Racing Team Project is a competitive sim racing team dedicated to pushing the boundaries of virtual motorsport. Founded by passionate racers, we compete across multiple platforms and series worldwide.",
     "about.p2_prefix":      "Our team combines cutting-edge setups, relentless practice, and pure racing instinct to deliver results on every track. From endurance events to sprint championships, we race with one goal \u2014",
     "about.p2_bold":        "victory",
     "about.cta":            "Get In Touch",
@@ -68,7 +68,7 @@ const TRANSLATIONS = {
     "footer.desc":          "A competitive sim racing team dedicated to pushing the boundaries of virtual motorsport across multiple platforms worldwide.",
     "footer.links":         "Quick Links",
     "footer.follow":        "Follow Us",
-    "footer.copy":          "Pitbox Racing Team. All rights reserved.",
+    "footer.copy":          "RTP Racing Team Project. All rights reserved.",
     "footer.tagline":       "Competitive sim racing at its finest.",
 
     // Garage page
@@ -133,9 +133,9 @@ const TRANSLATIONS = {
     "nav.contact":          "Contacto",
 
     // Hero (index.html)
-    "hero.line1":           "Pitbox",
+    "hero.line1":           "RTP",
     "hero.line2":           "Racing",
-    "hero.line3":           "Team",
+    "hero.line3":           "Team Project",
     "hero.subtitle":        "Precis\u00E3o. Velocidade. Vit\u00F3ria.",
     "hero.cta1":            "Saber Mais",
     "hero.cta2":            "Junta-te \u00E0 Equipa",
@@ -144,7 +144,7 @@ const TRANSLATIONS = {
     "about.tag":            "Quem Somos",
     "about.title1":         "Nascidos para Correr.",
     "about.title2":         "Feitos para Vencer.",
-    "about.p1":             "A Pitbox Racing Team \u00E9 uma equipa competitiva de sim racing dedicada a ultrapassar os limites do desporto motorizado virtual. Fundada por pilotos apaixonados, competimos em m\u00FAltiplas plataformas e campeonatos em todo o mundo.",
+    "about.p1":             "A RTP Racing Team Project \u00E9 uma equipa competitiva de sim racing dedicada a ultrapassar os limites do desporto motorizado virtual. Fundada por pilotos apaixonados, competimos em m\u00FAltiplas plataformas e campeonatos em todo o mundo.",
     "about.p2_prefix":      "A nossa equipa combina setups de ponta, treino incans\u00E1vel e instinto puro de corrida para alcan\u00E7ar resultados em todas as pistas. De provas de endurance a campeonatos de sprint, corremos com um \u00FAnico objetivo \u2014",
     "about.p2_bold":        "vit\u00F3ria",
     "about.cta":            "Fala Connosco",
@@ -184,7 +184,7 @@ const TRANSLATIONS = {
     "footer.desc":          "Uma equipa competitiva de sim racing dedicada a ultrapassar os limites do desporto motorizado virtual em m\u00FAltiplas plataformas em todo o mundo.",
     "footer.links":         "Links R\u00E1pidos",
     "footer.follow":        "Segue-nos",
-    "footer.copy":          "Pitbox Racing Team. Todos os direitos reservados.",
+    "footer.copy":          "RTP Racing Team Project. Todos os direitos reservados.",
     "footer.tagline":       "Sim racing competitivo ao mais alto n\u00EDvel.",
 
     // Garage page

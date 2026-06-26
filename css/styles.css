@@ -1,6 +1,6 @@
 /* =====================================================================
-   STYLES.CSS — Pitbox Racing Team
-   Brand: #000 / #FFF / #CCFF00 (lime green)
+   STYLES.CSS — RTP Racing Team Project
+   Brand: #000 / #FFF / #FF6B00 (orange)
    ===================================================================== */
 
 /* ── Reset & Base ── */
@@ -13,9 +13,9 @@
 :root {
   --black:    #000000;
   --white:    #FFFFFF;
-  --yellow:   #CCFF00;
-  --yellow-dark: #99CC00;
-  --gold-gradient: linear-gradient(105deg, #88BB00 0%, #CCFF00 45%, #E0FF50 55%, #88BB00 100%);
+  --yellow:   #FF6B00;
+  --yellow-dark: #CC5500;
+  --gold-gradient: linear-gradient(105deg, #CC5500 0%, #FF6B00 45%, #FF9040 55%, #CC5500 100%);
   --gray-900: #111111;
   --gray-800: #1a1a1a;
   --gray-700: #222222;
@@ -251,8 +251,8 @@ img {
 
 .lang-toggle:hover {
   background: rgba(255, 214, 0, 0.15);
-  border-color: var(--accent, #CCFF00);
-  color: var(--accent, #CCFF00);
+  border-color: var(--accent, #FF6B00);
+  color: var(--accent, #FF6B00);
 }
 
 /* Mobile nav adjustments */
@@ -325,13 +325,23 @@ img {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../images/WALPAPER_PITBOX1.jpeg");
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
   transform: none;
   will-change: transform;
   z-index: 0;
+  overflow: hidden;
+}
+
+.hero-wallpaper-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.hero-wallpaper-slide.active {
+  opacity: 1;
 }
 
 .hero-overlay {
@@ -708,6 +718,7 @@ img {
   font-weight: 600;
   color: #fff;
   letter-spacing: 0.5px;
+  white-space: nowrap;
   text-transform: uppercase;
 }
 
@@ -1607,6 +1618,22 @@ img {
 /* ═══════════════════════════════════════════════════════════════════════
    GARAGE PAGE — Mobile-optimized with collapsible filter toggle
    ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Designer credit ── */
+.garage-designer-credit {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 0.72rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.garage-designer-credit span {
+  color: var(--yellow);
+}
 
 /* ── Filters section: NOT sticky — scrolls with content ── */
 .garage-filters-section {
@@ -2524,17 +2551,17 @@ img {
   transform: scale(1.1);
 }
 
-/* ── Add to Calendar + button override ── */
+/* ── Add to Calendar button ── */
 .cal-add-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 6px;
-  background: var(--gold-gradient);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #FF6B00;
   color: #000;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 900;
   font-family: var(--font-display);
   text-decoration: none;
@@ -2543,8 +2570,8 @@ img {
   line-height: 1;
 }
 .cal-add-btn:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 15px rgba(204,255,0,0.3);
+  background: #ff8c33;
+  transform: scale(1.1);
   color: #000;
 }
 
@@ -2762,7 +2789,7 @@ img {
 .row-pos-1 td.cell-total { color: #ffd700; }
 .row-pos-2 td.cell-total { color: #c0c0c0; }
 .row-pos-3 td.cell-total { color: #cd7f32; }
-.row-pitbox { background: rgba(204,255,0,0.06); border-left: 3px solid var(--yellow); }
+.row-pitbox { background: rgba(255,107,0,0.08); border-left: 3px solid var(--yellow); }
 .row-pitbox td { color: var(--yellow); }
 .row-pitbox td.cell-name { color: var(--white); }
 

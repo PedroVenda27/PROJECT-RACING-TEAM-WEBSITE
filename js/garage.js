@@ -6,13 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ── Competition display names ── */
   const compLabels = {
-    "GR3":       "Pitbox GR3",
-    "GR2":       "Pitbox GR2",
-    "LPGT":      "Liga Portugal GT",
-    "NCM":       "TT Motorfest NCM",
-    "Endurance": "Endurance",
-    "CivicCup":  "Civic Cup",
-    "TPGT":      "Taça Portugal GT"
+    "LPGT":  "Liga Portugal GT",
+    "TPGT":  "Taça de Portugal",
+    "NCM":   "NCM TT Motorfest",
+    "GT3TC": "GT3 Touring Chalange"
   };
 
   /* ── References ── */

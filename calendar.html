@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pitbox Racing Team Calendar — Race schedules, practice sessions, and events." />
-  <title>Calendar — Pitbox Racing Team</title>
+  <meta name="description" content="RTP Racing Team Project Calendar — Race schedules, practice sessions, and events." />
+  <title>Calendar — RTP Racing Team Project</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +15,8 @@
   <!-- ==================== HEADER / NAV ==================== -->
   <header id="site-header">
     <nav class="nav-container" aria-label="Main navigation">
-      <a href="index.html" class="nav-logo" aria-label="Pitbox Racing Team Home">
-        <img src="images/pitbox-logo.png" alt="Pitbox Racing Team Logo" class="logo-img" />
+      <a href="index.html" class="nav-logo" aria-label="RTP Racing Team Project Home">
+        <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project Logo" class="logo-img" />
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="hamburger"></span>
@@ -28,7 +28,7 @@
         <li><a href="calendar.html" class="active" data-i18n="nav.calendar">Calendar</a></li>
         <li><a href="index.html#sponsors-section" data-i18n="nav.sponsors">Sponsors</a></li>
         <li><a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact Us</a></li>
-        <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">🇵🇹 PT</button></li>
+        <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">???? PT</button></li>
       </ul>
     </nav>
   </header>
@@ -46,7 +46,7 @@
   <section class="section calendar-section">
     <div class="container">
 
-      <!-- ── TABS ── -->
+      <!-- -- TABS -- -->
       <div class="cal-tabs">
         <button class="cal-tab-btn active" data-tab="corridas">
           <span class="cal-tab-num">01</span>
@@ -64,76 +64,16 @@
         </button>
       </div>
 
-      <!-- ══ TAB 01 — CORRIDAS ══ -->
+      <!-- -- TAB 01 — CORRIDAS -- -->
       <div class="cal-tab-content" id="tab-corridas">
 
-      <!-- ── PITBOX GR3 CHAMPIONSHIP ── -->
-      <div class="cal-block">
-        <div class="cal-block-header">
-          <img src="images/PITBOX_GR3_LOGO.png" alt="Pitbox GR3" class="cal-comp-logo" />
-          <div>
-            <h2 class="cal-comp-title">Pitbox <span class="text-yellow">GR3 Championship</span></h2>
-            <p class="cal-comp-sub">Campeonato interno semanal — Sábados · Categoria Gr.3 · 21:30 Hora Local · 16 Pilotos em Pista</p>
-          </div>
-          <a href="standings.html#standings-gr3" class="cal-standings-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M7 21h2v-2H7v2Zm-4-4h2v-6H3v6Zm8 4h2v-8h-2v8Zm4-4h2V7h-2v10Zm4-14h-2v18h2V3Z"/></svg>
-            Classificações
-          </a>
-        </div>
-        <div class="cal-table-wrap">
-          <table class="cal-table">
-            <thead>
-              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Hora</th><th>Piloto</th><th>Estado</th><th>Add Calendar</th></tr>
-            </thead>
-            <tbody id="cal-gr3">
-              <tr><td>R1</td><td>25/ABR</td><td>Dragon Trail — Seaside 🇭🇷</td><td>21:30</td><td>All</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr><td>R2</td><td>02/MAI</td><td>Red Bull Ring 🇦🇹</td><td>21:30</td><td>All</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr><td>R3</td><td>09/MAI</td><td>Tokyo Expressway — South Clockwise 🇯🇵</td><td>21:30</td><td>All</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr><td>R4</td><td>16/MAI</td><td>Nürburgring 24h 🇩🇪</td><td>21:30</td><td>All</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr><td>R5</td><td>23/MAI</td><td>Autodrome Lago Maggiore 🇮🇹</td><td>21:30</td><td>All</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr><td>R6</td><td>30/MAI</td><td>Spa 24h Layout 🇧🇪</td><td>21:30</td><td>All</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr><td>R7</td><td>06/JUN</td><td>Blue Moon Bay Speedway 🇺🇸</td><td>21:30</td><td>All</td><td><span class="cal-status proximo">Próximo</span></td></tr>
-              <tr><td>R8</td><td>13/JUN</td><td>24 Heures du Mans Racing Circuit 🇫🇷</td><td>21:30</td><td>All</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ── PITBOX APEX CUP GR2 ── -->
-      <div class="cal-block">
-        <div class="cal-block-header">
-          <img src="images/PITBOX_GR2_LOGO.png" alt="Pitbox GR2" class="cal-comp-logo" />
-          <div>
-            <h2 class="cal-comp-title">Pitbox <span class="text-yellow">Apex Cup GR2</span></h2>
-            <p class="cal-comp-sub">Campeonato interno semanal — Sextas-Feiras · Categoria Gr.2 · 4 Rondas · 4 Circuitos Icónicos</p>
-          </div>
-          <a href="standings.html#standings-gr2" class="cal-standings-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M7 21h2v-2H7v2Zm-4-4h2v-6H3v6Zm8 4h2v-8h-2v8Zm4-4h2V7h-2v10Zm4-14h-2v18h2V3Z"/></svg>
-            Classificações
-          </a>
-        </div>
-        <div class="cal-table-wrap">
-          <table class="cal-table">
-            <thead>
-              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Hora</th><th>Piloto</th><th>Estado</th><th>Add Calendar</th></tr>
-            </thead>
-            <tbody id="cal-gr2">
-              <tr><td>R1</td><td>22/MAI</td><td>Suzuka 🇯🇵</td><td>22:00</td><td>All</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr><td>R2</td><td>29/MAI</td><td>Saint Croix — Circuit de Sainte-Croix 🇫🇷</td><td>22:00</td><td>All</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr><td>R3</td><td>05/JUN</td><td>Spa — Circuit de Spa-Francorchamps 🇧🇪</td><td>22:00</td><td>All</td><td><span class="cal-status proximo">Próximo</span></td></tr>
-              <tr><td>R4</td><td>12/JUN</td><td>Alsace — Village 🇫🇷</td><td>22:00</td><td>All</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ── LIGA PORTUGAL GT ── -->
+      <!-- -- LIGA PORTUGAL GT -- -->
       <div class="cal-block">
         <div class="cal-block-header">
           <img src="images/LPGT_WORLDSERIES_LOGO.jpg" alt="Liga Portugal GT" class="cal-comp-logo" />
           <div>
             <h2 class="cal-comp-title">Liga <span class="text-yellow">Portugal GT</span></h2>
-            <p class="cal-comp-sub">Campeonato de Portugal · Gran Turismo 7</p>
+            <p class="cal-comp-sub">Campeonato de Portugal — Gran Turismo 7</p>
           </div>
           <a href="standings.html#standings-lpgt" class="cal-standings-btn">
             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M7 21h2v-2H7v2Zm-4-4h2v-6H3v6Zm8 4h2v-8h-2v8Zm4-4h2V7h-2v10Zm4-14h-2v18h2V3Z"/></svg>
@@ -143,21 +83,21 @@
         <div class="cal-table-wrap">
           <table class="cal-table">
             <thead>
-              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Hora</th><th>Piloto</th><th>Estado</th><th>Add Calendar</th></tr>
+              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Piloto</th><th>Estado</th></tr>
             </thead>
             <tbody id="cal-lpgt">
-              <tr><td>R1</td><td>15/JUN</td><td>Yas Marina 🇦🇪</td><td>—</td><td>FVenda117</td><td><span class="cal-status proximo">Próximo</span></td></tr>
-              <tr><td>R2</td><td>13/JUL</td><td>Spa-Francorchamps 🇧🇪</td><td>—</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr><td>R3</td><td>14/SET</td><td>Monza 🇮🇹</td><td>—</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr><td>R4</td><td>12/OUT</td><td>Suzuka 🇯🇵</td><td>—</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr><td>R5</td><td>09/NOV</td><td>Trial Mountain 🇺🇸</td><td>—</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr><td>R6</td><td>14/DEZ</td><td>Nürburgring 24h 🇩🇪</td><td>—</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>R1</td><td>15/JUN</td><td>Yas Marina</td><td>FVenda117</td><td><span class="cal-status proximo">Próximo</span></td></tr>
+              <tr><td>R2</td><td>13/JUL</td><td>Spa-Francorchamps</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>R3</td><td>14/SET</td><td>Monza</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>R4</td><td>12/OUT</td><td>Suzuka</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>R5</td><td>09/NOV</td><td>Trial Mountain</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>R6</td><td>14/DEZ</td><td>Nürburgring 24h</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- ── TT MOTORFEST CUP - NCM ── -->
+      <!-- -- TT MOTORFEST CUP - NCM -- -->
       <div class="cal-block">
         <div class="cal-block-header">
           <img src="images/NCM_MOTORFEST_LOGO.jpg" alt="TT Motorfest NCM" class="cal-comp-logo" />
@@ -169,65 +109,112 @@
         <div class="cal-table-wrap">
           <table class="cal-table">
             <thead>
-              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Hora</th><th>Piloto</th><th>Estado</th><th>Add Calendar</th></tr>
+              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Piloto</th><th>Estado</th></tr>
             </thead>
             <tbody id="cal-ncm">
-              <tr class="cal-empty"><td colspan="6">Datas em breve — Pilotos: FVenda117 · simaotmelo</td></tr>
+              <tr class="cal-empty"><td colspan="6">Datas em breve — Pilotos: Wilson_TheFirst · FVenda117</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- ── TAÇA PORTUGAL GT ── -->
+      <!-- -- TAÇA PORTUGAL GT -- -->
       <div class="cal-block">
         <div class="cal-block-header">
           <img src="images/TPGT_LOGO.png" alt="Taça Portugal GT" class="cal-comp-logo" />
           <div>
             <h2 class="cal-comp-title">Taça <span class="text-yellow">Portugal GT</span></h2>
-            <p class="cal-comp-sub">Taça de Portugal · Gran Turismo 7</p>
+            <p class="cal-comp-sub">Taça de Portugal — Gran Turismo 7</p>
           </div>
         </div>
         <div class="cal-table-wrap">
           <table class="cal-table">
             <thead>
-              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Hora</th><th>Piloto</th><th>Estado</th><th>Add Calendar</th></tr>
+              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Piloto</th><th>Estado</th></tr>
             </thead>
             <tbody>
-              <tr><td>1ª</td><td>27–31 JUL</td><td>Watkins Glen 🇺🇸</td><td>—</td><td>FVenda117 · Brissos69 · MaRcOSiLvaRiDeR</td><td><span class="cal-status pendente">Pendente</span></td><td></td></tr>
-              <tr><td>2ª</td><td>01–05 SET</td><td>Dragon Trail 🇭🇷</td><td>—</td><td>FVenda117 · Brissos69 · MaRcOSiLvaRiDeR</td><td><span class="cal-status pendente">Pendente</span></td><td></td></tr>
-              <tr><td>3ª</td><td>20–23 OUT</td><td>Suzuka 🇯🇵</td><td>—</td><td>FVenda117 · Brissos69 · MaRcOSiLvaRiDeR</td><td><span class="cal-status pendente">Pendente</span></td><td></td></tr>
-              <tr><td>4ª</td><td>26–27 NOV</td><td>Fuji Speedway 🇯🇵</td><td>—</td><td>FVenda117 · Brissos69 · MaRcOSiLvaRiDeR</td><td><span class="cal-status pendente">Pendente</span></td><td></td></tr>
-              <tr><td>Meia-Final</td><td>A definir</td><td>Daytona International Speedway 🇺🇸</td><td>—</td><td>FVenda117 · Brissos69 · MaRcOSiLvaRiDeR</td><td><span class="cal-status pendente">Pendente</span></td><td></td></tr>
-              <tr><td>Grande Final</td><td>A definir</td><td>Le Mans 🇫🇷</td><td>—</td><td>FVenda117 · Brissos69 · MaRcOSiLvaRiDeR</td><td><span class="cal-status pendente">Pendente</span></td><td></td></tr>
+              <tr><td>1ª</td><td>27–31 JUL</td><td>Watkins Glen</td><td>FVenda117 · h_seixas13</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>2ª</td><td>01–05 SET</td><td>Dragon Trail</td><td>FVenda117 · h_seixas13</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>3ª</td><td>20–23 OUT</td><td>Suzuka</td><td>FVenda117 · h_seixas13</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>4ª</td><td>26–27 NOV</td><td>Fuji Speedway</td><td>FVenda117 · h_seixas13</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>Meia-Final</td><td>A definir</td><td>Daytona International Speedway</td><td>FVenda117 · h_seixas13</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>Grande Final</td><td>A definir</td><td>Le Mans</td><td>FVenda117 · h_seixas13</td><td><span class="cal-status pendente">Pendente</span></td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- ── 6H BARCELONA — GREYHOUND MOTORSPORTS ── -->
+      <!-- -- GT3 TOURING CHALANGE -- -->
       <div class="cal-block">
         <div class="cal-block-header">
-          <img src="images/GreyHonund6h_LOGO.png" alt="Greyhound Motorsports" class="cal-comp-logo" />
           <div>
-            <h2 class="cal-comp-title">6H Barcelona <span class="text-yellow">Greyhound Motorsports</span></h2>
-            <p class="cal-comp-sub">Corrida de resistência · Gran Turismo 7</p>
+            <h2 class="cal-comp-title">GT3 <span class="text-yellow">Touring Chalange</span></h2>
+            <p class="cal-comp-sub">Campeonato GT3 Racing Team</p>
           </div>
         </div>
+
+        <!-- Sala selector -->
+        <div class="gt3tc-sala-btns" style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+          <button class="gt3tc-sala-btn active" data-sala="A" style="padding:0.4rem 1.2rem;border:1px solid var(--yellow);background:var(--yellow);color:#000;font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;">Sala A</button>
+          <button class="gt3tc-sala-btn" data-sala="B" style="padding:0.4rem 1.2rem;border:1px solid rgba(255,255,255,0.2);background:transparent;color:var(--white);font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;">Sala B</button>
+          <button class="gt3tc-sala-btn" data-sala="E" style="padding:0.4rem 1.2rem;border:1px solid rgba(255,255,255,0.2);background:transparent;color:var(--white);font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;">Sala E</button>
+        </div>
+
         <div class="cal-table-wrap">
           <table class="cal-table">
             <thead>
-              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Hora</th><th>Piloto</th><th>Estado</th><th>POS</th><th>Add Calendar</th></tr>
+              <tr><th>#</th><th>Data</th><th>Sala</th><th>Piloto</th><th>Estado</th></tr>
             </thead>
-            <tbody id="cal-greyhound">
-              <tr><td>R1</td><td>07/JUN</td><td>Circuit de Barcelona-Catalunya 🇪🇸</td><td>18:00 – 24:00</td><td>FVenda117 · Oraculo95</td><td><span class="cal-status feito">Feito</span></td><td><strong style="color:var(--yellow)">9º 🏁</strong></td><td></td></tr>
+            <tbody id="gt3tc-tbody">
+              <tr data-sala="A"><td>R1</td><td>15/MAI</td><td>A</td><td>RTP_Brunocm97</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="B" style="display:none;"><td>R1</td><td>14/MAI</td><td>B</td><td>Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="E" style="display:none;"><td>R1</td><td>11/MAI</td><td>E</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="A"><td>R2</td><td>22/MAI</td><td>A</td><td>RTP_Brunocm97</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="B" style="display:none;"><td>R2</td><td>21/MAI</td><td>B</td><td>Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="E" style="display:none;"><td>R2</td><td>18/MAI</td><td>E</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="A"><td>R3</td><td>29/MAI</td><td>A</td><td>RTP_Brunocm97</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="B" style="display:none;"><td>R3</td><td>28/MAI</td><td>B</td><td>Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="E" style="display:none;"><td>R3</td><td>25/MAI</td><td>E</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+              <tr data-sala="A"><td>R4</td><td>19/JUN</td><td>A</td><td>RTP_Brunocm97</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr data-sala="B" style="display:none;"><td>R4</td><td>18/JUN</td><td>B</td><td>Prost</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr data-sala="E" style="display:none;"><td>R4</td><td>15/JUN</td><td>E</td><td>RTP_Travincas24</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr data-sala="A"><td>R5</td><td>26/JUN</td><td>A</td><td>RTP_Brunocm97</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr data-sala="B" style="display:none;"><td>R5</td><td>25/JUN</td><td>B</td><td>Prost</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr data-sala="E" style="display:none;"><td>R5</td><td>22/JUN</td><td>E</td><td>RTP_Travincas24</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr data-sala="A"><td>R6</td><td>03/JUL</td><td>A</td><td>RTP_Brunocm97</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr data-sala="B" style="display:none;"><td>R6</td><td>02/JUL</td><td>B</td><td>Prost</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr data-sala="E" style="display:none;"><td>R6</td><td>29/JUN</td><td>E</td><td>RTP_Travincas24</td><td><span class="cal-status pendente">Pendente</span></td></tr>
             </tbody>
           </table>
         </div>
       </div>
+
+      <script>
+        (function() {
+          const btns = document.querySelectorAll(".gt3tc-sala-btn");
+          const rows = document.querySelectorAll("#gt3tc-tbody tr");
+          btns.forEach(btn => {
+            btn.addEventListener("click", () => {
+              const sala = btn.getAttribute("data-sala");
+              btns.forEach(b => {
+                b.style.background = "transparent";
+                b.style.color = "var(--white)";
+                b.style.borderColor = "rgba(255,255,255,0.2)";
+              });
+              btn.style.background = "var(--yellow)";
+              btn.style.color = "#000";
+              btn.style.borderColor = "var(--yellow)";
+              rows.forEach(r => {
+                r.style.display = r.getAttribute("data-sala") === sala ? "" : "none";
+              });
+            });
+          });
+        })();
+      </script>
 
       </div><!-- /#tab-corridas -->
 
-      <!-- ══ TAB 02 — TREINOS E EVENTOS ══ -->
+      <!-- -- TAB 02 — TREINOS E EVENTOS -- -->
       <div class="cal-tab-content" id="tab-treinos" style="display:none;">
         <div class="cal-block">
           <div class="cal-block-header">
@@ -243,7 +230,7 @@
               </thead>
               <tbody id="cal-treinos">
                 <tr>
-                  <td>🏁</td>
+                  <td>??</td>
                   <td>Diário</td>
                   <td>Treino Livre — GR3</td>
                   <td>Qualquer hora</td>
@@ -251,7 +238,7 @@
                   <td><span class="cal-status proximo">Ativo</span></td>
                 </tr>
                 <tr>
-                  <td>🏁</td>
+                  <td>??</td>
                   <td>Diário</td>
                   <td>Treino Livre — GR4</td>
                   <td>Qualquer hora</td>
@@ -273,7 +260,7 @@
   <!-- ==================== GOOGLE CALENDAR SYNC ==================== -->
 
   <script>
-    /* ── Tab switcher ── */
+    /* -- Tab switcher -- */
     document.querySelectorAll('.cal-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.cal-tab-btn').forEach(b => b.classList.remove('active'));
@@ -283,7 +270,7 @@
       });
     });
 
-    /* ── Auto-update status based on today's date ── */
+    /* -- Auto-update status based on today's date -- */
     (function() {
       const today = new Date();
       today.setHours(0,0,0,0);
@@ -319,7 +306,7 @@
 
     })();
 
-    /* ── Add to Calendar buttons ── */
+    /* -- Add to Calendar buttons -- */
     const MONTHS = { JAN:'01',FEV:'02',MAR:'03',ABR:'04',MAI:'05',JUN:'06',JUL:'07',AGO:'08',SET:'09',OUT:'10',NOV:'11',DEZ:'12' };
     function parseCalDate(str) {
       const parts = str.split('/');
@@ -331,7 +318,7 @@
     }
 
     function parseDate(str) {
-      // str like "06/JUN" → "20260606"
+      // str like "06/JUN" ? "20260606"
       const parts = str.trim().split('/');
       if (parts.length !== 2) return null;
       const day = parts[0].padStart(2,'0');
@@ -358,7 +345,7 @@
       return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
         + '&text=' + encodeURIComponent(title)
         + '&dates=' + start + '/' + end
-        + '&details=' + encodeURIComponent(desc || 'Pitbox Racing Team — pitboxracingteam.github.io')
+        + '&details=' + encodeURIComponent(desc || 'RTP Racing Team Project — pitboxracingteam.github.io')
         + '&location=' + encodeURIComponent('Gran Turismo 7');
     }
 
@@ -372,8 +359,8 @@
       // find competition from parent block title
       const block   = row.closest('.cal-block');
       const comp    = block ? block.querySelector('.cal-comp-title')?.textContent.trim() : '';
-      const title   = 'PRT | ' + comp + ' — ' + round + ' · ' + circuit;
-      const url     = makeGCalUrl(title, date, time, comp + ' · ' + circuit);
+      const title   = 'PRT | ' + comp + ' — ' + round + ' — ' + circuit;
+      const url     = makeGCalUrl(title, date, time, comp + ' — ' + circuit);
       // only show + button for upcoming/pending races
       const statusCell = row.querySelector('.cal-status');
       const isDone = statusCell && statusCell.classList.contains('feito');
@@ -392,7 +379,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <span class="logo-text">Pitbox Racing Team</span>
+          <span class="logo-text">RTP Racing Team Project</span>
           <p class="footer-desc" data-i18n="footer.tagline">Competitive sim racing at its finest.</p>
         </div>
         <div class="footer-nav">
@@ -416,14 +403,14 @@
             <a href="https://discord.gg/cARTuSDux" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
             </a>
-            <a href="mailto:prt.pitboxracingteam@gmail.com" class="social-icon" aria-label="Email">
+            <a href="mailto:prt.rtpracingteamproject@gmail.com" class="social-icon" aria-label="Email">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
             </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="footer-year"></span> <span data-i18n="footer.copy">Pitbox Racing Team. All rights reserved.</span></p>
+        <p>&copy; <span id="footer-year"></span> <span data-i18n="footer.copy">RTP Racing Team Project. All rights reserved.</span></p>
       </div>
     </div>
   </footer>

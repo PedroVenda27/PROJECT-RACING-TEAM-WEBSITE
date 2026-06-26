@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const rows = s.teams.map((team, i) => {
       const pos = i + 1;
-      const isPitbox = team.name.toUpperCase().includes("PITBOX");
+      const isPitbox = team.name.toUpperCase().includes("RTP");
       const logoHTML = team.logo
         ? `<img src="${team.logo}" alt="${team.name}" class="st-avatar" style="border-radius:4px;object-position:center;">`
         : `<div class="st-avatar-placeholder">${team.name.charAt(0)}</div>`;
