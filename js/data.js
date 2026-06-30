@@ -197,20 +197,6 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   leagues: [
     {
-      name: "PITBOX <br> GR3 CHAMPIONSHIP",
-      platform: "GT7",
-      description: "O nosso Campeonato interno Semanal (Sábados) de Categoria Gr3.",
-      logo: "images/PITBOX_GR3_LOGO.png",
-      url: ""
-    },
-    {
-      name: "PITBOX <br> APEX CUP GR2",
-      platform: "GT7",
-      description: "O nosso Campeonato interno Semanal (Sextas-Feiras) de Categoria Gr2.",
-      logo: "images/PITBOX_GR2_LOGO.png",
-      url: "https://www.bpftr.com/eventos"
-    },
-    {
       name: "Liga Portugal GT",
       platform: "GT7",
       description: "Um dos mais recentes campeonatos de Gran Turismo 7 com 6 divisões e 90 pilotos.",
