@@ -244,7 +244,7 @@ const SITE_DATA = {
      Fields: name, logo, url
      ───────────────────────────────────────────── */
   sponsors: [
-    { name: "", logo: "", url: "" },
+    { name: "Instant Gaming", logo: "images/logo-instant-gaming-dark.png", url: "https://www.instant-gaming.com/?igr=racingteamproject" },
     { name: "", logo: "", url: "" },
     { name: "", logo: "", url: "" },
     { name: "", logo: "", url: "" },
