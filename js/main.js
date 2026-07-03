@@ -120,11 +120,38 @@ document.addEventListener("DOMContentLoaded", () => {
      ══════════════════════════════════════════════════════════════════ */
   const driversGrid = document.getElementById("drivers-grid");
   if (driversGrid && SITE_DATA.drivers) {
-    const sortedDrivers = [...SITE_DATA.drivers].sort((a, b) => (b.pilotoMes ? 1 : 0) - (a.pilotoMes ? 1 : 0));
-    driversGrid.innerHTML = sortedDrivers.map((d, i) => `
-      <article class="driver-card anim-fade-up delay-${Math.min(i % 4, 3)}${d.pilotoMes ? ' driver-card-potm' : ''}" aria-label="${d.name}">
+    const potm = SITE_DATA.drivers.find(d => d.pilotoMes);
+    const rest = SITE_DATA.drivers.filter(d => !d.pilotoMes);
+
+    const potmHTML = potm ? `
+      <article class="driver-card-potm-featured anim-fade-up" aria-label="${potm.name}">
+        <div class="potm-featured-left">
+          <div class="potm-featured-img-wrap">
+            ${potm.image
+              ? `<img src="${potm.image}" alt="${potm.name}" loading="lazy" onerror="this.style.display='none';" />`
+              : `<div class="driver-placeholder"><span>${potm.number}</span></div>`
+            }
+            <div class="driver-number">#${potm.number}</div>
+          </div>
+        </div>
+        <div class="potm-featured-right">
+          <div class="potm-featured-badge">⭐ Piloto do Mês</div>
+          <h2 class="potm-featured-name">${potm.name}</h2>
+          <p class="potm-featured-role">${potm.role}</p>
+          <p class="potm-featured-series">${potm.series}</p>
+          <div class="potm-featured-flag">
+            <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br','Cabo Verde':'cv'}[potm.nationality]||'pt')}.png" alt="${potm.nationality}" width="22" height="16">
+            <span>${potm.nationality}</span>
+          </div>
+          <a href="https://www.dg-edge.com/players/${potm.role}" target="_blank" rel="noopener" class="potm-edge-link">
+            <img src="images/EDGE.png" alt="Edge" style="height:28px;width:auto;opacity:0.9;" />
+          </a>
+        </div>
+      </article>` : '';
+
+    const cardsHTML = rest.map((d, i) => `
+      <article class="driver-card anim-fade-up delay-${Math.min(i % 4, 3)}" aria-label="${d.name}">
         <div class="driver-img-wrap">
-          ${d.pilotoMes ? '<div class="potm-badge">⭐ Piloto do Mês</div>' : ''}
           ${d.image
             ? `<img src="${d.image}" alt="Photo of ${d.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
                <div class="driver-placeholder" style="display:none;"><span>${d.number}</span></div>`
@@ -149,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </article>
     `).join("");
 
+    driversGrid.innerHTML = potmHTML + cardsHTML;
     driversGrid.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
   }
 

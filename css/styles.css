@@ -627,6 +627,96 @@ img {
   box-shadow: 0 12px 40px rgba(230,225,109,0.12);
 }
 
+/* ── Piloto do Mês — Featured Full-Width ── */
+.driver-card-potm-featured {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 2.5rem;
+  background: linear-gradient(135deg, #1a1400, #2a2000);
+  border: 2px solid #f5c518;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(245,197,24,0.25), 0 8px 32px rgba(0,0,0,0.4);
+  margin-bottom: 1rem;
+  padding: 2rem;
+  align-items: center;
+}
+.potm-featured-left { flex-shrink: 0; }
+.potm-featured-img-wrap {
+  position: relative;
+  width: 180px;
+  aspect-ratio: 3/3.5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--gray-700);
+  border: 2px solid rgba(245,197,24,0.4);
+}
+.potm-featured-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.potm-featured-img-wrap .driver-number {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #f5c518;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+.potm-featured-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.potm-featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(90deg, #b8860b, #f5c518, #b8860b);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+.potm-featured-name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+.potm-featured-role {
+  font-size: 1rem;
+  color: #f5c518;
+  margin: 0;
+  font-weight: 600;
+}
+.potm-featured-series {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  margin: 0;
+}
+.potm-featured-flag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--gray-300);
+  margin-top: 0.25rem;
+}
+.potm-edge-link { margin-top: 0.75rem; display: inline-block; }
+@media (max-width: 600px) {
+  .driver-card-potm-featured { flex-direction: column; padding: 1.2rem; gap: 1rem; }
+  .potm-featured-img-wrap { width: 120px; }
+  .potm-featured-name { font-size: 1.4rem; }
+}
+
 /* ── Piloto do Mês ── */
 .driver-card-potm {
   border: 2px solid #f5c518;
