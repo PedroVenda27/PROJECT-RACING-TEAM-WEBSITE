@@ -626,6 +626,34 @@ img {
   border-color: var(--yellow);
   box-shadow: 0 12px 40px rgba(230,225,109,0.12);
 }
+
+/* ── Piloto do Mês ── */
+.driver-card-potm {
+  border: 2px solid #f5c518;
+  box-shadow: 0 0 24px rgba(245,197,24,0.35), 0 0 6px rgba(245,197,24,0.2);
+  position: relative;
+}
+.driver-card-potm:hover {
+  box-shadow: 0 0 36px rgba(245,197,24,0.5), 0 12px 40px rgba(245,197,24,0.2);
+}
+.potm-badge {
+  position: absolute;
+  top: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #b8860b, #f5c518, #b8860b);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
 .driver-img-wrap {
   position: relative;
   width: 100%;

@@ -120,9 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
      ══════════════════════════════════════════════════════════════════ */
   const driversGrid = document.getElementById("drivers-grid");
   if (driversGrid && SITE_DATA.drivers) {
-    driversGrid.innerHTML = SITE_DATA.drivers.map((d, i) => `
-      <article class="driver-card anim-fade-up delay-${Math.min(i % 4, 3)}" aria-label="${d.name}">
+    const sortedDrivers = [...SITE_DATA.drivers].sort((a, b) => (b.pilotoMes ? 1 : 0) - (a.pilotoMes ? 1 : 0));
+    driversGrid.innerHTML = sortedDrivers.map((d, i) => `
+      <article class="driver-card anim-fade-up delay-${Math.min(i % 4, 3)}${d.pilotoMes ? ' driver-card-potm' : ''}" aria-label="${d.name}">
         <div class="driver-img-wrap">
+          ${d.pilotoMes ? '<div class="potm-badge">⭐ Piloto do Mês</div>' : ''}
           ${d.image
             ? `<img src="${d.image}" alt="Photo of ${d.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
                <div class="driver-placeholder" style="display:none;"><span>${d.number}</span></div>`
