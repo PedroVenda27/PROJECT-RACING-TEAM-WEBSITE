@@ -199,6 +199,24 @@ const SITE_DATA = {
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
       flag: "🇵🇹"
     },
+    {
+      name: "Miguel Cabral",
+      number: "77",
+      role: "mattifroskes",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Kwan Toledo",
+      number: "13",
+      role: "K7nG_OC3an",
+      nationality: "Brasil",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
+      flag: "🇧🇷"
+    },
   ],
 
   /* ─────────────────────────────────────────────
