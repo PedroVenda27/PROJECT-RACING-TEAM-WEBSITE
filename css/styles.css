@@ -169,6 +169,22 @@ img {
   background: var(--white) !important;
   color: var(--black) !important;
 }
+.nav-mxcup {
+  background: linear-gradient(90deg, #b8860b, #f5c518, #b8860b) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  animation: mxcup-pulse 2.5s ease-in-out infinite;
+}
+.nav-mxcup:hover {
+  background: #fff !important;
+  color: #000 !important;
+  animation: none;
+}
+@keyframes mxcup-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,197,24,0); }
+  50% { box-shadow: 0 0 8px 3px rgba(245,197,24,0.5); }
+}
 
 /* Hamburger */
 .nav-toggle {
