@@ -99,21 +99,57 @@
       gap: 1.2rem;
     }
     .round-card {
+      position: relative;
       background: #111;
       border: 1px solid rgba(255,107,0,0.2);
       border-radius: 8px;
       overflow: hidden;
+      cursor: pointer;
       transition: transform 0.2s, border-color 0.2s;
     }
     .round-card:hover { transform: translateY(-3px); border-color: rgba(255,107,0,0.6); }
     .round-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
     .round-card-label {
+      position: absolute;
+      top: 0; left: 0; right: 0;
       padding: 0.6rem 1rem;
       font-family: 'Orbitron', sans-serif;
       font-size: 0.75rem;
-      color: #FF6B00;
+      font-weight: 700;
+      color: #fff;
       letter-spacing: 0.06em;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, transparent 100%);
     }
+    /* Lightbox */
+    .poster-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .poster-lightbox.open { display: flex; }
+    .poster-lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+    .poster-lightbox-close {
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-size: 2.5rem;
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+      opacity: 0.8;
+    }
+    .poster-lightbox-close:hover { opacity: 1; }
     .reg-form-wrap {
       background: #0d0d0d;
       border: 1px solid rgba(255,107,0,0.25);
@@ -200,30 +236,36 @@
     <div class="container">
       <h2 class="reg-section-title">Calend&#225;rio</h2>
       <div class="rounds-grid">
-        <div class="round-card">
-          <img src="images/MAZDA MX-5 CUP/R1 POSTER.png" alt="Ronda 1" />
+        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R1 POSTER.png','Ronda 1')">
           <div class="round-card-label">Ronda 1</div>
+          <img src="images/MAZDA MX-5 CUP/R1 POSTER.png" alt="Ronda 1" />
         </div>
-        <div class="round-card">
-          <img src="images/MAZDA MX-5 CUP/R2 POSTER.png" alt="Ronda 2" />
+        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R2 POSTER.png','Ronda 2')">
           <div class="round-card-label">Ronda 2</div>
+          <img src="images/MAZDA MX-5 CUP/R2 POSTER.png" alt="Ronda 2" />
         </div>
-        <div class="round-card">
-          <img src="images/MAZDA MX-5 CUP/R3 POSTER.png" alt="Ronda 3" />
+        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R3 POSTER.png','Ronda 3')">
           <div class="round-card-label">Ronda 3</div>
+          <img src="images/MAZDA MX-5 CUP/R3 POSTER.png" alt="Ronda 3" />
         </div>
-        <div class="round-card">
-          <img src="images/MAZDA MX-5 CUP/R4 POSTER.png" alt="Ronda 4" />
+        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R4 POSTER.png','Ronda 4')">
           <div class="round-card-label">Ronda 4</div>
+          <img src="images/MAZDA MX-5 CUP/R4 POSTER.png" alt="Ronda 4" />
         </div>
-        <div class="round-card">
-          <img src="images/MAZDA MX-5 CUP/R5 POSTER.png" alt="Ronda 5" />
+        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R5 POSTER.png','Ronda 5')">
           <div class="round-card-label">Ronda 5</div>
+          <img src="images/MAZDA MX-5 CUP/R5 POSTER.png" alt="Ronda 5" />
         </div>
-        <div class="round-card">
-          <img src="images/MAZDA MX-5 CUP/R6 POSTER.png" alt="Ronda 6" />
+        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R6 POSTER.png','Ronda 6')">
           <div class="round-card-label">Ronda 6</div>
+          <img src="images/MAZDA MX-5 CUP/R6 POSTER.png" alt="Ronda 6" />
         </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div class="poster-lightbox" id="posterLightbox" onclick="closePoster()">
+        <button class="poster-lightbox-close" onclick="closePoster()">&times;</button>
+        <img id="posterLightboxImg" src="" alt="" onclick="event.stopPropagation()" />
       </div>
     </div>
   </section>
@@ -316,6 +358,21 @@
   <script src="js/main.js"></script>
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    function openPoster(src, alt) {
+      const lb = document.getElementById('posterLightbox');
+      const img = document.getElementById('posterLightboxImg');
+      img.src = src;
+      img.alt = alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePoster() {
+      document.getElementById('posterLightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePoster(); });
+
     const navToggle = document.getElementById('navToggle');
     const navLinks  = document.getElementById('navLinks');
     if (navToggle) {
