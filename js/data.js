@@ -301,7 +301,23 @@ const SITE_DATA = {
       type: "drivers",
       roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6"],
       drivers: [
-        { name: "— A preencher —", rounds: [null, null, null, null, null, null], total: 0 }
+        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   rounds: [38,   0, 0, 0, 0, 0], total: 38 },
+        { name: "Prost",            driverRef: "Prost",            rounds: [27,   0, 0, 0, 0, 0], total: 27 },
+        { name: "João Ferreira",    driverRef: "João Ferreira",    rounds: [26,   0, 0, 0, 0, 0], total: 26 },
+        { name: "Kwan Toledo",      driverRef: "Kwan Toledo",      rounds: [26,   0, 0, 0, 0, 0], total: 26 },
+        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", rounds: [22,   0, 0, 0, 0, 0], total: 22 },
+        { name: "João Abreu",       driverRef: "João Abreu",       rounds: [21,   0, 0, 0, 0, 0], total: 21 },
+        { name: "Rodrigo Marques",  driverRef: "Rodrigo Marques",  rounds: [16,   0, 0, 0, 0, 0], total: 16 },
+        { name: "Hugo Seixas",      driverRef: "Hugo Seixas",      rounds: [10,   0, 0, 0, 0, 0], total: 10 },
+        { name: "Pedro Dias",       driverRef: "Pedro Dias",       rounds: [8,    0, 0, 0, 0, 0], total: 8  },
+        { name: "João Festas",      driverRef: "João Festas",      rounds: [6,    0, 0, 0, 0, 0], total: 6  },
+        { name: "Hugo Costa",       driverRef: "Hugo Costa",       rounds: [4,    0, 0, 0, 0, 0], total: 4  },
+        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   rounds: [null, 0, 0, 0, 0, 0], total: 0  },
+        { name: "Pedro Venda",      driverRef: "Pedro Venda",      rounds: [null, 0, 0, 0, 0, 0], total: 0  },
+        { name: "Luís Dantas",      driverRef: "Luís Dantas",      rounds: [null, 0, 0, 0, 0, 0], total: 0  },
+        { name: "Nuno Bravo",       driverRef: "Nuno Bravo",       rounds: [null, 0, 0, 0, 0, 0], total: 0  },
+        { name: "Pinto Moreira",    driverRef: "Pinto Moreira",    rounds: [null, 0, 0, 0, 0, 0], total: 0  },
+        { name: "Ricardo Gamito",   driverRef: "Ricardo Gamito",   rounds: [null, 0, 0, 0, 0, 0], total: 0  }
       ]
     }
   ]
