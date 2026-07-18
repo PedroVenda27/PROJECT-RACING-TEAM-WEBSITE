@@ -278,6 +278,25 @@ const SITE_DATA = {
     { name: "", logo: "", url: "" },
     { name: "", logo: "", url: "" },
     { name: "", logo: "", url: "" }
+  ],
+
+  /* ─────────────────────────────────────────────
+     STANDINGS
+     type "drivers": roundLabels + drivers[{name, rounds[], total}]
+     rounds: null = DNS/DNP, number = points scored
+     ───────────────────────────────────────────── */
+  standings: [
+    {
+      competition: "mxcup",
+      title: "Mazda MX-5 Cup",
+      subtitle: "Gran Turismo 7 · RTP Racing Team Project",
+      logo: "images/MAZDA MX-5 CUP/MAZDA MX-5 CUP ICON.png",
+      type: "drivers",
+      roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6"],
+      drivers: [
+        { name: "— A preencher —", rounds: [null, null, null, null, null, null], total: 0 }
+      ]
+    }
   ]
 
 };
