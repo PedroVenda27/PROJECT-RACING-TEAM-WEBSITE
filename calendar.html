@@ -52,7 +52,7 @@
         <button class="cal-tab-btn active" data-tab="corridas">
           <span class="cal-tab-num">01</span>
           <div>
-            <strong data-i18n="cal.tab1.title">Calendário de Corridas</strong>
+            <strong data-i18n="cal.tab1.title">Competi&#231;&#245;es Corridas</strong>
             <p data-i18n="cal.tab1.desc">Eventos oficiais de corrida, rondas de sprint e provas de endurance.</p>
           </div>
         </button>
@@ -61,13 +61,6 @@
           <div>
             <strong data-i18n="cal.tab2.title">Treinos e Eventos</strong>
             <p data-i18n="cal.tab2.desc">Sessões de treino da equipa, eventos comunitários e transmissões especiais.</p>
-          </div>
-        </button>
-        <button class="cal-tab-btn" data-tab="arquivo">
-          <span class="cal-tab-num">03</span>
-          <div>
-            <strong>Arquivo</strong>
-            <p>Competi&#231;&#245;es conclu&#237;das e resultados hist&#243;ricos da equipa.</p>
           </div>
         </button>
       </div>
@@ -184,9 +177,9 @@
 
       <!-- Botão para arquivo -->
       <div style="text-align:center;margin:2rem 0 0.5rem;">
-        <button class="cal-tab-btn" data-tab="arquivo" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.7rem 1.8rem;background:transparent;border:1px solid rgba(255,107,0,0.4);color:var(--yellow);font-family:var(--font-display);font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,107,0,0.1)'" onmouseout="this.style.background='transparent'">
+        <button id="btn-arquivo" onclick="(function(){var s=document.getElementById('tab-arquivo');var btn=document.getElementById('btn-arquivo');if(s.style.display==='none'){s.style.display='block';btn.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'currentColor\' width=\'16\' height=\'16\'><path d=\'M20 6h-2.18A3 3 0 0 0 15 4H9a3 3 0 0 0-2.82 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm-11-.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V6H9v-.5ZM20 19H4V8h16v11Z\'/></svg> Fechar Arquivo';}else{s.style.display='none';btn.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'currentColor\' width=\'16\' height=\'16\'><path d=\'M20 6h-2.18A3 3 0 0 0 15 4H9a3 3 0 0 0-2.82 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm-11-.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V6H9v-.5ZM20 19H4V8h16v11Z\'/></svg> Ver Arquivo &mdash; Competi&ccedil;&otilde;es Conclu&iacute;das';}})();" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.7rem 1.8rem;background:transparent;border:1px solid rgba(255,107,0,0.4);color:var(--yellow);font-family:var(--font-display);font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,107,0,0.1)'" onmouseout="this.style.background='transparent'">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20 6h-2.18A3 3 0 0 0 15 4H9a3 3 0 0 0-2.82 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm-11-.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V6H9v-.5ZM20 19H4V8h16v11Z"/></svg>
-          Ver Arquivo — Competi&#231;&#245;es Conclu&#237;das
+          Ver Arquivo &mdash; Competi&#231;&#245;es Conclu&#237;das
         </button>
       </div>
 
@@ -232,8 +225,8 @@
         </div>
       </div><!-- /#tab-treinos -->
 
-      <!-- -- TAB 03 — ARQUIVO -- -->
-      <div class="cal-tab-content" id="tab-arquivo" style="display:none;">
+      <!-- -- ARQUIVO — COMPETIÇÕES CONCLUÍDAS -- -->
+      <div id="tab-arquivo" style="display:none;">
 
         <div class="cal-block" style="border-color:rgba(255,107,0,0.2);opacity:0.9;">
           <div class="cal-block-header">
