@@ -2466,14 +2466,20 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--yellow);
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
   text-decoration: none;
-  opacity: 0.6;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: background 0.2s, transform 0.2s;
 }
 .cal-gcal-btn:hover {
-  opacity: 1;
-  transform: scale(1.2);
+  background: #fff;
+  transform: scale(1.1);
 }
 
 .cal-comp-logo {
