@@ -63,6 +63,13 @@
             <p data-i18n="cal.tab2.desc">Sessões de treino da equipa, eventos comunitários e transmissões especiais.</p>
           </div>
         </button>
+        <button class="cal-tab-btn" data-tab="arquivo">
+          <span class="cal-tab-num">03</span>
+          <div>
+            <strong>Arquivo</strong>
+            <p>Competi&#231;&#245;es conclu&#237;das e resultados hist&#243;ricos da equipa.</p>
+          </div>
+        </button>
       </div>
 
       <!-- -- TAB 01 — CORRIDAS -- -->
@@ -145,68 +152,6 @@
         </div>
       </div>
 
-      <!-- -- GT3 TOURING CHALANGE -- -->
-      <div class="cal-block">
-        <div class="cal-block-header">
-          <img src="images/GT3_TOURING_LOGO.png" alt="GT3 Touring Chalange" class="cal-comp-logo" />
-          <div>
-            <h2 class="cal-comp-title">GT3 <span class="text-yellow">Touring Chalange</span></h2>
-            <p class="cal-comp-sub">Campeonato GT3 Racing Team</p>
-          </div>
-        </div>
-
-        <!-- Sala selector -->
-        <div class="gt3tc-sala-btns" style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
-          <button class="gt3tc-sala-btn active" data-sala="A" style="padding:0.4rem 1.2rem;border:1px solid var(--yellow);background:var(--yellow);color:#000;font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;">Sala A</button>
-          <button class="gt3tc-sala-btn" data-sala="D" style="padding:0.4rem 1.2rem;border:1px solid rgba(255,255,255,0.2);background:transparent;color:var(--white);font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;">Sala D</button>
-        </div>
-
-        <div class="cal-table-wrap">
-          <table class="cal-table">
-            <thead>
-              <tr><th>#</th><th>Data</th><th>Sala</th><th>Piloto</th><th>Estado</th></tr>
-            </thead>
-            <tbody id="gt3tc-tbody">
-              <tr data-sala="A"><td>R1</td><td>15/MAI</td><td>A</td><td>RTP_Brunocm97 · Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr data-sala="D" style="display:none;"><td>R1</td><td>12/MAI</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr data-sala="A"><td>R2</td><td>22/MAI</td><td>A</td><td>RTP_Brunocm97 · Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr data-sala="D" style="display:none;"><td>R2</td><td>19/MAI</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr data-sala="A"><td>R3</td><td>29/MAI</td><td>A</td><td>RTP_Brunocm97 · Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr data-sala="D" style="display:none;"><td>R3</td><td>26/MAI</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
-              <tr data-sala="A"><td>R4</td><td>19/JUN</td><td>A</td><td>RTP_Brunocm97 · Prost</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr data-sala="D" style="display:none;"><td>R4</td><td>16/JUN</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr data-sala="A"><td>R5</td><td>26/JUN</td><td>A</td><td>RTP_Brunocm97 · Prost</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr data-sala="D" style="display:none;"><td>R5</td><td>23/JUN</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr data-sala="A"><td>R6</td><td>03/JUL</td><td>A</td><td>RTP_Brunocm97 · Prost</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr data-sala="D" style="display:none;"><td>R6</td><td>30/JUN</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <script>
-        (function() {
-          const btns = document.querySelectorAll(".gt3tc-sala-btn");
-          const rows = document.querySelectorAll("#gt3tc-tbody tr");
-          btns.forEach(btn => {
-            btn.addEventListener("click", () => {
-              const sala = btn.getAttribute("data-sala");
-              btns.forEach(b => {
-                b.style.background = "transparent";
-                b.style.color = "var(--white)";
-                b.style.borderColor = "rgba(255,255,255,0.2)";
-              });
-              btn.style.background = "var(--yellow)";
-              btn.style.color = "#000";
-              btn.style.borderColor = "var(--yellow)";
-              rows.forEach(r => {
-                r.style.display = r.getAttribute("data-sala") === sala ? "" : "none";
-              });
-            });
-          });
-        })();
-      </script>
-
       <!-- -- MAZDA MX-5 CUP -- -->
       <div class="cal-block">
         <div class="cal-block-header">
@@ -235,6 +180,14 @@
             </tbody>
           </table>
         </div>
+      </div>
+
+      <!-- Botão para arquivo -->
+      <div style="text-align:center;margin:2rem 0 0.5rem;">
+        <button class="cal-tab-btn" data-tab="arquivo" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.7rem 1.8rem;background:transparent;border:1px solid rgba(255,107,0,0.4);color:var(--yellow);font-family:var(--font-display);font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,107,0,0.1)'" onmouseout="this.style.background='transparent'">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20 6h-2.18A3 3 0 0 0 15 4H9a3 3 0 0 0-2.82 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm-11-.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V6H9v-.5ZM20 19H4V8h16v11Z"/></svg>
+          Ver Arquivo — Competi&#231;&#245;es Conclu&#237;das
+        </button>
       </div>
 
       </div><!-- /#tab-corridas -->
@@ -278,6 +231,71 @@
           </div>
         </div>
       </div><!-- /#tab-treinos -->
+
+      <!-- -- TAB 03 — ARQUIVO -- -->
+      <div class="cal-tab-content" id="tab-arquivo" style="display:none;">
+
+        <div class="cal-block" style="border-color:rgba(255,107,0,0.2);opacity:0.9;">
+          <div class="cal-block-header">
+            <img src="images/GT3_TOURING_LOGO.png" alt="GT3 Touring Chalange" class="cal-comp-logo" style="filter:grayscale(0.3);" />
+            <div>
+              <h2 class="cal-comp-title">GT3 <span class="text-yellow">Touring Chalange</span></h2>
+              <p class="cal-comp-sub">Campeonato GT3 Racing Team &mdash; <span style="color:var(--yellow);font-weight:600;">Conclu&#237;do</span></p>
+            </div>
+          </div>
+
+          <div class="gt3tc-sala-btns" style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+            <button class="gt3tc-sala-btn active" data-sala="A" style="padding:0.4rem 1.2rem;border:1px solid var(--yellow);background:var(--yellow);color:#000;font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;">Sala A</button>
+            <button class="gt3tc-sala-btn" data-sala="D" style="padding:0.4rem 1.2rem;border:1px solid rgba(255,255,255,0.2);background:transparent;color:var(--white);font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;">Sala D</button>
+          </div>
+
+          <div class="cal-table-wrap">
+            <table class="cal-table">
+              <thead>
+                <tr><th>#</th><th>Data</th><th>Sala</th><th>Piloto</th><th>Estado</th></tr>
+              </thead>
+              <tbody id="gt3tc-tbody">
+                <tr data-sala="A"><td>R1</td><td>15/MAI</td><td>A</td><td>RTP_Brunocm97 &middot; Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="D" style="display:none;"><td>R1</td><td>12/MAI</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="A"><td>R2</td><td>22/MAI</td><td>A</td><td>RTP_Brunocm97 &middot; Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="D" style="display:none;"><td>R2</td><td>19/MAI</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="A"><td>R3</td><td>29/MAI</td><td>A</td><td>RTP_Brunocm97 &middot; Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="D" style="display:none;"><td>R3</td><td>26/MAI</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="A"><td>R4</td><td>19/JUN</td><td>A</td><td>RTP_Brunocm97 &middot; Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="D" style="display:none;"><td>R4</td><td>16/JUN</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="A"><td>R5</td><td>26/JUN</td><td>A</td><td>RTP_Brunocm97 &middot; Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="D" style="display:none;"><td>R5</td><td>23/JUN</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="A"><td>R6</td><td>03/JUL</td><td>A</td><td>RTP_Brunocm97 &middot; Prost</td><td><span class="cal-status feito">Feito</span></td></tr>
+                <tr data-sala="D" style="display:none;"><td>R6</td><td>30/JUN</td><td>D</td><td>RTP_Travincas24</td><td><span class="cal-status feito">Feito</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <script>
+          (function() {
+            const btns = document.querySelectorAll(".gt3tc-sala-btn");
+            const rows = document.querySelectorAll("#gt3tc-tbody tr");
+            btns.forEach(btn => {
+              btn.addEventListener("click", () => {
+                const sala = btn.getAttribute("data-sala");
+                btns.forEach(b => {
+                  b.style.background = "transparent";
+                  b.style.color = "var(--white)";
+                  b.style.borderColor = "rgba(255,255,255,0.2)";
+                });
+                btn.style.background = "var(--yellow)";
+                btn.style.color = "#000";
+                btn.style.borderColor = "var(--yellow)";
+                rows.forEach(r => {
+                  r.style.display = r.getAttribute("data-sala") === sala ? "" : "none";
+                });
+              });
+            });
+          })();
+        </script>
+
+      </div><!-- /#tab-arquivo -->
 
     </div>
   </section>
