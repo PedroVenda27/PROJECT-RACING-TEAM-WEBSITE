@@ -252,6 +252,13 @@ const SITE_DATA = {
       logo: "images/TPGT_LOGO.png",
       url: ""
     },
+    {
+      name: "Mazda MX-5 Cup",
+      platform: "GT7",
+      description: "Campeonato interno RTP Racing Team Project disputado no Gran Turismo 7 ao volante do Mazda MX-5, ao longo de 6 rondas.",
+      logo: "images/MAZDA MX-5 CUP/MAZDA MX-5 CUP ICON.png",
+      url: "inscricao.html"
+    },
   ],
 
   /* ─────────────────────────────────────────────
