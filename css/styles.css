@@ -2462,6 +2462,19 @@ img {
   background: var(--yellow);
   color: #000;
 }
+.cal-gcal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.cal-gcal-btn:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
 
 .cal-comp-logo {
   width: 60px;
