@@ -29,6 +29,16 @@ const SITE_DATA = {
       pilotoMes: true,
     },
     {
+      name: "Piloto da Comunidade do Mês",
+      number: "00",
+      role: "ExemploPilotoComunidade",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "",
+      flag: "🇵🇹",
+      pilotoComunidadeMes: true,
+    },
+    {
       name: "Pedro Venda",
       number: "27",
       role: "Fvenda117",

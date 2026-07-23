@@ -119,35 +119,49 @@ document.addEventListener("DOMContentLoaded", () => {
      RENDER DRIVERS  (4×4 grid)
      ══════════════════════════════════════════════════════════════════ */
   const driversGrid = document.getElementById("drivers-grid");
-  if (driversGrid && SITE_DATA.drivers) {
-    const potm = SITE_DATA.drivers.find(d => d.pilotoMes);
-    const rest = SITE_DATA.drivers.filter(d => !d.pilotoMes);
+  function renderDriversGrid() {
+    if (!driversGrid || !SITE_DATA.drivers) return;
+    const lang = (typeof getLang === "function") ? getLang() : "pt";
+    const t = (key, fallback) => (typeof TRANSLATIONS !== "undefined" && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) || fallback;
 
-    const potmHTML = potm ? `
-      <article class="driver-card-potm-featured anim-fade-up" aria-label="${potm.name}">
+    const potm = SITE_DATA.drivers.find(d => d.pilotoMes);
+    const cpotm = SITE_DATA.drivers.find(d => d.pilotoComunidadeMes);
+    const rest = SITE_DATA.drivers.filter(d => !d.pilotoMes && !d.pilotoComunidadeMes);
+
+    function renderFeaturedCard(driver, badgeLabel) {
+      if (!driver) return '';
+      return `
+      <article class="driver-card-potm-featured anim-fade-up" aria-label="${driver.name}">
         <div class="potm-featured-left">
           <div class="potm-featured-img-wrap">
-            ${potm.image
-              ? `<img src="${potm.image}" alt="${potm.name}" loading="lazy" onerror="this.style.display='none';" />`
-              : `<div class="driver-placeholder"><span>${potm.number}</span></div>`
+            ${driver.image
+              ? `<img src="${driver.image}" alt="${driver.name}" loading="lazy" onerror="this.style.display='none';" />`
+              : `<div class="driver-placeholder"><span>${driver.number}</span></div>`
             }
-            <div class="driver-number">#${potm.number}</div>
+            <div class="driver-number">#${driver.number}</div>
           </div>
         </div>
         <div class="potm-featured-right">
-          <div class="potm-featured-badge">⭐ Piloto do Mês</div>
-          <h2 class="potm-featured-name">${potm.name}</h2>
-          <p class="potm-featured-role">${potm.role}</p>
-          <p class="potm-featured-series">${potm.series}</p>
+          <div class="potm-featured-badge">${badgeLabel}</div>
+          <h2 class="potm-featured-name">${driver.name}</h2>
+          <p class="potm-featured-role">${driver.role}</p>
+          <p class="potm-featured-series">${driver.series}</p>
           <div class="potm-featured-flag">
-            <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br','Cabo Verde':'cv'}[potm.nationality]||'pt')}.png" alt="${potm.nationality}" width="22" height="16">
-            <span>${potm.nationality}</span>
+            <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br','Cabo Verde':'cv'}[driver.nationality]||'pt')}.png" alt="${driver.nationality}" width="22" height="16">
+            <span>${driver.nationality}</span>
           </div>
-          <a href="https://www.dg-edge.com/players/${potm.role}" target="_blank" rel="noopener" class="potm-edge-link">
+          <a href="https://www.dg-edge.com/players/${driver.role}" target="_blank" rel="noopener" class="potm-edge-link">
             <img src="images/EDGE.png" alt="Edge" style="height:28px;width:auto;opacity:0.9;" />
           </a>
         </div>
-      </article>` : '';
+      </article>`;
+    }
+
+    const potmHTML = (potm || cpotm) ? `
+      <div class="potm-featured-row">
+        ${renderFeaturedCard(potm, t('drivers.badge.month', '⭐ Piloto do Mês'))}
+        ${renderFeaturedCard(cpotm, t('drivers.badge.community', '🤝 Piloto da Comunidade do Mês'))}
+      </div>` : '';
 
     const cardsHTML = rest.map((d, i) => `
       <article class="driver-card anim-fade-up delay-${Math.min(i % 4, 3)}" aria-label="${d.name}">
@@ -179,6 +193,8 @@ document.addEventListener("DOMContentLoaded", () => {
     driversGrid.innerHTML = potmHTML + cardsHTML;
     driversGrid.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
   }
+  renderDriversGrid();
+  document.addEventListener("rtp:langchange", renderDriversGrid);
 
   /* ══════════════════════════════════════════════════════════════════
      RENDER LEAGUES
