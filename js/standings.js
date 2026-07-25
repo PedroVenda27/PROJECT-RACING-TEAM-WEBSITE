@@ -181,8 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${r.fastestLap ? '<span class="race-badge badge-fl" title="Volta Mais Rápida">VR</span>' : ""}
           </div>
         </td>
-        <td class="cell-psn">${r.psnId || ""}</td>
-        <td class="cell-gap">${r.pos === 1 ? (r.time || "") : (r.gap || "")}</td>
+        <td class="cell-gap">${isQuali ? (r.gap || "—") : (r.pos === 1 ? (r.time || "") : (r.gap || ""))}</td>
         <td class="cell-pen">${r.penalty || "—"}</td>
         ${isQuali
           ? `<td class="cell-gap${r.fastestLap ? " cell-bestlap" : ""}">${r.bestLap || ""}</td>`
@@ -205,7 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <tr>
                 <th class="th-pos">POS</th>
                 <th class="th-name">Piloto</th>
-                <th>PSN ID</th>
                 <th>Tempo / Gap</th>
                 <th>Pen.</th>
                 <th class="${isQuali ? "" : "th-total"}">${isQuali ? "Melhor Volta" : "Pts"}</th>
