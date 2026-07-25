@@ -215,9 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       <div class="standings-legend race-legend">
         <span class="race-badge badge-pole">P</span> Pole Position (+1 ponto) &nbsp;·&nbsp;
-        <span class="race-badge badge-fl">VR</span> Volta Mais Rápida (+1 ponto, apenas Top 10) &nbsp;·&nbsp;
-        Pen. — Penalização do Colégio de Comissários<br>
-        <strong>Regra dos 80%:</strong> Pilotos que não cumprem 80% da distância do vencedor recebem apenas 1 ponto de presença.
+        <span class="race-badge badge-fl">VR</span> Volta Mais Rápida (+1 ponto, apenas Top 10)
       </div>
     `;
   }
