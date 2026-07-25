@@ -381,16 +381,19 @@ const SITE_DATA = {
             {
               type: "race",
               label: "Corrida 1",
-              lapsCompleted: 20,
-              pitStops: 1,
-              fastestLapTime: "1:54.604",
+              fastestLapTime: "1:23.954",
               results: [
-                { pos: 1, name: "João Ferreira",   driverRef: "João Ferreira",   psnId: "JRLF13ACM77",      time: "51:32.828", gap: "",          penalty: 0, points: 23, pole: true,  fastestLap: false },
-                { pos: 2, name: "Wilson Barreto",  driverRef: "Wilson Barreto",  psnId: "Wilson_TheFirst",  time: "",           gap: "+8.406",    penalty: 0, points: 21, pole: false, fastestLap: false },
-                { pos: 3, name: "Prost",           driverRef: "Prost",           psnId: "Naigven",          time: "",           gap: "+9.096",    penalty: 0, points: 18, pole: false, fastestLap: true  },
-                { pos: 4, name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "BrunoCm1997",      time: "",           gap: "+14.713",   penalty: 0, points: 16, pole: false, fastestLap: false },
-                { pos: 5, name: "Kwan Toledo",     driverRef: "Kwan Toledo",     psnId: "K7nG_OC3an",       time: "",           gap: "+19.033",   penalty: 0, points: 14, pole: false, fastestLap: false },
-                { pos: 6, name: "Rafael Agostinho",driverRef: "Rafael Agostinho",psnId: "RafaelAgostinh44", time: "",           gap: "+20.413",   penalty: 0, points: 12, pole: false, fastestLap: false }
+                { pos: 1,  name: "João Ferreira",   driverRef: "João Ferreira",   psnId: "Jony",           time: "21:26.134", gap: "",         penalty: 0, points: 25, pole: false, fastestLap: false },
+                { pos: 2,  name: "Prost",            driverRef: "Prost",           psnId: "Prostt",         time: "",           gap: "+1 Volta", penalty: 0, points: 19, pole: false, fastestLap: true  },
+                { pos: 3,  name: "João Abreu",       driverRef: "João Abreu",      psnId: "J.Abreu",        time: "",           gap: "+1 Volta", penalty: 0, points: 15, pole: true,  fastestLap: false },
+                { pos: 4,  name: "Wilson Barreto",   driverRef: "Wilson Barreto",  psnId: "Barreto",        time: "",           gap: "+1 Volta", penalty: 0, points: 12, pole: false, fastestLap: false },
+                { pos: 5,  name: "Rafael Agostinho", driverRef: "Rafael Agostinho",psnId: "R. Agostinho",   time: "",           gap: "+1 Volta", penalty: 0, points: 10, pole: false, fastestLap: false },
+                { pos: 6,  name: "Kwan Toledo",      driverRef: "Kwan Toledo",     psnId: "K7ng",           time: "",           gap: "+1 Volta", penalty: 0, points: 8,  pole: false, fastestLap: false },
+                { pos: 7,  name: "João Festas",      driverRef: "João Festas",     psnId: "Festas Racing",  time: "",           gap: "+1 Volta", penalty: 0, points: 6,  pole: false, fastestLap: false },
+                { pos: 8,  name: "Pedro Dias",       driverRef: "Pedro Dias",      psnId: "RTP_Travincas24",time: "",           gap: "+1 Volta", penalty: 0, points: 4,  pole: false, fastestLap: false },
+                { pos: 9,  name: "Hugo Costa",       driverRef: "Hugo Costa",      psnId: "Hugo Costa",     time: "",           gap: "+1 Volta", penalty: 0, points: 2,  pole: false, fastestLap: false },
+                { pos: 10, name: "Rodrigo Marques",  driverRef: "Rodrigo Marques", psnId: "100maneiraz",    time: "",           gap: "+1 Volta", penalty: 0, points: 1,  pole: false, fastestLap: false },
+                { pos: 11, name: "Hugo Seixas",      driverRef: "Hugo Seixas",     psnId: "Hyoogo",         time: "",           gap: "+1 Volta", penalty: 0, points: 0,  pole: false, fastestLap: false }
               ]
             },
             {
