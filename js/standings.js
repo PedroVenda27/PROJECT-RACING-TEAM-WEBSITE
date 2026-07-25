@@ -157,8 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const podiumStatsHTML = isQuali ? "" : `
       <div class="race-stats-row">
-        <div class="race-stat"><span class="race-stat-label">Voltas Completas</span><span class="race-stat-value">${session.lapsCompleted ?? "—"}</span></div>
-        <div class="race-stat"><span class="race-stat-label">Paragens nas Boxes</span><span class="race-stat-value">${session.pitStops ?? "—"}</span></div>
+        <div class="race-stat"><span class="race-stat-label">Duração</span><span class="race-stat-value">${session.duration || "—"}</span></div>
         <div class="race-stat"><span class="race-stat-label">Volta Mais Rápida</span><span class="race-stat-value race-stat-purple">${session.fastestLapTime || "—"}</span></div>
       </div>
       <div class="podium-row">${session.results.slice(0, 3).map(r => `

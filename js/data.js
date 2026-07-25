@@ -350,8 +350,9 @@ const SITE_DATA = {
            points       — race sessions only: points awarded (bonuses already included)
            bestLap      — qualifying sessions only: best lap time set in the session
 
-         Race sessions (Corrida 1/2) below are still SAMPLE DATA —
-         replace with the real results when available.
+         Race session fields (Corrida 1/2, set alongside "results"):
+           duration        — session length (e.g. "20 min")
+           fastestLapTime  — fastest lap of the whole session
          ───────────────────────────────────────────── */
       raceResults: [
         {
@@ -381,6 +382,7 @@ const SITE_DATA = {
             {
               type: "race",
               label: "Corrida 1",
+              duration: "20 min",
               fastestLapTime: "1:23.954",
               results: [
                 { pos: 1,  name: "João Ferreira",   driverRef: "João Ferreira",   psnId: "Jony",           time: "21:26.134", gap: "",         penalty: 0, points: 25, pole: false, fastestLap: false },
@@ -399,6 +401,7 @@ const SITE_DATA = {
             {
               type: "race",
               label: "Corrida 2",
+              duration: "20 min",
               fastestLapTime: "1:24.197",
               results: [
                 { pos: 1,  name: "Wilson Barreto",  driverRef: "Wilson Barreto",  psnId: "Barreto",        time: "21:25.643", gap: "",         penalty: 0, points: 26, pole: false, fastestLap: true  },
