@@ -329,6 +329,65 @@ const SITE_DATA = {
         { name: "Luís Dantas",      driverRef: "Luís Dantas",      rounds: [null, 0,    0, 0, 0, 0], total: 0  },
         { name: "Pinto Moreira",    driverRef: "Pinto Moreira",    rounds: [null, 0,    0, 0, 0, 0], total: 0  },
         { name: "Ricardo Gamito",   driverRef: "Ricardo Gamito",   rounds: [null, null, 0, 0, 0, 0], total: 0  }
+      ],
+
+      /* ─────────────────────────────────────────────
+         RACE-BY-RACE RESULTS (Resultados das Corridas)
+         Each entry below is one ROUND. Each round runs 2 races
+         ("Corrida 1" and "Corrida 2") — add/edit them inside "races".
+
+         Fields per result row:
+           pos          — finishing position
+           name         — driver display name
+           driverRef    — must match a "name" in SITE_DATA.drivers to show their photo (optional)
+           psnId        — PSN ID / gamertag shown in the table
+           time         — total race time for P1 (e.g. "51:32.828"); leave "" for the rest
+           gap          — gap to the leader (e.g. "+8.406" or "+1 Volta"); leave "" for P1
+           penalty      — penalty applied by the stewards (0 if none)
+           points       — points awarded for the race (bonuses already included)
+           pole         — true if the driver started the race from pole position
+           fastestLap   — true if the driver set the fastest lap (only awarded to Top 10 finishers)
+
+         THIS IS SAMPLE DATA — replace with the real Round 1 results.
+         ───────────────────────────────────────────── */
+      raceResults: [
+        {
+          round: 1,
+          label: "Ronda 1",
+          date: "13 de Junho de 2026",
+          track: "Circuito de Exemplo",
+          car: "Mazda Spirit Racing Roadster 12R '25",
+          races: [
+            {
+              label: "Corrida 1",
+              lapsCompleted: 20,
+              pitStops: 1,
+              fastestLapTime: "1:54.604",
+              results: [
+                { pos: 1, name: "João Ferreira",   driverRef: "João Ferreira",   psnId: "JRLF13ACM77",      time: "51:32.828", gap: "",          penalty: 0, points: 23, pole: true,  fastestLap: false },
+                { pos: 2, name: "Wilson Barreto",  driverRef: "Wilson Barreto",  psnId: "Wilson_TheFirst",  time: "",           gap: "+8.406",    penalty: 0, points: 21, pole: false, fastestLap: false },
+                { pos: 3, name: "Prost",           driverRef: "Prost",           psnId: "Naigven",          time: "",           gap: "+9.096",    penalty: 0, points: 18, pole: false, fastestLap: true  },
+                { pos: 4, name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "BrunoCm1997",      time: "",           gap: "+14.713",   penalty: 0, points: 16, pole: false, fastestLap: false },
+                { pos: 5, name: "Kwan Toledo",     driverRef: "Kwan Toledo",     psnId: "K7nG_OC3an",       time: "",           gap: "+19.033",   penalty: 0, points: 14, pole: false, fastestLap: false },
+                { pos: 6, name: "Rafael Agostinho",driverRef: "Rafael Agostinho",psnId: "RafaelAgostinh44", time: "",           gap: "+20.413",   penalty: 0, points: 12, pole: false, fastestLap: false }
+              ]
+            },
+            {
+              label: "Corrida 2",
+              lapsCompleted: 20,
+              pitStops: 2,
+              fastestLapTime: "1:53.118",
+              results: [
+                { pos: 1, name: "Wilson Barreto",  driverRef: "Wilson Barreto",  psnId: "Wilson_TheFirst",  time: "50:58.201", gap: "",           penalty: 0, points: 23, pole: true,  fastestLap: false },
+                { pos: 2, name: "João Ferreira",   driverRef: "João Ferreira",   psnId: "JRLF13ACM77",      time: "",           gap: "+5.221",     penalty: 0, points: 21, pole: false, fastestLap: true  },
+                { pos: 3, name: "Rodrigo Marques", driverRef: "Rodrigo Marques", psnId: "Granadas10",       time: "",           gap: "+11.847",    penalty: 0, points: 18, pole: false, fastestLap: false },
+                { pos: 4, name: "João Abreu",      driverRef: "João Abreu",      psnId: "BadBlackCat87",    time: "",           gap: "+15.302",    penalty: 0, points: 16, pole: false, fastestLap: false },
+                { pos: 5, name: "Prost",           driverRef: "Prost",           psnId: "Naigven",          time: "",           gap: "+22.564",    penalty: 5, points: 12, pole: false, fastestLap: false },
+                { pos: 6, name: "João Festas",     driverRef: "João Festas",     psnId: "pastorenrabador",  time: "",           gap: "+1 Volta",   penalty: 0, points: 9,  pole: false, fastestLap: false }
+              ]
+            }
+          ]
+        }
       ]
     }
   ]
