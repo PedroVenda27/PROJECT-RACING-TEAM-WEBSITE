@@ -417,6 +417,66 @@ const SITE_DATA = {
               ]
             }
           ]
+        },
+        {
+          round: 2,
+          label: "Ronda 2",
+          date: "24 de Julho de 2026",
+          track: "Michelin Raceway Road Atlanta",
+          car: "Mazda Spirit Racing Roadster 12R '25",
+          sessions: [
+            { type: "qualifying", label: "Qualificação", results: [] },
+            { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
+            { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
+          ]
+        },
+        {
+          round: 3,
+          label: "Ronda 3",
+          date: "31 de Julho de 2026",
+          track: "Tsukuba Circuit",
+          car: "Mazda Spirit Racing Roadster 12R '25",
+          sessions: [
+            { type: "qualifying", label: "Qualificação", results: [] },
+            { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
+            { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
+          ]
+        },
+        {
+          round: 4,
+          label: "Ronda 4",
+          date: "7 de Agosto de 2026",
+          track: "Watkins Glen (Short Course)",
+          car: "Mazda Spirit Racing Roadster 12R '25",
+          sessions: [
+            { type: "qualifying", label: "Qualificação", results: [] },
+            { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
+            { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
+          ]
+        },
+        {
+          round: 5,
+          label: "Ronda 5",
+          date: "14 de Agosto de 2026",
+          track: "Goodwood Motor Circuit",
+          car: "Mazda Spirit Racing Roadster 12R '25",
+          sessions: [
+            { type: "qualifying", label: "Qualificação", results: [] },
+            { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
+            { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
+          ]
+        },
+        {
+          round: 6,
+          label: "Ronda 6",
+          date: "21 de Agosto de 2026",
+          track: "Circuit Gilles Villeneuve",
+          car: "Mazda Spirit Racing Roadster 12R '25",
+          sessions: [
+            { type: "qualifying", label: "Qualificação", results: [] },
+            { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
+            { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
+          ]
         }
       ]
     }
