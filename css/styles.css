@@ -3141,6 +3141,7 @@ img {
 .cell-psn { color: var(--gray-400); font-size: 0.82rem; }
 .cell-gap { color: var(--gray-300); font-variant-numeric: tabular-nums; }
 .cell-pen { color: var(--gray-500); }
+.cell-bestlap { color: #c084fc; font-weight: 700; }
 
 .race-badge {
   display: inline-flex;

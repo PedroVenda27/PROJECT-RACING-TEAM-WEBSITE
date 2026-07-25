@@ -333,32 +333,50 @@ const SITE_DATA = {
 
       /* ─────────────────────────────────────────────
          RACE-BY-RACE RESULTS (Resultados das Corridas)
-         Each entry below is one ROUND. Each round runs 2 races
-         ("Corrida 1" and "Corrida 2") — add/edit them inside "races".
+         Each entry below is one ROUND. Each round has a "sessions"
+         array: one Qualifying session followed by the 2 races that
+         make up the round ("Corrida 1" and "Corrida 2").
 
          Fields per result row:
            pos          — finishing position
            name         — driver display name
            driverRef    — must match a "name" in SITE_DATA.drivers to show their photo (optional)
-           psnId        — PSN ID / gamertag shown in the table
-           time         — total race time for P1 (e.g. "51:32.828"); leave "" for the rest
+           psnId        — PSN ID / in-game nickname shown in the table
+           time         — total time for P1 (e.g. "51:32.828" or "20:50.807"); leave "" for the rest
            gap          — gap to the leader (e.g. "+8.406" or "+1 Volta"); leave "" for P1
-           penalty      — penalty applied by the stewards (0 if none)
-           points       — points awarded for the race (bonuses already included)
-           pole         — true if the driver started the race from pole position
-           fastestLap   — true if the driver set the fastest lap (only awarded to Top 10 finishers)
+           penalty      — penalty applied by the stewards ("" if none)
+           pole         — true if the driver starts the race from pole (qualifying P1)
+           fastestLap   — true if the driver set the fastest lap
+           points       — race sessions only: points awarded (bonuses already included)
+           bestLap      — qualifying sessions only: best lap time set in the session
 
-         THIS IS SAMPLE DATA — replace with the real Round 1 results.
+         Race sessions (Corrida 1/2) below are still SAMPLE DATA —
+         replace with the real results when available.
          ───────────────────────────────────────────── */
       raceResults: [
         {
           round: 1,
           label: "Ronda 1",
           date: "13 de Junho de 2026",
-          track: "Circuito de Exemplo",
+          track: "Michelin Raceway Road Atlanta",
           car: "Mazda Spirit Racing Roadster 12R '25",
-          races: [
+          sessions: [
             {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1, name: "Bruno Teixeira", driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97", time: "20:50.807", gap: "",         penalty: "", pole: true,  fastestLap: false, bestLap: "1:34.772" },
+                { pos: 2, name: "Jony",           driverRef: "Jony",           psnId: "Jony",           time: "",           gap: "+07.588",  penalty: "", pole: false, fastestLap: true,  bestLap: "1:34.769" },
+                { pos: 3, name: "Kwan Toledo",     driverRef: "Kwan Toledo",    psnId: "K7ng",           time: "",           gap: "+12.443",  penalty: "0:01.000", pole: false, fastestLap: false, bestLap: "1:35.355" },
+                { pos: 4, name: "João Abreu",      driverRef: "João Abreu",     psnId: "J.Abreu",        time: "",           gap: "+15.836",  penalty: "", pole: false, fastestLap: false, bestLap: "1:35.258" },
+                { pos: 5, name: "Prost",           driverRef: "Prost",          psnId: "Prostt",         time: "",           gap: "+19.018",  penalty: "", pole: false, fastestLap: false, bestLap: "1:34.888" },
+                { pos: 6, name: "BeMadPT",         driverRef: "BeMadPT",        psnId: "BeMadPT",        time: "",           gap: "+20.610",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.176" },
+                { pos: 7, name: "100maneiraz",     driverRef: "100maneiraz",    psnId: "100maneiraz",    time: "",           gap: "+26.181",  penalty: "", pole: false, fastestLap: false, bestLap: "1:35.866" },
+                { pos: 8, name: "Nuno Bravo",      driverRef: "Nuno Bravo",     psnId: "N17",            time: "",           gap: "+27.275",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.321" }
+              ]
+            },
+            {
+              type: "race",
               label: "Corrida 1",
               lapsCompleted: 20,
               pitStops: 1,
@@ -373,6 +391,7 @@ const SITE_DATA = {
               ]
             },
             {
+              type: "race",
               label: "Corrida 2",
               lapsCompleted: 20,
               pitStops: 2,

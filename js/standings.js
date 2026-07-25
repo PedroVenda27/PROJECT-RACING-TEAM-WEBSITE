@@ -147,22 +147,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const state = raceResultsState[compId];
     const round = s.raceResults[state.roundIdx];
     if (!round) return "";
-    if (state.raceIdx >= round.races.length) state.raceIdx = 0;
-    const race = round.races[state.raceIdx];
+    if (state.raceIdx >= round.sessions.length) state.raceIdx = 0;
+    const session = round.sessions[state.raceIdx];
+    const isQuali = session.type === "qualifying";
 
-    const raceSubTabs = round.races.map((rc, i) => `
-      <button class="race-subtab${i === state.raceIdx ? " active" : ""}" data-race-idx="${i}">${rc.label}</button>
+    const subTabs = round.sessions.map((sess, i) => `
+      <button class="race-subtab${i === state.raceIdx ? " active" : ""}" data-race-idx="${i}">${sess.label}</button>
     `).join("");
 
-    const podium = race.results.slice(0, 3).map(r => `
-      <div class="podium-card podium-pos-${r.pos}">
-        <div class="podium-pos">${r.pos}</div>
-        <div class="podium-name">${r.name}</div>
-        <div class="podium-time">${r.pos === 1 ? r.time : r.gap}</div>
+    const podiumStatsHTML = isQuali ? "" : `
+      <div class="race-stats-row">
+        <div class="race-stat"><span class="race-stat-label">Voltas Completas</span><span class="race-stat-value">${session.lapsCompleted ?? "—"}</span></div>
+        <div class="race-stat"><span class="race-stat-label">Paragens nas Boxes</span><span class="race-stat-value">${session.pitStops ?? "—"}</span></div>
+        <div class="race-stat"><span class="race-stat-label">Volta Mais Rápida</span><span class="race-stat-value race-stat-purple">${session.fastestLapTime || "—"}</span></div>
       </div>
-    `).join("");
+      <div class="podium-row">${session.results.slice(0, 3).map(r => `
+        <div class="podium-card podium-pos-${r.pos}">
+          <div class="podium-pos">${r.pos}</div>
+          <div class="podium-name">${r.name}</div>
+          <div class="podium-time">${r.pos === 1 ? r.time : r.gap}</div>
+        </div>
+      `).join("")}</div>
+    `;
 
-    const rows = race.results.map(r => `
+    const rows = session.results.map(r => `
       <tr class="${r.pos <= 3 ? "row-pos-" + r.pos : ""}">
         <td class="cell-pos">${r.pos}</td>
         <td class="cell-name">
@@ -174,9 +182,12 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </td>
         <td class="cell-psn">${r.psnId || ""}</td>
-        <td class="cell-gap">${r.pos === 1 ? r.time : r.gap}</td>
-        <td class="cell-pen">${r.penalty || 0}</td>
-        <td class="cell-total">${r.points}</td>
+        <td class="cell-gap">${r.pos === 1 ? (r.time || "") : (r.gap || "")}</td>
+        <td class="cell-pen">${r.penalty || "—"}</td>
+        ${isQuali
+          ? `<td class="cell-gap${r.fastestLap ? " cell-bestlap" : ""}">${r.bestLap || ""}</td>`
+          : `<td class="cell-total">${r.points}</td>`
+        }
       </tr>
     `).join("");
 
@@ -185,13 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div><span class="race-info-label">${round.label || "Ronda " + round.round}</span>${round.date ? " · " + round.date : ""}${round.track ? " · " + round.track : ""}</div>
         ${round.car ? `<div class="race-info-car">${round.car}</div>` : ""}
       </div>
-      <div class="race-subtabs" data-comp="${compId}">${raceSubTabs}</div>
-      <div class="race-stats-row">
-        <div class="race-stat"><span class="race-stat-label">Voltas Completas</span><span class="race-stat-value">${race.lapsCompleted ?? "—"}</span></div>
-        <div class="race-stat"><span class="race-stat-label">Paragens nas Boxes</span><span class="race-stat-value">${race.pitStops ?? "—"}</span></div>
-        <div class="race-stat"><span class="race-stat-label">Volta Mais Rápida</span><span class="race-stat-value race-stat-purple">${race.fastestLapTime || "—"}</span></div>
-      </div>
-      <div class="podium-row">${podium}</div>
+      <div class="race-subtabs" data-comp="${compId}">${subTabs}</div>
+      ${podiumStatsHTML}
       <div class="standings-table-wrap" style="margin-bottom:1rem;">
         <div class="standings-table-scroll">
           <table class="standings-table">
@@ -202,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <th>PSN ID</th>
                 <th>Tempo / Gap</th>
                 <th>Pen.</th>
-                <th class="th-total">Pts</th>
+                <th class="${isQuali ? "" : "th-total"}">${isQuali ? "Melhor Volta" : "Pts"}</th>
               </tr>
             </thead>
             <tbody>${rows}</tbody>
