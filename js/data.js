@@ -358,8 +358,8 @@ const SITE_DATA = {
         {
           round: 1,
           label: "Ronda 1",
-          date: "13 de Junho de 2026",
-          track: "Michelin Raceway Road Atlanta",
+          date: "17 de Julho de 2026",
+          track: "High Speed Ring",
           car: "Mazda Spirit Racing Roadster 12R '25",
           sessions: [
             {
