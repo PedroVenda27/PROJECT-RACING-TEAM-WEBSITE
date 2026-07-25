@@ -3031,6 +3031,21 @@ img {
 }
 .race-round-tabs { margin-bottom: 1.25rem; }
 
+.race-coming-soon {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  opacity: 0.6;
+  background: var(--gray-800);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+}
+
 .race-info-bar {
   display: flex;
   flex-wrap: wrap;

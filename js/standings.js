@@ -150,10 +150,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.raceIdx >= round.sessions.length) state.raceIdx = 0;
     const session = round.sessions[state.raceIdx];
     const isQuali = session.type === "qualifying";
+    const hasResults = session.results && session.results.length > 0;
 
     const subTabs = round.sessions.map((sess, i) => `
       <button class="race-subtab${i === state.raceIdx ? " active" : ""}" data-race-idx="${i}">${sess.label}</button>
     `).join("");
+
+    if (!hasResults) {
+      return `
+        <div class="race-info-bar">
+          <div><span class="race-info-label">${round.label || "Ronda " + round.round}</span>${round.date ? " · " + round.date : ""}${round.track ? " · " + round.track : ""}</div>
+          ${round.car ? `<div class="race-info-car">${round.car}</div>` : ""}
+        </div>
+        <div class="race-subtabs" data-comp="${compId}">${subTabs}</div>
+        <div class="race-coming-soon">Brevemente</div>
+      `;
+    }
 
     const podiumStatsHTML = isQuali ? "" : `
       <div class="race-stats-row">
