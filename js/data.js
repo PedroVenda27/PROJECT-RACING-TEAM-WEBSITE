@@ -425,7 +425,25 @@ const SITE_DATA = {
           track: "Michelin Raceway Road Atlanta",
           car: "Mazda Spirit Racing Roadster 12R '25",
           sessions: [
-            { type: "qualifying", label: "Qualificação", results: [] },
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97", gap: "",         penalty: "", pole: true,  fastestLap: false, bestLap: "1:35.023" },
+                { pos: 2,  name: "Prost",            driverRef: "Prost",           psnId: "Prostt",         gap: "+00.315",  penalty: "", pole: false, fastestLap: false, bestLap: "1:35.338" },
+                { pos: 3,  name: "João Abreu",       driverRef: "João Abreu",      psnId: "J.Abreu",        gap: "+00.521",  penalty: "", pole: false, fastestLap: false, bestLap: "1:35.544" },
+                { pos: 4,  name: "João Ferreira",    driverRef: "João Ferreira",   psnId: "Jony",           gap: "+00.715",  penalty: "", pole: false, fastestLap: false, bestLap: "1:35.738" },
+                { pos: 5,  name: "Kwan Toledo",      driverRef: "Kwan Toledo",     psnId: "K7ng",           gap: "+00.798",  penalty: "", pole: false, fastestLap: false, bestLap: "1:35.821" },
+                { pos: 6,  name: "Rodrigo Marques",  driverRef: "Rodrigo Marques", psnId: "100maneiraz",    gap: "+01.006",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.029" },
+                { pos: 7,  name: "BeMadPT",          driverRef: "BeMadPT",         psnId: "BeMadPT",        gap: "+01.120",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.143" },
+                { pos: 8,  name: "Pedro Dias",       driverRef: "Pedro Dias",      psnId: "RTP_Travincas24",gap: "+01.263",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.286" },
+                { pos: 9,  name: "João Festas",      driverRef: "João Festas",     psnId: "Festas Racing",  gap: "+01.624",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.647" },
+                { pos: 10, name: "Luís Dantas",      driverRef: "Luís Dantas",     psnId: "Luisikon_TCHT",  gap: "+01.882",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.905" },
+                { pos: 11, name: "Nuno Bravo",       driverRef: "Nuno Bravo",      psnId: "N17",            gap: "+02.407",  penalty: "", pole: false, fastestLap: false, bestLap: "1:37.430" },
+                { pos: 12, name: "Pinto Moreira",    driverRef: "Pinto Moreira",   psnId: "LOrD_TriPeiRo",  gap: "+03.759",  penalty: "", pole: false, fastestLap: false, bestLap: "1:38.782" },
+                { pos: 13, name: "Hugo Seixas",      driverRef: "Hugo Seixas",     psnId: "Hugo",           gap: "+03.928",  penalty: "", pole: false, fastestLap: false, bestLap: "1:38.951" }
+              ]
+            },
             { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
             { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
           ]
