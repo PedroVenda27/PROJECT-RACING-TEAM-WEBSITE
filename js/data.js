@@ -562,7 +562,24 @@ const SITE_DATA = {
           track: "Tsukuba Circuit",
           car: "Mazda Spirit Racing Roadster 12R '25",
           sessions: [
-            { type: "qualifying", label: "Qualificação", results: [] },
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "João Ferreira",   driverRef: "João Ferreira",   psnId: "Jony",           gap: "",         penalty: "", pole: true,  fastestLap: false, bestLap: "1:03.095" },
+                { pos: 2,  name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97", gap: "+00.119",  penalty: "", pole: false, fastestLap: false, bestLap: "1:03.214" },
+                { pos: 3,  name: "Prost",            driverRef: "Prost",           psnId: "Prostt",         gap: "+00.199",  penalty: "", pole: false, fastestLap: false, bestLap: "1:03.294" },
+                { pos: 4,  name: "Rodrigo Marques",  driverRef: "Rodrigo Marques", psnId: "100maneiraz",    gap: "+00.294",  penalty: "", pole: false, fastestLap: false, bestLap: "1:03.389" },
+                { pos: 5,  name: "Rafael Agostinho", driverRef: "Rafael Agostinho",psnId: "R. Agostinho",   gap: "+00.505",  penalty: "", pole: false, fastestLap: false, bestLap: "1:03.600" },
+                { pos: 6,  name: "Kwan Toledo",      driverRef: "Kwan Toledo",     psnId: "K7ng",           gap: "+00.824",  penalty: "", pole: false, fastestLap: false, bestLap: "1:03.919" },
+                { pos: 7,  name: "Pedro Dias",       driverRef: "Pedro Dias",      psnId: "RTP_Travincas24",gap: "+01.096",  penalty: "", pole: false, fastestLap: false, bestLap: "1:04.191" },
+                { pos: 8,  name: "BeMadPT",          driverRef: "BeMadPT",         psnId: "BeMadPT",        gap: "+01.173",  penalty: "", pole: false, fastestLap: false, bestLap: "1:04.268" },
+                { pos: 9,  name: "Laferia",          driverRef: "Laferia",         psnId: "Laferia",        gap: "+01.749",  penalty: "", pole: false, fastestLap: false, bestLap: "1:04.844" },
+                { pos: 10, name: "Hugo Costa",       driverRef: "Hugo Costa",      psnId: "Hugo Costa",     gap: "+02.010",  penalty: "", pole: false, fastestLap: false, bestLap: "1:05.105" },
+                { pos: 11, name: "Pinto Moreira",    driverRef: "Pinto Moreira",   psnId: "LOrD_TriPeiRo",  gap: "+02.480",  penalty: "", pole: false, fastestLap: false, bestLap: "1:05.575" },
+                { pos: 12, name: "gbKira",           driverRef: "gbKira",          psnId: "gbKira",         gap: "+02.487",  penalty: "", pole: false, fastestLap: false, bestLap: "1:05.582" }
+              ]
+            },
             { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
             { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
           ]
