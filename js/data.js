@@ -219,17 +219,8 @@ const SITE_DATA = {
       flag: "🇨🇻"
     },
     {
-      name: "Hugo Seixas",
-      number: "89",
-      role: "h_seixas13",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
-      flag: "🇵🇹"
-    },
-    {
       name: "Luis Gomes",
-      number: "",
+      number: "88",
       role: "laferia777",
       nationality: "Portugal",
       series: "Gran Turismo 7",
@@ -237,9 +228,9 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
-      name: "Raven",
-      number: "",
-      role: "esboco-barrado",
+      name: "Hugo Seixas",
+      number: "89",
+      role: "h_seixas13",
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
@@ -258,15 +249,6 @@ const SITE_DATA = {
       name: "RTP_Namish",
       number: "",
       role: "Piguils99",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Hugo",
-      number: "",
-      role: "Hugo_Aleixo",
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251846059917895/458f983dc80f5e32894e13364ce60a50_body.png",
