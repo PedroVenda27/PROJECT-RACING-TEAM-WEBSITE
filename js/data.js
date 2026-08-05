@@ -644,6 +644,38 @@ const SITE_DATA = {
           ]
         }
       ]
+    },
+
+    /* ─────────────────────────────────────────────
+       Liga Portugal GT — EXTERNAL competition. This is not run by
+       RTP; only Pedro Venda races here for us, everyone else races
+       for other teams. We only get a periodic overall standings
+       snapshot (no round-by-round breakdown), so this uses
+       type: "drivers-external" — a simpler POS/Piloto/Pontos table.
+       ───────────────────────────────────────────── */
+    {
+      competition: "lpgt",
+      title: "Liga Portugal GT",
+      subtitle: "Gran Turismo 7 · GT6 · Competição Externa",
+      logo: "images/LPGT_WORLDSERIES_LOGO.jpg",
+      type: "drivers-external",
+      drivers: [
+        { name: "GT3rt-Flecha",    driverRef: "GT3rt-Flecha",    points: 59 },
+        { name: "Jatedoarroz",     driverRef: "Jatedoarroz",     points: 48 },
+        { name: "Santimoreira",    driverRef: "Santimoreira",    points: 38 },
+        { name: "Miguel85",        driverRef: "Miguel85",        points: 36 },
+        { name: "Pedro Venda",     driverRef: "Pedro Venda",     points: 34, ourDriver: true },
+        { name: "Andreson Costa",  driverRef: "Andreson Costa",  points: 34 },
+        { name: "Zeuskunha",       driverRef: "Zeuskunha",       points: 25 },
+        { name: "Clarinetes",      driverRef: "Clarinetes",      points: 24 },
+        { name: "Tenworms",        driverRef: "Tenworms",        points: 24 },
+        { name: "Rafael Silva",    driverRef: "Rafael Silva",    points: 18 },
+        { name: "Nyx-Racer",       driverRef: "Nyx-Racer",       points: 11 },
+        { name: "Barbas77",        driverRef: "Barbas77",        points: 9  },
+        { name: "Sport-Evo_bruno", driverRef: "Sport-Evo_bruno", points: 9  },
+        { name: "Sainz",           driverRef: "Sainz",           points: 8  },
+        { name: "Xapas",           driverRef: "Xapas",           points: 7  }
+      ]
     }
   ]
 

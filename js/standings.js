@@ -293,7 +293,63 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  contentEl.innerHTML = SITE_DATA.standings.map(s => s.type === "teams" ? renderTeams(s) : renderStanding(s)).join("");
+  /* ── External competitions (drivers from other teams; no round-by-round
+     data available to us, just a periodic overall standings snapshot) ── */
+  function renderExternalStanding(s) {
+    const logo = s.logo ? `<img src="${s.logo}" alt="${s.label}" class="cal-comp-logo" />` : "";
+    const headerHTML = `
+      <div class="cal-block" id="standings-${s.competition.toLowerCase()}" style="margin-bottom:1.5rem;">
+        <div class="cal-block-header">
+          ${logo}
+          <div>
+            <h2 class="cal-comp-title">${s.title || s.label}</h2>
+            ${s.subtitle ? `<p class="cal-comp-sub">${s.subtitle}</p>` : ""}
+          </div>
+        </div>
+      </div>
+    `;
+
+    const rows = s.drivers.map((d, i) => {
+      const pos = i + 1;
+      return `
+        <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${d.ourDriver ? " row-pitbox" : ""}">
+          <td class="cell-pos">${pos}</td>
+          <td class="cell-name">
+            <div class="st-driver-wrap">
+              ${getDriverImg(d.name, d.driverRef)}
+              <span>${d.name}</span>
+            </div>
+          </td>
+          <td class="cell-total">${d.points}</td>
+        </tr>
+      `;
+    }).join("");
+
+    return headerHTML + `
+      <div class="standings-table-wrap" style="margin-bottom:3rem;">
+        <div class="standings-table-scroll">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th class="th-pos">POS</th>
+                <th class="th-name">Piloto</th>
+                <th class="th-total">Pontos</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderCompetition(s) {
+    if (s.type === "teams") return renderTeams(s);
+    if (s.type === "drivers-external") return renderExternalStanding(s);
+    return renderStanding(s);
+  }
+
+  contentEl.innerHTML = SITE_DATA.standings.map(renderCompetition).join("");
 
   contentEl.addEventListener("click", (e) => {
     const roundBtn = e.target.closest(".race-round-tab");
