@@ -224,7 +224,7 @@ const SITE_DATA = {
       role: "Piguils99",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
       flag: "🇵🇹"
     },
     {
@@ -233,7 +233,7 @@ const SITE_DATA = {
       role: "Hacker_alho79",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
       flag: "🇵🇹"
     },
     {
@@ -242,7 +242,7 @@ const SITE_DATA = {
       role: "gbKira",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
       flag: "🇵🇹"
     },
   ],
