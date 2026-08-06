@@ -47,7 +47,7 @@ const TRANSLATIONS = {
     "drivers.title1":       "Our",
     "drivers.title2":       "Drivers",
     "drivers.badge.month":     "⭐ Driver of the Month — July",
-    "drivers.badge.community": "🤝 Community Driver of the Month",
+    "drivers.badge.community": "⭐ Driver of the Month — July",
 
     // Leagues section (index.html)
     "leagues.tag":          "Where We Compete",
@@ -165,7 +165,7 @@ const TRANSLATIONS = {
     "drivers.title1":       "Os Nossos",
     "drivers.title2":       "Pilotos",
     "drivers.badge.month":     "⭐ Piloto do Mês — Julho",
-    "drivers.badge.community": "🤝 Piloto da Comunidade do Mês",
+    "drivers.badge.community": "⭐ Piloto do Mês — Julho",
 
     // Leagues section (index.html)
     "leagues.tag":          "Onde Competimos",

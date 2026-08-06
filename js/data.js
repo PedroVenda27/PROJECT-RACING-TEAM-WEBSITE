@@ -19,26 +19,6 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   drivers: [
     {
-      name: "Piloto do Mês",
-      number: "00",
-      role: "ExemploPiloto",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "",
-      flag: "🇵🇹",
-      pilotoMes: true,
-    },
-    {
-      name: "Piloto da Comunidade do Mês",
-      number: "00",
-      role: "ExemploPilotoComunidade",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "",
-      flag: "🇵🇹",
-      pilotoComunidadeMes: true,
-    },
-    {
       name: "Prost",
       number: "2",
       role: "Naigven",
@@ -144,7 +124,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      pilotoMes: true
     },
     {
       name: "Sérgio Marques",
@@ -198,7 +179,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      pilotoComunidadeMes: true
     },
     {
       name: "Miguel Cabral",
