@@ -33,7 +33,7 @@ const SITE_DATA = {
       role: "RafaelAgostinh44",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
+      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -96,7 +96,7 @@ const SITE_DATA = {
       role: "Luisikon_TCHT",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Luís Dantas/LuisDantas_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -114,7 +114,7 @@ const SITE_DATA = {
       role: "FVenda117",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Pedro Venda/PedroVenda_Preto.png",
       flag: "🇵🇹",
       pilotoMes: true
     },
@@ -133,7 +133,7 @@ const SITE_DATA = {
       role: "granadas10",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Rodrigo Marques/RodrigoMarques_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -151,7 +151,7 @@ const SITE_DATA = {
       role: "Be_Mad_PT",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Bruno Nunes/BrunoNunes_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -169,7 +169,7 @@ const SITE_DATA = {
       role: "SemDestino75",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Hugo Costa/HugoCosta_Preto.png",
       flag: "🇵🇹",
       pilotoComunidadeMes: true
     },
@@ -179,7 +179,7 @@ const SITE_DATA = {
       role: "mattifroskes",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
+      image: "images/drivers/Miguel Cabral/MiguelCabral_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -188,7 +188,7 @@ const SITE_DATA = {
       role: "Wilson_TheFirst",
       nationality: "Cabo Verde",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Wilson Barreto/WilsonBarreto_Preto.png",
       flag: "🇨🇻"
     },
     {
@@ -219,7 +219,7 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
-      name: "B.Moura79",
+      name: "Bruno Moura",
       number: "",
       role: "Hacker_alho79",
       nationality: "Portugal",
