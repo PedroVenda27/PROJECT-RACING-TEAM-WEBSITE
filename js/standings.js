@@ -349,7 +349,17 @@ document.addEventListener("DOMContentLoaded", () => {
     return renderStanding(s);
   }
 
-  contentEl.innerHTML = SITE_DATA.standings.map(renderCompetition).join("");
+  // Each standings page only shows the competitions listed in its
+  // data-competitions attribute (comma-separated competition ids).
+  // No attribute = show everything (kept for backward compatibility).
+  const compFilter = contentEl.dataset.competitions
+    ? contentEl.dataset.competitions.split(",").map(c => c.trim())
+    : null;
+  const standingsToShow = compFilter
+    ? SITE_DATA.standings.filter(s => compFilter.includes(s.competition))
+    : SITE_DATA.standings;
+
+  contentEl.innerHTML = standingsToShow.map(renderCompetition).join("");
 
   contentEl.addEventListener("click", (e) => {
     const roundBtn = e.target.closest(".race-round-tab");
