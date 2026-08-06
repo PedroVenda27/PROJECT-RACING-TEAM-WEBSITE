@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const potm = SITE_DATA.drivers.find(d => d.pilotoMes);
     const cpotm = SITE_DATA.drivers.find(d => d.pilotoComunidadeMes);
-    const rest = SITE_DATA.drivers.filter(d => !d.pilotoMes && !d.pilotoComunidadeMes);
+    const rest = SITE_DATA.drivers;
 
     function renderFeaturedCard(driver, badgeLabel) {
       if (!driver) return '';
