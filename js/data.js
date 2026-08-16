@@ -569,7 +569,19 @@ const SITE_DATA = {
           track: "Watkins Glen (Short Course)",
           car: "Mazda Spirit Racing Roadster 12R '25",
           sessions: [
-            { type: "qualifying", label: "Qualificação", results: [] },
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1, name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97", gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:22.324" },
+                { pos: 2, name: "Sérgio Marques",  driverRef: "Sérgio Marques",  psnId: "S. Marques",    gap: "+00.491", penalty: "", pole: false, fastestLap: false, bestLap: "1:22.815" },
+                { pos: 3, name: "Wilson Barreto",  driverRef: "Wilson Barreto",  psnId: "Barreto",       gap: "+00.623", penalty: "", pole: false, fastestLap: false, bestLap: "1:22.947" },
+                { pos: 4, name: "Rodrigo Marques", driverRef: "Rodrigo Marques", psnId: "100maneiraz",   gap: "+00.742", penalty: "", pole: false, fastestLap: false, bestLap: "1:23.066" },
+                { pos: 5, name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",           gap: "+00.988", penalty: "", pole: false, fastestLap: false, bestLap: "1:23.312" },
+                { pos: 6, name: "Ricardo Gamito",  driverRef: "Ricardo Gamito",  psnId: "PUPILO",        gap: "+02.195", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.519" },
+                { pos: 7, name: "Hugo Costa",      driverRef: "Hugo Costa",      psnId: "Hugo Costa",    gap: "+01.638", penalty: "", pole: false, fastestLap: false, bestLap: "1:23.962" }
+              ]
+            },
             { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
             { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
           ]
