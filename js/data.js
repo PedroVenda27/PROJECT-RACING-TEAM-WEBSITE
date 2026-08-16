@@ -582,7 +582,20 @@ const SITE_DATA = {
                 { pos: 7, name: "Hugo Costa",      driverRef: "Hugo Costa",      psnId: "Hugo Costa",    gap: "+01.638", penalty: "", pole: false, fastestLap: false, bestLap: "1:23.962" }
               ]
             },
-            { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
+            {
+              type: "race",
+              label: "Corrida 1",
+              duration: "20 min",
+              fastestLapTime: "1:21.877",
+              results: [
+                { pos: 1, name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97", time: "20:51.792", gap: "",        penalty: "0:02.000", points: 26, pole: false, fastestLap: true  },
+                { pos: 2, name: "Wilson Barreto",  driverRef: "Wilson Barreto",  psnId: "Barreto",       time: "",           gap: "+08.969", penalty: 0,           points: 18, pole: false, fastestLap: false },
+                { pos: 3, name: "Rodrigo Marques", driverRef: "Rodrigo Marques", psnId: "100maneiraz",   time: "",           gap: "+08.997", penalty: 0,           points: 15, pole: false, fastestLap: false },
+                { pos: 4, name: "Ricardo Gamito",  driverRef: "Ricardo Gamito",  psnId: "PUPILO",        time: "",           gap: "+18.224", penalty: 0,           points: 12, pole: false, fastestLap: false },
+                { pos: 5, name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",           time: "",           gap: "1 Volta",  penalty: 0,           points: 10, pole: false, fastestLap: false },
+                { pos: 6, name: "Sérgio Marques",  driverRef: "Sérgio Marques",  psnId: "S. Marques",    time: "",           gap: "NC",       penalty: 0,           points: 8,  pole: false, fastestLap: false }
+              ]
+            },
             { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
           ]
         },
