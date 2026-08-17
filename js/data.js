@@ -637,7 +637,24 @@ const SITE_DATA = {
                 { pos: 11, name: "Ricardo Gamito",  driverRef: "Ricardo Gamito",  psnId: "PUPILO",        gap: "+07.070", penalty: "", pole: false, fastestLap: false, bestLap: "1:30.587" }
               ]
             },
-            { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
+            {
+              type: "race",
+              label: "Corrida 1",
+              duration: "20 min",
+              fastestLapTime: "1:23.012",
+              results: [
+                { pos: 1,  name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97", time: "21:06.040", gap: "",           penalty: 0,           points: 26, pole: false, fastestLap: true  },
+                { pos: 2,  name: "Bruno Nunes",     driverRef: "Bruno Nunes",     psnId: "BeMadPT",       time: "",           gap: "+1 Volta",   penalty: 0,           points: 18, pole: false, fastestLap: false },
+                { pos: 3,  name: "Elias Portugal",  driverRef: "Elias Portugal",  psnId: "KezwiiK",       time: "",           gap: "+1 Volta",   penalty: 0,           points: 15, pole: false, fastestLap: false },
+                { pos: 4,  name: "Rui Silva",       driverRef: "Rui Silva",       psnId: "Pandex",        time: "",           gap: "+1 Volta",   penalty: 0,           points: 12, pole: false, fastestLap: false },
+                { pos: 5,  name: "João Festas",     driverRef: "João Festas",     psnId: "Festas Racing", time: "",           gap: "+1 Volta",   penalty: 0,           points: 10, pole: false, fastestLap: false },
+                { pos: 6,  name: "Pedro Dias",      driverRef: "Pedro Dias",      psnId: "RTP_Travincas24", time: "",         gap: "+1 Volta",   penalty: 0,           points: 8,  pole: false, fastestLap: false },
+                { pos: 7,  name: "Pedro Venda",     driverRef: "Pedro Venda",     psnId: "Pedro Venda",   time: "",           gap: "+1 Volta",   penalty: "0:01.000",  points: 6,  pole: false, fastestLap: false },
+                { pos: 8,  name: "Hugo Costa",      driverRef: "Hugo Costa",      psnId: "Hugo Costa",    time: "",           gap: "+1 Volta",   penalty: 0,           points: 4,  pole: false, fastestLap: false },
+                { pos: 9,  name: "Rodrigo Marques", driverRef: "Rodrigo Marques", psnId: "100maneiraz",   time: "",           gap: "+2 Voltas",  penalty: 0,           points: 2,  pole: false, fastestLap: false },
+                { pos: 10, name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",           time: "",           gap: "NC",          penalty: 0,           points: 1,  pole: false, fastestLap: false }
+              ]
+            },
             { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
           ]
         },
