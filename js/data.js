@@ -655,7 +655,21 @@ const SITE_DATA = {
                 { pos: 10, name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",           time: "",           gap: "NC",          penalty: 0,           points: 1,  pole: false, fastestLap: false }
               ]
             },
-            { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
+            {
+              type: "race",
+              label: "Corrida 2",
+              duration: "20 min",
+              fastestLapTime: "1:23.342",
+              results: [
+                { pos: 1, name: "Bruno Nunes",     driverRef: "Bruno Nunes",     psnId: "BeMadPT",         time: "20:05.658", gap: "",          penalty: 0, points: 25, pole: false, fastestLap: false },
+                { pos: 2, name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97",   time: "",           gap: "+00.317",   penalty: 0, points: 19, pole: false, fastestLap: true  },
+                { pos: 3, name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",             time: "",           gap: "+02.210",   penalty: 0, points: 15, pole: false, fastestLap: false },
+                { pos: 4, name: "Rui Silva",       driverRef: "Rui Silva",       psnId: "Pandex",          time: "",           gap: "+22.261",   penalty: 0, points: 12, pole: false, fastestLap: false },
+                { pos: 5, name: "Elias Portugal",  driverRef: "Elias Portugal",  psnId: "KezwiiK",         time: "",           gap: "+23.337",   penalty: 0, points: 10, pole: false, fastestLap: false },
+                { pos: 6, name: "Hugo Costa",      driverRef: "Hugo Costa",      psnId: "Hugo Costa",      time: "",           gap: "1 Volta",   penalty: 0, points: 8,  pole: false, fastestLap: false },
+                { pos: 7, name: "Pedro Dias",      driverRef: "Pedro Dias",      psnId: "RTP_Travincas24", time: "",           gap: "2 Voltas",  penalty: 0, points: 6,  pole: false, fastestLap: false }
+              ]
+            }
           ]
         },
         {
