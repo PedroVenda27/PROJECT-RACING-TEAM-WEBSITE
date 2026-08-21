@@ -857,9 +857,13 @@ img {
   font-weight: 600;
   white-space: nowrap;
 }
-.id-icon { flex-shrink: 0; }
-.id-icon-ps { color: #2E7BD6; }
-.id-icon-gt { color: var(--yellow); }
+.id-icon {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  border-radius: 3px;
+}
 .driver-series {
   font-size: 0.7rem;
   color: var(--gray-400);

@@ -146,8 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2 class="potm-featured-name">${driver.name}</h2>
           <p class="potm-featured-series">${driver.series}</p>
           <div class="potm-featured-ids">
-            <p class="potm-featured-id-row"><svg class="id-icon id-icon-ps" viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="8" width="20" height="10" rx="5" fill="currentColor"/><circle cx="7" cy="13" r="1.6" fill="#000"/><circle cx="17" cy="13" r="1.6" fill="#000"/></svg> ${driver.role}</p>
-            <p class="potm-featured-id-row"><svg class="id-icon id-icon-gt" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/><line x1="12" y1="3" x2="12" y2="9.5"/><line x1="5.5" y1="16" x2="9.8" y2="13.5"/><line x1="18.5" y1="16" x2="14.2" y2="13.5"/></svg> ${driver.gtName || driver.role}</p>
+            <p class="potm-featured-id-row"><img class="id-icon" src="images/PlayStation_App_Icon.jpg" alt="PSN" /> ${driver.role}</p>
+            <p class="potm-featured-id-row"><img class="id-icon" src="images/ICON_GT7.svg" alt="GT7" /> ${driver.gtName || driver.role}</p>
           </div>
           <div class="potm-featured-flag">
             <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br','Cabo Verde':'cv'}[driver.nationality]||'pt')}.png" alt="${driver.nationality}" width="22" height="16">
@@ -187,8 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.3rem;">
             <div class="driver-ids">
-              <p class="driver-id-row"><svg class="id-icon id-icon-ps" viewBox="0 0 24 24" width="12" height="12"><rect x="2" y="8" width="20" height="10" rx="5" fill="currentColor"/><circle cx="7" cy="13" r="1.6" fill="#000"/><circle cx="17" cy="13" r="1.6" fill="#000"/></svg> ${d.role}</p>
-              <p class="driver-id-row"><svg class="id-icon id-icon-gt" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/><line x1="12" y1="3" x2="12" y2="9.5"/><line x1="5.5" y1="16" x2="9.8" y2="13.5"/><line x1="18.5" y1="16" x2="14.2" y2="13.5"/></svg> ${d.gtName || d.role}</p>
+              <p class="driver-id-row"><img class="id-icon" src="images/PlayStation_App_Icon.jpg" alt="PSN" /> ${d.role}</p>
+              <p class="driver-id-row"><img class="id-icon" src="images/ICON_GT7.svg" alt="GT7" /> ${d.gtName || d.role}</p>
             </div>
             <a href="https://www.dg-edge.com/players/${d.role}" target="_blank" rel="noopener" title="Ver perfil Edge de ${d.role}">
               <img src="images/EDGE.png" alt="Edge" style="height:20px;width:auto;opacity:0.9;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'" />
