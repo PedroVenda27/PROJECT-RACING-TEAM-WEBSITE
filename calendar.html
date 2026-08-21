@@ -400,12 +400,12 @@
           const card = document.createElement('div');
           card.className = 'today-race-card';
           card.innerHTML = `
-            <div class="today-race-head">
-              ${r.logo ? `<img src="${r.logo}" alt="${r.comp}" class="today-race-logo" />` : ''}
+            ${r.logo ? `<img src="${r.logo}" alt="${r.comp}" class="today-race-logo" />` : ''}
+            <div class="today-race-info">
               <div class="today-race-comp">${r.comp}${r.round ? ' · ' + r.round : ''}</div>
+              <div class="today-race-circuit">${r.circuit}</div>
+              ${r.piloto ? `<div class="today-race-piloto">${r.piloto}</div>` : ''}
             </div>
-            <div class="today-race-circuit">${r.circuit}</div>
-            ${r.piloto ? `<div class="today-race-piloto">${r.piloto}</div>` : ''}
           `;
           card.addEventListener('click', () => {
             r.row.scrollIntoView({ behavior: 'smooth', block: 'center' });

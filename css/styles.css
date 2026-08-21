@@ -2459,10 +2459,13 @@ img {
 }
 
 .today-race-card {
+  display: flex;
+  align-items: stretch;
   background: var(--gray-900);
   border: 1px solid rgba(255,107,0,0.3);
   border-radius: 10px;
-  padding: 1rem 1.2rem;
+  padding: 0;
+  overflow: hidden;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -2473,19 +2476,17 @@ img {
   transform: translateY(-2px);
 }
 
-.today-race-head {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.4rem;
+.today-race-logo {
+  width: 88px;
+  min-width: 88px;
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
-.today-race-logo {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  border-radius: 4px;
-  flex-shrink: 0;
+.today-race-info {
+  padding: 1rem 1.2rem;
+  min-width: 0;
 }
 
 .today-race-comp {
@@ -2494,6 +2495,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
+  margin-bottom: 0.4rem;
 }
 
 .today-race-circuit {
