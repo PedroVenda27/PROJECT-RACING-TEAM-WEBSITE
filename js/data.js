@@ -19,21 +19,12 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   drivers: [
     {
-      name: "Prost",
-      number: "2",
-      role: "Naigven",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
-      flag: "🇵🇹"
-    },
-    {
       name: "Rui Silva",
       number: "3",
       role: "pandafrass",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
+      image: "images/drivers/Rui Silva/RuiSilva_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -42,7 +33,7 @@ const SITE_DATA = {
       role: "RafaelAgostinh44",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Preto.png",
+      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -51,16 +42,16 @@ const SITE_DATA = {
       role: "JRLF13ACM77",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
       flag: "🇵🇹"
     },
     {
-      name: "Elias Portugal",
+      name: "Elias Torres",
       number: "11",
       role: "KajuNN",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Elias Torres/EliasTorres_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -69,7 +60,7 @@ const SITE_DATA = {
       role: "BrunoCm1997",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
+      image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -78,7 +69,7 @@ const SITE_DATA = {
       role: "K7nG_0C3an",
       nationality: "Brasil",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
       flag: "🇧🇷"
     },
     {
@@ -87,7 +78,7 @@ const SITE_DATA = {
       role: "pastorenrabador",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251828330484149/62c8011c994bf37fb777aa6f2ccf0dd1_body.png",
+      image: "images/drivers/João Festas/JoaoFestas_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -96,7 +87,7 @@ const SITE_DATA = {
       role: "N17_nuno",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Nuno Bravo/NunoBravo_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -105,7 +96,7 @@ const SITE_DATA = {
       role: "Luisikon_TCHT",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Luís Dantas/LuisDantas_Laranja.png",
+      image: "images/drivers/Luís Dantas/LuisDantas_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -114,7 +105,7 @@ const SITE_DATA = {
       role: "Travincas24",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Pedro Dias/PedroDias_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -123,7 +114,7 @@ const SITE_DATA = {
       role: "FVenda117",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Pedro Venda/PedroVenda_Laranja.png",
+      image: "images/drivers/Pedro Venda/PedroVenda_Preto.png",
       flag: "🇵🇹",
       pilotoMes: true
     },
@@ -133,7 +124,7 @@ const SITE_DATA = {
       role: "CyberserGT",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
       flag: "🇵🇹"
     },
     {
@@ -142,7 +133,7 @@ const SITE_DATA = {
       role: "granadas10",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rodrigo Marques/RodrigoMarques_Laranja.png",
+      image: "images/drivers/Rodrigo Marques/RodrigoMarques_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -151,16 +142,16 @@ const SITE_DATA = {
       role: "Pinto_Moreira",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
       flag: "🇵🇹"
     },
     {
-      name: "Bruno Nunes",
+      name: "Nuno Silva",
       number: "44",
       role: "Be_Mad_PT",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Bruno Nunes/BrunoNunes_Laranja.png",
+      image: "images/drivers/Nuno Silva/NunoSilva_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -169,7 +160,7 @@ const SITE_DATA = {
       role: "PUPILO_2GA",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
       flag: "🇵🇹"
     },
     {
@@ -178,7 +169,7 @@ const SITE_DATA = {
       role: "SemDestino75",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Hugo Costa/HugoCosta_Laranja.png",
+      image: "images/drivers/Hugo Costa/HugoCosta_Preto.png",
       flag: "🇵🇹",
       pilotoComunidadeMes: true
     },
@@ -188,7 +179,7 @@ const SITE_DATA = {
       role: "mattifroskes",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Miguel Cabral/MiguelCabral_Preto.png",
+      image: "images/drivers/Miguel Cabral/MiguelCabral_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -197,7 +188,7 @@ const SITE_DATA = {
       role: "Wilson_TheFirst",
       nationality: "Cabo Verde",
       series: "Gran Turismo 7",
-      image: "images/drivers/Wilson Barreto/WilsonBarreto_Laranja.png",
+      image: "images/drivers/Wilson Barreto/WilsonBarreto_Preto.png",
       flag: "🇨🇻"
     },
     {
@@ -206,7 +197,7 @@ const SITE_DATA = {
       role: "laferia777",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "images/drivers/Luis Gomes/LuisGomes_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -215,7 +206,7 @@ const SITE_DATA = {
       role: "h_seixas13",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
+      image: "images/drivers/Hugo Seixas/HugoSeixas_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -224,7 +215,7 @@ const SITE_DATA = {
       role: "gbKira",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252454958494772/9849b626ea3f8d8efbde05f5647e50d7_body.png",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251491014335909/c76830f261dcea8c36c382f37169c0c5_body.png",
       flag: "🇵🇹"
     },
   ],
@@ -315,14 +306,14 @@ const SITE_DATA = {
         { name: "João Ferreira",    driverRef: "João Ferreira",    rounds: [26,   38,   43,   null, null, 0], total: 107 },
         { name: "Prost",            driverRef: "Prost",            rounds: [27,   12,   38,   12,   null, 0], total: 89  },
         { name: "Rodrigo Marques",  driverRef: "Rodrigo Marques",  rounds: [16,   16,   21,   33,   2,    0], total: 88  },
-        { name: "Bruno Nunes",      driverRef: "Bruno Nunes",      rounds: [null, 14,   14,   null, 43,   0], total: 71  },
+        { name: "Nuno Silva",      driverRef: "Nuno Silva",      rounds: [null, 14,   14,   null, 43,   0], total: 71  },
         { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   rounds: [38,   null, null, 26,   null, 0], total: 64  },
         { name: "Kwan Toledo",      driverRef: "Kwan Toledo",      rounds: [26,   16,   18,   null, null, 0], total: 60  },
         { name: "Nuno Bravo",       driverRef: "Nuno Bravo",       rounds: [null, 8,    8,    25,   16,   0], total: 57  },
         { name: "João Abreu",       driverRef: "João Abreu",       rounds: [21,   27,   null, null, null, 0], total: 48  },
         { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", rounds: [22,   13,   12,   null, null, 0], total: 47  },
         { name: "João Festas",      driverRef: "João Festas",      rounds: [6,    10,   null, null, 10,   0], total: 26  },
-        { name: "Elias Portugal",   driverRef: "Elias Portugal",   rounds: [null, null, null, null, 25,   0], total: 25  },
+        { name: "Elias Torres",   driverRef: "Elias Torres",   rounds: [null, null, null, null, 25,   0], total: 25  },
         { name: "Rui Silva",        driverRef: "Rui Silva",        rounds: [null, null, null, null, 24,   0], total: 24  },
         { name: "Ricardo Gamito",   driverRef: "Ricardo Gamito",   rounds: [null, null, null, 22,   null, 0], total: 22  },
         { name: "Pedro Dias",       driverRef: "Pedro Dias",       rounds: [8,    0,    0,    null, 14,   0], total: 22  },
@@ -440,7 +431,7 @@ const SITE_DATA = {
                 { pos: 4,  name: "João Ferreira",    driverRef: "João Ferreira",   psnId: "Jony",           gap: "+00.715",  penalty: "", pole: false, fastestLap: false, bestLap: "1:35.738" },
                 { pos: 5,  name: "Kwan Toledo",      driverRef: "Kwan Toledo",     psnId: "K7ng",           gap: "+00.798",  penalty: "", pole: false, fastestLap: false, bestLap: "1:35.821" },
                 { pos: 6,  name: "Rodrigo Marques",  driverRef: "Rodrigo Marques", psnId: "100maneiraz",    gap: "+01.006",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.029" },
-                { pos: 7,  name: "Bruno Nunes",       driverRef: "Bruno Nunes",     psnId: "BeMadPT",        gap: "+01.120",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.143" },
+                { pos: 7,  name: "Nuno Silva",       driverRef: "Nuno Silva",     psnId: "BeMadPT",        gap: "+01.120",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.143" },
                 { pos: 8,  name: "Pedro Dias",       driverRef: "Pedro Dias",      psnId: "RTP_Travincas24",gap: "+01.263",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.286" },
                 { pos: 9,  name: "João Festas",      driverRef: "João Festas",     psnId: "Festas Racing",  gap: "+01.624",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.647" },
                 { pos: 10, name: "Luís Dantas",      driverRef: "Luís Dantas",     psnId: "Luisikon_TCHT",  gap: "+01.882",  penalty: "", pole: false, fastestLap: false, bestLap: "1:36.905" },
@@ -460,7 +451,7 @@ const SITE_DATA = {
                 { pos: 3,  name: "Kwan Toledo",     driverRef: "Kwan Toledo",     psnId: "K7ng",           time: "",           gap: "+12.443", penalty: "0:01.000",  points: 15, pole: false, fastestLap: false },
                 { pos: 4,  name: "João Abreu",      driverRef: "João Abreu",      psnId: "J.Abreu",        time: "",           gap: "+15.836", penalty: 0,           points: 12, pole: false, fastestLap: false },
                 { pos: 5,  name: "Prost",           driverRef: "Prost",           psnId: "Prostt",         time: "",           gap: "+19.018", penalty: 0,           points: 10, pole: false, fastestLap: false },
-                { pos: 6,  name: "Bruno Nunes",      driverRef: "Bruno Nunes",     psnId: "BeMadPT",        time: "",           gap: "+20.610", penalty: 0,           points: 8,  pole: false, fastestLap: false },
+                { pos: 6,  name: "Nuno Silva",      driverRef: "Nuno Silva",     psnId: "BeMadPT",        time: "",           gap: "+20.610", penalty: 0,           points: 8,  pole: false, fastestLap: false },
                 { pos: 7,  name: "Rodrigo Marques", driverRef: "Rodrigo Marques", psnId: "100maneiraz",    time: "",           gap: "+26.181", penalty: 0,           points: 6,  pole: false, fastestLap: false },
                 { pos: 8,  name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",            time: "",           gap: "+27.275", penalty: 0,           points: 4,  pole: false, fastestLap: false },
                 { pos: 9,  name: "João Festas",     driverRef: "João Festas",     psnId: "Festas Racing",  time: "",           gap: "+29.243", penalty: 0,           points: 2,  pole: false, fastestLap: false },
@@ -483,7 +474,7 @@ const SITE_DATA = {
                 { pos: 4,  name: "Rafael Agostinho",driverRef: "Rafael Agostinho",psnId: "R. Agostinho",   time: "",           gap: "+11.038",  penalty: "0:01.000",  points: 12, pole: false, fastestLap: false },
                 { pos: 5,  name: "Rodrigo Marques", driverRef: "Rodrigo Marques", psnId: "100maneiraz",    time: "",           gap: "+18.455",  penalty: 0,           points: 10, pole: false, fastestLap: false },
                 { pos: 6,  name: "João Festas",     driverRef: "João Festas",     psnId: "Festas Racing",  time: "",           gap: "+18.816",  penalty: 0,           points: 8,  pole: false, fastestLap: false },
-                { pos: 7,  name: "Bruno Nunes",      driverRef: "Bruno Nunes",     psnId: "BeMadPT",        time: "",           gap: "+19.697",  penalty: 0,           points: 6,  pole: false, fastestLap: false },
+                { pos: 7,  name: "Nuno Silva",      driverRef: "Nuno Silva",     psnId: "BeMadPT",        time: "",           gap: "+19.697",  penalty: 0,           points: 6,  pole: false, fastestLap: false },
                 { pos: 8,  name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",            time: "",           gap: "+24.280",  penalty: 0,           points: 4,  pole: false, fastestLap: false },
                 { pos: 9,  name: "Prost",           driverRef: "Prost",           psnId: "Prostt",         time: "",           gap: "+29.033",  penalty: 0,           points: 2,  pole: false, fastestLap: false },
                 { pos: 10, name: "Kwan Toledo",     driverRef: "Kwan Toledo",     psnId: "K7ng",           time: "",           gap: "+40.100",  penalty: 0,           points: 1,  pole: false, fastestLap: false },
@@ -513,7 +504,7 @@ const SITE_DATA = {
                 { pos: 5,  name: "Rafael Agostinho", driverRef: "Rafael Agostinho",psnId: "R. Agostinho",   gap: "+00.505",  penalty: "", pole: false, fastestLap: false, bestLap: "1:03.600" },
                 { pos: 6,  name: "Kwan Toledo",      driverRef: "Kwan Toledo",     psnId: "K7ng",           gap: "+00.824",  penalty: "", pole: false, fastestLap: false, bestLap: "1:03.919" },
                 { pos: 7,  name: "Pedro Dias",       driverRef: "Pedro Dias",      psnId: "RTP_Travincas24",gap: "+01.096",  penalty: "", pole: false, fastestLap: false, bestLap: "1:04.191" },
-                { pos: 8,  name: "Bruno Nunes",       driverRef: "Bruno Nunes",     psnId: "BeMadPT",        gap: "+01.173",  penalty: "", pole: false, fastestLap: false, bestLap: "1:04.268" },
+                { pos: 8,  name: "Nuno Silva",       driverRef: "Nuno Silva",     psnId: "BeMadPT",        gap: "+01.173",  penalty: "", pole: false, fastestLap: false, bestLap: "1:04.268" },
                 { pos: 9,  name: "Luis Gomes",        driverRef: "Luis Gomes",      psnId: "Laferia",        gap: "+01.749",  penalty: "", pole: false, fastestLap: false, bestLap: "1:04.844" },
                 { pos: 10, name: "Hugo Costa",       driverRef: "Hugo Costa",      psnId: "Hugo Costa",     gap: "+02.010",  penalty: "", pole: false, fastestLap: false, bestLap: "1:05.105" },
                 { pos: 11, name: "Pinto Moreira",    driverRef: "Pinto Moreira",   psnId: "LOrD_TriPeiRo",  gap: "+02.480",  penalty: "", pole: false, fastestLap: false, bestLap: "1:05.575" },
@@ -532,7 +523,7 @@ const SITE_DATA = {
                 { pos: 2,  name: "João Ferreira",   driverRef: "João Ferreira",   psnId: "Jony",           time: "",           gap: "+01.845",  penalty: 0, points: 18, pole: false, fastestLap: false },
                 { pos: 3,  name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97", time: "",           gap: "+04.220",  penalty: 0, points: 15, pole: false, fastestLap: false },
                 { pos: 4,  name: "Rafael Agostinho",driverRef: "Rafael Agostinho",psnId: "R. Agostinho",   time: "",           gap: "+09.560",  penalty: 0, points: 12, pole: false, fastestLap: false },
-                { pos: 5,  name: "Bruno Nunes",      driverRef: "Bruno Nunes",     psnId: "BeMadPT",        time: "",           gap: "+14.732",  penalty: 0, points: 10, pole: false, fastestLap: false },
+                { pos: 5,  name: "Nuno Silva",      driverRef: "Nuno Silva",     psnId: "BeMadPT",        time: "",           gap: "+14.732",  penalty: 0, points: 10, pole: false, fastestLap: false },
                 { pos: 6,  name: "Kwan Toledo",     driverRef: "Kwan Toledo",     psnId: "K7ng",           time: "",           gap: "+18.905",  penalty: 0, points: 8,  pole: false, fastestLap: false },
                 { pos: 7,  name: "Rodrigo Marques", driverRef: "Rodrigo Marques", psnId: "100maneiraz",    time: "",           gap: "+21.348",  penalty: 0, points: 6,  pole: false, fastestLap: false },
                 { pos: 8,  name: "Luis Gomes",       driverRef: "Luis Gomes",      psnId: "Laferia",        time: "",           gap: "+29.671",  penalty: 0, points: 4,  pole: false, fastestLap: false },
@@ -555,7 +546,7 @@ const SITE_DATA = {
                 { pos: 5,  name: "Kwan Toledo",     driverRef: "Kwan Toledo",     psnId: "K7ng",           time: "",           gap: "+20.929",  penalty: 0, points: 10, pole: false, fastestLap: false },
                 { pos: 6,  name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",            time: "",           gap: "+24.663",  penalty: 0, points: 8,  pole: false, fastestLap: false },
                 { pos: 7,  name: "Pedro Dias",      driverRef: "Pedro Dias",      psnId: "RTP_Travincas24",time: "",           gap: "+25.075",  penalty: 0, points: 6,  pole: false, fastestLap: false },
-                { pos: 8,  name: "Bruno Nunes",      driverRef: "Bruno Nunes",     psnId: "BeMadPT",        time: "",           gap: "+34.820",  penalty: 0, points: 4,  pole: false, fastestLap: false },
+                { pos: 8,  name: "Nuno Silva",      driverRef: "Nuno Silva",     psnId: "BeMadPT",        time: "",           gap: "+34.820",  penalty: 0, points: 4,  pole: false, fastestLap: false },
                 { pos: 9,  name: "Luis Gomes",       driverRef: "Luis Gomes",      psnId: "Laferia",        time: "",           gap: "+46.368",  penalty: 0, points: 2,  pole: false, fastestLap: false },
                 { pos: 10, name: "Hugo Costa",      driverRef: "Hugo Costa",      psnId: "Hugo Costa",     time: "",           gap: "+51.888",  penalty: 0, points: 1,  pole: false, fastestLap: false },
                 { pos: 11, name: "Pinto Moreira",   driverRef: "Pinto Moreira",   psnId: "LOrD_TriPeiRo",  time: "",           gap: "1 Volta",   penalty: 0, points: 0,  pole: false, fastestLap: false },
@@ -628,8 +619,8 @@ const SITE_DATA = {
               results: [
                 { pos: 1,  name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97", gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:23.517" },
                 { pos: 2,  name: "Rui Silva",       driverRef: "Rui Silva",       psnId: "Pandex",        gap: "+00.825", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.342" },
-                { pos: 3,  name: "Elias Portugal",  driverRef: "Elias Portugal",  psnId: "KezwiiK",       gap: "+00.944", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.461" },
-                { pos: 4,  name: "Bruno Nunes",     driverRef: "Bruno Nunes",     psnId: "BeMadPT",       gap: "+01.184", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.701" },
+                { pos: 3,  name: "Elias Torres",  driverRef: "Elias Torres",  psnId: "KezwiiK",       gap: "+00.944", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.461" },
+                { pos: 4,  name: "Nuno Silva",     driverRef: "Nuno Silva",     psnId: "BeMadPT",       gap: "+01.184", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.701" },
                 { pos: 5,  name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",           gap: "+01.285", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.802" },
                 { pos: 6,  name: "Rodrigo Marques", driverRef: "Rodrigo Marques", psnId: "100maneiraz",   gap: "+01.766", penalty: "", pole: false, fastestLap: false, bestLap: "1:25.283" },
                 { pos: 7,  name: "Pedro Venda",     driverRef: "Pedro Venda",     psnId: "Pedro Venda",   gap: "+02.879", penalty: "", pole: false, fastestLap: false, bestLap: "1:26.396" },
@@ -646,8 +637,8 @@ const SITE_DATA = {
               fastestLapTime: "1:23.012",
               results: [
                 { pos: 1,  name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97", time: "21:06.040", gap: "",           penalty: 0,           points: 26, pole: false, fastestLap: true  },
-                { pos: 2,  name: "Bruno Nunes",     driverRef: "Bruno Nunes",     psnId: "BeMadPT",       time: "",           gap: "+1 Volta",   penalty: 0,           points: 18, pole: false, fastestLap: false },
-                { pos: 3,  name: "Elias Portugal",  driverRef: "Elias Portugal",  psnId: "KezwiiK",       time: "",           gap: "+1 Volta",   penalty: 0,           points: 15, pole: false, fastestLap: false },
+                { pos: 2,  name: "Nuno Silva",     driverRef: "Nuno Silva",     psnId: "BeMadPT",       time: "",           gap: "+1 Volta",   penalty: 0,           points: 18, pole: false, fastestLap: false },
+                { pos: 3,  name: "Elias Torres",  driverRef: "Elias Torres",  psnId: "KezwiiK",       time: "",           gap: "+1 Volta",   penalty: 0,           points: 15, pole: false, fastestLap: false },
                 { pos: 4,  name: "Rui Silva",       driverRef: "Rui Silva",       psnId: "Pandex",        time: "",           gap: "+1 Volta",   penalty: 0,           points: 12, pole: false, fastestLap: false },
                 { pos: 5,  name: "João Festas",     driverRef: "João Festas",     psnId: "Festas Racing", time: "",           gap: "+1 Volta",   penalty: 0,           points: 10, pole: false, fastestLap: false },
                 { pos: 6,  name: "Pedro Dias",      driverRef: "Pedro Dias",      psnId: "RTP_Travincas24", time: "",         gap: "+1 Volta",   penalty: 0,           points: 8,  pole: false, fastestLap: false },
@@ -663,11 +654,11 @@ const SITE_DATA = {
               duration: "20 min",
               fastestLapTime: "1:23.342",
               results: [
-                { pos: 1, name: "Bruno Nunes",     driverRef: "Bruno Nunes",     psnId: "BeMadPT",         time: "20:05.658", gap: "",          penalty: 0, points: 25, pole: false, fastestLap: false },
+                { pos: 1, name: "Nuno Silva",     driverRef: "Nuno Silva",     psnId: "BeMadPT",         time: "20:05.658", gap: "",          penalty: 0, points: 25, pole: false, fastestLap: false },
                 { pos: 2, name: "Bruno Teixeira",  driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97",   time: "",           gap: "+00.317",   penalty: 0, points: 19, pole: false, fastestLap: true  },
                 { pos: 3, name: "Nuno Bravo",      driverRef: "Nuno Bravo",      psnId: "N17",             time: "",           gap: "+02.210",   penalty: 0, points: 15, pole: false, fastestLap: false },
                 { pos: 4, name: "Rui Silva",       driverRef: "Rui Silva",       psnId: "Pandex",          time: "",           gap: "+22.261",   penalty: 0, points: 12, pole: false, fastestLap: false },
-                { pos: 5, name: "Elias Portugal",  driverRef: "Elias Portugal",  psnId: "KezwiiK",         time: "",           gap: "+23.337",   penalty: 0, points: 10, pole: false, fastestLap: false },
+                { pos: 5, name: "Elias Torres",  driverRef: "Elias Torres",  psnId: "KezwiiK",         time: "",           gap: "+23.337",   penalty: 0, points: 10, pole: false, fastestLap: false },
                 { pos: 6, name: "Hugo Costa",      driverRef: "Hugo Costa",      psnId: "Hugo Costa",      time: "",           gap: "1 Volta",   penalty: 0, points: 8,  pole: false, fastestLap: false },
                 { pos: 7, name: "Pedro Dias",      driverRef: "Pedro Dias",      psnId: "RTP_Travincas24", time: "",           gap: "2 Voltas",  penalty: 0, points: 6,  pole: false, fastestLap: false }
               ]
