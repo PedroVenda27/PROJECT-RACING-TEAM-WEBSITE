@@ -2473,13 +2473,27 @@ img {
   transform: translateY(-2px);
 }
 
+.today-race-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.today-race-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
 .today-race-comp {
   font-size: 0.7rem;
   color: var(--yellow);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
-  margin-bottom: 0.4rem;
 }
 
 .today-race-circuit {
