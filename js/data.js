@@ -720,7 +720,7 @@ const SITE_DATA = {
       competition: "wrtdaytona",
       title: "WRT Daytona",
       subtitle: "Corrida especial — Daytona International Speedway",
-      logo: "",
+      logo: "images/WRT_LOGO.jpg",
       type: "drivers-external",
       drivers: []
     }
