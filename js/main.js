@@ -144,11 +144,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="potm-featured-right">
           <div class="potm-featured-badge">${badgeLabel}</div>
           <h2 class="potm-featured-name">${driver.name}</h2>
-          <p class="potm-featured-series">${driver.series}</p>
           <div class="potm-featured-ids">
             <p class="potm-featured-id-row"><img class="id-icon" src="images/PlayStation_App_Icon.jpg" alt="PSN" /> ${driver.role}</p>
             <p class="potm-featured-id-row"><img class="id-icon" src="images/ICON_GT7.svg" alt="GT7" /> ${driver.gtName || driver.role}</p>
           </div>
+          <p class="potm-featured-series">${driver.series}</p>
           <div class="potm-featured-flag">
             <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br','Cabo Verde':'cv'}[driver.nationality]||'pt')}.png" alt="${driver.nationality}" width="22" height="16">
             <span>${driver.nationality}</span>
@@ -180,16 +180,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <span>${d.nationality}</span>
           </div>
         </div>
-        <div class="driver-info" style="display:flex;justify-content:space-between;align-items:flex-end;">
-          <div>
-            <h3 class="driver-name">${d.name}${d.admin ? ' <span style="background:#CCFF00;color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:1px;vertical-align:middle;text-transform:uppercase;">Admin</span>' : ''}</h3>
-            <p class="driver-series">${d.series}</p>
+        <div class="driver-info">
+          <h3 class="driver-name">${d.name}${d.admin ? ' <span style="background:#CCFF00;color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:1px;vertical-align:middle;text-transform:uppercase;">Admin</span>' : ''}</h3>
+          <div class="driver-ids">
+            <p class="driver-id-row"><img class="id-icon" src="images/PlayStation_App_Icon.jpg" alt="PSN" /> ${d.role}</p>
+            <p class="driver-id-row"><img class="id-icon" src="images/ICON_GT7.svg" alt="GT7" /> ${d.gtName || d.role}</p>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.3rem;">
-            <div class="driver-ids">
-              <p class="driver-id-row"><img class="id-icon" src="images/PlayStation_App_Icon.jpg" alt="PSN" /> ${d.role}</p>
-              <p class="driver-id-row"><img class="id-icon" src="images/ICON_GT7.svg" alt="GT7" /> ${d.gtName || d.role}</p>
-            </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:0.4rem;">
+            <p class="driver-series">${d.series}</p>
             <a href="https://www.dg-edge.com/players/${d.role}" target="_blank" rel="noopener" title="Ver perfil Edge de ${d.role}">
               <img src="images/EDGE.png" alt="Edge" style="height:20px;width:auto;opacity:0.9;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'" />
             </a>
