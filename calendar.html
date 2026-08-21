@@ -43,6 +43,16 @@
     </div>
   </section>
 
+  <!-- ==================== CORRIDAS HOJE (dynamic, hidden until populated) ==================== -->
+  <section class="section today-races-section" id="today-races-section" style="display:none;">
+    <div class="container">
+      <div class="today-races-banner">
+        <h2 class="today-races-title">🏁 Corridas Hoje <span class="today-races-badge">AO VIVO HOJE</span></h2>
+        <div class="today-races-grid" id="today-races-grid"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== CALENDAR CONTENT ==================== -->
   <section class="section calendar-section">
     <div class="container">
@@ -338,9 +348,10 @@
     (function() {
       const today = new Date();
       today.setHours(0,0,0,0);
+      const todaysRaces = [];
 
       // For each competition block, find the next upcoming race
-      document.querySelectorAll('.cal-table tbody').forEach(tbody => {
+      document.querySelectorAll('#tab-corridas .cal-table tbody').forEach(tbody => {
         const rows = Array.from(tbody.querySelectorAll('tr:not(.cal-empty)'));
         let nextFound = false;
 
@@ -365,9 +376,31 @@
             statusCell.className = 'cal-status pendente';
             statusCell.textContent = 'Pendente';
           }
+
+          if (d.getTime() === today.getTime()) {
+            const block = row.closest('.cal-block');
+            const comp = block ? block.querySelector('.cal-comp-title')?.textContent.trim() : '';
+            todaysRaces.push({
+              comp,
+              round: cells[0].textContent.trim(),
+              circuit: cells[2] ? cells[2].textContent.trim() : '',
+              piloto: cells[3] ? cells[3].textContent.trim() : ''
+            });
+          }
         });
       });
 
+      if (todaysRaces.length > 0) {
+        const grid = document.getElementById('today-races-grid');
+        grid.innerHTML = todaysRaces.map(r => `
+          <div class="today-race-card">
+            <div class="today-race-comp">${r.comp}${r.round ? ' · ' + r.round : ''}</div>
+            <div class="today-race-circuit">${r.circuit}</div>
+            ${r.piloto ? `<div class="today-race-piloto">${r.piloto}</div>` : ''}
+          </div>
+        `).join('');
+        document.getElementById('today-races-section').style.display = 'block';
+      }
     })();
 
     /* -- Add to Calendar buttons -- */

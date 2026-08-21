@@ -2428,6 +2428,88 @@ img {
 
 
 /* =====================================================================
+   CALENDAR — Today's Races Banner
+   ===================================================================== */
+
+.today-races-banner {
+  border: 2px solid var(--yellow);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,107,0,0.14), rgba(255,107,0,0.03));
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 30px rgba(255,107,0,0.15);
+}
+
+.today-races-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1.2rem;
+}
+
+.today-races-badge {
+  background: var(--yellow);
+  color: #000;
+  font-size: 0.65rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  animation: today-races-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes today-races-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.today-races-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.today-race-card {
+  background: var(--gray-900);
+  border: 1px solid rgba(255,107,0,0.3);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+
+.today-race-comp {
+  font-size: 0.7rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.today-race-circuit {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.today-race-piloto {
+  font-size: 0.8rem;
+  color: var(--gray-200);
+}
+
+@media (max-width: 600px) {
+  .today-races-banner { padding: 1.2rem 1.4rem; }
+  .today-races-title { font-size: 1rem; flex-wrap: wrap; }
+}
+
+/* =====================================================================
    CALENDAR — Competition Tables
    ===================================================================== */
 
