@@ -2480,7 +2480,8 @@ img {
   width: 88px;
   min-width: 88px;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
+  background: rgba(255,255,255,0.03);
   flex-shrink: 0;
 }
 
