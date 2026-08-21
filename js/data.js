@@ -710,6 +710,19 @@ const SITE_DATA = {
         { name: "Sainz",           driverRef: "Sainz",           points: 8  },
         { name: "Xapas",           driverRef: "Xapas",           points: 7  }
       ]
+    },
+
+    /* ─────────────────────────────────────────────
+       WRT Daytona — one-off special event race (22/08).
+       Results pending; fill in `drivers` once the race is run.
+       ───────────────────────────────────────────── */
+    {
+      competition: "wrtdaytona",
+      title: "WRT Daytona",
+      subtitle: "Corrida especial — Daytona International Speedway",
+      logo: "",
+      type: "drivers-external",
+      drivers: []
     }
   ]
 
