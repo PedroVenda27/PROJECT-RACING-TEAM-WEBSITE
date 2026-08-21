@@ -738,8 +738,9 @@ img {
 .potm-featured-ids {
   margin-top: 0.4rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
 }
 .potm-featured-id-row {
   display: flex;
@@ -843,8 +844,9 @@ img {
 }
 .driver-ids {
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
   margin-bottom: 0.3rem;
 }
 .driver-id-row {
