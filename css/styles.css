@@ -2452,26 +2452,9 @@ img {
   margin-bottom: 1.2rem;
 }
 
-.today-races-badge {
-  background: var(--yellow);
-  color: #000;
-  font-size: 0.65rem;
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: 1px;
-  padding: 0.25rem 0.7rem;
-  border-radius: 20px;
-  animation: today-races-pulse 1.6s ease-in-out infinite;
-}
-
-@keyframes today-races-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
 .today-races-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
 }
 
@@ -2480,6 +2463,14 @@ img {
   border: 1px solid rgba(255,107,0,0.3);
   border-radius: 10px;
   padding: 1rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.today-race-card:hover {
+  background: rgba(255,107,0,0.1);
+  border-color: var(--yellow);
+  transform: translateY(-2px);
 }
 
 .today-race-comp {
@@ -2624,6 +2615,11 @@ img {
 
 .cal-table tbody tr:hover {
   background: rgba(255,255,255,0.03);
+}
+
+.cal-table tbody tr.cal-row-highlight {
+  background: rgba(255,107,0,0.18);
+  transition: background 0.3s;
 }
 
 .cal-empty td {

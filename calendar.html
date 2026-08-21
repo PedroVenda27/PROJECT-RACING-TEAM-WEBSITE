@@ -47,7 +47,7 @@
   <section class="section today-races-section" id="today-races-section" style="display:none;">
     <div class="container">
       <div class="today-races-banner">
-        <h2 class="today-races-title">🏁 Corridas Hoje <span class="today-races-badge">AO VIVO HOJE</span></h2>
+        <h2 class="today-races-title">🏁 Corridas Hoje</h2>
         <div class="today-races-grid" id="today-races-grid"></div>
       </div>
     </div>
@@ -381,6 +381,7 @@
             const block = row.closest('.cal-block');
             const comp = block ? block.querySelector('.cal-comp-title')?.textContent.trim() : '';
             todaysRaces.push({
+              row,
               comp,
               round: cells[0].textContent.trim(),
               circuit: cells[2] ? cells[2].textContent.trim() : '',
@@ -392,13 +393,21 @@
 
       if (todaysRaces.length > 0) {
         const grid = document.getElementById('today-races-grid');
-        grid.innerHTML = todaysRaces.map(r => `
-          <div class="today-race-card">
+        todaysRaces.forEach(r => {
+          const card = document.createElement('div');
+          card.className = 'today-race-card';
+          card.innerHTML = `
             <div class="today-race-comp">${r.comp}${r.round ? ' · ' + r.round : ''}</div>
             <div class="today-race-circuit">${r.circuit}</div>
             ${r.piloto ? `<div class="today-race-piloto">${r.piloto}</div>` : ''}
-          </div>
-        `).join('');
+          `;
+          card.addEventListener('click', () => {
+            r.row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            r.row.classList.add('cal-row-highlight');
+            setTimeout(() => r.row.classList.remove('cal-row-highlight'), 1600);
+          });
+          grid.appendChild(card);
+        });
         document.getElementById('today-races-section').style.display = 'block';
       }
     })();
