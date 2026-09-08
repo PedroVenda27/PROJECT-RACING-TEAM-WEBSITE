@@ -46,8 +46,9 @@ const SITE_DATA = {
       gtName: "KezwiiK",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Elias Torres/EliasTorres_Laranja.png",
-      flag: "🇵🇹"
+      image: "images/drivers/Elias Torres/EliasTorres_Preto.png",
+      flag: "🇵🇹",
+      pilotoComunidadeMes: true
     },
     {
       name: "Bruno Teixeira",
@@ -56,7 +57,7 @@ const SITE_DATA = {
       gtName: "RTP_Brunocm97",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Preto.png",
+      image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -107,8 +108,7 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Pedro Venda/PedroVenda_Preto.png",
-      flag: "🇵🇹",
-      pilotoMes: true
+      flag: "🇵🇹"
     },
     {
       name: "Sérgio Marques",
@@ -118,7 +118,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Sérgio Marques/SergioMarques_Laranja.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      pilotoMes: true
     },
     {
       name: "Rodrigo Marques",
@@ -168,8 +169,7 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Hugo Costa/HugoCosta_Preto.png",
-      flag: "🇵🇹",
-      pilotoComunidadeMes: true
+      flag: "🇵🇹"
     },
     {
       name: "Miguel Cabral",

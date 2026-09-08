@@ -203,6 +203,28 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("rtp:langchange", renderDriversGrid);
 
   /* ══════════════════════════════════════════════════════════════════
+     DRIVER SUIT COLOR LOOP
+     Every 3s, cross-fade each driver photo between the black ("_Preto")
+     and orange ("_Laranja") suit variant. Filenames follow that suffix
+     convention, so the swap is a plain string replace; the fade is a
+     quick opacity dip timed to the CSS transition on the <img>.
+     ══════════════════════════════════════════════════════════════════ */
+  function swapSuitColor(src) {
+    if (src.includes("_Preto.")) return src.replace("_Preto.", "_Laranja.");
+    if (src.includes("_Laranja.")) return src.replace("_Laranja.", "_Preto.");
+    return src;
+  }
+  setInterval(() => {
+    document.querySelectorAll(".driver-img-wrap img, .potm-featured-img-wrap img").forEach(img => {
+      img.style.opacity = "0";
+      setTimeout(() => {
+        img.src = swapSuitColor(img.getAttribute("src"));
+        img.style.opacity = "1";
+      }, 250);
+    });
+  }, 3000);
+
+  /* ══════════════════════════════════════════════════════════════════
      RENDER LEAGUES
      ══════════════════════════════════════════════════════════════════ */
   function renderLeagues() {
