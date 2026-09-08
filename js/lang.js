@@ -46,6 +46,8 @@ const TRANSLATIONS = {
     "drivers.tag":          "The Squad",
     "drivers.title1":       "Our",
     "drivers.title2":       "Drivers",
+    "drivers.badge.month":     "⭐ Driver of the Month — July",
+    "drivers.badge.community": "⭐ Driver of the Month — July",
 
     // Leagues section (index.html)
     "leagues.tag":          "Where We Compete",
@@ -162,6 +164,8 @@ const TRANSLATIONS = {
     "drivers.tag":          "A Equipa",
     "drivers.title1":       "Os Nossos",
     "drivers.title2":       "Pilotos",
+    "drivers.badge.month":     "⭐ Piloto do Mês — Julho",
+    "drivers.badge.community": "⭐ Piloto do Mês — Julho",
 
     // Leagues section (index.html)
     "leagues.tag":          "Onde Competimos",
@@ -281,6 +285,9 @@ function setLang(lang) {
 
   // Update <html lang=""> attribute
   document.documentElement.lang = lang;
+
+  // Notify listeners (e.g. dynamically-rendered content) that the language changed
+  document.dispatchEvent(new CustomEvent('rtp:langchange', { detail: { lang: lang } }));
 }
 
 // Initialize language on page load

@@ -643,17 +643,25 @@ img {
   box-shadow: 0 12px 40px rgba(230,225,109,0.12);
 }
 
-/* ── Piloto do Mês — Featured Full-Width ── */
-.driver-card-potm-featured {
+/* ── Piloto do Mês / Piloto da Comunidade do Mês — Featured Row ── */
+.potm-featured-row {
   grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 900px) {
+  .potm-featured-row { grid-template-columns: 1fr; }
+}
+.driver-card-potm-featured {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
   background: linear-gradient(135deg, #1a1400, #2a2000);
   border: 2px solid #FF6B00;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 0 40px param($m); $m.Value -replace '245,197,24', '255,107,0', 0 8px 32px rgba(0,0,0,0.4);
-  margin-bottom: 1rem;
   padding: 2rem;
   align-items: center;
 }
@@ -727,6 +735,20 @@ img {
   margin-top: 0.25rem;
 }
 .potm-edge-link { margin-top: 0.75rem; display: inline-block; }
+.potm-featured-ids {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.potm-featured-id-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
+}
 @media (max-width: 600px) {
   .driver-card-potm-featured { flex-direction: column; padding: 1.2rem; gap: 1rem; }
   .potm-featured-img-wrap { width: 120px; }
@@ -818,6 +840,28 @@ img {
   color: var(--yellow);
   margin-bottom: 0.2rem;
   font-weight: 600;
+}
+.driver-ids {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.3rem;
+}
+.driver-id-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--gray-200);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.id-icon {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  border-radius: 3px;
 }
 .driver-series {
   font-size: 0.7rem;
@@ -2420,6 +2464,96 @@ img {
 
 
 /* =====================================================================
+   CALENDAR — Today's Races Banner
+   ===================================================================== */
+
+.today-races-banner {
+  border: 2px solid var(--yellow);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,107,0,0.14), rgba(255,107,0,0.03));
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 30px rgba(255,107,0,0.15);
+}
+
+.today-races-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1.2rem;
+}
+
+.today-races-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.today-race-card {
+  display: flex;
+  align-items: stretch;
+  background: var(--gray-900);
+  border: 1px solid rgba(255,107,0,0.3);
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.today-race-card:hover {
+  background: rgba(255,107,0,0.1);
+  border-color: var(--yellow);
+  transform: translateY(-2px);
+}
+
+.today-race-logo {
+  width: 88px;
+  min-width: 88px;
+  height: auto;
+  object-fit: contain;
+  background: rgba(255,255,255,0.03);
+  flex-shrink: 0;
+}
+
+.today-race-info {
+  padding: 1rem 1.2rem;
+  min-width: 0;
+}
+
+.today-race-comp {
+  font-size: 0.7rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.today-race-circuit {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.today-race-piloto {
+  font-size: 0.8rem;
+  color: var(--gray-200);
+}
+
+@media (max-width: 600px) {
+  .today-races-banner { padding: 1.2rem 1.4rem; }
+  .today-races-title { font-size: 1rem; flex-wrap: wrap; }
+}
+
+/* =====================================================================
    CALENDAR — Competition Tables
    ===================================================================== */
 
@@ -2534,6 +2668,11 @@ img {
 
 .cal-table tbody tr:hover {
   background: rgba(255,255,255,0.03);
+}
+
+.cal-table tbody tr.cal-row-highlight {
+  background: rgba(255,107,0,0.18);
+  transition: background 0.3s;
 }
 
 .cal-empty td {
@@ -3000,3 +3139,171 @@ img {
   color: var(--yellow);
   flex-shrink: 0;
 }
+
+/* ── Position-change column (+/-) ── */
+.th-delta { width: 50px; }
+.cell-delta { font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; }
+.delta-up   { color: #22c55e; }
+.delta-down { color: #ef4444; }
+.delta-none { color: var(--gray-500); }
+
+/* ══════════════════════════════════════════════════════════════════
+   RACE-BY-RACE RESULTS (Resultados das Corridas)
+   ══════════════════════════════════════════════════════════════════ */
+.race-results-block { margin-bottom: 3rem; }
+.race-results-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 1rem;
+}
+.race-round-tabs { margin-bottom: 1.25rem; }
+
+.race-coming-soon {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  opacity: 0.6;
+  background: var(--gray-800);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+}
+
+.race-info-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: var(--gray-800);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-left: 3px solid var(--yellow);
+  border-radius: 8px;
+  padding: 0.75rem 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 0.82rem;
+  color: var(--gray-300);
+}
+.race-info-label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--yellow);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  margin-right: 0.4rem;
+}
+.race-info-car { color: #60a5fa; font-weight: 600; }
+
+.race-subtabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
+.race-subtab {
+  background: transparent;
+  color: var(--gray-400);
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.4rem 0.2rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.race-subtab:hover { color: var(--white); }
+.race-subtab.active { color: var(--yellow); border-color: var(--yellow); }
+
+.race-stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.race-stat {
+  background: var(--gray-800);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.race-stat-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-500);
+}
+.race-stat-value {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--white);
+}
+.race-stat-purple { color: #c084fc; }
+
+.podium-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.podium-card {
+  background: var(--gray-800);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+.podium-pos {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--gray-400);
+}
+.podium-name {
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin: 0.3rem 0;
+}
+.podium-time { font-size: 0.8rem; color: var(--gray-400); }
+.podium-pos-1 { background: rgba(255,215,0,0.1); border-color: #ffd700; }
+.podium-pos-1 .podium-pos { color: #ffd700; }
+.podium-pos-2 { background: rgba(192,192,192,0.08); border-color: #c0c0c0; }
+.podium-pos-2 .podium-pos { color: #c0c0c0; }
+.podium-pos-3 { background: rgba(205,127,50,0.08); border-color: #cd7f32; }
+.podium-pos-3 .podium-pos { color: #cd7f32; }
+
+.cell-psn { color: var(--gray-400); font-size: 0.82rem; }
+.cell-gap { color: var(--gray-300); font-variant-numeric: tabular-nums; }
+.cell-pen { color: var(--gray-500); }
+.cell-bestlap { color: #c084fc; font-weight: 700; }
+
+.race-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 800;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+.badge-pole { background: var(--yellow); color: #000; }
+.badge-fl   { background: #c084fc; color: #000; }
+
+.race-legend { line-height: 1.8; }

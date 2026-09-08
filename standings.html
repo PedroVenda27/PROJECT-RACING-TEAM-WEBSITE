@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="RTP Racing Team Project — Championship Standings." />
-  <title>Classificações — RTP Racing Team Project</title>
+  <title>Classificações — Mazda MX-5 Cup — RTP Racing Team Project</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,14 +40,19 @@
     <div class="page-hero-overlay"></div>
     <div class="container">
       <h1 class="page-hero-title anim-fade-down">Classificações</h1>
-      <p class="page-hero-sub anim-fade-up">Resultados e pontuações de todas as competições RTP Racing Team Project.</p>
+      <p class="page-hero-sub anim-fade-up">Resultados e pontuações da Mazda MX-5 Cup.</p>
     </div>
   </section>
 
   <!-- ==================== STANDINGS ==================== -->
   <section class="section standings-section">
     <div class="container">
-      <div id="standings-content" class="standings-content"></div>
+      <div class="standings-tabs" style="margin-bottom:2rem;">
+        <a href="standings.html" class="standings-tab active">Mazda MX-5 Cup</a>
+        <a href="standings-lpgt.html" class="standings-tab">Liga Portugal GT</a>
+        <a href="standings-wrtdaytona.html" class="standings-tab">WRT Daytona</a>
+      </div>
+      <div id="standings-content" class="standings-content" data-competitions="mxcup"></div>
     </div>
   </section>
 

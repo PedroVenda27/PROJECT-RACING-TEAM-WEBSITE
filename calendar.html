@@ -43,6 +43,16 @@
     </div>
   </section>
 
+  <!-- ==================== CORRIDAS HOJE (dynamic, hidden until populated) ==================== -->
+  <section class="section today-races-section" id="today-races-section" style="display:none;">
+    <div class="container">
+      <div class="today-races-banner">
+        <h2 class="today-races-title">🏁 Corridas Hoje</h2>
+        <div class="today-races-grid" id="today-races-grid"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== CALENDAR CONTENT ==================== -->
   <section class="section calendar-section">
     <div class="container">
@@ -134,12 +144,41 @@
               <tr><th>#</th><th>Data</th><th>Circuito</th><th>Piloto</th><th>Estado</th></tr>
             </thead>
             <tbody>
-              <tr><td>1ª</td><td>27–31 JUL</td><td>Watkins Glen</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr><td>2ª</td><td>01–05 SET</td><td>Dragon Trail</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr><td>3ª</td><td>20–23 OUT</td><td>Suzuka</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
-              <tr><td>4ª</td><td>26–27 NOV</td><td>Fuji Speedway</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>1ª Eliminatória</td><td>29/JUL</td><td>Watkins Glen</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>2ª Eliminatória</td><td>03/SET</td><td>Dragon Trail</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>3ª Eliminatória</td><td>20–23 OUT</td><td>Suzuka</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+              <tr><td>4ª Eliminatória</td><td>26–27 NOV</td><td>Fuji Speedway</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
               <tr><td>Meia-Final</td><td>A definir</td><td>Daytona International Speedway</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
               <tr><td>Grande Final</td><td>A definir</td><td>Le Mans</td><td>FVenda117</td><td><span class="cal-status pendente">Pendente</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- -- WRT DAYTONA -- -->
+      <div class="cal-block">
+        <div class="cal-block-header">
+          <img src="images/WRT_LOGO.jpg" alt="WRT Daytona" class="cal-comp-logo" />
+          <div>
+            <h2 class="cal-comp-title">WRT <span class="text-yellow">Daytona</span></h2>
+            <p class="cal-comp-sub">Corrida especial — Daytona International Speedway</p>
+          </div>
+          <a href="https://www.youtube.com/@WolvesWRT/streams" target="_blank" rel="noopener noreferrer" class="cal-standings-btn" title="Transmissão no YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M21.54 7.2a2.74 2.74 0 0 0-1.94-1.93C17.88 4.8 12 4.8 12 4.8s-5.88 0-7.6.47A2.74 2.74 0 0 0 2.46 7.2 28.7 28.7 0 0 0 2 12a28.7 28.7 0 0 0 .46 4.8 2.74 2.74 0 0 0 1.94 1.93c1.72.47 7.6.47 7.6.47s5.88 0 7.6-.47a2.74 2.74 0 0 0 1.94-1.93A28.7 28.7 0 0 0 22 12a28.7 28.7 0 0 0-.46-4.8ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/></svg>
+            Transmissão
+          </a>
+          <a href="standings-wrtdaytona.html" class="cal-standings-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M7 21h2v-2H7v2Zm-4-4h2v-6H3v6Zm8 4h2v-8h-2v8Zm4-4h2V7h-2v10Zm4-14h-2v18h2V3Z"/></svg>
+            Classificações
+          </a>
+        </div>
+        <div class="cal-table-wrap">
+          <table class="cal-table">
+            <thead>
+              <tr><th>#</th><th>Data</th><th>Circuito</th><th>Piloto</th><th>Estado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>22/AGO</td><td>Daytona International Speedway</td><td>FVenda117 &middot; BrunoCm1997 &middot; RafaelAgostinh44 &middot; Wilson_TheFirst &middot; KezwiiK</td><td><span class="cal-status pendente">Pendente</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -310,9 +349,10 @@
     (function() {
       const today = new Date();
       today.setHours(0,0,0,0);
+      const todaysRaces = [];
 
       // For each competition block, find the next upcoming race
-      document.querySelectorAll('.cal-table tbody').forEach(tbody => {
+      document.querySelectorAll('#tab-corridas .cal-table tbody').forEach(tbody => {
         const rows = Array.from(tbody.querySelectorAll('tr:not(.cal-empty)'));
         let nextFound = false;
 
@@ -337,9 +377,45 @@
             statusCell.className = 'cal-status pendente';
             statusCell.textContent = 'Pendente';
           }
+
+          if (d.getTime() === today.getTime()) {
+            const block = row.closest('.cal-block');
+            const comp = block ? block.querySelector('.cal-comp-title')?.textContent.trim() : '';
+            const logoImg = block ? block.querySelector('.cal-comp-logo') : null;
+            todaysRaces.push({
+              row,
+              comp,
+              logo: logoImg ? logoImg.src : '',
+              round: cells[0].textContent.trim(),
+              circuit: cells[2] ? cells[2].textContent.trim() : '',
+              piloto: cells[3] ? cells[3].textContent.trim() : ''
+            });
+          }
         });
       });
 
+      if (todaysRaces.length > 0) {
+        const grid = document.getElementById('today-races-grid');
+        todaysRaces.forEach(r => {
+          const card = document.createElement('div');
+          card.className = 'today-race-card';
+          card.innerHTML = `
+            ${r.logo ? `<img src="${r.logo}" alt="${r.comp}" class="today-race-logo" />` : ''}
+            <div class="today-race-info">
+              <div class="today-race-comp">${r.comp}${r.round ? ' · ' + r.round : ''}</div>
+              <div class="today-race-circuit">${r.circuit}</div>
+              ${r.piloto ? `<div class="today-race-piloto">${r.piloto}</div>` : ''}
+            </div>
+          `;
+          card.addEventListener('click', () => {
+            r.row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            r.row.classList.add('cal-row-highlight');
+            setTimeout(() => r.row.classList.remove('cal-row-highlight'), 1600);
+          });
+          grid.appendChild(card);
+        });
+        document.getElementById('today-races-section').style.display = 'block';
+      }
     })();
 
     /* -- Add to Calendar buttons -- */
