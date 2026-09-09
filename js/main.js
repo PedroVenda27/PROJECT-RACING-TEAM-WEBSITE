@@ -203,6 +203,41 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("rtp:langchange", renderDriversGrid);
 
   /* ══════════════════════════════════════════════════════════════════
+     RENDER MX-5 CUP CHAMPION BANNER
+     Leader of the Mazda MX-5 Cup standings (SITE_DATA.standings entries
+     are kept manually sorted by total, so drivers[0] is the leader).
+     ══════════════════════════════════════════════════════════════════ */
+  const mxCupBanner = document.getElementById("mxcup-champion-banner");
+  function renderMxCupChampion() {
+    if (!mxCupBanner || !SITE_DATA.standings) return;
+    const cup = SITE_DATA.standings.find(s => s.competition === "mxcup");
+    if (!cup || !cup.drivers || !cup.drivers.length) return;
+
+    const champion = cup.drivers[0];
+    const driverInfo = SITE_DATA.drivers.find(d => d.name === champion.driverRef) || {};
+    const lang = (typeof getLang === "function") ? getLang() : "pt";
+    const t = (key, fallback) => (typeof TRANSLATIONS !== "undefined" && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) || fallback;
+
+    mxCupBanner.innerHTML = `
+      <img class="mxcup-champion-logo" src="images/MAZDA MX-5 CUP/MAZDA MX-5 CUP ICON.png" alt="Mazda MX-5 Cup" loading="lazy" />
+      <div class="mxcup-champion-photo-wrap">
+        ${driverInfo.image
+          ? `<img src="${driverInfo.image}" alt="${champion.name}" loading="lazy" onerror="this.style.display='none';" />`
+          : `<div class="driver-placeholder"><span>${driverInfo.number || ""}</span></div>`
+        }
+      </div>
+      <div class="mxcup-champion-info">
+        <div class="mxcup-champion-badge">🏆 ${t('mxcup.champion.badge', 'Campeão Mazda MX-5 Cup')}</div>
+        <h3 class="mxcup-champion-name">${champion.name}</h3>
+        <p class="mxcup-champion-points">${champion.total} ${t('mxcup.champion.points', 'pontos')}</p>
+        <a href="standings.html#standings-mxcup" class="mxcup-champion-link">${t('mxcup.champion.cta', 'Ver Classificação')} →</a>
+      </div>
+    `;
+  }
+  renderMxCupChampion();
+  document.addEventListener("rtp:langchange", renderMxCupChampion);
+
+  /* ══════════════════════════════════════════════════════════════════
      DRIVER SUIT COLOR LOOP
      Every 3s, cross-fade each driver photo between the black ("_Preto")
      and orange ("_Laranja") suit variant. Filenames follow that suffix

@@ -48,6 +48,9 @@ const TRANSLATIONS = {
     "drivers.title2":       "Drivers",
     "drivers.badge.month":     "⭐ Driver of the Month — July",
     "drivers.badge.community": "🤝 Community Driver of the Month — July",
+    "mxcup.champion.badge":    "Mazda MX-5 Cup Champion",
+    "mxcup.champion.points":   "points",
+    "mxcup.champion.cta":      "View Standings",
 
     // Leagues section (index.html)
     "leagues.tag":          "Where We Compete",
@@ -166,6 +169,9 @@ const TRANSLATIONS = {
     "drivers.title2":       "Pilotos",
     "drivers.badge.month":     "⭐ Piloto do Mês — Julho",
     "drivers.badge.community": "🤝 Piloto da Comunidade do Mês — Julho",
+    "mxcup.champion.badge":    "Campeão Mazda MX-5 Cup",
+    "mxcup.champion.points":   "pontos",
+    "mxcup.champion.cta":      "Ver Classificação",
 
     // Leagues section (index.html)
     "leagues.tag":          "Onde Competimos",

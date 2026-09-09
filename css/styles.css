@@ -755,6 +755,111 @@ img {
   .potm-featured-name { font-size: 1.4rem; }
 }
 
+/* ── Mazda MX-5 Cup Champion Banner ── */
+.mxcup-champion-banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, #241c02, #3d2f05);
+  border: 2px solid #D4AF37;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  animation: mxcup-glow-pulse 3s ease-in-out infinite;
+}
+@keyframes mxcup-glow-pulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(212,175,55,0.15), 0 8px 32px rgba(0,0,0,0.4); }
+  50%      { box-shadow: 0 0 60px rgba(212,175,55,0.5),  0 8px 32px rgba(0,0,0,0.4); }
+}
+.mxcup-champion-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  animation: mxcup-shine 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes mxcup-shine {
+  0%   { left: -60%; }
+  35%  { left: 130%; }
+  100% { left: 130%; }
+}
+.mxcup-champion-logo {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+}
+@media (max-width: 600px) {
+  .mxcup-champion-logo { width: 42px; height: 42px; top: 0.9rem; right: 1rem; }
+}
+.mxcup-champion-photo-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 180px;
+  aspect-ratio: 3/3.5;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #D4AF37;
+  background: var(--gray-700);
+}
+.mxcup-champion-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.mxcup-champion-info { display: flex; flex-direction: column; gap: 0.5rem; }
+.mxcup-champion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(90deg, #8B6914, #D4AF37, #8B6914);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+.mxcup-champion-name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+.mxcup-champion-points {
+  font-size: 1rem;
+  color: #D4AF37;
+  font-weight: 700;
+  margin: 0;
+}
+.mxcup-champion-link {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--gray-300);
+  text-decoration: none;
+  font-weight: 600;
+  width: fit-content;
+  transition: color 0.2s;
+}
+.mxcup-champion-link:hover { color: #D4AF37; }
+@media (max-width: 600px) {
+  .mxcup-champion-banner { flex-direction: column; padding: 1.2rem; gap: 1rem; }
+  .mxcup-champion-photo-wrap { width: 120px; }
+  .mxcup-champion-name { font-size: 1.4rem; }
+}
+
 /* ── Piloto do Mês ── */
 .driver-card-potm {
   border: 2px solid #FF6B00;

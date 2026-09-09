@@ -295,29 +295,29 @@ const SITE_DATA = {
       type: "drivers",
       roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6"],
       drivers: [
-        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   rounds: [null, 50,   33,   52,   45,   0], total: 180 },
-        { name: "João Ferreira",    driverRef: "João Ferreira",    rounds: [26,   38,   43,   null, null, 0], total: 107 },
-        { name: "Prost",            driverRef: "Prost",            rounds: [27,   12,   38,   12,   null, 0], total: 89  },
-        { name: "Rodrigo Marques",  driverRef: "Rodrigo Marques",  rounds: [16,   16,   21,   33,   2,    0], total: 88  },
-        { name: "Bruno Silva",      driverRef: "Bruno Silva",      rounds: [null, 14,   14,   null, 43,   0], total: 71  },
-        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   rounds: [38,   null, null, 26,   null, 0], total: 64  },
-        { name: "Kwan Toledo",      driverRef: "Kwan Toledo",      rounds: [26,   16,   18,   null, null, 0], total: 60  },
-        { name: "Nuno Bravo",       driverRef: "Nuno Bravo",       rounds: [null, 8,    8,    25,   16,   0], total: 57  },
-        { name: "João Abreu",       driverRef: "João Abreu",       rounds: [21,   27,   null, null, null, 0], total: 48  },
-        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", rounds: [22,   13,   12,   null, null, 0], total: 47  },
-        { name: "João Festas",      driverRef: "João Festas",      rounds: [6,    10,   null, null, 10,   0], total: 26  },
-        { name: "Elias Torres",   driverRef: "Elias Torres",   rounds: [null, null, null, null, 25,   0], total: 25  },
-        { name: "Rui Silva",        driverRef: "Rui Silva",        rounds: [null, null, null, null, 24,   0], total: 24  },
-        { name: "Ricardo Gamito",   driverRef: "Ricardo Gamito",   rounds: [null, null, null, 22,   null, 0], total: 22  },
-        { name: "Pedro Dias",       driverRef: "Pedro Dias",       rounds: [8,    0,    0,    null, 14,   0], total: 22  },
-        { name: "Hugo Costa",       driverRef: "Hugo Costa",       rounds: [4,    0,    3,    null, 12,   0], total: 19  },
-        { name: "Hugo Seixas",      driverRef: "Hugo Seixas",      rounds: [10,   null, null, null, null, 0], total: 10  },
-        { name: "Sérgio Marques",   driverRef: "Sérgio Marques",   rounds: [null, null, null, 8,    null, 0], total: 8   },
-        { name: "Pinto Moreira",    driverRef: "Pinto Moreira",    rounds: [null, 0,    6,    null, null, 0], total: 6   },
-        { name: "Luis Gomes",       driverRef: "Luis Gomes",       rounds: [0,    0,    6,    null, null, 0], total: 6   },
-        { name: "Pedro Venda",      driverRef: "Pedro Venda",      rounds: [null, null, null, null, 6,    0], total: 6   },
-        { name: "gbKira",           driverRef: "gbKira",           rounds: [0,    0,    1,    null, null, 0], total: 1   },
-        { name: "Luís Dantas",      driverRef: "Luís Dantas",      rounds: [null, 0,    null, null, null, 0], total: 0   }
+        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   rounds: [null, 50,   33,   52,   45,   38  ], total: 218 },
+        { name: "João Ferreira",    driverRef: "João Ferreira",    rounds: [26,   38,   43,   null, null, null], total: 107 },
+        { name: "Prost",            driverRef: "Prost",            rounds: [27,   12,   38,   12,   null, null], total: 89  },
+        { name: "Rodrigo Marques",  driverRef: "Rodrigo Marques",  rounds: [16,   16,   21,   33,   2,    null], total: 88  },
+        { name: "Bruno Silva",      driverRef: "Bruno Silva",      rounds: [null, 14,   14,   null, 43,   null], total: 71  },
+        { name: "Elias Torres",     driverRef: "Elias Torres",     rounds: [null, null, null, null, 25,   40  ], total: 65  },
+        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   rounds: [38,   null, null, 26,   null, null], total: 64  },
+        { name: "Kwan Toledo",      driverRef: "Kwan Toledo",      rounds: [26,   16,   18,   null, null, null], total: 60  },
+        { name: "Nuno Bravo",       driverRef: "Nuno Bravo",       rounds: [null, 8,    8,    25,   16,   null], total: 57  },
+        { name: "João Abreu",       driverRef: "João Abreu",       rounds: [21,   27,   null, null, null, null], total: 48  },
+        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", rounds: [22,   13,   12,   null, null, null], total: 47  },
+        { name: "Luis Gomes",       driverRef: "Luis Gomes",       rounds: [0,    0,    6,    null, null, 40  ], total: 46  },
+        { name: "Hugo Costa",       driverRef: "Hugo Costa",       rounds: [4,    0,    3,    null, 12,   24  ], total: 43  },
+        { name: "João Festas",      driverRef: "João Festas",      rounds: [6,    10,   null, null, 10,   null], total: 26  },
+        { name: "Rui Silva",        driverRef: "Rui Silva",        rounds: [null, null, null, null, 24,   null], total: 24  },
+        { name: "Ricardo Gamito",   driverRef: "Ricardo Gamito",   rounds: [null, null, null, 22,   null, null], total: 22  },
+        { name: "Pedro Dias",       driverRef: "Pedro Dias",       rounds: [8,    0,    0,    null, 14,   null], total: 22  },
+        { name: "Hugo Seixas",      driverRef: "Hugo Seixas",      rounds: [10,   null, null, null, null, null], total: 10  },
+        { name: "Sérgio Marques",   driverRef: "Sérgio Marques",   rounds: [null, null, null, 8,    null, null], total: 8   },
+        { name: "Pinto Moreira",    driverRef: "Pinto Moreira",    rounds: [null, 0,    6,    null, null, null], total: 6   },
+        { name: "Pedro Venda",      driverRef: "Pedro Venda",      rounds: [null, null, null, null, 6,    null], total: 6   },
+        { name: "gbKira",           driverRef: "gbKira",           rounds: [0,    0,    1,    null, null, null], total: 1   },
+        { name: "Luís Dantas",      driverRef: "Luís Dantas",      rounds: [null, 0,    null, null, null, null], total: 0   }
       ],
 
       /* ─────────────────────────────────────────────
@@ -665,9 +665,40 @@ const SITE_DATA = {
           track: "Circuit Gilles Villeneuve",
           car: "Mazda Spirit Racing Roadster 12R '25",
           sessions: [
-            { type: "qualifying", label: "Qualificação", results: [] },
-            { type: "race", label: "Corrida 1", duration: "20 min", fastestLapTime: "", results: [] },
-            { type: "race", label: "Corrida 2", duration: "20 min", fastestLapTime: "", results: [] }
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1, name: "Bruno Teixeira", driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97", gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:57.630" },
+                { pos: 2, name: "Elias Torres",   driverRef: "Elias Torres",   psnId: "KezwiiK",       gap: "+00.566", penalty: "", pole: false, fastestLap: false, bestLap: "1:58.196" },
+                { pos: 3, name: "Luis Gomes",     driverRef: "Luis Gomes",     psnId: "Laferia",       gap: "+01.229", penalty: "", pole: false, fastestLap: false, bestLap: "1:58.859" },
+                { pos: 4, name: "Hugo Costa",     driverRef: "Hugo Costa",     psnId: "Hugo Costa",    gap: "+03.394", penalty: "", pole: false, fastestLap: false, bestLap: "2:01.024" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida 1",
+              duration: "20 min",
+              fastestLapTime: "1:57.016",
+              results: [
+                { pos: 1, name: "Elias Torres",   driverRef: "Elias Torres",   psnId: "KezwiiK",       time: "21:49.401", gap: "",        penalty: 0,           points: 25, pole: false, fastestLap: false },
+                { pos: 2, name: "Bruno Teixeira", driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97", time: "",           gap: "+00.060", penalty: 0,           points: 19, pole: false, fastestLap: true  },
+                { pos: 3, name: "Luis Gomes",     driverRef: "Luis Gomes",     psnId: "Laferia",       time: "",           gap: "1 Volta", penalty: "0:01.000", points: 15, pole: false, fastestLap: false },
+                { pos: 4, name: "Hugo Costa",     driverRef: "Hugo Costa",     psnId: "Hugo Costa",    time: "",           gap: "1 Volta", penalty: "0:01.000", points: 12, pole: false, fastestLap: false }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida 2",
+              duration: "20 min",
+              fastestLapTime: "1:55.158",
+              results: [
+                { pos: 1, name: "Luis Gomes",     driverRef: "Luis Gomes",     psnId: "Laferia",       time: "21:47.212", gap: "",        penalty: 0,           points: 25, pole: false, fastestLap: false },
+                { pos: 2, name: "Bruno Teixeira", driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97", time: "",           gap: "+00.312", penalty: "0:03.000", points: 19, pole: false, fastestLap: true  },
+                { pos: 3, name: "Elias Torres",   driverRef: "Elias Torres",   psnId: "KezwiiK",       time: "",           gap: "+28.594", penalty: "0:03.000", points: 15, pole: false, fastestLap: false },
+                { pos: 4, name: "Hugo Costa",     driverRef: "Hugo Costa",     psnId: "Hugo Costa",    time: "",           gap: "+37.881", penalty: 0,           points: 12, pole: false, fastestLap: false }
+              ]
+            }
           ]
         }
       ]
