@@ -661,7 +661,7 @@ const SITE_DATA = {
         {
           round: 6,
           label: "Ronda 6",
-          date: "21 de Agosto de 2026",
+          date: "28 de Agosto de 2026",
           track: "Circuit Gilles Villeneuve",
           car: "Mazda Spirit Racing Roadster 12R '25",
           sessions: [
