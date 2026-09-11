@@ -306,11 +306,19 @@ document.addEventListener("DOMContentLoaded", () => {
             ${s.subtitle ? `<p class="cal-comp-sub">${s.subtitle}</p>` : ""}
           </div>
         </div>
+        ${s.car ? `<div class="race-info-car">${s.car}</div>` : ""}
       </div>
     `;
 
+    const isRace = s.format === "race";
+
     const rows = s.drivers.map((d, i) => {
       const pos = i + 1;
+      const timeCell = isRace ? `<td class="cell-gap">${pos === 1 ? (d.time || "") : (d.gap || "")}</td>` : "";
+      const penCell = isRace ? `<td class="cell-pen">${d.penalty || "—"}</td>` : "";
+      const lastCell = isRace
+        ? `<td class="cell-gap${d.fastestLap ? " cell-bestlap" : ""}">${d.bestLap || ""}</td>`
+        : `<td class="cell-total">${d.points}</td>`;
       return `
         <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${d.ourDriver ? " row-pitbox" : ""}">
           <td class="cell-pos">${pos}</td>
@@ -318,14 +326,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="st-driver-wrap">
               ${getDriverImg(d.name, d.driverRef)}
               <span>${d.name}</span>
+              ${isRace && d.fastestLap ? '<span class="race-badge badge-fl" title="Volta Mais Rápida">VR</span>' : ""}
             </div>
           </td>
-          <td class="cell-total">${d.points}</td>
+          ${timeCell}${penCell}${lastCell}
         </tr>
       `;
     }).join("");
 
     return headerHTML + `
+      ${isRace && s.fastestLapTime ? `
+      <div class="race-stats-row">
+        <div class="race-stat"><span class="race-stat-label">Volta Mais Rápida</span><span class="race-stat-value race-stat-purple">${s.fastestLapTime}</span></div>
+      </div>` : ""}
       <div class="standings-table-wrap" style="margin-bottom:3rem;">
         <div class="standings-table-scroll">
           <table class="standings-table">
@@ -333,13 +346,17 @@ document.addEventListener("DOMContentLoaded", () => {
               <tr>
                 <th class="th-pos">POS</th>
                 <th class="th-name">Piloto</th>
-                <th class="th-total">Pontos</th>
+                ${isRace ? '<th>Tempo / Gap</th><th>Pen.</th><th>Melhor Volta</th>' : '<th class="th-total">Pontos</th>'}
               </tr>
             </thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
       </div>
+      ${isRace ? `
+      <div class="standings-legend race-legend">
+        <span class="race-badge badge-fl">VR</span> Volta Mais Rápida
+      </div>` : ""}
     `;
   }
 

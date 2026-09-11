@@ -746,7 +746,24 @@ const SITE_DATA = {
       subtitle: "Corrida especial — Daytona International Speedway",
       logo: "images/WRT_LOGO.jpg",
       type: "drivers-external",
-      drivers: []
+      format: "race",
+      car: "NSX GT500 '08",
+      fastestLapTime: "1:41.512",
+      drivers: [
+        { name: "Sérgio Marques",   driverRef: "Sérgio Marques",   time: "31:25.195", gap: "",           penalty: "", bestLap: "1:41.892", fastestLap: false, ourDriver: true },
+        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   time: "",           gap: "+03.746",     penalty: "", bestLap: "1:41.512", fastestLap: true, ourDriver: true },
+        { name: "Elias Torres",     driverRef: "Elias Torres",     time: "",           gap: "+06.318",     penalty: "", bestLap: "1:41.678", fastestLap: false, ourDriver: true },
+        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   time: "",           gap: "+11.452",     penalty: "", bestLap: "1:42.195", fastestLap: false, ourDriver: true },
+        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", time: "",           gap: "+15.667",     penalty: "", bestLap: "1:41.694", fastestLap: false, ourDriver: true },
+        { name: "LDRS_TelmoTomas7", driverRef: "LDRS_TelmoTomas7", time: "",           gap: "+27.805",     penalty: "", bestLap: "1:42.276", fastestLap: false },
+        { name: "Parafuso_106",     driverRef: "Parafuso_106",     time: "",           gap: "+34.219",     penalty: "", bestLap: "1:42.845", fastestLap: false },
+        { name: "SLbenfica",        driverRef: "SLbenfica",        time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:42.345", fastestLap: false },
+        { name: "WRT_Patrício",     driverRef: "WRT_Patrício",     time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:41.884", fastestLap: false },
+        { name: "Raulpombal",       driverRef: "Raulpombal",       time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:43.078", fastestLap: false },
+        { name: "Brissos69 Pitbox", driverRef: "Brissos69 Pitbox", time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:44.200", fastestLap: false },
+        { name: "LDRS_ACoelho129",  driverRef: "LDRS_ACoelho129",  time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:43.600", fastestLap: false },
+        { name: "RTW_Vag,tdi.pt",   driverRef: "RTW_Vag,tdi.pt",   time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:44.081", fastestLap: false }
+      ]
     }
   ]
 
