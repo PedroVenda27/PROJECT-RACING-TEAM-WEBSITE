@@ -108,7 +108,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Pedro Venda/PedroVenda_Preto.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      federado: true
     },
     {
       name: "Sérgio Marques",
@@ -223,28 +224,28 @@ const SITE_DATA = {
       platform: "GT7",
       description: "Um dos mais recentes campeonatos de Gran Turismo 7 com 6 divisões e 90 pilotos.",
       logo: "images/LPGT_WORLDSERIES_LOGO.jpg",
-      url: "https://www.youtube.com/@ligaportugalgttv"
+      url: "https://www.ligaportugalgt.com/"
     },
     {
       name: "TT Motorfest CUP - NCM",
       platform: "GT7",
       description: "Campeonato Solidário organizado pela NCM com entuito de levar a diversão do Gran Turismo 7 a crianças carenciadas.",
       logo: "images/NCM_MOTORFEST_LOGO.jpg",
-      url: "https://www.youtube.com/@evolutionchampionshipserie7726"
+      url: "https://www.youtube.com/@NacionalCrewMotorsport2025"
     },
     {
       name: "Greyhound <br> Motorsports",
       platform: "GT7",
       description: "Organização de Eventos Sim Racing especializada em eventos Endurance.",
       logo: "images/GreyHonund6h_LOGO.png",
-      url: ""
+      url: "https://www.youtube.com/@greyhoundsimracing"
     },
     {
       name: "Taça <br> Portugal GT",
       platform: "GT7",
       description: "Taça de Portugal GT — Campeonato externo de Gran Turismo 7 que reúne as melhores equipas portuguesas de Sim Racing.",
       logo: "images/TPGT_LOGO.png",
-      url: ""
+      url: "https://www.ligaportugalgt.com/"
     },
     {
       name: "Mazda MX-5 Cup",
@@ -252,6 +253,13 @@ const SITE_DATA = {
       description: "Campeonato interno RTP Racing Team Project disputado no Gran Turismo 7 ao volante do Mazda MX-5, ao longo de 6 rondas.",
       logo: "images/MAZDA MX-5 CUP/MAZDA MX-5 CUP ICON.png",
       url: "inscricao.html"
+    },
+    {
+      name: "WRT Events",
+      platform: "GT7",
+      description: "Corridas especiais em parceria com a WRT (Wolves Racing Team), em vários circuitos e categorias.",
+      logo: "images/WRT_LOGO.jpg",
+      url: "https://www.youtube.com/@WolvesWRT"
     },
   ],
 
@@ -737,32 +745,286 @@ const SITE_DATA = {
     },
 
     /* ─────────────────────────────────────────────
-       WRT Daytona — one-off special event race (22/08).
-       Results pending; fill in `drivers` once the race is run.
+       WRT Events — one-off special races with WRT (Wolves Racing
+       Team). Each is a standalone race, not a points championship,
+       so this uses type: "drivers-external" + format: "race" with
+       an `events` list (one entry per race, newest last).
        ───────────────────────────────────────────── */
     {
       competition: "wrtdaytona",
-      title: "WRT Daytona",
-      subtitle: "Corrida especial — Daytona International Speedway",
+      title: "WRT Events",
+      subtitle: "Corridas especiais com a WRT — vários circuitos",
       logo: "images/WRT_LOGO.jpg",
       type: "drivers-external",
       format: "race",
-      car: "NSX GT500 '08",
-      fastestLapTime: "1:41.512",
-      drivers: [
-        { name: "Sérgio Marques",   driverRef: "Sérgio Marques",   time: "31:25.195", gap: "",           penalty: "", bestLap: "1:41.892", fastestLap: false, ourDriver: true },
-        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   time: "",           gap: "+03.746",     penalty: "", bestLap: "1:41.512", fastestLap: true, ourDriver: true },
-        { name: "Elias Torres",     driverRef: "Elias Torres",     time: "",           gap: "+06.318",     penalty: "", bestLap: "1:41.678", fastestLap: false, ourDriver: true },
-        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   time: "",           gap: "+11.452",     penalty: "", bestLap: "1:42.195", fastestLap: false, ourDriver: true },
-        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", time: "",           gap: "+15.667",     penalty: "", bestLap: "1:41.694", fastestLap: false, ourDriver: true },
-        { name: "LDRS_TelmoTomas7", driverRef: "LDRS_TelmoTomas7", time: "",           gap: "+27.805",     penalty: "", bestLap: "1:42.276", fastestLap: false },
-        { name: "Parafuso_106",     driverRef: "Parafuso_106",     time: "",           gap: "+34.219",     penalty: "", bestLap: "1:42.845", fastestLap: false },
-        { name: "SLbenfica",        driverRef: "SLbenfica",        time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:42.345", fastestLap: false },
-        { name: "WRT_Patrício",     driverRef: "WRT_Patrício",     time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:41.884", fastestLap: false },
-        { name: "Raulpombal",       driverRef: "Raulpombal",       time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:43.078", fastestLap: false },
-        { name: "Brissos69 Pitbox", driverRef: "Brissos69 Pitbox", time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:44.200", fastestLap: false },
-        { name: "LDRS_ACoelho129",  driverRef: "LDRS_ACoelho129",  time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:43.600", fastestLap: false },
-        { name: "RTW_Vag,tdi.pt",   driverRef: "RTW_Vag,tdi.pt",   time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:44.081", fastestLap: false }
+      events: [
+        {
+          name: "Daytona",
+          date: "22 de Agosto de 2026",
+          track: "Daytona International Speedway",
+          car: "NSX GT500 '08",
+          duration: "30 min",
+          streamUrl: "https://www.youtube.com/watch?v=iJudAuD-nF0",
+          fastestLapTime: "1:41.512",
+          drivers: [
+            { name: "Sérgio Marques",   driverRef: "Sérgio Marques",   time: "31:25.195", gap: "",           penalty: "", bestLap: "1:41.892", fastestLap: false, ourDriver: true },
+            { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   time: "",           gap: "+03.746",     penalty: "", bestLap: "1:41.512", fastestLap: true, ourDriver: true },
+            { name: "Elias Torres",     driverRef: "Elias Torres",     time: "",           gap: "+06.318",     penalty: "", bestLap: "1:41.678", fastestLap: false, ourDriver: true },
+            { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   time: "",           gap: "+11.452",     penalty: "", bestLap: "1:42.195", fastestLap: false, ourDriver: true },
+            { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", time: "",           gap: "+15.667",     penalty: "", bestLap: "1:41.694", fastestLap: false, ourDriver: true },
+            { name: "LDRS_TelmoTomas7", driverRef: "LDRS_TelmoTomas7", time: "",           gap: "+27.805",     penalty: "", bestLap: "1:42.276", fastestLap: false },
+            { name: "Parafuso_106",     driverRef: "Parafuso_106",     time: "",           gap: "+34.219",     penalty: "", bestLap: "1:42.845", fastestLap: false },
+            { name: "SLbenfica",        driverRef: "SLbenfica",        time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:42.345", fastestLap: false },
+            { name: "WRT_Patrício",     driverRef: "WRT_Patrício",     time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:41.884", fastestLap: false },
+            { name: "Raulpombal",       driverRef: "Raulpombal",       time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:43.078", fastestLap: false },
+            { name: "Brissos69 Pitbox", driverRef: "Brissos69 Pitbox", time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:44.200", fastestLap: false },
+            { name: "LDRS_ACoelho129",  driverRef: "LDRS_ACoelho129",  time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:43.600", fastestLap: false },
+            { name: "RTW_Vag,tdi.pt",   driverRef: "RTW_Vag,tdi.pt",   time: "",           gap: "1 Volta",     penalty: "", bestLap: "1:44.081", fastestLap: false }
+          ]
+        },
+        {
+          name: "Top Split",
+          date: "29 de Agosto de 2026",
+          track: "Circuit Gilles Villeneuve",
+          /* Two-stage regroup format: Gr4 splits first, then results
+             regroup drivers into new Sala 1/2 rooms racing Gr3. */
+          stages: [
+            {
+              stage: "Gr4",
+              car: "McLaren 650S Gr.4",
+              rooms: [
+                {
+                  room: "Sala 1",
+                  streamUrl: "https://www.youtube.com/watch?v=VoV-ThUk2KQ&t=6070s",
+                  sessions: [
+                    {
+                      type: "qualifying",
+                      label: "Qualificação",
+                      results: [
+                        { pos: 1,  name: "Edgar",             driverRef: "Edgar",             gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:45.258" },
+                        { pos: 2,  name: "RTW_Vag,tdi.pt",     driverRef: "RTW_Vag,tdi.pt",     gap: "+00.685", penalty: "", pole: false, fastestLap: false, bestLap: "1:45.943" },
+                        { pos: 3,  name: "Ratax5",             driverRef: "Ratax5",             gap: "+00.842", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.100" },
+                        { pos: 4,  name: "Rodrigo Marques",    driverRef: "Rodrigo Marques",    gap: "+01.126", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.384", ourDriver: true },
+                        { pos: 5,  name: "ricardinho_RS3",     driverRef: "ricardinho_RS3",     gap: "+01.151", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.409" },
+                        { pos: 6,  name: "2R4_Capucho_44",     driverRef: "2R4_Capucho_44",     gap: "+01.449", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.707" },
+                        { pos: 7,  name: "2R4@.M.C",           driverRef: "2R4@.M.C",           gap: "+01.866", penalty: "", pole: false, fastestLap: false, bestLap: "1:47.124" },
+                        { pos: 8,  name: "RTW_SaVaGeGT",       driverRef: "RTW_SaVaGeGT",       gap: "+01.902", penalty: "", pole: false, fastestLap: false, bestLap: "1:47.160" },
+                        { pos: 9,  name: "GodDeviL",           driverRef: "GodDeviL",           gap: "+02.231", penalty: "", pole: false, fastestLap: false, bestLap: "1:47.489" },
+                        { pos: 10, name: "Brissos69 Pitbox",   driverRef: "Brissos69 Pitbox",   gap: "+02.319", penalty: "", pole: false, fastestLap: false, bestLap: "1:47.577" },
+                        { pos: 11, name: "Sarking8",           driverRef: "Sarking8",           gap: "+02.621", penalty: "", pole: false, fastestLap: false, bestLap: "1:47.879" },
+                        { pos: 12, name: "YT_RapidusJD",       driverRef: "YT_RapidusJD",       gap: "+03.561", penalty: "", pole: false, fastestLap: false, bestLap: "1:48.819" },
+                        { pos: 13, name: "Hugo Costa",         driverRef: "Hugo Costa",         gap: "+04.354", penalty: "", pole: false, fastestLap: false, bestLap: "1:49.612", ourDriver: true },
+                        { pos: 14, name: "Fortunato73",        driverRef: "Fortunato73",        gap: "+05.986", penalty: "", pole: false, fastestLap: false, bestLap: "1:51.244" }
+                      ]
+                    },
+                    {
+                      type: "race",
+                      label: "Corrida",
+                      duration: "20 min",
+                      fastestLapTime: "1:46.910",
+                      results: [
+                        { pos: 1,  name: "RTW_Vag,tdi.pt",     driverRef: "RTW_Vag,tdi.pt",     time: "21:39.354", gap: "",         penalty: "", bestLap: "1:46.980", fastestLap: false },
+                        { pos: 2,  name: "Edgar",             driverRef: "Edgar",             time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:46.910", fastestLap: true  },
+                        { pos: 3,  name: "ricardinho_RS3",     driverRef: "ricardinho_RS3",     time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.117", fastestLap: false },
+                        { pos: 4,  name: "2R4@.M.C",           driverRef: "2R4@.M.C",           time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:47.789", fastestLap: false },
+                        { pos: 5,  name: "2R4_Capucho_44",     driverRef: "2R4_Capucho_44",     time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.140", fastestLap: false },
+                        { pos: 6,  name: "Rodrigo Marques",    driverRef: "Rodrigo Marques",    time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.119", fastestLap: false, ourDriver: true },
+                        { pos: 7,  name: "RTW_SaVaGeGT",       driverRef: "RTW_SaVaGeGT",       time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:47.691", fastestLap: false },
+                        { pos: 8,  name: "Ratax5",             driverRef: "Ratax5",             time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.142", fastestLap: false },
+                        { pos: 9,  name: "Sarking8",           driverRef: "Sarking8",           time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.492", fastestLap: false },
+                        { pos: 10, name: "Hugo Costa",         driverRef: "Hugo Costa",         time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.310", fastestLap: false, ourDriver: true },
+                        { pos: 11, name: "YT_RapidusJD",       driverRef: "YT_RapidusJD",       time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.175", fastestLap: false },
+                        { pos: 12, name: "Brissos69 Pitbox",   driverRef: "Brissos69 Pitbox",   time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.495", fastestLap: false },
+                        { pos: 13, name: "GodDeviL",           driverRef: "GodDeviL",           time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.380", fastestLap: false },
+                        { pos: 14, name: "Fortunato73",        driverRef: "Fortunato73",        time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:51.315", fastestLap: false }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  room: "Sala 2",
+                  streamUrl: "https://www.youtube.com/watch?v=d5bKFUltFjo",
+                  sessions: [
+                    {
+                      type: "qualifying",
+                      label: "Qualificação",
+                      results: [
+                        { pos: 1,  name: "D.Senna",           driverRef: "D.Senna",           gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:45.246" },
+                        { pos: 2,  name: "B.Moreira",          driverRef: "B.Moreira",          gap: "+00.394", penalty: "", pole: false, fastestLap: false, bestLap: "1:45.640" },
+                        { pos: 3,  name: "2R4_X_Ghost_X",      driverRef: "2R4_X_Ghost_X",      gap: "+00.408", penalty: "", pole: false, fastestLap: false, bestLap: "1:45.654" },
+                        { pos: 4,  name: "NexuS_BPF",          driverRef: "NexuS_BPF",          gap: "+00.897", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.143" },
+                        { pos: 5,  name: "JhonnyRenas",        driverRef: "JhonnyRenas",        gap: "+01.148", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.394" },
+                        { pos: 6,  name: "Pedro Dias",         driverRef: "Pedro Dias",         gap: "+01.387", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.633", ourDriver: true },
+                        { pos: 7,  name: "Raulpombal",         driverRef: "Raulpombal",         gap: "+01.408", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.654" },
+                        { pos: 8,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira",     gap: "+01.425", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.671" },
+                        { pos: 9,  name: "Nuno\"TheSnail\"PT", driverRef: "Nuno\"TheSnail\"PT", gap: "+01.918", penalty: "", pole: false, fastestLap: false, bestLap: "1:47.164" },
+                        { pos: 10, name: "Marco Silva",        driverRef: "Marco Silva",        gap: "+02.724", penalty: "", pole: false, fastestLap: false, bestLap: "1:47.970" },
+                        { pos: 11, name: "Oliveira",           driverRef: "Oliveira",           gap: "+02.888", penalty: "", pole: false, fastestLap: false, bestLap: "1:48.134" },
+                        { pos: 12, name: "L.S.R._Sapo_666",    driverRef: "L.S.R._Sapo_666",    gap: "+03.216", penalty: "", pole: false, fastestLap: false, bestLap: "1:48.462" },
+                        { pos: 13, name: "TheChem_24",         driverRef: "TheChem_24",         gap: "+03.816", penalty: "", pole: false, fastestLap: false, bestLap: "1:49.062" }
+                      ]
+                    },
+                    {
+                      type: "race",
+                      label: "Corrida",
+                      duration: "20 min",
+                      fastestLapTime: "1:44.815",
+                      results: [
+                        { pos: 1,  name: "2R4_X_Ghost_X",      driverRef: "2R4_X_Ghost_X",      time: "21:25.974", gap: "",         penalty: "", bestLap: "1:45.945", fastestLap: false },
+                        { pos: 2,  name: "D.Senna",           driverRef: "D.Senna",           time: "",           gap: "+08.253",   penalty: "", bestLap: "1:44.815", fastestLap: true  },
+                        { pos: 3,  name: "NexuS_BPF",          driverRef: "NexuS_BPF",          time: "",           gap: "+13.888",   penalty: "", bestLap: "1:46.885", fastestLap: false },
+                        { pos: 4,  name: "B.Moreira",          driverRef: "B.Moreira",          time: "",           gap: "+17.039",   penalty: "", bestLap: "1:47.240", fastestLap: false },
+                        { pos: 5,  name: "Pedro Dias",         driverRef: "Pedro Dias",         time: "",           gap: "+18.129",   penalty: "", bestLap: "1:47.422", fastestLap: false, ourDriver: true },
+                        { pos: 6,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira",     time: "",           gap: "+18.209",   penalty: "", bestLap: "1:47.040", fastestLap: false },
+                        { pos: 7,  name: "Nuno\"TheSnail\"PT", driverRef: "Nuno\"TheSnail\"PT", time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:47.821", fastestLap: false },
+                        { pos: 8,  name: "JhonnyRenas",        driverRef: "JhonnyRenas",        time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:47.750", fastestLap: false },
+                        { pos: 9,  name: "Raulpombal",         driverRef: "Raulpombal",         time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:47.912", fastestLap: false },
+                        { pos: 10, name: "Marco Silva",        driverRef: "Marco Silva",        time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:48.734", fastestLap: false },
+                        { pos: 11, name: "Oliveira",           driverRef: "Oliveira",           time: "",           gap: "2 Voltas",  penalty: "", bestLap: "1:49.015", fastestLap: false },
+                        { pos: 12, name: "L.S.R._Sapo_666",    driverRef: "L.S.R._Sapo_666",    time: "",           gap: "2 Voltas",  penalty: "", bestLap: "1:49.288", fastestLap: false },
+                        { pos: 13, name: "TheChem_24",         driverRef: "TheChem_24",         time: "",           gap: "2 Voltas",  penalty: "", bestLap: "1:50.104", fastestLap: false }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              stage: "Gr3",
+              car: "650S GT3 '15",
+              rooms: [
+                {
+                  room: "Sala 1",
+                  streamUrl: "https://www.youtube.com/watch?v=VoV-ThUk2KQ&t=6070s",
+                  sessions: [
+                    {
+                      type: "qualifying",
+                      label: "Qualificação",
+                      results: [
+                        { pos: 1,  name: "D.Senna",           driverRef: "D.Senna",           gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:36.344" },
+                        { pos: 2,  name: "Edgar",             driverRef: "Edgar",             gap: "+00.219", penalty: "", pole: false, fastestLap: false, bestLap: "1:36.563" },
+                        { pos: 3,  name: "RTW_Vag,tdi.pt",     driverRef: "RTW_Vag,tdi.pt",     gap: "+00.773", penalty: "", pole: false, fastestLap: false, bestLap: "1:37.117" },
+                        { pos: 4,  name: "2R4_X_Ghost_X",      driverRef: "2R4_X_Ghost_X",      gap: "+00.880", penalty: "", pole: false, fastestLap: false, bestLap: "1:37.224" },
+                        { pos: 5,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira",     gap: "+01.074", penalty: "", pole: false, fastestLap: false, bestLap: "1:37.418" },
+                        { pos: 6,  name: "2R4@.M.C",           driverRef: "2R4@.M.C",           gap: "+01.239", penalty: "", pole: false, fastestLap: false, bestLap: "1:37.583" },
+                        { pos: 7,  name: "Rodrigo Marques",    driverRef: "Rodrigo Marques",    gap: "+01.257", penalty: "", pole: false, fastestLap: false, bestLap: "1:37.601", ourDriver: true },
+                        { pos: 8,  name: "2R4_Capucho_44",     driverRef: "2R4_Capucho_44",     gap: "+01.385", penalty: "", pole: false, fastestLap: false, bestLap: "1:37.729" },
+                        { pos: 9,  name: "Pedro Dias",         driverRef: "Pedro Dias",         gap: "+01.574", penalty: "", pole: false, fastestLap: false, bestLap: "1:37.918", ourDriver: true },
+                        { pos: 10, name: "Nuno\"TheSnail\"PT", driverRef: "Nuno\"TheSnail\"PT", gap: "+01.668", penalty: "", pole: false, fastestLap: false, bestLap: "1:38.012" },
+                        { pos: 11, name: "NexuS_BPF",          driverRef: "NexuS_BPF",          gap: "+01.743", penalty: "", pole: false, fastestLap: false, bestLap: "1:38.087" },
+                        { pos: 12, name: "ricardinho_RS3",     driverRef: "ricardinho_RS3",     gap: "+02.925", penalty: "", pole: false, fastestLap: false, bestLap: "1:39.269" },
+                        { pos: 13, name: "B.Moreira",          driverRef: "B.Moreira",          gap: "+04.459", penalty: "", pole: false, fastestLap: false, bestLap: "1:40.803" },
+                        { pos: 14, name: "RTW_SaVaGeGT",       driverRef: "RTW_SaVaGeGT",       gap: "+05.437", penalty: "", pole: false, fastestLap: false, bestLap: "1:41.781" }
+                      ]
+                    },
+                    {
+                      type: "race",
+                      label: "Corrida",
+                      duration: "20 min",
+                      fastestLapTime: "1:37.447",
+                      results: [
+                        { pos: 1,  name: "D.Senna",           driverRef: "D.Senna",           time: "21:20.679", gap: "",         penalty: "", bestLap: "1:37.475", fastestLap: false },
+                        { pos: 2,  name: "2R4_X_Ghost_X",      driverRef: "2R4_X_Ghost_X",      time: "",           gap: "+07.673",   penalty: "", bestLap: "1:37.447", fastestLap: true  },
+                        { pos: 3,  name: "2R4@.M.C",           driverRef: "2R4@.M.C",           time: "",           gap: "+20.494",   penalty: "", bestLap: "1:39.010", fastestLap: false },
+                        { pos: 4,  name: "Rodrigo Marques",    driverRef: "Rodrigo Marques",    time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:38.045", fastestLap: false, ourDriver: true },
+                        { pos: 5,  name: "Pedro Dias",         driverRef: "Pedro Dias",         time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:39.130", fastestLap: false, ourDriver: true },
+                        { pos: 6,  name: "RTW_Vag,tdi.pt",     driverRef: "RTW_Vag,tdi.pt",     time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:38.091", fastestLap: false },
+                        { pos: 7,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira",     time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:37.665", fastestLap: false },
+                        { pos: 8,  name: "NexuS_BPF",          driverRef: "NexuS_BPF",          time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:38.677", fastestLap: false },
+                        { pos: 9,  name: "Nuno\"TheSnail\"PT", driverRef: "Nuno\"TheSnail\"PT", time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:39.386", fastestLap: false },
+                        { pos: 10, name: "B.Moreira",          driverRef: "B.Moreira",          time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:39.994", fastestLap: false },
+                        { pos: 11, name: "2R4_Capucho_44",     driverRef: "2R4_Capucho_44",     time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:39.520", fastestLap: false },
+                        { pos: 12, name: "RTW_SaVaGeGT",       driverRef: "RTW_SaVaGeGT",       time: "",           gap: "1 Volta",   penalty: "", bestLap: "1:38.909", fastestLap: false },
+                        { pos: 13, name: "ricardinho_RS3",     driverRef: "ricardinho_RS3",     time: "",           gap: "NC",        penalty: "", bestLap: "1:40.455", fastestLap: false },
+                        { pos: 14, name: "Edgar",             driverRef: "Edgar",             time: "",           gap: "NC",        penalty: "", bestLap: "",          fastestLap: false }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  room: "Sala 2",
+                  streamUrl: "https://www.youtube.com/watch?v=d5bKFUltFjo",
+                  sessions: [
+                    {
+                      type: "qualifying",
+                      label: "Qualificação",
+                      results: [
+                        { pos: 1,  name: "Ratax5",             driverRef: "Ratax5",             gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:38.162" },
+                        { pos: 2,  name: "Sarking8",           driverRef: "Sarking8",           gap: "+00.515", penalty: "", pole: false, fastestLap: false, bestLap: "1:38.677" },
+                        { pos: 3,  name: "Raulpombal",         driverRef: "Raulpombal",         gap: "+00.530", penalty: "", pole: false, fastestLap: false, bestLap: "1:38.692" },
+                        { pos: 4,  name: "Hugo Seixas",        driverRef: "Hugo Seixas",        gap: "+01.162", penalty: "", pole: false, fastestLap: false, bestLap: "1:39.324", ourDriver: true },
+                        { pos: 5,  name: "JhonnyRenas",        driverRef: "JhonnyRenas",        gap: "+01.248", penalty: "", pole: false, fastestLap: false, bestLap: "1:39.410" },
+                        { pos: 6,  name: "L.S.R._Sapo_666",    driverRef: "L.S.R._Sapo_666",    gap: "+01.299", penalty: "", pole: false, fastestLap: false, bestLap: "1:39.461" },
+                        { pos: 7,  name: "Brissos69 Pitbox",   driverRef: "Brissos69 Pitbox",   gap: "+01.385", penalty: "", pole: false, fastestLap: false, bestLap: "1:39.547" },
+                        { pos: 8,  name: "YT_RapidusJD",       driverRef: "YT_RapidusJD",       gap: "+01.482", penalty: "", pole: false, fastestLap: false, bestLap: "1:39.644" },
+                        { pos: 9,  name: "Oliveira",           driverRef: "Oliveira",           gap: "+02.743", penalty: "", pole: false, fastestLap: false, bestLap: "1:40.905" },
+                        { pos: 10, name: "Fortunato73",        driverRef: "Fortunato73",        gap: "+04.662", penalty: "", pole: false, fastestLap: false, bestLap: "1:42.824" },
+                        { pos: 11, name: "Hugo Costa",         driverRef: "Hugo Costa",         gap: "+05.687", penalty: "", pole: false, fastestLap: false, bestLap: "1:43.849", ourDriver: true },
+                        { pos: 12, name: "TheChem_24",         driverRef: "TheChem_24",         gap: "+06.263", penalty: "", pole: false, fastestLap: false, bestLap: "1:44.425" },
+                        { pos: 13, name: "GodDeviL",           driverRef: "GodDeviL",           gap: "+08.204", penalty: "", pole: false, fastestLap: false, bestLap: "1:46.366" }
+                      ]
+                    },
+                    {
+                      type: "race",
+                      label: "Corrida",
+                      duration: "20 min",
+                      fastestLapTime: "1:38.149",
+                      results: [
+                        { pos: 1,  name: "Ratax5",             driverRef: "Ratax5",             time: "20:01.781", gap: "",           penalty: "",          bestLap: "1:38.149", fastestLap: true  },
+                        { pos: 2,  name: "Hugo Seixas",        driverRef: "Hugo Seixas",        time: "",           gap: "+06.198",     penalty: "",          bestLap: "1:39.457", fastestLap: false, ourDriver: true },
+                        { pos: 3,  name: "JhonnyRenas",        driverRef: "JhonnyRenas",        time: "",           gap: "+10.261",     penalty: "",          bestLap: "1:39.154", fastestLap: false },
+                        { pos: 4,  name: "Sarking8",           driverRef: "Sarking8",           time: "",           gap: "+12.276",     penalty: "",          bestLap: "1:39.522", fastestLap: false },
+                        { pos: 5,  name: "GodDeviL",           driverRef: "GodDeviL",           time: "",           gap: "+12.696",     penalty: "",          bestLap: "1:39.298", fastestLap: false },
+                        { pos: 6,  name: "Raulpombal",         driverRef: "Raulpombal",         time: "",           gap: "+22.522",     penalty: "",          bestLap: "1:40.653", fastestLap: false },
+                        { pos: 7,  name: "Oliveira",           driverRef: "Oliveira",           time: "",           gap: "+23.037",     penalty: "",          bestLap: "1:40.110", fastestLap: false },
+                        { pos: 8,  name: "Brissos69 Pitbox",   driverRef: "Brissos69 Pitbox",   time: "",           gap: "+29.462",     penalty: "",          bestLap: "1:40.681", fastestLap: false },
+                        { pos: 9,  name: "TheChem_24",         driverRef: "TheChem_24",         time: "",           gap: "+33.628",     penalty: "",          bestLap: "1:41.065", fastestLap: false },
+                        { pos: 10, name: "Hugo Costa",         driverRef: "Hugo Costa",         time: "",           gap: "+38.275",     penalty: "",          bestLap: "1:40.808", fastestLap: false, ourDriver: true },
+                        { pos: 11, name: "L.S.R._Sapo_666",    driverRef: "L.S.R._Sapo_666",    time: "",           gap: "+43.465",     penalty: "",          bestLap: "1:40.674", fastestLap: false },
+                        { pos: 12, name: "Fortunato73",        driverRef: "Fortunato73",        time: "",           gap: "+1:04.954",   penalty: "0:01.000",  bestLap: "1:42.731", fastestLap: false },
+                        { pos: 13, name: "YT_RapidusJD",       driverRef: "YT_RapidusJD",       time: "",           gap: "+1:08.530",   penalty: "",          bestLap: "1:40.540", fastestLap: false }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: "WRT x Pitbox",
+          date: "4 de Setembro de 2026",
+          track: "Nürburgring 24h",
+          car: "Gr.3",
+          duration: "90 min",
+          streamUrl: "https://www.youtube.com/live/5UcLEu15bRc",
+          fastestLapTime: "8:19.388",
+          drivers: [
+            { name: "Pedro Oliveira",    driverRef: "Pedro Oliveira",    car: "RX-VISION GT3 CONCEPT",         time: "1:30:59.680", gap: "",           penalty: "", bestLap: "8:29.429",  fastestLap: false },
+            { name: "Rodrigo Marques",   driverRef: "Rodrigo Marques",   car: "WRX Gr.3",                      time: "",             gap: "+03.938",     penalty: "", bestLap: "8:19.388",  fastestLap: true, ourDriver: true },
+            { name: "Nuno\"TheSnail\"PT", driverRef: "Nuno\"TheSnail\"PT", car: "WRX Gr.3",                      time: "",             gap: "+16.149",     penalty: "", bestLap: "8:34.995",  fastestLap: false },
+            { name: "Rsantos059",        driverRef: "Rsantos059",        car: "296 GT3 '23",                   time: "",             gap: "+23.195",     penalty: "", bestLap: "8:30.962",  fastestLap: false },
+            { name: "Marco Silva",       driverRef: "Marco Silva",       car: "M6 GT3 Endurance Model '16",    time: "",             gap: "+1:11.536",   penalty: "", bestLap: "8:39.713",  fastestLap: false },
+            { name: "Vini",              driverRef: "Vini",              car: "911 GT3 R (992) '22",           time: "",             gap: "+1:24.123",   penalty: "", bestLap: "8:33.873",  fastestLap: false },
+            { name: "JhonnyRenas",       driverRef: "JhonnyRenas",       car: "Mercedes-AMG GT3 '20",          time: "",             gap: "+1:36.144",   penalty: "", bestLap: "8:45.324",  fastestLap: false },
+            { name: "Oliveira",          driverRef: "Oliveira",          car: "296 GT3 '23",                   time: "",             gap: "+1:53.352",   penalty: "", bestLap: "8:36.119",  fastestLap: false },
+            { name: "ricardinho_RS3",    driverRef: "ricardinho_RS3",    car: "911 GT3 R (992) '22",           time: "",             gap: "+2:15.482",   penalty: "", bestLap: "8:41.556",  fastestLap: false },
+            { name: "Brissos69 Pitbox",  driverRef: "Brissos69 Pitbox",  car: "M6 GT3 Sprint Model '16",       time: "",             gap: "+2:48.917",   penalty: "", bestLap: "8:44.646",  fastestLap: false },
+            { name: "#96 Gtc_P.Pires",   driverRef: "#96 Gtc_P.Pires",   car: "Mercedes-AMG GT3 '20",          time: "",             gap: "+3:32.664",   penalty: "", bestLap: "9:06.900",  fastestLap: false },
+            { name: "Ratax5",            driverRef: "Ratax5",            car: "911 GT3 R (992) '22",           time: "",             gap: "1 Volta",     penalty: "", bestLap: "8:54.854",  fastestLap: false },
+            { name: "WRT_Patrício",      driverRef: "WRT_Patrício",      car: "911 RSR (991) '17",             time: "",             gap: "NC",          penalty: "", bestLap: "10:05.973", fastestLap: false },
+            { name: "Ana Pereira",       driverRef: "Ana Pereira",       car: "296 GT3 '23",                   time: "",             gap: "NC",          penalty: "", bestLap: "",           fastestLap: false }
+          ]
+        },
+        {
+          name: "Spa",
+          date: "12 de Setembro de 2026",
+          track: "Circuit de Spa-Francorchamps",
+          car: "Toyota 86 GRMN '16",
+          duration: "60 min",
+          fastestLapTime: "",
+          drivers: []
+        }
       ]
     }
   ]

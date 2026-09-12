@@ -27,7 +27,6 @@
         <li><a href="garage.html" data-i18n="nav.garage">Garage</a></li>
         <li><a href="calendar.html" data-i18n="nav.calendar">Calendar</a></li>
         <li><a href="#sponsors-section" data-i18n="nav.sponsors">Sponsors</a></li>
-        <li><a href="inscricao.html" class="nav-mxcup">&#127937; MX-5 Cup</a></li>
         <li><a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact Us</a></li>
         <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">🇵🇹 PT</button></li>
       </ul>
@@ -80,45 +79,98 @@
             <span class="stat-label" data-i18n="about.stat.drivers">Drivers</span>
           </div>
           <div class="stat-card stat-card-clickable" id="titles-card" style="cursor:pointer;position:relative;" title="Ver títulos">
-            <span class="stat-number" data-count="3">0</span>
+            <span style="font-size:1.1rem;display:block;margin-bottom:0.2rem;">🏆</span>
+            <span class="stat-number" data-count="6">0</span>
             <span class="stat-label" data-i18n="about.stat.individual">Individual Titles</span>
             <span style="font-size:0.65rem;color:var(--yellow);letter-spacing:1px;margin-top:0.2rem;display:block;">▼ ver lista</span>
           </div>
           <!-- Titles dropdown -->
           <div id="titles-list" style="display:none;position:absolute;z-index:100;background:#1a1a1a;border:1px solid var(--yellow);border-radius:8px;padding:1rem 1.5rem;min-width:220px;max-width:90vw;box-shadow:0 8px 32px rgba(0,0,0,0.5);margin-top:0.5rem;left:50%;transform:translateX(-50%);">
             <h4 style="font-family:var(--font-display);font-size:0.75rem;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;">🏆 Títulos Individuais</h4>
-            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;">
-              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid var(--yellow);padding-left:0.75rem;">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;max-height:260px;overflow-y:auto;">
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #FFD700;padding-left:0.75rem;">
                 <strong style="color:#fff;">5ª Liga BPF — Sala 6 — 1º Lugar</strong><br>
                 <span style="font-size:0.75rem;color:var(--gray-400);">Nuno Bravo (N17_nuno) · Gran Turismo 7</span>
               </li>
-              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid var(--yellow);padding-left:0.75rem;">
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #CD7F32;padding-left:0.75rem;">
                 <strong style="color:#fff;">2H LeMans Grid Masters — 3º Lugar</strong><br>
                 <span style="font-size:0.75rem;color:var(--gray-400);">Nuno Bravo (N17_nuno) · Gran Turismo 7</span>
               </li>
-              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid var(--yellow);padding-left:0.75rem;">
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #FFD700;padding-left:0.75rem;">
+                <strong style="color:#fff;">WRT Daytona — 1º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Sérgio Marques (CyberserGT) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #C0C0C0;padding-left:0.75rem;">
+                <strong style="color:#fff;">WRT Daytona — 2º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Wilson Barreto (Wilson_TheFirst) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #CD7F32;padding-left:0.75rem;">
+                <strong style="color:#fff;">WRT Daytona — 3º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Elias Torres (KajuNN) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #C0C0C0;padding-left:0.75rem;">
+                <strong style="color:#fff;">WRT x Pitbox — Nürburgring — 2º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Rodrigo Marques (granadas10) · Gran Turismo 7</span>
+              </li>
+            </ul>
+          </div>
+          <div class="stat-card stat-card-clickable" id="team-titles-card" style="cursor:pointer;position:relative;" title="Ver títulos coletivos">
+            <span style="font-size:1.1rem;display:block;margin-bottom:0.2rem;">🏆</span>
+            <span class="stat-number" data-count="7">0</span>
+            <span class="stat-label" data-i18n="about.stat.team">Team Titles</span>
+            <span style="font-size:0.65rem;color:var(--yellow);letter-spacing:1px;margin-top:0.2rem;display:block;">▼ ver lista</span>
+          </div>
+          <!-- Team titles dropdown: every individual title also counts as a team title -->
+          <div id="team-titles-list" style="display:none;position:absolute;z-index:100;background:#1a1a1a;border:1px solid var(--yellow);border-radius:8px;padding:1rem 1.5rem;min-width:220px;max-width:90vw;box-shadow:0 8px 32px rgba(0,0,0,0.5);margin-top:0.5rem;left:50%;transform:translateX(-50%);">
+            <h4 style="font-family:var(--font-display);font-size:0.75rem;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;">🏆 Títulos Coletivos</h4>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;max-height:260px;overflow-y:auto;">
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #FFD700;padding-left:0.75rem;">
+                <strong style="color:#fff;">5ª Liga BPF — Sala 6 — 1º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Nuno Bravo (N17_nuno) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #CD7F32;padding-left:0.75rem;">
+                <strong style="color:#fff;">2H LeMans Grid Masters — 3º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Nuno Bravo (N17_nuno) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #C0C0C0;padding-left:0.75rem;">
                 <strong style="color:#fff;">2H LeMans Grid Masters — 2º Lugar</strong><br>
                 <span style="font-size:0.75rem;color:var(--gray-400);">João Ferreira (JRLF13ACM77) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #FFD700;padding-left:0.75rem;">
+                <strong style="color:#fff;">WRT Daytona — 1º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Sérgio Marques (CyberserGT) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #C0C0C0;padding-left:0.75rem;">
+                <strong style="color:#fff;">WRT Daytona — 2º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Wilson Barreto (Wilson_TheFirst) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #CD7F32;padding-left:0.75rem;">
+                <strong style="color:#fff;">WRT Daytona — 3º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Elias Torres (KajuNN) · Gran Turismo 7</span>
+              </li>
+              <li style="font-size:0.85rem;color:var(--gray-200);border-left:2px solid #C0C0C0;padding-left:0.75rem;">
+                <strong style="color:#fff;">WRT x Pitbox — Nürburgring — 2º Lugar</strong><br>
+                <span style="font-size:0.75rem;color:var(--gray-400);">Rodrigo Marques (granadas10) · Gran Turismo 7</span>
               </li>
             </ul>
           </div>
           <script>
             (function(){
-              const card = document.getElementById('titles-card');
-              const list = document.getElementById('titles-list');
-              if(card && list){
-                card.addEventListener('click', function(e){
-                  e.stopPropagation();
-                  list.style.display = list.style.display === 'none' ? 'block' : 'none';
-                });
-                document.addEventListener('click', function(){ list.style.display = 'none'; });
+              function wireDropdown(cardId, listId){
+                const card = document.getElementById(cardId);
+                const list = document.getElementById(listId);
+                if(card && list){
+                  card.addEventListener('click', function(e){
+                    e.stopPropagation();
+                    list.style.display = list.style.display === 'none' ? 'block' : 'none';
+                  });
+                  document.addEventListener('click', function(){ list.style.display = 'none'; });
+                }
               }
+              wireDropdown('titles-card', 'titles-list');
+              wireDropdown('team-titles-card', 'team-titles-list');
             })();
           </script>
-          <div class="stat-card">
-            <span class="stat-number" data-count="X">0</span>
-            <span class="stat-label" data-i18n="about.stat.team">Team Titles</span>
-          </div>
         </div>
       </div>
     </div>
@@ -147,9 +199,6 @@
       <div class="section-header anim-slide-left">
         <span class="section-tag" data-i18n="drivers.tag">The Squad</span>
         <h2 class="section-title"><span data-i18n="drivers.title1">Our</span> <span class="text-yellow" data-i18n="drivers.title2">Drivers</span></h2>
-      </div>
-      <div class="mxcup-champion-banner anim-fade-up" id="mxcup-champion-banner">
-        <!-- Rendered by main.js from data.js -->
       </div>
       <div class="drivers-grid" id="drivers-grid">
         <!-- Rendered by main.js from data.js -->

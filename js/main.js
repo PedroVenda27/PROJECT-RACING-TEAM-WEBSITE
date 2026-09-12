@@ -153,9 +153,12 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="https://flagcdn.com/w20/${({'Portugal':'pt','Brasil':'br','Cabo Verde':'cv'}[driver.nationality]||'pt')}.png" alt="${driver.nationality}" width="22" height="16">
             <span>${driver.nationality}</span>
           </div>
-          <a href="https://www.dg-edge.com/players/${driver.role}" target="_blank" rel="noopener" class="potm-edge-link">
-            <img src="images/EDGE.png" alt="Edge" style="height:28px;width:auto;opacity:0.9;" />
-          </a>
+          <div class="badges-stack">
+            ${driver.federado ? '<img src="images/FPDE_LOGO.png" class="fpde-badge" alt="Federado FPDE" title="Piloto federado FPDE" />' : ''}
+            <a href="https://www.dg-edge.com/players/${driver.role}" target="_blank" rel="noopener" class="potm-edge-link">
+              <img src="images/EDGE.png" alt="Edge" style="height:28px;width:auto;opacity:0.9;" />
+            </a>
+          </div>
         </div>
       </article>`;
     }
@@ -188,9 +191,12 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:0.4rem;">
             <p class="driver-series">${d.series}</p>
-            <a href="https://www.dg-edge.com/players/${d.role}" target="_blank" rel="noopener" title="Ver perfil Edge de ${d.role}">
-              <img src="images/EDGE.png" alt="Edge" style="height:20px;width:auto;opacity:0.9;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'" />
-            </a>
+            <div class="badges-stack">
+              ${d.federado ? '<img src="images/FPDE_LOGO.png" class="fpde-badge" alt="Federado FPDE" title="Piloto federado FPDE" />' : ''}
+              <a href="https://www.dg-edge.com/players/${d.role}" target="_blank" rel="noopener" title="Ver perfil Edge de ${d.role}">
+                <img src="images/EDGE.png" alt="Edge" style="height:20px;width:auto;opacity:0.9;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'" />
+              </a>
+            </div>
           </div>
         </div>
       </article>
@@ -201,41 +207,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   renderDriversGrid();
   document.addEventListener("rtp:langchange", renderDriversGrid);
-
-  /* ══════════════════════════════════════════════════════════════════
-     RENDER MX-5 CUP CHAMPION BANNER
-     Leader of the Mazda MX-5 Cup standings (SITE_DATA.standings entries
-     are kept manually sorted by total, so drivers[0] is the leader).
-     ══════════════════════════════════════════════════════════════════ */
-  const mxCupBanner = document.getElementById("mxcup-champion-banner");
-  function renderMxCupChampion() {
-    if (!mxCupBanner || !SITE_DATA.standings) return;
-    const cup = SITE_DATA.standings.find(s => s.competition === "mxcup");
-    if (!cup || !cup.drivers || !cup.drivers.length) return;
-
-    const champion = cup.drivers[0];
-    const driverInfo = SITE_DATA.drivers.find(d => d.name === champion.driverRef) || {};
-    const lang = (typeof getLang === "function") ? getLang() : "pt";
-    const t = (key, fallback) => (typeof TRANSLATIONS !== "undefined" && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) || fallback;
-
-    mxCupBanner.innerHTML = `
-      <img class="mxcup-champion-logo" src="images/MAZDA MX-5 CUP/MAZDA MX-5 CUP ICON.png" alt="Mazda MX-5 Cup" loading="lazy" />
-      <div class="mxcup-champion-photo-wrap">
-        ${driverInfo.image
-          ? `<img src="${driverInfo.image}" alt="${champion.name}" loading="lazy" onerror="this.style.display='none';" />`
-          : `<div class="driver-placeholder"><span>${driverInfo.number || ""}</span></div>`
-        }
-      </div>
-      <div class="mxcup-champion-info">
-        <div class="mxcup-champion-badge">🏆 ${t('mxcup.champion.badge', 'Campeão Mazda MX-5 Cup')}</div>
-        <h3 class="mxcup-champion-name">${champion.name}</h3>
-        <p class="mxcup-champion-points">${champion.total} ${t('mxcup.champion.points', 'pontos')}</p>
-        <a href="standings.html#standings-mxcup" class="mxcup-champion-link">${t('mxcup.champion.cta', 'Ver Classificação')} →</a>
-      </div>
-    `;
-  }
-  renderMxCupChampion();
-  document.addEventListener("rtp:langchange", renderMxCupChampion);
 
   /* ══════════════════════════════════════════════════════════════════
      DRIVER SUIT COLOR LOOP
@@ -309,13 +280,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Slider logic
   const track = container.querySelector('.leagues-slider-track');
-  const slides = container.querySelectorAll('.league-slide');
   const leftArrow = container.querySelector('.leagues-arrow-left');
   const rightArrow = container.querySelector('.leagues-arrow-right');
   const dotsContainer = container.querySelector('.leagues-dots');
-  const totalSlides = slides.length;
+  const realSlideEls = Array.from(container.querySelectorAll('.league-slide'));
+  const totalSlides = realSlideEls.length;
 
-  let currentIndex = 0;
+  /* Infinite loop via cloned edge slides: clone the first CLONE_COUNT
+     real slides and append them, clone the last CLONE_COUNT and
+     prepend them. Scrolling past the real slides then glides into a
+     clone that looks identical to the real start/end — once the
+     transition finishes we snap (transition-less) back to the
+     matching real position, so the loop looks seamless. */
+  const CLONE_COUNT = Math.min(4, totalSlides);
+  realSlideEls.slice(-CLONE_COUNT).forEach(s => track.insertBefore(s.cloneNode(true), track.firstChild));
+  realSlideEls.slice(0, CLONE_COUNT).forEach(s => track.appendChild(s.cloneNode(true)));
+
+  const slides = container.querySelectorAll('.league-slide');
+  let currentIndex = CLONE_COUNT; // DOM index of real slide 0
   let visibleCount = 4;
   let autoplayInterval;
 
@@ -327,77 +309,70 @@ document.addEventListener("DOMContentLoaded", () => {
     return 4;
   }
 
+  function realIndex() {
+    return ((currentIndex - CLONE_COUNT) % totalSlides + totalSlides) % totalSlides;
+  }
+
   function buildDots() {
     dotsContainer.innerHTML = '';
     for (let i = 0; i < totalSlides; i++) {
       const dot = document.createElement('button');
-      dot.className = 'leagues-dot' + (i === currentIndex ? ' active' : '');
+      dot.className = 'leagues-dot';
       dot.setAttribute('aria-label', 'Go to card ' + (i + 1));
       dot.addEventListener('click', () => {
-        currentIndex = i;
-        // Clamp so we don't scroll past the end
-        const maxIndex = totalSlides - visibleCount;
-        if (currentIndex > maxIndex) currentIndex = maxIndex;
-        if (currentIndex < 0) currentIndex = 0;
-        updateSlider();
+        currentIndex = CLONE_COUNT + i;
+        updateSlider(true);
         resetAutoplay();
       });
       dotsContainer.appendChild(dot);
     }
   }
+  buildDots();
 
-  function updateSlider() {
-    visibleCount = getVisibleCount();
-    const maxIndex = totalSlides - visibleCount;
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
-    if (currentIndex < 0) currentIndex = 0;
-
+  function updateSlider(animate) {
     const slideWidth = 100 / visibleCount;
     slides.forEach(s => s.style.flex = `0 0 ${slideWidth}%`);
 
+    track.style.transition = animate ? '' : 'none';
     const offset = -(currentIndex * slideWidth);
     track.style.transform = `translateX(${offset}%)`;
 
-    // Update dots — highlight the "range" of visible cards
+    // Highlight the "range" of visible real cards
+    const start = realIndex();
     const dots = dotsContainer.querySelectorAll('.leagues-dot');
     dots.forEach((d, i) => {
-      const inView = i >= currentIndex && i < currentIndex + visibleCount;
+      const inView = i >= start && i < start + visibleCount;
       d.classList.toggle('active', inView);
     });
-
-    // Update arrows
-    leftArrow.style.opacity = currentIndex === 0 ? '0.3' : '1';
-    leftArrow.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-    rightArrow.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
-    rightArrow.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
-
-    buildDots();
   }
 
-  function nextSlide() {
-    const maxIndex = totalSlides - visibleCount;
-    if (currentIndex < maxIndex) {
-      currentIndex++;
-    } else {
-      currentIndex = 0;
+  // Snap invisibly back into the real-slide range once a transition
+  // carries the view fully into the cloned edge zone.
+  track.addEventListener('transitionend', (e) => {
+    if (e.propertyName !== 'transform') return;
+    if (currentIndex >= CLONE_COUNT + totalSlides) {
+      currentIndex -= totalSlides;
+      updateSlider(false);
+    } else if (currentIndex < CLONE_COUNT) {
+      currentIndex += totalSlides;
+      updateSlider(false);
     }
-    updateSlider();
+  });
+
+  function nextSlide() {
+    currentIndex++;
+    updateSlider(true);
   }
 
   function prevSlide() {
-    const maxIndex = totalSlides - visibleCount;
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      currentIndex = maxIndex;
-    }
-    updateSlider();
+    currentIndex--;
+    updateSlider(true);
   }
 
   function startAutoplay() {
     // Guard: clear any existing interval before starting a new one
     clearInterval(autoplayInterval);
-    autoplayInterval = setInterval(nextSlide, 5000);
+    autoplayInterval = setInterval(nextSlide, 2000);
   }
 
   function resetAutoplay() {
@@ -430,12 +405,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle resize
   window.addEventListener('resize', () => {
     visibleCount = getVisibleCount();
-    updateSlider();
+    updateSlider(false);
   });
 
   // Initialize
   visibleCount = getVisibleCount();
-  updateSlider();
+  updateSlider(false);
   startAutoplay();
 }
 
