@@ -1020,10 +1020,61 @@ const SITE_DATA = {
           name: "Spa",
           date: "12 de Setembro de 2026",
           track: "Circuit de Spa-Francorchamps",
-          car: "Toyota 86 GRMN '16",
-          duration: "60 min",
-          fastestLapTime: "",
-          drivers: []
+          stages: [
+            {
+              stage: "Fun Endurance",
+              car: "Toyota 86 GRMN '16",
+              rooms: [
+                {
+                  room: "Fun Endurance",
+                  sessions: [
+                    {
+                      type: "qualifying",
+                      label: "Qualificação",
+                      results: [
+                        { pos: 1,  name: "Mira",             driverRef: "Mira",             gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "2:43.820" },
+                        { pos: 2,  name: "Elias Torres",      driverRef: "Elias Torres",      gap: "+00.041", penalty: "", pole: false, fastestLap: false, bestLap: "2:43.861", ourDriver: true },
+                        { pos: 3,  name: "Anonymous_Gt",      driverRef: "Anonymous_Gt",      gap: "+00.071", penalty: "", pole: false, fastestLap: false, bestLap: "2:43.891" },
+                        { pos: 4,  name: "Wilson Barreto",    driverRef: "Wilson Barreto",    gap: "+00.481", penalty: "", pole: false, fastestLap: false, bestLap: "2:44.301", ourDriver: true },
+                        { pos: 5,  name: "YT_RapidusJD",      driverRef: "YT_RapidusJD",      gap: "+00.743", penalty: "", pole: false, fastestLap: false, bestLap: "2:44.563" },
+                        { pos: 6,  name: "Sérgio Marques",    driverRef: "Sérgio Marques",    gap: "+00.753", penalty: "", pole: false, fastestLap: false, bestLap: "2:44.573", ourDriver: true },
+                        { pos: 7,  name: "RTW_SaVaGeGT",      driverRef: "RTW_SaVaGeGT",      gap: "+00.888", penalty: "", pole: false, fastestLap: false, bestLap: "2:44.708" },
+                        { pos: 8,  name: "WRT_Patrício",      driverRef: "WRT_Patrício",      gap: "+01.248", penalty: "", pole: false, fastestLap: false, bestLap: "2:45.068" },
+                        { pos: 9,  name: "Batigol_IMD",       driverRef: "Batigol_IMD",       gap: "+01.339", penalty: "", pole: false, fastestLap: false, bestLap: "2:45.159" },
+                        { pos: 10, name: "GT_Ghost_5S",       driverRef: "GT_Ghost_5S",       gap: "+01.362", penalty: "", pole: false, fastestLap: false, bestLap: "2:45.182" },
+                        { pos: 11, name: "2R4@.M.C",          driverRef: "2R4@.M.C",          gap: "+01.382", penalty: "", pole: false, fastestLap: false, bestLap: "2:45.202" },
+                        { pos: 12, name: "Décio.H",           driverRef: "Décio.H",           gap: "+01.586", penalty: "", pole: false, fastestLap: false, bestLap: "2:45.406" },
+                        { pos: 13, name: "2R4_Capucho_44",    driverRef: "2R4_Capucho_44",    gap: "+02.872", penalty: "", pole: false, fastestLap: false, bestLap: "2:46.692" },
+                        { pos: 14, name: "Luis Gomes",        driverRef: "Luis Gomes",        gap: "+03.855", penalty: "", pole: false, fastestLap: false, bestLap: "2:47.675", ourDriver: true }
+                      ]
+                    },
+                    {
+                      type: "race",
+                      label: "Corrida",
+                      duration: "60 min",
+                      fastestLapTime: "2:45.848",
+                      results: [
+                        { pos: 1,  name: "Elias Torres",      driverRef: "Elias Torres",      time: "1:00:20.881", gap: "",          penalty: "",         bestLap: "2:45.933", fastestLap: false, ourDriver: true },
+                        { pos: 2,  name: "Wilson Barreto",    driverRef: "Wilson Barreto",    time: "",             gap: "+01.729",    penalty: "",         bestLap: "2:45.848", fastestLap: true,  ourDriver: true },
+                        { pos: 3,  name: "Anonymous_Gt",      driverRef: "Anonymous_Gt",      time: "",             gap: "+11.658",    penalty: "",         bestLap: "2:46.613", fastestLap: false },
+                        { pos: 4,  name: "Sérgio Marques",    driverRef: "Sérgio Marques",    time: "",             gap: "+12.368",    penalty: "0:01.000", bestLap: "2:46.599", fastestLap: false, ourDriver: true },
+                        { pos: 5,  name: "Mira",             driverRef: "Mira",             time: "",             gap: "+14.327",    penalty: "",         bestLap: "2:46.634", fastestLap: false },
+                        { pos: 6,  name: "GT_Ghost_5S",       driverRef: "GT_Ghost_5S",       time: "",             gap: "+25.251",    penalty: "",         bestLap: "2:47.138", fastestLap: false },
+                        { pos: 7,  name: "2R4@.M.C",          driverRef: "2R4@.M.C",          time: "",             gap: "+27.025",    penalty: "",         bestLap: "2:46.961", fastestLap: false },
+                        { pos: 8,  name: "WRT_Patrício",      driverRef: "WRT_Patrício",      time: "",             gap: "+29.542",    penalty: "",         bestLap: "2:47.024", fastestLap: false },
+                        { pos: 9,  name: "YT_RapidusJD",      driverRef: "YT_RapidusJD",      time: "",             gap: "+1:00.543",  penalty: "",         bestLap: "2:47.646", fastestLap: false },
+                        { pos: 10, name: "Luis Gomes",        driverRef: "Luis Gomes",        time: "",             gap: "+1:10.026",  penalty: "",         bestLap: "2:48.833", fastestLap: false, ourDriver: true },
+                        { pos: 11, name: "Décio.H",           driverRef: "Décio.H",           time: "",             gap: "+1:21.335",  penalty: "",         bestLap: "2:47.555", fastestLap: false },
+                        { pos: 12, name: "2R4_Capucho_44",    driverRef: "2R4_Capucho_44",    time: "",             gap: "1 Volta",    penalty: "",         bestLap: "2:50.197", fastestLap: false },
+                        { pos: 13, name: "RTW_SaVaGeGT",      driverRef: "RTW_SaVaGeGT",      time: "",             gap: "NC",         penalty: "",         bestLap: "2:47.791", fastestLap: false },
+                        { pos: 14, name: "Batigol_IMD",       driverRef: "Batigol_IMD",       time: "",             gap: "NC",         penalty: "",         bestLap: "2:47.392", fastestLap: false }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
