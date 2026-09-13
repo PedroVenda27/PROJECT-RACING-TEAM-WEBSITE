@@ -176,4 +176,5 @@ const GARAGE_DATA = [
 
   // ─── ROAD CAR ───
   { id: "caterham-seven-superlight-r500-08",   name: "Caterham Seven Superlight R500 '08",                      manufacturer: "Caterham",   group: "Road Car", competition: "", thumbnail: "images/garage/cars/Estrada/Caterham Seven Superlight R500 '08/Caterham Seven Superlight R500 '08.jpg", fullsize: "images/garage/cars/Estrada/Caterham Seven Superlight R500 '08/Caterham Seven Superlight R500 '08.jpg" },
+  { id: "mazda-spirit-racing-roadster-12r-25", name: "Mazda Spirit Racing Roadster 12R '25",                    manufacturer: "Mazda",      group: "Road Car", competition: "", thumbnail: "images/garage/cars/Estrada/MAZDA SPIRIT RACING ROADSTER 12R '25/MAZDA SPIRIT RACING ROADSTER 12R '25.jpg", fullsize: "images/garage/cars/Estrada/MAZDA SPIRIT RACING ROADSTER 12R '25/MAZDA SPIRIT RACING ROADSTER 12R '25.jpg" },
 ];
