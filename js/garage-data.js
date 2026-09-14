@@ -61,9 +61,9 @@ const GARAGE_DATA = [
   { id: "lexus-petronas-toms-sc430-08",    name: "Lexus PETRONAS TOM'S SC430 '08",         manufacturer: "Lexus",         group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
   { id: "lexus-rc-f-gt500-16",             name: "Lexus RC F GT500 '16",                   manufacturer: "Lexus",         group: "Gr.2", competition: "", thumbnail: "images/garage/cars/Gr.2/Lexus RC F GT500 '16/Lexus RC F GT500 '16.jpg", fullsize: "images/garage/cars/Gr.2/Lexus RC F GT500 '16/Lexus RC F GT500 '16.jpg" },
   { id: "mercedes-benz-clk-lm-98",         name: "Mercedes-Benz CLK-LM '98",               manufacturer: "Mercedes-Benz", group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
-  { id: "nissan-gtr-nismo-gt500-16",       name: "Nissan GT-R NISMO GT500 '16",            manufacturer: "Nissan",        group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "nissan-gtr-nismo-gt500-16",       name: "Nissan GT-R NISMO GT500 '16",            manufacturer: "Nissan",        group: "Gr.2", competition: "", thumbnail: "images/garage/cars/Gr.2/Nissan GT-R NISMO GT500 '16/Nissan GT-R NISMO GT500 '16.jpeg", fullsize: "images/garage/cars/Gr.2/Nissan GT-R NISMO GT500 '16/Nissan GT-R NISMO GT500 '16.jpeg" },
   { id: "nissan-xanavi-nismo-gtr-08",      name: "Nissan XANAVI NISMO GT-R '08",           manufacturer: "Nissan",        group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
-  { id: "toyota-gt-one-ts020-99",          name: "Toyota GT-One (TS020) '99",              manufacturer: "Toyota",        group: "Gr.2", competition: "", thumbnail: "", fullsize: "" },
+  { id: "toyota-gt-one-ts020-99",          name: "Toyota GT-One (TS020) '99",              manufacturer: "Toyota",        group: "Gr.2", competition: "", thumbnail: "images/garage/cars/Gr.2/Toyota GT-One (TS020) '99/Toyota GT-One (TS020) '99.jpeg", fullsize: "images/garage/cars/Gr.2/Toyota GT-One (TS020) '99/Toyota GT-One (TS020) '99.jpeg" },
 
 
   // ─── GT3 TOURING CHALANGE ───
