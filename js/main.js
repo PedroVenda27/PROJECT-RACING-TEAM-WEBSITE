@@ -222,9 +222,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   setInterval(() => {
     document.querySelectorAll(".driver-img-wrap img, .potm-featured-img-wrap img").forEach(img => {
+      const currentSrc = img.getAttribute("src");
+      const swappedSrc = swapSuitColor(currentSrc);
+      if (swappedSrc === currentSrc) return;
       img.style.opacity = "0";
       setTimeout(() => {
-        img.src = swapSuitColor(img.getAttribute("src"));
+        img.onerror = () => {
+          img.onerror = null;
+          img.src = currentSrc;
+        };
+        img.src = swappedSrc;
         img.style.opacity = "1";
       }, 250);
     });

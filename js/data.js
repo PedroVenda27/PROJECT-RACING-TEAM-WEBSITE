@@ -163,6 +163,16 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
+      name: "Luís Garcia",
+      number: "56",
+      role: "LuisHGarcia",
+      gtName: "L. Garcia",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "images/drivers/Luis Garcia/LuisGarcia_Preto.png",
+      flag: "🇵🇹"
+    },
+    {
       name: "Hugo Costa",
       number: "75",
       role: "SemDestino75",
