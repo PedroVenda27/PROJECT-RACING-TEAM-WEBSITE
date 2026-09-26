@@ -20,6 +20,16 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   drivers: [
     {
+      name: "Caceteira",
+      number: "00",
+      role: "Caceteira_RTP",
+      gtName: "Caceteira_RTP",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "images/drivers/Caceteira/Caceteira_Preto.png",
+      flag: "🇵🇹"
+    },
+    {
       name: "Rui Silva",
       number: "3",
       role: "pandafrass",

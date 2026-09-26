@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
      COUNTER ANIMATION
      ══════════════════════════════════════════════════════════════════ */
   // Update driver count dynamically from SITE_DATA
-  const driverCountEl = document.querySelector(".stat-number[data-count='20']");
+  const driverCountEl = document.getElementById("driver-count");
   if (driverCountEl && typeof SITE_DATA !== "undefined") {
     driverCountEl.setAttribute("data-count", SITE_DATA.drivers.length);
   }
@@ -220,20 +220,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (src.includes("_Laranja.")) return src.replace("_Laranja.", "_Preto.");
     return src;
   }
+  // Only swap once the other variant has actually loaded, so a driver
+  // without photos (or with just one suit) keeps its placeholder/photo.
   setInterval(() => {
     document.querySelectorAll(".driver-img-wrap img, .potm-featured-img-wrap img").forEach(img => {
+      if (!img.complete || img.naturalWidth === 0) return;
       const currentSrc = img.getAttribute("src");
       const swappedSrc = swapSuitColor(currentSrc);
       if (swappedSrc === currentSrc) return;
-      img.style.opacity = "0";
-      setTimeout(() => {
-        img.onerror = () => {
-          img.onerror = null;
-          img.src = currentSrc;
-        };
-        img.src = swappedSrc;
-        img.style.opacity = "1";
-      }, 250);
+      const probe = new Image();
+      probe.onload = () => {
+        img.style.opacity = "0";
+        setTimeout(() => {
+          img.src = swappedSrc;
+          img.style.opacity = "1";
+        }, 250);
+      };
+      probe.src = swappedSrc;
     });
   }, 3000);
 
