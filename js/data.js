@@ -247,6 +247,20 @@ const SITE_DATA = {
       url: "https://www.ligaportugalgt.com/"
     },
     {
+      name: "Liga Endurance",
+      platform: "GT7",
+      description: "Campeonato de resistência de Gran Turismo 7 que junta várias equipas de todo o mundo em provas de longa duração.",
+      logo: "images/LIGA_ENDURANCE_LOGO.png",
+      url: "calendar.html#liga-endurance"
+    },
+    {
+      name: "Street Car Pitbox Cup II",
+      platform: "GT7",
+      description: "Taça de carros de estrada de Gran Turismo 7 organizada pela Pitbox, com 8 corridas em circuitos clássicos.",
+      logo: "images/pitbox-logo.png",
+      url: "calendar.html#street-car-pitbox-cup"
+    },
+    {
       name: "TT Motorfest CUP - NCM",
       platform: "GT7",
       description: "Campeonato Solidário organizado pela NCM com entuito de levar a diversão do Gran Turismo 7 a crianças carenciadas.",
@@ -742,26 +756,49 @@ const SITE_DATA = {
     {
       competition: "lpgt",
       title: "Liga Portugal GT",
-      subtitle: "Gran Turismo 7 · GT6 · Competição Externa",
+      subtitle: "Gran Turismo 7 · GT6 · Competição Externa · Após Ronda 3",
       logo: "images/LPGT_WORLDSERIES_LOGO.jpg",
       type: "drivers-external",
       drivers: [
-        { name: "GT3rt-Flecha",    driverRef: "GT3rt-Flecha",    points: 59 },
-        { name: "Jatedoarroz",     driverRef: "Jatedoarroz",     points: 48 },
-        { name: "Santimoreira",    driverRef: "Santimoreira",    points: 38 },
+        { name: "GT3RT_Flecha",    driverRef: "GT3RT_Flecha",    points: 86 },
+        { name: "Jatedoarroz",     driverRef: "Jatedoarroz",     points: 65 },
+        { name: "Andrerson Costa", driverRef: "Andrerson Costa", points: 54 },
+        { name: "Santimoreira",    driverRef: "Santimoreira",    points: 49 },
+        { name: "Pedro Venda",     driverRef: "Pedro Venda",     points: 47, ourDriver: true },
         { name: "Miguel85",        driverRef: "Miguel85",        points: 36 },
-        { name: "Pedro Venda",     driverRef: "Pedro Venda",     points: 34, ourDriver: true },
-        { name: "Andreson Costa",  driverRef: "Andreson Costa",  points: 34 },
-        { name: "Zeuskunha",       driverRef: "Zeuskunha",       points: 25 },
-        { name: "Clarinetes",      driverRef: "Clarinetes",      points: 24 },
+        { name: "Zeuskunha",       driverRef: "Zeuskunha",       points: 35 },
         { name: "Tenworms",        driverRef: "Tenworms",        points: 24 },
-        { name: "Rafael Silva",    driverRef: "Rafael Silva",    points: 18 },
-        { name: "Nyx-Racer",       driverRef: "Nyx-Racer",       points: 11 },
-        { name: "Barbas77",        driverRef: "Barbas77",        points: 9  },
-        { name: "Sport-Evo_bruno", driverRef: "Sport-Evo_bruno", points: 9  },
-        { name: "Sainz",           driverRef: "Sainz",           points: 8  },
-        { name: "Xapas",           driverRef: "Xapas",           points: 7  }
+        { name: "Clarinetes",      driverRef: "Clarinetes",      points: 24 },
+        { name: "Rafael Silva",    driverRef: "Rafael Silva",    points: 24 },
+        { name: "Sainz",           driverRef: "Sainz",           points: 17 },
+        { name: "Sport-Evo_Bruno", driverRef: "Sport-Evo_Bruno", points: 16 },
+        { name: "Xapas",           driverRef: "Xapas",           points: 15 },
+        { name: "Nyx_Racer",       driverRef: "Nyx_Racer",       points: 11 },
+        { name: "Barbas77",        driverRef: "Barbas77",        points: 9  }
       ]
+    },
+
+    /* ─────────────────────────────────────────────
+       Liga Endurance and Street Car Pitbox Cup II — EXTERNAL
+       competitions, same simple POS/Piloto/Pontos table as LPGT.
+       Add drivers as { name, driverRef, points, ourDriver } once
+       results are out; an empty list shows a "no results yet" row.
+       ───────────────────────────────────────────── */
+    {
+      competition: "endurance",
+      title: "Liga Endurance",
+      subtitle: "Gran Turismo 7 · Campeonato de resistência · Competição Externa",
+      logo: "images/LIGA_ENDURANCE_LOGO.png",
+      type: "drivers-external",
+      drivers: []
+    },
+    {
+      competition: "pitbox",
+      title: "Street Car Pitbox Cup II",
+      subtitle: "Gran Turismo 7 · Taça de carros de estrada · Competição Externa",
+      logo: "images/pitbox-logo.png",
+      type: "drivers-external",
+      drivers: []
     },
 
     /* ─────────────────────────────────────────────

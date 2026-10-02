@@ -12,7 +12,7 @@
    • name        — display name shown under the thumbnail
    • manufacturer— car manufacturer (used in the Manufacturer text filter)
    • group       — one of: "Gr.1", "Gr.2", "Gr.3", "Gr.4", "Gr.B", "Road Car"
-   • competition — one of: "LPGT", "TPGT", "NCM", "GT3TC"
+   • competition — one of: "LPGT", "TPGT", "NCM", "GT3TC", "LE", "SCPC"
    • thumbnail   — path to thumbnail image (leave "" if no image yet)
    • fullsize    — path to full-size image (leave "" if no image yet)
 

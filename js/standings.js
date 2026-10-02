@@ -346,7 +346,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="standings-table-scroll">
             <table class="standings-table">
               <thead><tr><th class="th-pos">POS</th><th class="th-name">Piloto</th><th class="th-total">Pontos</th></tr></thead>
-              <tbody>${renderExternalStandingRows(s, s.drivers, false)}</tbody>
+              <tbody>${s.drivers.length
+                ? renderExternalStandingRows(s, s.drivers, false)
+                : `<tr><td colspan="3" style="text-align:center;padding:2rem;opacity:0.7;">Ainda sem resultados — a classificação será publicada após a primeira corrida.</td></tr>`}</tbody>
             </table>
           </div>
         </div>
