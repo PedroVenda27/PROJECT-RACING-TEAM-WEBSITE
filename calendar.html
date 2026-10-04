@@ -135,7 +135,7 @@
                 Descarregar .ics
               </button>
             </div>
-            <p class="mcal-sync-note">Google: abre o link com a conta onde queres o calendário e confirma &laquo;Adicionar&raquo;. iPhone/Mac: o Calendário abre e pede para subscrever. O Google pode demorar algumas horas a mostrar alterações.</p>
+            <p class="mcal-sync-note">Google: abre o link no computador, com a conta onde queres o calendário, e confirma &laquo;Adicionar&raquo;. Se n&atilde;o aparecer nada, usa &laquo;Copiar link&raquo; e no Google Calendar vai a <strong>Outros calend&aacute;rios &rarr; + &rarr; A partir do URL</strong>. iPhone/Mac: o Calend&aacute;rio abre e pede para subscrever. O Google pode demorar algumas horas a mostrar altera&ccedil;&otilde;es.</p>
           </div>
           <div class="mcal-summary" id="mcal-summary"></div>
           <div class="mcal-grid" id="mcal-grid" role="grid"></div>
@@ -780,8 +780,9 @@
       function updateSync() {
         const webcal = RC.feedUrl(selected, 'webcal');
         document.getElementById('mcal-sync-name').textContent = selected ? 'de ' + selected.name : 'da equipa';
+        // Google's "add by URL" link only reliably accepts the http(s) feed URL.
         document.getElementById('mcal-sync-google').href =
-          'https://calendar.google.com/calendar/render?cid=' + encodeURIComponent(webcal);
+          'https://calendar.google.com/calendar/u/0/r?cid=' + encodeURIComponent(RC.feedUrl(selected, 'https'));
         document.getElementById('mcal-sync-apple').href = webcal;
       }
       syncToggle.addEventListener('click', () => {
