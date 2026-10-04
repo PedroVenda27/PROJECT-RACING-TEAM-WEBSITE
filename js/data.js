@@ -795,10 +795,382 @@ const SITE_DATA = {
     {
       competition: "pitbox",
       title: "Street Car Pitbox Cup II",
-      subtitle: "Gran Turismo 7 · Taça de carros de estrada · Competição Externa",
+      subtitle: "Gran Turismo 7 · Taça de carros de estrada · Competição Externa · Classificação Final",
       logo: "images/pitbox-logo.png",
-      type: "drivers-external",
-      drivers: []
+      type: "drivers",
+      nullLabel: "NC",
+      raceLegend: '<span class="race-badge badge-pole">P</span> Pole Position (+2 pontos) &nbsp;·&nbsp; <span class="race-badge badge-fl">VR</span> Volta Mais Rápida (+1 ponto) &nbsp;·&nbsp; NC = Não Classificado',
+      /* Points per race, bonuses included (25-20-16-13-11-10-9-8-7-6, 0 from
+         11th; +2 pole, +1 fastest lap). null = NC (not classified). */
+      roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8"],
+      drivers: [
+        { name: "GodDevil",           driverRef: "GodDevil",       rounds: [28,   28,   27,   16,   20,   11,   11,   15  ], total: 156 },
+        { name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", rounds: [16,   16,   10,   null, 28,   28,   26,   20  ], total: 144, ourDriver: true },
+        { name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", rounds: [20,   10,   13,   28,   8,    16,   20,   26  ], total: 141 },
+        { name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  rounds: [6,    11,   16,   20,   10,   13,   10,   0   ], total: 86  },
+        { name: "Thetruevirex",       driverRef: "Thetruevirex",   rounds: [0,    0,    21,   13,   0,    20,   15,   9   ], total: 78  },
+        { pos: 5, name: "TDN_Roberto494", driverRef: "TDN_Roberto494", rounds: [13, 20,  6,    0,    13,   0,    16,   10  ], total: 78  },
+        { name: "Marco Silva",        driverRef: "Marco Silva",    rounds: [8,    13,   11,   9,    11,   9,    0,    16  ], total: 77  },
+        { name: "JohnnyRenas",        driverRef: "JohnnyRenas",    rounds: [9,    6,    0,    11,   9,    7,    9,    8   ], total: 59  },
+        { name: "B.Moreira",          driverRef: "B.Moreira",      rounds: [0,    8,    9,    10,   16,   8,    7,    null], total: 58  },
+        { name: "Verdelho92",         driverRef: "Verdelho92",     rounds: [10,   7,    7,    7,    7,    6,    0,    11  ], total: 55  },
+        { name: "RaulPombal",         driverRef: "RaulPombal",     rounds: [0,    9,    8,    8,    0,    10,   8,    7   ], total: 50  },
+        { name: "Basaroco",           driverRef: "Basaroco",       rounds: [7,    0,    0,    6,    6,    0,    6,    6   ], total: 31  },
+        { name: "Pedro Venda",        driverRef: "Pedro Venda",    rounds: [11,   null, null, null, null, null, null, null], total: 11,  ourDriver: true }
+      ],
+      raceResults: [
+        {
+          round: 1, label: "Corrida 1", date: "2 de Outubro de 2026", track: "Michelin Raceway Road Atlanta",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "GodDevil",          driverRef: "GodDevil",       psnId: "GodDeviL",         gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:22.735" },
+                { pos: 2,  name: "Pedro Oliveira",    driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",   gap: "+00.023", penalty: "", pole: false, fastestLap: false, bestLap: "1:22.758" },
+                { pos: 3,  name: "Thetruevirex",      driverRef: "Thetruevirex",   psnId: "P.Pires #96",      gap: "+00.473", penalty: "", pole: false, fastestLap: false, bestLap: "1:23.208" },
+                { pos: 4,  name: "RTP_Brunocm97",     driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",    gap: "+00.724", penalty: "", pole: false, fastestLap: false, bestLap: "1:23.459", ourDriver: true },
+                { pos: 5,  name: "Pedro Venda",       driverRef: "Pedro Venda",    psnId: "Pedro Venda",      gap: "+01.357", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.092", ourDriver: true },
+                { pos: 6,  name: "Verdelho92",        driverRef: "Verdelho92",     psnId: "Verdelho",         gap: "+01.660", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.395" },
+                { pos: 7,  name: "Marco Silva",       driverRef: "Marco Silva",    psnId: "Marco Silva",      gap: "+02.105", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.840" },
+                { pos: 8,  name: "RaulPombal",        driverRef: "RaulPombal",     psnId: "Raulpombal",       gap: "+02.252", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.987" },
+                { pos: 9,  name: "TDN_Roberto494",    driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",     gap: "+02.367", penalty: "", pole: false, fastestLap: false, bestLap: "1:25.102" },
+                { pos: 10, name: "JohnnyRenas",       driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",      gap: "+04.613", penalty: "", pole: false, fastestLap: false, bestLap: "1:27.348" },
+                { pos: 11, name: "Basaroco",          driverRef: "Basaroco",       psnId: "Basaroco",         gap: "+08.240", penalty: "", pole: false, fastestLap: false, bestLap: "1:30.975" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "5 voltas",
+              fastestLapTime: "1:23.056",
+              results: [
+                { pos: 1,  name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",          time: "7:05.867", gap: "",        penalty: "", points: 28, pole: true,  fastestLap: true,  bestLap: "1:23.056" },
+                { pos: 2,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",    time: "",         gap: "+02.554", penalty: "", points: 20, pole: false, fastestLap: false, bestLap: "1:23.143" },
+                { pos: 3,  name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",     time: "",         gap: "+03.908", penalty: "", points: 16, pole: false, fastestLap: false, bestLap: "1:23.131", ourDriver: true },
+                { pos: 4,  name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",      time: "",         gap: "+10.438", penalty: "", points: 13, pole: false, fastestLap: false, bestLap: "1:24.859" },
+                { pos: 5,  name: "Pedro Venda",        driverRef: "Pedro Venda",    psnId: "Pedro Venda",       time: "",         gap: "+13.161", penalty: "", points: 11, pole: false, fastestLap: false, bestLap: "1:25.799", ourDriver: true },
+                { pos: 6,  name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",          time: "",         gap: "+17.196", penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "1:24.890" },
+                { pos: 7,  name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",       time: "",         gap: "+26.035", penalty: "", points: 9,  pole: false, fastestLap: false, bestLap: "1:25.764" },
+                { pos: 8,  name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",       time: "",         gap: "+26.253", penalty: "", points: 8,  pole: false, fastestLap: false, bestLap: "1:27.002" },
+                { pos: 9,  name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",          time: "",         gap: "+26.496", penalty: "", points: 7,  pole: false, fastestLap: false, bestLap: "1:26.984" },
+                { pos: 10, name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", time: "",        gap: "+29.319", penalty: "", points: 6,  pole: false, fastestLap: false, bestLap: "1:26.453" },
+                { pos: 11, name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",        time: "",         gap: "+30.697", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:24.968" },
+                { pos: 12, name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",       time: "",         gap: "+34.466", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:25.608" },
+                { pos: 13, name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",         time: "",         gap: "+57.738", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:27.698" }
+              ]
+            }
+          ]
+        },
+        {
+          round: 2, label: "Corrida 2", date: "2 de Outubro de 2026", track: "Blue Moon Bay Speedway - Interior A",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:10.701" },
+                { pos: 2,  name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       gap: "+00.678", penalty: "", pole: false, fastestLap: false, bestLap: "1:11.379" },
+                { pos: 3,  name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        gap: "+00.808", penalty: "", pole: false, fastestLap: false, bestLap: "1:11.509" },
+                { pos: 4,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     gap: "+00.967", penalty: "", pole: false, fastestLap: false, bestLap: "1:11.668" },
+                { pos: 5,  name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        gap: "+01.049", penalty: "", pole: false, fastestLap: false, bestLap: "1:11.750" },
+                { pos: 6,  name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", gap: "+01.092", penalty: "", pole: false, fastestLap: false, bestLap: "1:11.793" },
+                { pos: 7,  name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      gap: "+01.119", penalty: "", pole: false, fastestLap: false, bestLap: "1:11.820", ourDriver: true },
+                { pos: 8,  name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         gap: "+01.686", penalty: "", pole: false, fastestLap: false, bestLap: "1:12.387" },
+                { pos: 9,  name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           gap: "+02.661", penalty: "", pole: false, fastestLap: false, bestLap: "1:13.362" },
+                { pos: 10, name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        gap: "+03.217", penalty: "", pole: false, fastestLap: false, bestLap: "1:13.918" },
+                { pos: 11, name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           gap: "+03.377", penalty: "", pole: false, fastestLap: false, bestLap: "1:14.078" },
+                { pos: 12, name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          gap: "+04.255", penalty: "", pole: false, fastestLap: false, bestLap: "1:14.956" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "5 voltas",
+              fastestLapTime: "1:10.824",
+              results: [
+                { pos: 1,    name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           time: "6:04.680", gap: "",        penalty: "", points: 28, pole: true,  fastestLap: true,  bestLap: "1:10.824" },
+                { pos: 2,    name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       time: "",         gap: "+02.845", penalty: "", points: 20, pole: false, fastestLap: false, bestLap: "1:11.784" },
+                { pos: 3,    name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      time: "",         gap: "+03.076", penalty: "", points: 16, pole: false, fastestLap: false, bestLap: "1:11.456", ourDriver: true },
+                { pos: 4,    name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        time: "",         gap: "+07.825", penalty: "", points: 13, pole: false, fastestLap: false, bestLap: "1:11.741" },
+                { pos: 5,    name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", time: "",         gap: "+09.892", penalty: "", points: 11, pole: false, fastestLap: false, bestLap: "1:12.255" },
+                { pos: 6,    name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     time: "",         gap: "+11.386", penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "1:11.986" },
+                { pos: 7,    name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         time: "",         gap: "+11.647", penalty: "", points: 9,  pole: false, fastestLap: false, bestLap: "1:12.671" },
+                { pos: 8,    name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          time: "",         gap: "+18.747", penalty: "", points: 8,  pole: false, fastestLap: false, bestLap: "1:13.538" },
+                { pos: 9,    name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           time: "",         gap: "+23.904", penalty: "", points: 7,  pole: false, fastestLap: false, bestLap: "1:13.674" },
+                { pos: 10,   name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        time: "",         gap: "+27.082", penalty: "", points: 6,  pole: false, fastestLap: false, bestLap: "1:12.791" },
+                { pos: 11,   name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           time: "",         gap: "+28.991", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:16.623" },
+                { pos: 12,   name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        time: "",         gap: "+30.497", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:13.341" },
+                { pos: "NC", name: "Pedro Venda",        driverRef: "Pedro Venda",    psnId: "Pedro Venda",        time: "",         gap: "",        penalty: "", points: 0,  pole: false, fastestLap: false, ourDriver: true }
+              ]
+            }
+          ]
+        },
+        {
+          round: 3, label: "Corrida 3", date: "2 de Outubro de 2026", track: "Suzuka Circuit - Circuito Oriental",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "0:50.686" },
+                { pos: 2,  name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        gap: "+00.020", penalty: "", pole: false, fastestLap: false, bestLap: "0:50.706" },
+                { pos: 3,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     gap: "+00.155", penalty: "", pole: false, fastestLap: false, bestLap: "0:50.841" },
+                { pos: 4,  name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      gap: "+00.219", penalty: "", pole: false, fastestLap: false, bestLap: "0:50.905", ourDriver: true },
+                { pos: 5,  name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        gap: "+00.944", penalty: "", pole: false, fastestLap: false, bestLap: "0:51.630" },
+                { pos: 6,  name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       gap: "+01.303", penalty: "", pole: false, fastestLap: false, bestLap: "0:51.989" },
+                { pos: 7,  name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", gap: "+01.322", penalty: "", pole: false, fastestLap: false, bestLap: "0:52.008" },
+                { pos: 8,  name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        gap: "+01.344", penalty: "", pole: false, fastestLap: false, bestLap: "0:52.030" },
+                { pos: 9,  name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           gap: "+01.558", penalty: "", pole: false, fastestLap: false, bestLap: "0:52.244" },
+                { pos: 10, name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         gap: "+01.785", penalty: "", pole: false, fastestLap: false, bestLap: "0:52.471" },
+                { pos: 11, name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          gap: "+02.023", penalty: "", pole: false, fastestLap: false, bestLap: "0:52.709" },
+                { pos: 12, name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           gap: "+02.173", penalty: "", pole: false, fastestLap: false, bestLap: "0:52.859" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "5 voltas",
+              fastestLapTime: "0:50.504",
+              results: [
+                { pos: 1,    name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           time: "4:14.311", gap: "",        penalty: "", points: 27, pole: true,  fastestLap: false, bestLap: "0:50.756" },
+                { pos: 2,    name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        time: "",         gap: "+01.020", penalty: "", points: 21, pole: false, fastestLap: true,  bestLap: "0:50.504" },
+                { pos: 3,    name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", time: "",         gap: "+04.122", penalty: "", points: 16, pole: false, fastestLap: false, bestLap: "0:50.772" },
+                { pos: 4,    name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     time: "",         gap: "+04.998", penalty: "", points: 13, pole: false, fastestLap: false, bestLap: "0:50.801" },
+                { pos: 5,    name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        time: "",         gap: "+05.965", penalty: "", points: 11, pole: false, fastestLap: false, bestLap: "0:50.981" },
+                { pos: 6,    name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      time: "",         gap: "+08.708", penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "0:51.171", ourDriver: true },
+                { pos: 7,    name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          time: "",         gap: "+09.785", penalty: "", points: 9,  pole: false, fastestLap: false, bestLap: "0:51.859" },
+                { pos: 8,    name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         time: "",         gap: "+10.645", penalty: "", points: 8,  pole: false, fastestLap: false, bestLap: "0:51.931" },
+                { pos: 9,    name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           time: "",         gap: "+11.719", penalty: "", points: 7,  pole: false, fastestLap: false, bestLap: "0:52.288" },
+                { pos: 10,   name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       time: "",         gap: "+12.230", penalty: "", points: 6,  pole: false, fastestLap: false, bestLap: "0:51.721" },
+                { pos: 11,   name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        time: "",         gap: "+17.190", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "0:52.786" },
+                { pos: 12,   name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           time: "",         gap: "+18.752", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "0:52.535" },
+                { pos: "NC", name: "Pedro Venda",        driverRef: "Pedro Venda",    psnId: "Pedro Venda",        time: "",         gap: "",        penalty: "", points: 0,  pole: false, fastestLap: false, ourDriver: true }
+              ]
+            }
+          ]
+        },
+        {
+          round: 4, label: "Corrida 4", date: "2 de Outubro de 2026", track: "Watkins Glen - Percurso Curto",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:11.450" },
+                { pos: 2,  name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      gap: "+00.205", penalty: "", pole: false, fastestLap: false, bestLap: "1:11.655", ourDriver: true },
+                { pos: 3,  name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        gap: "+00.759", penalty: "", pole: false, fastestLap: false, bestLap: "1:12.209" },
+                { pos: 4,  name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        gap: "+00.878", penalty: "", pole: false, fastestLap: false, bestLap: "1:12.328" },
+                { pos: 5,  name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       gap: "+01.284", penalty: "", pole: false, fastestLap: false, bestLap: "1:12.734" },
+                { pos: 6,  name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           gap: "+01.417", penalty: "", pole: false, fastestLap: false, bestLap: "1:12.867" },
+                { pos: 7,  name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", gap: "+01.553", penalty: "", pole: false, fastestLap: false, bestLap: "1:13.003" },
+                { pos: 8,  name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         gap: "+02.204", penalty: "", pole: false, fastestLap: false, bestLap: "1:13.654" },
+                { pos: 9,  name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           gap: "+02.677", penalty: "", pole: false, fastestLap: false, bestLap: "1:14.127" },
+                { pos: 10, name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           gap: "+03.471", penalty: "", pole: false, fastestLap: false, bestLap: "1:14.921" },
+                { pos: 11, name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          gap: "+03.605", penalty: "", pole: false, fastestLap: false, bestLap: "1:15.055" },
+                { pos: 12, name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        gap: "+04.111", penalty: "", pole: false, fastestLap: false, bestLap: "1:15.561" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "5 voltas",
+              fastestLapTime: "1:12.437",
+              results: [
+                { pos: 1,    name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     time: "6:13.984", gap: "",        penalty: "",       points: 28, pole: true,  fastestLap: true,  bestLap: "1:12.437" },
+                { pos: 2,    name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", time: "",         gap: "+03.958", penalty: "",       points: 20, pole: false, fastestLap: false, bestLap: "1:13.195" },
+                { pos: 3,    name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           time: "",         gap: "+04.945", penalty: "+1.000", points: 16, pole: false, fastestLap: false, bestLap: "1:13.499" },
+                { pos: 4,    name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        time: "",         gap: "+07.133", penalty: "",       points: 13, pole: false, fastestLap: false, bestLap: "1:13.034" },
+                { pos: 5,    name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        time: "",         gap: "+09.273", penalty: "",       points: 11, pole: false, fastestLap: false, bestLap: "1:14.144" },
+                { pos: 6,    name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          time: "",         gap: "+09.810", penalty: "",       points: 10, pole: false, fastestLap: false, bestLap: "1:14.838" },
+                { pos: 7,    name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        time: "",         gap: "+10.086", penalty: "",       points: 9,  pole: false, fastestLap: false, bestLap: "1:13.900" },
+                { pos: 8,    name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         time: "",         gap: "+11.083", penalty: "",       points: 8,  pole: false, fastestLap: false, bestLap: "1:13.886" },
+                { pos: 9,    name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           time: "",         gap: "+11.507", penalty: "",       points: 7,  pole: false, fastestLap: false, bestLap: "1:14.266" },
+                { pos: 10,   name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           time: "",         gap: "+19.171", penalty: "",       points: 6,  pole: false, fastestLap: false, bestLap: "1:15.141" },
+                { pos: 11,   name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       time: "",         gap: "+29.430", penalty: "+1.000", points: 0,  pole: false, fastestLap: false, bestLap: "1:15.080" },
+                { pos: "NC", name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      time: "",         gap: "NC",      penalty: "",       points: 0,  pole: false, fastestLap: false, bestLap: "1:13.775", ourDriver: true },
+                { pos: "NC", name: "Pedro Venda",        driverRef: "Pedro Venda",    psnId: "Pedro Venda",        time: "",         gap: "",        penalty: "",       points: 0,  pole: false, fastestLap: false, ourDriver: true }
+              ]
+            }
+          ]
+        },
+        {
+          round: 5, label: "Corrida 5", date: "2 de Outubro de 2026", track: "Sardegna - Traçado B",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:23.420", ourDriver: true },
+                { pos: 2,  name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           gap: "+01.065", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.485" },
+                { pos: 3,  name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", gap: "+01.474", penalty: "", pole: false, fastestLap: false, bestLap: "1:24.894" },
+                { pos: 4,  name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       gap: "+01.622", penalty: "", pole: false, fastestLap: false, bestLap: "1:25.042" },
+                { pos: 5,  name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        gap: "+02.191", penalty: "", pole: false, fastestLap: false, bestLap: "1:25.611" },
+                { pos: 6,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     gap: "+02.455", penalty: "", pole: false, fastestLap: false, bestLap: "1:25.875" },
+                { pos: 7,  name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        gap: "+02.836", penalty: "", pole: false, fastestLap: false, bestLap: "1:26.256" },
+                { pos: 8,  name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           gap: "+03.146", penalty: "", pole: false, fastestLap: false, bestLap: "1:26.566" },
+                { pos: 9,  name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          gap: "+03.472", penalty: "", pole: false, fastestLap: false, bestLap: "1:26.892" },
+                { pos: 10, name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           gap: "+03.474", penalty: "", pole: false, fastestLap: false, bestLap: "1:26.894" },
+                { pos: 11, name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        gap: "+04.039", penalty: "", pole: false, fastestLap: false, bestLap: "1:27.459" },
+                { pos: 12, name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         gap: "+04.427", penalty: "", pole: false, fastestLap: false, bestLap: "1:27.847" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "5 voltas",
+              fastestLapTime: "1:24.078",
+              results: [
+                { pos: 1,    name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      time: "7:09.330", gap: "",        penalty: "", points: 28, pole: true,  fastestLap: true,  bestLap: "1:24.078", ourDriver: true },
+                { pos: 2,    name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           time: "",         gap: "+12.059", penalty: "", points: 20, pole: false, fastestLap: false, bestLap: "1:25.172" },
+                { pos: 3,    name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          time: "",         gap: "+14.604", penalty: "", points: 16, pole: false, fastestLap: false, bestLap: "1:26.169" },
+                { pos: 4,    name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       time: "",         gap: "+15.018", penalty: "", points: 13, pole: false, fastestLap: false, bestLap: "1:25.070" },
+                { pos: 5,    name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        time: "",         gap: "+18.873", penalty: "", points: 11, pole: false, fastestLap: false, bestLap: "1:25.587" },
+                { pos: 6,    name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", time: "",         gap: "+19.283", penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "1:25.298" },
+                { pos: 7,    name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        time: "",         gap: "+27.307", penalty: "", points: 9,  pole: false, fastestLap: false, bestLap: "1:27.398" },
+                { pos: 8,    name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     time: "",         gap: "+27.396", penalty: "", points: 8,  pole: false, fastestLap: false, bestLap: "1:26.045" },
+                { pos: 9,    name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           time: "",         gap: "+28.155", penalty: "", points: 7,  pole: false, fastestLap: false, bestLap: "1:26.134" },
+                { pos: 10,   name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           time: "",         gap: "+33.469", penalty: "", points: 6,  pole: false, fastestLap: false, bestLap: "1:26.557" },
+                { pos: 11,   name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         time: "",         gap: "+37.276", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:28.107" },
+                { pos: 12,   name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        time: "",         gap: "+41.286", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:25.686" },
+                { pos: "NC", name: "Pedro Venda",        driverRef: "Pedro Venda",    psnId: "Pedro Venda",        time: "",         gap: "",        penalty: "", points: 0,  pole: false, fastestLap: false, ourDriver: true }
+              ]
+            }
+          ]
+        },
+        {
+          round: 6, label: "Corrida 6", date: "2 de Outubro de 2026", track: "Tokyo Expressway - Central, sentido horário",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "1:15.773", ourDriver: true },
+                { pos: 2,  name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        gap: "+00.809", penalty: "", pole: false, fastestLap: false, bestLap: "1:16.582" },
+                { pos: 3,  name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           gap: "+00.919", penalty: "", pole: false, fastestLap: false, bestLap: "1:16.692" },
+                { pos: 4,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     gap: "+02.290", penalty: "", pole: false, fastestLap: false, bestLap: "1:18.063" },
+                { pos: 5,  name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        gap: "+02.667", penalty: "", pole: false, fastestLap: false, bestLap: "1:18.440" },
+                { pos: 6,  name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", gap: "+03.178", penalty: "", pole: false, fastestLap: false, bestLap: "1:18.951" },
+                { pos: 7,  name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       gap: "+03.221", penalty: "", pole: false, fastestLap: false, bestLap: "1:18.994" },
+                { pos: 8,  name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           gap: "+03.872", penalty: "", pole: false, fastestLap: false, bestLap: "1:19.645" },
+                { pos: 9,  name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         gap: "+03.926", penalty: "", pole: false, fastestLap: false, bestLap: "1:19.699" },
+                { pos: 10, name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        gap: "+04.222", penalty: "", pole: false, fastestLap: false, bestLap: "1:19.995" },
+                { pos: 11, name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          gap: "+04.990", penalty: "", pole: false, fastestLap: false, bestLap: "1:20.763" },
+                { pos: 12, name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           gap: "+05.573", penalty: "", pole: false, fastestLap: false, bestLap: "1:21.346" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "5 voltas",
+              fastestLapTime: "1:16.470",
+              results: [
+                { pos: 1,    name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      time: "6:29.528", gap: "",        penalty: "", points: 28, pole: true,  fastestLap: true,  bestLap: "1:16.470", ourDriver: true },
+                { pos: 2,    name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        time: "",         gap: "+02.725", penalty: "", points: 20, pole: false, fastestLap: false, bestLap: "1:16.735" },
+                { pos: 3,    name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     time: "",         gap: "+05.579", penalty: "", points: 16, pole: false, fastestLap: false, bestLap: "1:17.241" },
+                { pos: 4,    name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", time: "",         gap: "+06.981", penalty: "", points: 13, pole: false, fastestLap: false, bestLap: "1:16.990" },
+                { pos: 5,    name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           time: "",         gap: "+08.638", penalty: "", points: 11, pole: false, fastestLap: false, bestLap: "1:17.168" },
+                { pos: 6,    name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         time: "",         gap: "+18.438", penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "1:19.473" },
+                { pos: 7,    name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        time: "",         gap: "+20.213", penalty: "", points: 9,  pole: false, fastestLap: false, bestLap: "1:19.146" },
+                { pos: 8,    name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          time: "",         gap: "+21.478", penalty: "", points: 8,  pole: false, fastestLap: false, bestLap: "1:19.375" },
+                { pos: 9,    name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        time: "",         gap: "+23.339", penalty: "", points: 7,  pole: false, fastestLap: false, bestLap: "1:19.407" },
+                { pos: 10,   name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           time: "",         gap: "+24.188", penalty: "", points: 6,  pole: false, fastestLap: false, bestLap: "1:19.716" },
+                { pos: 11,   name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       time: "",         gap: "+28.873", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:19.302" },
+                { pos: 12,   name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           time: "",         gap: "+30.017", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "1:21.055" },
+                { pos: "NC", name: "Pedro Venda",        driverRef: "Pedro Venda",    psnId: "Pedro Venda",        time: "",         gap: "",        penalty: "", points: 0,  pole: false, fastestLap: false, ourDriver: true }
+              ]
+            }
+          ]
+        },
+        {
+          round: 7, label: "Corrida 7", date: "2 de Outubro de 2026", track: "Willow Springs - Horse Thief Mile",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "0:50.884" },
+                { pos: 2,  name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      gap: "+00.034", penalty: "", pole: false, fastestLap: false, bestLap: "0:50.918", ourDriver: true },
+                { pos: 3,  name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           gap: "+00.324", penalty: "", pole: false, fastestLap: false, bestLap: "0:51.208" },
+                { pos: 4,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     gap: "+00.445", penalty: "", pole: false, fastestLap: false, bestLap: "0:51.329" },
+                { pos: 5,  name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        gap: "+00.495", penalty: "", pole: false, fastestLap: false, bestLap: "0:51.379" },
+                { pos: 6,  name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        gap: "+00.880", penalty: "", pole: false, fastestLap: false, bestLap: "0:51.764" },
+                { pos: 7,  name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       gap: "+01.718", penalty: "", pole: false, fastestLap: false, bestLap: "0:52.602" },
+                { pos: 8,  name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           gap: "+02.555", penalty: "", pole: false, fastestLap: false, bestLap: "0:53.439" },
+                { pos: 9,  name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           gap: "+03.134", penalty: "", pole: false, fastestLap: false, bestLap: "0:54.018" },
+                { pos: 10, name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          gap: "+03.840", penalty: "", pole: false, fastestLap: false, bestLap: "0:54.724" },
+                { pos: 11, name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         gap: "+04.180", penalty: "", pole: false, fastestLap: false, bestLap: "0:55.064" },
+                { pos: 12, name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", gap: "+15.505", penalty: "", pole: false, fastestLap: false, bestLap: "1:06.389" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "5 voltas",
+              fastestLapTime: "0:50.895",
+              results: [
+                { pos: 1,    name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      time: "4:23.352", gap: "",        penalty: "",       points: 26, pole: false, fastestLap: true,  bestLap: "0:50.895", ourDriver: true },
+                { pos: 2,    name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     time: "",         gap: "+01.436", penalty: "",       points: 20, pole: false, fastestLap: false, bestLap: "0:51.580" },
+                { pos: 3,    name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       time: "",         gap: "+07.046", penalty: "",       points: 16, pole: false, fastestLap: false, bestLap: "0:51.698" },
+                { pos: 4,    name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        time: "",         gap: "+10.053", penalty: "",       points: 15, pole: true,  fastestLap: false, bestLap: "0:51.277" },
+                { pos: 5,    name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           time: "",         gap: "+17.265", penalty: "",       points: 11, pole: false, fastestLap: false, bestLap: "0:52.462" },
+                { pos: 6,    name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", time: "",         gap: "+19.375", penalty: "",       points: 10, pole: false, fastestLap: false, bestLap: "0:53.475" },
+                { pos: 7,    name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        time: "",         gap: "+26.270", penalty: "",       points: 9,  pole: false, fastestLap: false, bestLap: "0:53.080" },
+                { pos: 8,    name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         time: "",         gap: "+27.017", penalty: "",       points: 8,  pole: false, fastestLap: false, bestLap: "0:55.108" },
+                { pos: 9,    name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          time: "",         gap: "+29.693", penalty: "",       points: 7,  pole: false, fastestLap: false, bestLap: "0:53.567" },
+                { pos: 10,   name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           time: "",         gap: "+31.789", penalty: "",       points: 6,  pole: false, fastestLap: false, bestLap: "0:53.476" },
+                { pos: 11,   name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           time: "",         gap: "+31.824", penalty: "+1.000", points: 0,  pole: false, fastestLap: false, bestLap: "0:52.948" },
+                { pos: 12,   name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        time: "",         gap: "+39.826", penalty: "",       points: 0,  pole: false, fastestLap: false, bestLap: "0:52.661" },
+                { pos: "NC", name: "Pedro Venda",        driverRef: "Pedro Venda",    psnId: "Pedro Venda",        time: "",         gap: "",        penalty: "",       points: 0,  pole: false, fastestLap: false, ourDriver: true }
+              ]
+            }
+          ]
+        },
+        {
+          round: 8, label: "Corrida 8", date: "2 de Outubro de 2026", track: "Nürburgring Nordschleife - 2 voltas",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: [
+                { pos: 1,  name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           gap: "",        penalty: "", pole: true,  fastestLap: false, bestLap: "7:01.493" },
+                { pos: 2,  name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     gap: "+00.847", penalty: "", pole: false, fastestLap: false, bestLap: "7:02.340" },
+                { pos: 3,  name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      gap: "+04.595", penalty: "", pole: false, fastestLap: false, bestLap: "7:06.088", ourDriver: true },
+                { pos: 4,  name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        gap: "+14.375", penalty: "", pole: false, fastestLap: false, bestLap: "7:15.868" },
+                { pos: 5,  name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        gap: "+24.435", penalty: "", pole: false, fastestLap: false, bestLap: "7:25.928" },
+                { pos: 6,  name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           gap: "+24.697", penalty: "", pole: false, fastestLap: false, bestLap: "7:26.190" },
+                { pos: 7,  name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         gap: "+30.199", penalty: "", pole: false, fastestLap: false, bestLap: "7:31.692" },
+                { pos: 8,  name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          gap: "+32.704", penalty: "", pole: false, fastestLap: false, bestLap: "7:34.197" },
+                { pos: 9,  name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        gap: "+45.322", penalty: "", pole: false, fastestLap: false, bestLap: "7:46.815" },
+                { pos: 10, name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           gap: "",        penalty: "", pole: false, fastestLap: false, bestLap: "Sem tempo" },
+                { pos: 11, name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       gap: "",        penalty: "", pole: false, fastestLap: false, bestLap: "Sem tempo" },
+                { pos: 12, name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", gap: "",        penalty: "", pole: false, fastestLap: false, bestLap: "Sem tempo" }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "2 voltas",
+              fastestLapTime: "7:02.989",
+              results: [
+                { pos: 1,    name: "Pedro Oliveira",     driverRef: "Pedro Oliveira", psnId: "Pedro Oliveira",     time: "14:12.057", gap: "",          penalty: "", points: 26, pole: false, fastestLap: true,  bestLap: "7:02.989" },
+                { pos: 2,    name: "RTP_Brunocm97",      driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97",      time: "",          gap: "+00.554",   penalty: "", points: 20, pole: false, fastestLap: false, bestLap: "7:03.253", ourDriver: true },
+                { pos: 3,    name: "Marco Silva",        driverRef: "Marco Silva",    psnId: "Marco Silva",        time: "",          gap: "+08.284",   penalty: "", points: 16, pole: false, fastestLap: false, bestLap: "7:08.219" },
+                { pos: 4,    name: "GodDevil",           driverRef: "GodDevil",       psnId: "GodDeviL",           time: "",          gap: "+14.262",   penalty: "", points: 15, pole: true,  fastestLap: false, bestLap: "7:11.036" },
+                { pos: 5,    name: "Verdelho92",         driverRef: "Verdelho92",     psnId: "Verdelho",           time: "",          gap: "+22.843",   penalty: "", points: 11, pole: false, fastestLap: false, bestLap: "7:12.233" },
+                { pos: 6,    name: "TDN_Roberto494",     driverRef: "TDN_Roberto494", psnId: "R.Charynczuk",       time: "",          gap: "+24.004",   penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "7:10.734" },
+                { pos: 7,    name: "Thetruevirex",       driverRef: "Thetruevirex",   psnId: "P.Pires #96",        time: "",          gap: "+35.929",   penalty: "", points: 9,  pole: false, fastestLap: false, bestLap: "7:11.112" },
+                { pos: 8,    name: "JohnnyRenas",        driverRef: "JohnnyRenas",    psnId: "JhonnyRenas",        time: "",          gap: "+46.238",   penalty: "", points: 8,  pole: false, fastestLap: false, bestLap: "7:23.692" },
+                { pos: 9,    name: "RaulPombal",         driverRef: "RaulPombal",     psnId: "Raulpombal",         time: "",          gap: "+48.267",   penalty: "", points: 7,  pole: false, fastestLap: false, bestLap: "7:29.750" },
+                { pos: 10,   name: "Basaroco",           driverRef: "Basaroco",       psnId: "Basaroco",           time: "",          gap: "+52.303",   penalty: "", points: 6,  pole: false, fastestLap: false, bestLap: "7:20.083" },
+                { pos: 11,   name: "Nuno\"thesnail\"PT", driverRef: "Nuno thesnail",  psnId: "Nuno\"TheSnail\"PT", time: "",          gap: "+1:12.472", penalty: "", points: 0,  pole: false, fastestLap: false, bestLap: "7:41.092" },
+                { pos: "NC", name: "B.Moreira",          driverRef: "B.Moreira",      psnId: "B.Moreira",          time: "",          gap: "NC",        penalty: "", points: 0,  pole: false, fastestLap: false },
+                { pos: "NC", name: "Pedro Venda",        driverRef: "Pedro Venda",    psnId: "Pedro Venda",        time: "",          gap: "",          penalty: "", points: 0,  pole: false, fastestLap: false, ourDriver: true }
+              ]
+            }
+          ]
+        }
+      ]
     },
 
     /* ─────────────────────────────────────────────

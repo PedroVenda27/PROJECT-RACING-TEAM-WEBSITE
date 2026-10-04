@@ -73,16 +73,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevPosMap = lastIdx > 0 ? computeRoundPositions(s.drivers, lastIdx - 1) : null;
 
     const rows = s.drivers.map((d, i) => {
-      const pos = i + 1;
+      const pos = d.pos || i + 1;
       let deltaHTML = `<span class="delta-none">–</span>`;
       if (prevPosMap && currPosMap) {
         const delta = prevPosMap[d.name] - currPosMap[d.name];
         if (delta > 0) deltaHTML = `<span class="delta-up">▲ ${delta}</span>`;
         else if (delta < 0) deltaHTML = `<span class="delta-down">▼ ${Math.abs(delta)}</span>`;
       }
-      const roundCells = d.rounds.map(v => `<td class="${v === null ? "cell-dns" : v === 0 ? "cell-zero" : "cell-round"}">${v === null ? "DNS" : v}</td>`).join("");
+      const nullLabel = s.nullLabel || "DNS";
+      const roundCells = d.rounds.map(v => `<td class="${v === null ? "cell-dns" : v === 0 ? "cell-zero" : "cell-round"}">${v === null ? nullLabel : v}</td>`).join("");
       return `
-        <tr class="${pos <= 3 ? "row-pos-" + pos : ""}">
+        <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${d.ourDriver ? " row-pitbox" : ""}">
           <td class="cell-pos">${pos}</td>
           <td class="cell-delta">${deltaHTML}</td>
           <td class="cell-name">
@@ -145,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Shared podium + results table for one session (qualifying or race).
      Used both by round-based championships (mxcup) and room-based
      WRT events (Top Split), which share the exact same session shape. */
-  function renderSessionBlock(session) {
+  function renderSessionBlock(session, legendHTML) {
     const isQuali = session.type === "qualifying";
     /* Not every race session runs on a points system (e.g. WRT's
        regroup-by-lap-time splits) — fall back to showing the best
@@ -206,8 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
       <div class="standings-legend race-legend">
-        <span class="race-badge badge-pole">P</span> Pole Position (+1 ponto) &nbsp;·&nbsp;
-        <span class="race-badge badge-fl">VR</span> Volta Mais Rápida (+1 ponto, apenas Top 10)
+        ${legendHTML || `<span class="race-badge badge-pole">P</span> Pole Position (+1 ponto) &nbsp;·&nbsp;
+        <span class="race-badge badge-fl">VR</span> Volta Mais Rápida (+1 ponto, apenas Top 10)`}
       </div>
     `;
   }
@@ -237,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return infoBarHTML + `<div class="race-coming-soon">Brevemente</div>`;
     }
 
-    return infoBarHTML + renderSessionBlock(session);
+    return infoBarHTML + renderSessionBlock(session, s.raceLegend);
   }
 
   function refreshRaceResults(compId) {
