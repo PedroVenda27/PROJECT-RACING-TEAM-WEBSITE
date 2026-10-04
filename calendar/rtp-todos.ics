@@ -1,0 +1,583 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RTP Racing Team Project//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:RTP Racing
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r1-d-20260512@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260512
+DTEND;VALUE=DATE:20260513
+SUMMARY:🏁 GT3 Touring Chalange — R1
+LOCATION:D (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R1\nCircuito: D\nPilotos: RTP_Travincas
+ 24\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r1-a-20260515@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260515
+DTEND;VALUE=DATE:20260516
+SUMMARY:🏁 GT3 Touring Chalange — R1
+LOCATION:A (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R1\nCircuito: A\nPilotos: RTP_Brunocm97
+  · Prost\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r2-d-20260519@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260519
+DTEND;VALUE=DATE:20260520
+SUMMARY:🏁 GT3 Touring Chalange — R2
+LOCATION:D (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R2\nCircuito: D\nPilotos: RTP_Travincas
+ 24\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r2-a-20260522@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260522
+DTEND;VALUE=DATE:20260523
+SUMMARY:🏁 GT3 Touring Chalange — R2
+LOCATION:A (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R2\nCircuito: A\nPilotos: RTP_Brunocm97
+  · Prost\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r3-d-20260526@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260526
+DTEND;VALUE=DATE:20260527
+SUMMARY:🏁 GT3 Touring Chalange — R3
+LOCATION:D (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R3\nCircuito: D\nPilotos: RTP_Travincas
+ 24\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r3-a-20260529@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260529
+DTEND;VALUE=DATE:20260530
+SUMMARY:🏁 GT3 Touring Chalange — R3
+LOCATION:A (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R3\nCircuito: A\nPilotos: RTP_Brunocm97
+  · Prost\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-portugal-gt-r1-yas-marina-20260615@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260615
+DTEND;VALUE=DATE:20260616
+SUMMARY:🏁 Liga Portugal GT — R1
+LOCATION:Yas Marina (Gran Turismo 7)
+DESCRIPTION:Liga Portugal GT · R1\nCircuito: Yas Marina\nPilotos: FVenda11
+ 7\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r4-d-20260616@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260616
+DTEND;VALUE=DATE:20260617
+SUMMARY:🏁 GT3 Touring Chalange — R4
+LOCATION:D (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R4\nCircuito: D\nPilotos: RTP_Travincas
+ 24\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r4-a-20260619@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260619
+DTEND;VALUE=DATE:20260620
+SUMMARY:🏁 GT3 Touring Chalange — R4
+LOCATION:A (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R4\nCircuito: A\nPilotos: RTP_Brunocm97
+  · Prost\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r5-d-20260623@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260623
+DTEND;VALUE=DATE:20260624
+SUMMARY:🏁 GT3 Touring Chalange — R5
+LOCATION:D (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R5\nCircuito: D\nPilotos: RTP_Travincas
+ 24\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r5-a-20260626@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260626
+DTEND;VALUE=DATE:20260627
+SUMMARY:🏁 GT3 Touring Chalange — R5
+LOCATION:A (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R5\nCircuito: A\nPilotos: RTP_Brunocm97
+  · Prost\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r6-d-20260630@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260630
+DTEND;VALUE=DATE:20260701
+SUMMARY:🏁 GT3 Touring Chalange — R6
+LOCATION:D (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R6\nCircuito: D\nPilotos: RTP_Travincas
+ 24\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gt3-touring-chalange-r6-a-20260703@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260703
+DTEND;VALUE=DATE:20260704
+SUMMARY:🏁 GT3 Touring Chalange — R6
+LOCATION:A (Gran Turismo 7)
+DESCRIPTION:GT3 Touring Chalange · R6\nCircuito: A\nPilotos: RTP_Brunocm97
+  · Prost\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-portugal-gt-r2-spa-francorchamps-20260713@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260713
+DTEND;VALUE=DATE:20260714
+SUMMARY:🏁 Liga Portugal GT — R2
+LOCATION:Spa-Francorchamps (Gran Turismo 7)
+DESCRIPTION:Liga Portugal GT · R2\nCircuito: Spa-Francorchamps\nPilotos: F
+ Venda117\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mazda-mx-5-cup-r1-high-speed-ring-20260717@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260717
+DTEND;VALUE=DATE:20260718
+SUMMARY:🏁 Mazda MX-5 Cup — R1
+LOCATION:High Speed Ring (Gran Turismo 7)
+DESCRIPTION:Mazda MX-5 Cup · R1\nCircuito: High Speed Ring\nPilotos: Equip
+ a RTP\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mazda-mx-5-cup-r2-michelin-raceway-road-atlanta-20260724@racingteamproj
+ ect.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260724
+DTEND;VALUE=DATE:20260725
+SUMMARY:🏁 Mazda MX-5 Cup — R2
+LOCATION:Michelin Raceway Road Atlanta (Gran Turismo 7)
+DESCRIPTION:Mazda MX-5 Cup · R2\nCircuito: Michelin Raceway Road Atlanta\n
+ Pilotos: Equipa RTP\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:taca-portugal-gt-1-eliminatoria-watkins-glen-20260729@racingteamproject
+ .eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260729
+DTEND;VALUE=DATE:20260730
+SUMMARY:🏁 Taça Portugal GT — 1ª Eliminatória
+LOCATION:Watkins Glen (Gran Turismo 7)
+DESCRIPTION:Taça Portugal GT · 1ª Eliminatória\nCircuito: Watkins Glen\
+ nPilotos: FVenda117\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mazda-mx-5-cup-r3-tsukuba-circuit-20260731@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260731
+DTEND;VALUE=DATE:20260801
+SUMMARY:🏁 Mazda MX-5 Cup — R3
+LOCATION:Tsukuba Circuit (Gran Turismo 7)
+DESCRIPTION:Mazda MX-5 Cup · R3\nCircuito: Tsukuba Circuit\nPilotos: Equip
+ a RTP\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mazda-mx-5-cup-r4-watkins-glen-short-20260807@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260807
+DTEND;VALUE=DATE:20260808
+SUMMARY:🏁 Mazda MX-5 Cup — R4
+LOCATION:Watkins Glen (Short) (Gran Turismo 7)
+DESCRIPTION:Mazda MX-5 Cup · R4\nCircuito: Watkins Glen (Short)\nPilotos: 
+ Equipa RTP\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mazda-mx-5-cup-r5-goodwood-motor-circuit-20260814@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260814
+DTEND;VALUE=DATE:20260815
+SUMMARY:🏁 Mazda MX-5 Cup — R5
+LOCATION:Goodwood Motor Circuit (Gran Turismo 7)
+DESCRIPTION:Mazda MX-5 Cup · R5\nCircuito: Goodwood Motor Circuit\nPilotos
+ : Equipa RTP\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:wrt-events-daytona-fun-race-daytona-international-speedway-20260822@rac
+ ingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260822
+DTEND;VALUE=DATE:20260823
+SUMMARY:🏁 WRT Events — Daytona - Fun Race
+LOCATION:Daytona International Speedway (Gran Turismo 7)
+DESCRIPTION:WRT Events · Daytona - Fun Race\nCircuito: Daytona Internation
+ al Speedway\nPilotos: S. Marques · BrunoCm1997 · RafaelAgostinh44 · Wil
+ son_TheFirst · KezwiiK\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mazda-mx-5-cup-r6-circuit-gilles-villeneuve-20260828@racingteamproject.
+ eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260828
+DTEND;VALUE=DATE:20260829
+SUMMARY:🏁 Mazda MX-5 Cup — R6
+LOCATION:Circuit Gilles-Villeneuve (Gran Turismo 7)
+DESCRIPTION:Mazda MX-5 Cup · R6\nCircuito: Circuit Gilles-Villeneuve\nPilo
+ tos: Equipa RTP\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:wrt-events-gilles-villeneuve-top-split-circuit-gilles-villeneuve-202608
+ 29@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260829
+DTEND;VALUE=DATE:20260830
+SUMMARY:🏁 WRT Events — Gilles Villeneuve-Top Split
+LOCATION:Circuit Gilles Villeneuve (Gran Turismo 7)
+DESCRIPTION:WRT Events · Gilles Villeneuve-Top Split\nCircuito: Circuit Gi
+ lles Villeneuve\nPilotos: 100maneiraz · Hugo Costa · RTP_Travincas24 · 
+ Hyoogo\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:taca-portugal-gt-2-eliminatoria-dragon-trail-20260903@racingteamproject
+ .eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260903
+DTEND;VALUE=DATE:20260904
+SUMMARY:🏁 Taça Portugal GT — 2ª Eliminatória
+LOCATION:Dragon Trail (Gran Turismo 7)
+DESCRIPTION:Taça Portugal GT · 2ª Eliminatória\nCircuito: Dragon Trail\
+ nPilotos: FVenda117\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:wrt-events-nurburgring-wrt-x-pitbox-nurburgring-20260904@racingteamproj
+ ect.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260904
+DTEND;VALUE=DATE:20260905
+SUMMARY:🏁 WRT Events — Nürburgring -WRT x Pitbox
+LOCATION:Nürburgring (Gran Turismo 7)
+DESCRIPTION:WRT Events · Nürburgring -WRT x Pitbox\nCircuito: Nürburgrin
+ g\nPilotos: granadas10\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:wrt-events-spa-circuit-de-spa-francorchamps-20260912@racingteamproject.
+ eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260913
+SUMMARY:🏁 WRT Events — Spa
+LOCATION:Circuit de Spa-Francorchamps (Gran Turismo 7)
+DESCRIPTION:WRT Events · Spa\nCircuito: Circuit de Spa-Francorchamps\nPilo
+ tos: Barreto · S. Marques · Laferia777 · KezwiiK\n\nhttps://racingteamp
+ roject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-portugal-gt-r3-monza-20260914@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+SUMMARY:🏁 Liga Portugal GT — R3
+LOCATION:Monza (Gran Turismo 7)
+DESCRIPTION:Liga Portugal GT · R3\nCircuito: Monza\nPilotos: FVenda117\n\n
+ https://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:street-car-pitbox-cup-ii-r1-michelin-raceway-road-atlanta-20261002@raci
+ ngteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🏁 Street Car Pitbox Cup II — R1
+LOCATION:Michelin Raceway Road Atlanta (Gran Turismo 7)
+DESCRIPTION:Street Car Pitbox Cup II · R1\nCircuito: Michelin Raceway Road
+  Atlanta\nPilotos: BrunoCm1997\n\nhttps://racingteamproject.eu/calendar.ht
+ ml
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:street-car-pitbox-cup-ii-r2-blue-moon-bay-speedway-interior-a-20261002@
+ racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🏁 Street Car Pitbox Cup II — R2
+LOCATION:Blue Moon Bay Speedway - Interior A (Gran Turismo 7)
+DESCRIPTION:Street Car Pitbox Cup II · R2\nCircuito: Blue Moon Bay Speedwa
+ y - Interior A\nPilotos: BrunoCm1997\n\nhttps://racingteamproject.eu/calen
+ dar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:street-car-pitbox-cup-ii-r3-suzuka-circuit-circuito-oriental-20261002@r
+ acingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🏁 Street Car Pitbox Cup II — R3
+LOCATION:Suzuka Circuit - Circuito Oriental (Gran Turismo 7)
+DESCRIPTION:Street Car Pitbox Cup II · R3\nCircuito: Suzuka Circuit - Circ
+ uito Oriental\nPilotos: BrunoCm1997\n\nhttps://racingteamproject.eu/calend
+ ar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:street-car-pitbox-cup-ii-r4-watkins-glen-percurso-curto-20261002@racing
+ teamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🏁 Street Car Pitbox Cup II — R4
+LOCATION:Watkins Glen - Percurso Curto (Gran Turismo 7)
+DESCRIPTION:Street Car Pitbox Cup II · R4\nCircuito: Watkins Glen - Percur
+ so Curto\nPilotos: BrunoCm1997\n\nhttps://racingteamproject.eu/calendar.ht
+ ml
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:street-car-pitbox-cup-ii-r5-sardegna-tracado-b-20261002@racingteamproje
+ ct.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🏁 Street Car Pitbox Cup II — R5
+LOCATION:Sardegna - Traçado B (Gran Turismo 7)
+DESCRIPTION:Street Car Pitbox Cup II · R5\nCircuito: Sardegna - Traçado B
+ \nPilotos: BrunoCm1997\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:street-car-pitbox-cup-ii-r6-tokyo-expressway-central-sentido-horario-20
+ 261002@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🏁 Street Car Pitbox Cup II — R6
+LOCATION:Tokyo Expressway - Central\, sentido horário (Gran Turismo 7)
+DESCRIPTION:Street Car Pitbox Cup II · R6\nCircuito: Tokyo Expressway - Ce
+ ntral\, sentido horário\nPilotos: BrunoCm1997\n\nhttps://racingteamprojec
+ t.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:street-car-pitbox-cup-ii-r7-willow-springs-horse-thief-mile-20261002@ra
+ cingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🏁 Street Car Pitbox Cup II — R7
+LOCATION:Willow Springs - Horse Thief Mile (Gran Turismo 7)
+DESCRIPTION:Street Car Pitbox Cup II · R7\nCircuito: Willow Springs - Hors
+ e Thief Mile\nPilotos: BrunoCm1997\n\nhttps://racingteamproject.eu/calenda
+ r.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:street-car-pitbox-cup-ii-r8-nurburgring-nordschleife-2-voltas-20261002@
+ racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🏁 Street Car Pitbox Cup II — R8
+LOCATION:Nürburgring Nordschleife - 2 voltas (Gran Turismo 7)
+DESCRIPTION:Street Car Pitbox Cup II · R8\nCircuito: Nürburgring Nordschl
+ eife - 2 voltas\nPilotos: BrunoCm1997\n\nhttps://racingteamproject.eu/cale
+ ndar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-endurance-1-etapa-laguna-seca-20261010@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:🏁 Liga Endurance — 1ª Etapa
+LOCATION:Laguna Seca (Gran Turismo 7)
+DESCRIPTION:Liga Endurance · 1ª Etapa\nCircuito: Laguna Seca\nPilotos: Wi
+ lson_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass\n\nhttps://ra
+ cingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-portugal-gt-r4-suzuka-20261012@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+SUMMARY:🏁 Liga Portugal GT — R4
+LOCATION:Suzuka (Gran Turismo 7)
+DESCRIPTION:Liga Portugal GT · R4\nCircuito: Suzuka\nPilotos: FVenda117\n\
+ nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-endurance-2-etapa-interlagos-20261017@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:🏁 Liga Endurance — 2ª Etapa
+LOCATION:Interlagos (Gran Turismo 7)
+DESCRIPTION:Liga Endurance · 2ª Etapa\nCircuito: Interlagos\nPilotos: Wil
+ son_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass\n\nhttps://rac
+ ingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:taca-portugal-gt-3-eliminatoria-suzuka-20261021@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261021
+DTEND;VALUE=DATE:20261022
+SUMMARY:🏁 Taça Portugal GT — 3ª Eliminatória
+LOCATION:Suzuka (Gran Turismo 7)
+DESCRIPTION:Taça Portugal GT · 3ª Eliminatória\nCircuito: Suzuka\nPilot
+ os: FVenda117\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-endurance-3-etapa-spa-francorchamps-20261024@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏁 Liga Endurance — 3ª Etapa
+LOCATION:Spa-Francorchamps (Gran Turismo 7)
+DESCRIPTION:Liga Endurance · 3ª Etapa\nCircuito: Spa-Francorchamps\nPilot
+ os: Wilson_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass\n\nhttp
+ s://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-endurance-4-etapa-24-heures-du-mans-le-mans-20261031@racingteampro
+ ject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:🏁 Liga Endurance — 4ª Etapa
+LOCATION:24 Heures du Mans (Le Mans) (Gran Turismo 7)
+DESCRIPTION:Liga Endurance · 4ª Etapa\nCircuito: 24 Heures du Mans (Le Ma
+ ns)\nPilotos: Wilson_TheFirst · SemDestino75 · Caceteira_RTP · pandafra
+ ss\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-portugal-gt-r5-trial-mountain-20261109@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:🏁 Liga Portugal GT — R5
+LOCATION:Trial Mountain (Gran Turismo 7)
+DESCRIPTION:Liga Portugal GT · R5\nCircuito: Trial Mountain\nPilotos: FVen
+ da117\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:taca-portugal-gt-4-eliminatoria-fuji-speedway-20261126@racingteamprojec
+ t.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:🏁 Taça Portugal GT — 4ª Eliminatória
+LOCATION:Fuji Speedway (Gran Turismo 7)
+DESCRIPTION:Taça Portugal GT · 4ª Eliminatória\nCircuito: Fuji Speedway
+ \nPilotos: FVenda117\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:taca-portugal-gt-4-eliminatoria-fuji-speedway-20261127@racingteamprojec
+ t.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:🏁 Taça Portugal GT — 4ª Eliminatória
+LOCATION:Fuji Speedway (Gran Turismo 7)
+DESCRIPTION:Taça Portugal GT · 4ª Eliminatória\nCircuito: Fuji Speedway
+ \nPilotos: FVenda117\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:liga-portugal-gt-r6-nurburgring-24h-20261214@racingteamproject.eu
+DTSTAMP:20261004T233717Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+SUMMARY:🏁 Liga Portugal GT — R6
+LOCATION:Nürburgring 24h (Gran Turismo 7)
+DESCRIPTION:Liga Portugal GT · R6\nCircuito: Nürburgring 24h\nPilotos: FV
+ enda117\n\nhttps://racingteamproject.eu/calendar.html
+URL:https://racingteamproject.eu/calendar.html
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

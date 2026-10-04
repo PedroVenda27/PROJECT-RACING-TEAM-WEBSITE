@@ -70,15 +70,22 @@
 
       <!-- -- TABS -- -->
       <div class="cal-tabs">
-        <button class="cal-tab-btn active" data-tab="corridas">
+        <button class="cal-tab-btn active" data-tab="calendario">
           <span class="cal-tab-num">01</span>
           <div>
-            <strong data-i18n="cal.tab1.title">Competi&#231;&#245;es Corridas</strong>
+            <strong data-i18n="cal.tab0.title">Calend&#225;rio</strong>
+            <p data-i18n="cal.tab0.desc">Todas as corridas num calend&#225;rio mensal &mdash; filtra pelo teu nome.</p>
+          </div>
+        </button>
+        <button class="cal-tab-btn" data-tab="corridas">
+          <span class="cal-tab-num">02</span>
+          <div>
+            <strong data-i18n="cal.tab1.title">Corridas</strong>
             <p data-i18n="cal.tab1.desc">Eventos oficiais de corrida, rondas de sprint e provas de endurance.</p>
           </div>
         </button>
         <button class="cal-tab-btn" data-tab="treinos">
-          <span class="cal-tab-num">02</span>
+          <span class="cal-tab-num">03</span>
           <div>
             <strong data-i18n="cal.tab2.title">Treinos e Eventos</strong>
             <p data-i18n="cal.tab2.desc">Sessões de treino da equipa, eventos comunitários e transmissões especiais.</p>
@@ -86,8 +93,58 @@
         </button>
       </div>
 
-      <!-- -- TAB 01 — CORRIDAS -- -->
-      <div class="cal-tab-content" id="tab-corridas">
+      <!-- -- TAB 01 — CALENDÁRIO (built from the race tables below) -- -->
+      <div class="cal-tab-content" id="tab-calendario">
+        <div class="cal-block mcal">
+          <div class="mcal-toolbar">
+            <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project" class="mcal-logo" />
+            <div class="mcal-nav">
+              <button type="button" class="mcal-nav-btn" id="mcal-prev" aria-label="Mês anterior">&#8249;</button>
+              <h2 class="mcal-month" id="mcal-month"></h2>
+              <button type="button" class="mcal-nav-btn" id="mcal-next" aria-label="Mês seguinte">&#8250;</button>
+              <button type="button" class="mcal-today-btn" id="mcal-today">Hoje</button>
+            </div>
+            <div class="mcal-actions">
+              <label class="mcal-filter">
+                <span>Piloto</span>
+                <select id="mcal-driver"><option value="">Todos os pilotos</option></select>
+              </label>
+              <button type="button" class="mcal-sync-btn" id="mcal-sync-toggle" aria-expanded="false" aria-controls="mcal-sync">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V9h14v11Zm-7-9 4 4h-3v4h-2v-4H8l4-4Z"/></svg>
+                <span>Sincronizar</span>
+              </button>
+            </div>
+          </div>
+          <div class="mcal-sync" id="mcal-sync" hidden>
+            <p class="mcal-sync-intro">Adiciona o calendário <strong id="mcal-sync-name">da equipa</strong> ao teu telemóvel — as corridas novas aparecem sozinhas.</p>
+            <div class="mcal-sync-buttons">
+              <a class="mcal-sync-opt" id="mcal-sync-google" href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9a5 5 0 0 1-2.2 3.3v2.7h3.6c2.1-1.9 3.3-4.8 3.3-8Z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.7c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.8A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.8 14.2a6.6 6.6 0 0 1 0-4.3V7.1H2.1a11 11 0 0 0 0 9.9l3.7-2.8Z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2A11 11 0 0 0 2.1 7.1l3.7 2.8C6.7 7.3 9.1 5.4 12 5.4Z"/></svg>
+                Google Calendar
+              </a>
+              <a class="mcal-sync-opt" id="mcal-sync-apple" href="#">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9a4.8 4.8 0 0 0-3.8-2c-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.3-.9a4.9 4.9 0 0 0-4.2 2.5c-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.2-1.2 3-2.5a10 10 0 0 0 1.4-2.8 4.4 4.4 0 0 1-2.4-4Zm-2.6-7.6A4.4 4.4 0 0 0 14.8 2a4.5 4.5 0 0 0-2.9 1.5 4.2 4.2 0 0 0-1 3.1c1.1.1 2.2-.6 2.9-1.6Z"/></svg>
+                Apple / iCloud
+              </a>
+              <button type="button" class="mcal-sync-opt" id="mcal-sync-copy">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
+                <span>Copiar link</span>
+              </button>
+              <button type="button" class="mcal-sync-opt" id="mcal-sync-download">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M5 20h14v-2H5v2Zm7-2 5.5-5.5-1.4-1.4L13 14.2V4h-2v10.2l-3.1-3.1-1.4 1.4L12 18Z"/></svg>
+                Descarregar .ics
+              </button>
+            </div>
+            <p class="mcal-sync-note">Google: abre o link com a conta onde queres o calendário e confirma &laquo;Adicionar&raquo;. iPhone/Mac: o Calendário abre e pede para subscrever. O Google pode demorar algumas horas a mostrar alterações.</p>
+          </div>
+          <div class="mcal-summary" id="mcal-summary"></div>
+          <div class="mcal-grid" id="mcal-grid" role="grid"></div>
+          <div class="mcal-agenda" id="mcal-agenda"></div>
+        </div>
+      </div>
+
+      <!-- -- TAB 02 — CORRIDAS -- -->
+      <div class="cal-tab-content" id="tab-corridas" style="display:none;">
 
       <!-- -- LIGA PORTUGAL GT -- -->
       <div class="cal-block">
@@ -413,14 +470,26 @@
 
   <script>
     /* -- Tab switcher -- */
+    function showCalTab(name) {
+      document.querySelectorAll('.cal-tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+      document.querySelectorAll('.cal-tab-content').forEach(c => c.style.display = c.id === 'tab-' + name ? 'block' : 'none');
+    }
     document.querySelectorAll('.cal-tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.cal-tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.cal-tab-content').forEach(c => c.style.display = 'none');
-        btn.classList.add('active');
-        document.getElementById('tab-' + btn.dataset.tab).style.display = 'block';
-      });
+      btn.addEventListener('click', () => showCalTab(btn.dataset.tab));
     });
+
+    /* Jump from the calendar/"Corridas Hoje" to a race row in the Corridas tab
+       (opening the archive first if the row lives there). */
+    function focusRaceRow(row) {
+      showCalTab('corridas');
+      const archive = document.getElementById('tab-arquivo');
+      if (archive && archive.contains(row) && archive.style.display === 'none') {
+        document.getElementById('btn-arquivo').click();
+      }
+      row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      row.classList.add('cal-row-highlight');
+      setTimeout(() => row.classList.remove('cal-row-highlight'), 1600);
+    }
 
     /* -- Auto-update status based on today's date -- */
     (function() {
@@ -484,11 +553,7 @@
               ${r.piloto ? `<div class="today-race-piloto">${r.piloto}</div>` : ''}
             </div>
           `;
-          card.addEventListener('click', () => {
-            r.row.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            r.row.classList.add('cal-row-highlight');
-            setTimeout(() => r.row.classList.remove('cal-row-highlight'), 1600);
-          });
+          card.addEventListener('click', () => focusRaceRow(r.row));
           grid.appendChild(card);
         });
         document.getElementById('today-races-section').style.display = 'block';
@@ -561,6 +626,194 @@
       }
       row.appendChild(td);
     });
+
+    /* -- Monthly calendar with driver filter --
+       Events are read from the race tables (Corridas + Arquivo), so a race
+       added to a table shows up here automatically. Columns: #, Data,
+       Circuito, Piloto. Pilots are matched by PSN (role), GT7 name or name
+       from SITE_DATA.drivers; "RTP"/"All" means the whole team. */
+    document.addEventListener('DOMContentLoaded', function () {
+      const gridEl = document.getElementById('mcal-grid');
+      if (!gridEl) return;
+      const monthEl   = document.getElementById('mcal-month');
+      const agendaEl  = document.getElementById('mcal-agenda');
+      const summaryEl = document.getElementById('mcal-summary');
+      const selectEl  = document.getElementById('mcal-driver');
+
+      const COLORS = ['#FF6B00', '#3b82f6', '#22c55e', '#eab308', '#a855f7', '#ef4444', '#14b8a6', '#ec4899'];
+      const isEn = () => typeof getLang === 'function' && getLang() === 'en';
+      const L = {
+        pt: { months: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+              days: ['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'], all: 'Todos os pilotos', none: 'Sem corridas neste mês.',
+              count: (n, who) => `${n} ${n === 1 ? 'corrida' : 'corridas'} em ${who}`, today: 'Hoje', team: 'Equipa RTP' },
+        en: { months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+              days: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], all: 'All drivers', none: 'No races this month.',
+              count: (n, who) => `${n} ${n === 1 ? 'race' : 'races'} in ${who}`, today: 'Today', team: 'RTP Team' }
+      };
+      const t = () => L[isEn() ? 'en' : 'pt'];
+
+      const RC = window.RaceCalendar;
+      const blockColor = new Map();
+      const events = [];
+      document.querySelectorAll('#tab-corridas .cal-table tbody, #tab-arquivo .cal-table tbody').forEach(tbody => {
+        const block = tbody.closest('.cal-block');
+        if (!blockColor.has(block)) blockColor.set(block, COLORS[blockColor.size % COLORS.length]);
+        const titleEl = block.querySelector('.cal-comp-title');
+        const logoEl = block.querySelector('.cal-comp-logo');
+        const comp = titleEl ? titleEl.textContent.trim() : '';
+        tbody.querySelectorAll('tr:not(.cal-empty)').forEach(row => {
+          const cells = [...row.querySelectorAll('td')].slice(0, 4).map(td => td.textContent.trim());
+          if (cells.length < 4) return;
+          RC.makeEvent(comp, cells).forEach(ev => events.push(Object.assign(ev, {
+            row,
+            logo: logoEl && logoEl.style.display !== 'none' ? logoEl.getAttribute('src') : '',
+            color: blockColor.get(block),
+            done: !!row.querySelector('.cal-status.feito')
+          })));
+        });
+      });
+      events.sort((a, b) => a.date - b.date);
+
+      // Driver filter
+      const drivers = (typeof SITE_DATA !== 'undefined' && SITE_DATA.drivers ? SITE_DATA.drivers : [])
+        .slice().sort((a, b) => a.name.localeCompare(b.name, 'pt'));
+      drivers.forEach(d => {
+        const opt = document.createElement('option');
+        opt.value = String(SITE_DATA.drivers.indexOf(d));
+        opt.textContent = d.name + (d.role ? ' (' + d.role + ')' : '');
+        selectEl.appendChild(opt);
+      });
+
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      let view = new Date(today.getFullYear(), today.getMonth(), 1);
+      let selected = null;
+      try {
+        const saved = localStorage.getItem('rtp-cal-driver');
+        if (saved && SITE_DATA.drivers[+saved]) { selectEl.value = saved; selected = SITE_DATA.drivers[+saved]; }
+      } catch (e) {}
+
+      const sameDay = (a, b) => a.getTime() === b.getTime();
+      const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+      // One chip per competition per day, so a night with several races
+      // (e.g. Pitbox Cup R1–R8) doesn't flood the cell.
+      function chips(dayEvents) {
+        const groups = [];
+        dayEvents.forEach(ev => {
+          const g = groups.find(x => x[0].comp === ev.comp);
+          g ? g.push(ev) : groups.push([ev]);
+        });
+        return groups.map(g => {
+          const ev = g[0];
+          const round = g.length > 2 ? g[0].round + '–' + g[g.length - 1].round : g.map(x => x.round).join(' · ');
+          const title = g.map(x => x.comp + ' · ' + x.round + ' · ' + x.circuit).join('\n');
+          return `<button type="button" class="mcal-chip${g.every(x => x.done) ? ' is-done' : ''}" style="--c:${ev.color}" data-ev="${events.indexOf(ev)}"
+                    title="${esc(title)}">
+                    <span class="mcal-chip-comp">${esc(ev.comp)}</span>
+                    <span class="mcal-chip-round">${esc(round)}</span>
+                  </button>`;
+        }).join('');
+      }
+
+      function render() {
+        const lang = t();
+        selectEl.options[0].textContent = lang.all;
+        document.getElementById('mcal-today').textContent = lang.today;
+        monthEl.textContent = lang.months[view.getMonth()] + ' ' + view.getFullYear();
+
+        const y = view.getFullYear(), m = view.getMonth();
+        const monthEvents = events.filter(ev => ev.date.getFullYear() === y && ev.date.getMonth() === m && RC.driverMatches(ev, selected));
+        summaryEl.textContent = lang.count(monthEvents.length, lang.months[m]) + (selected ? ' · ' + selected.name : '');
+
+        // Grid (Monday first)
+        const first = new Date(y, m, 1);
+        const offset = (first.getDay() + 6) % 7;
+        const daysInMonth = new Date(y, m + 1, 0).getDate();
+        let html = lang.days.map(d => `<div class="mcal-dow">${d}</div>`).join('');
+        for (let i = 0; i < offset; i++) html += '<div class="mcal-cell is-empty"></div>';
+        for (let day = 1; day <= daysInMonth; day++) {
+          const date = new Date(y, m, day);
+          const dayEvents = monthEvents.filter(ev => sameDay(ev.date, date));
+          html += `<div class="mcal-cell${sameDay(date, today) ? ' is-today' : ''}${dayEvents.length ? ' has-events' : ''}">
+                     <span class="mcal-daynum">${day}</span>
+                     ${chips(dayEvents)}
+                   </div>`;
+        }
+        const trailing = (7 - ((offset + daysInMonth) % 7)) % 7;
+        for (let i = 0; i < trailing; i++) html += '<div class="mcal-cell is-empty"></div>';
+        gridEl.innerHTML = html;
+
+        // Agenda list (main view on phones)
+        agendaEl.innerHTML = monthEvents.length
+          ? monthEvents.map(ev => `
+              <button type="button" class="mcal-agenda-item${ev.done ? ' is-done' : ''}${sameDay(ev.date, today) ? ' is-today' : ''}" style="--c:${ev.color}" data-ev="${events.indexOf(ev)}">
+                <span class="mcal-agenda-date"><strong>${ev.date.getDate()}</strong>${lang.days[(ev.date.getDay() + 6) % 7]}</span>
+                ${ev.logo ? `<img src="${esc(ev.logo)}" alt="" class="mcal-agenda-logo" />` : '<span class="mcal-agenda-logo mcal-agenda-dot"></span>'}
+                <span class="mcal-agenda-info">
+                  <span class="mcal-agenda-comp">${esc(ev.comp)} · ${esc(ev.round)}</span>
+                  <span class="mcal-agenda-circuit">${esc(ev.circuit)}</span>
+                  <span class="mcal-agenda-pilots">${ev.team ? lang.team : esc(ev.pilots)}</span>
+                </span>
+              </button>`).join('')
+          : `<p class="mcal-empty">${lang.none}</p>`;
+      }
+
+      document.getElementById('tab-calendario').addEventListener('click', e => {
+        const el = e.target.closest('[data-ev]');
+        if (el) focusRaceRow(events[+el.dataset.ev].row);
+      });
+      document.getElementById('mcal-prev').addEventListener('click', () => { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); render(); });
+      document.getElementById('mcal-next').addEventListener('click', () => { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); render(); });
+      document.getElementById('mcal-today').addEventListener('click', () => { view = new Date(today.getFullYear(), today.getMonth(), 1); render(); });
+      selectEl.addEventListener('change', () => {
+        selected = selectEl.value === '' ? null : SITE_DATA.drivers[+selectEl.value];
+        try { localStorage.setItem('rtp-cal-driver', selectEl.value); } catch (e) {}
+        render();
+      });
+      document.addEventListener('rtp:langchange', render);
+
+      /* -- Sync: subscribe to the published .ics feed (calendar/rtp-*.ics,
+         built from these tables on every deploy) or download a one-off copy. -- */
+      const syncPanel = document.getElementById('mcal-sync');
+      const syncToggle = document.getElementById('mcal-sync-toggle');
+      const copyBtn = document.getElementById('mcal-sync-copy');
+      function updateSync() {
+        const webcal = RC.feedUrl(selected, 'webcal');
+        document.getElementById('mcal-sync-name').textContent = selected ? 'de ' + selected.name : 'da equipa';
+        document.getElementById('mcal-sync-google').href =
+          'https://calendar.google.com/calendar/render?cid=' + encodeURIComponent(webcal);
+        document.getElementById('mcal-sync-apple').href = webcal;
+      }
+      syncToggle.addEventListener('click', () => {
+        syncPanel.hidden = !syncPanel.hidden;
+        syncToggle.setAttribute('aria-expanded', String(!syncPanel.hidden));
+      });
+      copyBtn.addEventListener('click', async () => {
+        const url = RC.feedUrl(selected, 'https');
+        const label = copyBtn.querySelector('span');
+        try {
+          await navigator.clipboard.writeText(url);
+          label.textContent = 'Link copiado!';
+        } catch (e) {
+          window.prompt('Copia este link:', url);
+        }
+        setTimeout(() => { label.textContent = 'Copiar link'; }, 2000);
+      });
+      document.getElementById('mcal-sync-download').addEventListener('click', () => {
+        const list = events.filter(ev => RC.driverMatches(ev, selected));
+        const blob = new Blob([RC.buildICS(list, RC.calendarName(selected))], { type: 'text/calendar;charset=utf-8' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = RC.feedFile(selected);
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      });
+      selectEl.addEventListener('change', updateSync);
+      updateSync();
+      render();
+    });
   </script>
 
   <!-- ==================== FOOTER ==================== -->
@@ -607,6 +860,7 @@
   </footer>
 
   <script src="js/data.js"></script>
+  <script src="js/race-calendar.js"></script>
   <script src="js/lang.js"></script>
   <script src="js/main.js"></script>
 </body>

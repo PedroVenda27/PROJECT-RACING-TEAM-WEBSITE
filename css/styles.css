@@ -3327,3 +3327,151 @@ img {
 .badge-fl   { background: #c084fc; color: #000; }
 
 .race-legend { line-height: 1.8; }
+
+/* ── Monthly calendar (calendar.html → Calendário tab) ── */
+.mcal { padding: 1.5rem; }
+.mcal-toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 1rem; margin-bottom: 0.75rem;
+}
+.mcal-nav { display: flex; align-items: center; gap: 0.5rem; }
+.mcal-nav-btn, .mcal-today-btn {
+  background: var(--gray-700); color: var(--white);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+  cursor: pointer; transition: border-color 0.2s, color 0.2s;
+}
+.mcal-nav-btn { width: 2.25rem; height: 2.25rem; font-size: 1.4rem; line-height: 1; }
+.mcal-today-btn {
+  padding: 0.45rem 0.9rem; font-family: var(--font-display); font-size: 0.7rem;
+  letter-spacing: 0.08em; text-transform: uppercase; margin-left: 0.25rem;
+}
+.mcal-nav-btn:hover, .mcal-today-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+.mcal-month {
+  font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase;
+  letter-spacing: 0.06em; min-width: 11.5rem; text-align: center; margin: 0;
+}
+.mcal-filter { display: flex; align-items: center; gap: 0.6rem; }
+.mcal-filter span {
+  font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gray-400);
+}
+.mcal-filter select {
+  background: var(--gray-700); color: var(--white);
+  border: 1px solid var(--yellow); border-radius: 8px;
+  padding: 0.5rem 0.75rem; font-size: 0.9rem; min-width: 14rem; max-width: 100%;
+}
+.mcal-summary { font-size: 0.8rem; color: var(--gray-400); margin-bottom: 1rem; }
+
+.mcal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.mcal-dow {
+  font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gray-400); text-align: center; padding: 0.4rem 0;
+}
+.mcal-cell {
+  background: var(--gray-900); border: 1px solid rgba(255,255,255,0.05); border-radius: 6px;
+  min-height: 6.5rem; padding: 0.35rem; display: flex; flex-direction: column; gap: 3px; min-width: 0;
+}
+.mcal-cell.is-empty { background: transparent; border-color: transparent; }
+.mcal-cell.is-today { border-color: var(--yellow); box-shadow: inset 0 0 0 1px var(--yellow); }
+.mcal-daynum { font-size: 0.75rem; color: var(--gray-400); font-weight: 600; }
+.mcal-cell.is-today .mcal-daynum { color: var(--yellow); }
+.mcal-chip {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  background: color-mix(in srgb, var(--c) 18%, transparent);
+  border: 0; border-left: 3px solid var(--c); border-radius: 4px;
+  padding: 0.2rem 0.35rem; color: var(--white); min-width: 0;
+}
+.mcal-chip:hover { background: color-mix(in srgb, var(--c) 32%, transparent); }
+.mcal-chip.is-done { opacity: 0.55; }
+.mcal-chip-comp, .mcal-chip-round {
+  display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.mcal-chip-comp { font-size: 0.66rem; font-weight: 700; }
+.mcal-chip-round { font-size: 0.62rem; color: var(--gray-200); }
+
+.mcal-agenda { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.mcal-agenda-item {
+  display: flex; align-items: center; gap: 0.9rem; width: 100%; text-align: left; cursor: pointer;
+  background: var(--gray-900); color: var(--white);
+  border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid var(--c);
+  border-radius: 8px; padding: 0.65rem 0.9rem; transition: border-color 0.2s;
+}
+.mcal-agenda-item:hover { border-color: var(--c); }
+.mcal-agenda-item.is-done { opacity: 0.6; }
+.mcal-agenda-item.is-today { box-shadow: 0 0 0 1px var(--yellow); }
+.mcal-agenda-date {
+  display: flex; flex-direction: column; align-items: center; min-width: 2.6rem;
+  font-size: 0.65rem; text-transform: uppercase; color: var(--gray-400);
+}
+.mcal-agenda-date strong { font-family: var(--font-display); font-size: 1.25rem; color: var(--white); }
+.mcal-agenda-logo { width: 2.4rem; height: 2.4rem; object-fit: contain; border-radius: 6px; flex-shrink: 0; }
+.mcal-agenda-dot { background: var(--c); opacity: 0.8; }
+.mcal-agenda-info { display: flex; flex-direction: column; min-width: 0; }
+.mcal-agenda-comp { font-weight: 700; font-size: 0.88rem; }
+.mcal-agenda-circuit { font-size: 0.8rem; color: var(--gray-200); }
+.mcal-agenda-pilots { font-size: 0.72rem; color: var(--gray-400); overflow-wrap: anywhere; }
+.mcal-empty { color: var(--gray-400); font-size: 0.85rem; text-align: center; padding: 1rem 0; }
+
+@media (max-width: 700px) {
+  .mcal { padding: 1rem; }
+  .mcal-toolbar { flex-direction: column; align-items: stretch; }
+  .mcal-nav { justify-content: center; }
+  .mcal-month { min-width: 0; flex: 1; font-size: 0.95rem; }
+  .mcal-filter select { flex: 1; min-width: 0; }
+  .mcal-cell { min-height: 2.6rem; align-items: center; }
+  .mcal-chip { width: 0.5rem; height: 0.5rem; padding: 0; border: 0; border-radius: 50%; background: var(--c); }
+  .mcal-chip > span { display: none; }
+  .mcal-cell.has-events { flex-flow: row wrap; justify-content: center; align-content: flex-start; }
+  .mcal-cell.has-events .mcal-daynum { flex-basis: 100%; text-align: center; }
+}
+@media (max-width: 700px) {
+  .mcal-nav { flex-wrap: wrap; }
+  .mcal-month { font-size: 0.85rem; letter-spacing: 0.03em; }
+  .mcal-today-btn { flex-basis: 100%; margin-left: 0; }
+  .mcal-filter { min-width: 0; }
+  .mcal-filter select { width: 100%; }
+}
+/* Three calendar tabs: compact single row on phones */
+@media (max-width: 600px) {
+  .cal-tabs { flex-wrap: nowrap; gap: 0.4rem; }
+  .cal-tab-btn {
+    flex: 1 1 0; min-width: 0; flex-direction: column; align-items: center; text-align: center;
+    gap: 0.3rem; padding: 0.7rem 0.4rem;
+  }
+  .cal-tab-num { font-size: 1.3rem; }
+  .cal-tab-btn strong { font-size: 0.6rem; letter-spacing: 0.02em; margin-bottom: 0; overflow-wrap: anywhere; }
+  .cal-tab-btn p { display: none; }
+}
+/* Calendar header logo + sync panel */
+.mcal-logo { height: 2.6rem; width: auto; flex-shrink: 0; }
+.mcal-actions { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.mcal-sync-btn {
+  display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer;
+  background: var(--yellow); color: #000; border: 1px solid var(--yellow); border-radius: 8px;
+  padding: 0.5rem 0.9rem; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; transition: filter 0.2s;
+}
+.mcal-sync-btn:hover { filter: brightness(1.12); }
+.mcal-sync-btn[aria-expanded="true"] { background: transparent; color: var(--yellow); }
+.mcal-sync {
+  background: var(--gray-900); border: 1px solid rgba(255,107,0,0.35); border-radius: 10px;
+  padding: 1rem 1.1rem; margin-bottom: 1rem;
+}
+.mcal-sync[hidden] { display: none; }
+.mcal-sync-intro { margin: 0 0 0.8rem; font-size: 0.88rem; color: var(--gray-200); }
+.mcal-sync-intro strong { color: var(--white); }
+.mcal-sync-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: 0.5rem; }
+.mcal-sync-opt {
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer;
+  background: var(--gray-700); color: var(--white); text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.6rem 0.8rem;
+  font-size: 0.85rem; font-weight: 600; transition: border-color 0.2s;
+}
+.mcal-sync-opt:hover { border-color: var(--yellow); }
+.mcal-sync-note { margin: 0.8rem 0 0; font-size: 0.72rem; color: var(--gray-400); line-height: 1.5; }
+@media (max-width: 700px) {
+  .mcal-logo { height: 2.2rem; align-self: center; }
+  .mcal-actions { flex-direction: column; align-items: stretch; }
+  .mcal-sync-btn { justify-content: center; }
+  .mcal-sync-buttons { grid-template-columns: 1fr 1fr; }
+}
