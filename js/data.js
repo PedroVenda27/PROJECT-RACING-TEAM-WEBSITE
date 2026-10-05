@@ -240,6 +240,13 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   leagues: [
     {
+      name: "Campeonato Interno RTP",
+      platform: "GT7",
+      description: "Campeonato interno da RTP Racing Team Project em Gran Turismo 7, disputado ao longo de 7 rondas entre os pilotos da equipa.",
+      logo: "images/favicon-192.png",
+      url: "calendar.html#campeonato-interno"
+    },
+    {
       name: "Liga Portugal GT",
       platform: "GT7",
       description: "Um dos mais recentes campeonatos de Gran Turismo 7 com 6 divisões e 90 pilotos.",
@@ -739,6 +746,60 @@ const SITE_DATA = {
                 { pos: 2, name: "Bruno Teixeira", driverRef: "Bruno Teixeira", psnId: "RTP_Brunocm97", time: "",           gap: "+00.312", penalty: "0:03.000", points: 19, pole: false, fastestLap: true  },
                 { pos: 3, name: "Elias Torres",   driverRef: "Elias Torres",   psnId: "KezwiiK",       time: "",           gap: "+28.594", penalty: "0:03.000", points: 15, pole: false, fastestLap: false },
                 { pos: 4, name: "Hugo Costa",     driverRef: "Hugo Costa",     psnId: "Hugo Costa",    time: "",           gap: "+37.881", penalty: 0,           points: 12, pole: false, fastestLap: false }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    /* ─────────────────────────────────────────────
+       Campeonato Interno RTP — 7 rounds, F1 points (25-18-15-12-10-8-6-4-2-1).
+       null = round not raced yet. A non-RTP guest who won R1 (Prostt) is
+       left out, so everyone behind moves up one place.
+       ───────────────────────────────────────────── */
+    {
+      competition: "interno",
+      title: "Campeonato Interno RTP",
+      subtitle: "Gran Turismo 7 · RTP Racing Team Project · 7 rondas",
+      logo: "images/favicon-192.png",
+      type: "drivers",
+      nullLabel: "—",
+      raceLegend: "Pontuação F1: 25 · 18 · 15 · 12 · 10 · 8 · 6 · 4 · 2 · 1",
+      roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6", "R7"],
+      drivers: [
+        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", rounds: [25, null, null, null, null, null, null], total: 25 },
+        { name: "Pedro Dias",       driverRef: "Pedro Dias",       rounds: [18, null, null, null, null, null, null], total: 18 },
+        { name: "Miguel Cabral",    driverRef: "Miguel Cabral",    rounds: [15, null, null, null, null, null, null], total: 15 },
+        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   rounds: [12, null, null, null, null, null, null], total: 12 },
+        { name: "Rui Silva",        driverRef: "Rui Silva",        rounds: [10, null, null, null, null, null, null], total: 10 },
+        { name: "Luís Dantas",      driverRef: "Luís Dantas",      rounds: [8,  null, null, null, null, null, null], total: 8  },
+        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   rounds: [6,  null, null, null, null, null, null], total: 6  },
+        { name: "Rodrigo Marques",  driverRef: "Rodrigo Marques",  rounds: [4,  null, null, null, null, null, null], total: 4  },
+        { name: "Luis Gomes",       driverRef: "Luis Gomes",       rounds: [2,  null, null, null, null, null, null], total: 2  },
+        { name: "Hugo Costa",       driverRef: "Hugo Costa",       rounds: [1,  null, null, null, null, null, null], total: 1  }
+      ],
+      raceResults: [
+        {
+          round: 1,
+          label: "Ronda 1",
+          date: "3 de Outubro de 2026",
+          track: "Deep Forest Raceway",
+          sessions: [
+            {
+              type: "race",
+              label: "Corrida",
+              results: [
+                { pos: 1,  name: "Rafael Agostinho", driverRef: "Rafael Agostinho", psnId: "R. Agostinho",    time: "", gap: "",          penalty: "", points: 25, pole: false, fastestLap: false },
+                { pos: 2,  name: "Pedro Dias",       driverRef: "Pedro Dias",       psnId: "RTP_Travincas24", time: "", gap: "",          penalty: "", points: 18, pole: false, fastestLap: false },
+                { pos: 3,  name: "Miguel Cabral",    driverRef: "Miguel Cabral",    psnId: "MattiAzores",     time: "", gap: "",          penalty: "", points: 15, pole: false, fastestLap: false },
+                { pos: 4,  name: "Wilson Barreto",   driverRef: "Wilson Barreto",   psnId: "Barreto",         time: "", gap: "",          penalty: "", points: 12, pole: false, fastestLap: false },
+                { pos: 5,  name: "Rui Silva",        driverRef: "Rui Silva",        psnId: "Pandex",          time: "", gap: "",          penalty: "", points: 10, pole: false, fastestLap: false },
+                { pos: 6,  name: "Luís Dantas",      driverRef: "Luís Dantas",      psnId: "Luisikon_TCHT",   time: "", gap: "",          penalty: "", points: 8,  pole: false, fastestLap: false },
+                { pos: 7,  name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   psnId: "RTP_Brunocm97",   time: "", gap: "",          penalty: "", points: 6,  pole: false, fastestLap: false },
+                { pos: 8,  name: "Rodrigo Marques",  driverRef: "Rodrigo Marques",  psnId: "100maneiraz",     time: "", gap: "",          penalty: "", points: 4,  pole: false, fastestLap: false },
+                { pos: 9,  name: "Luis Gomes",       driverRef: "Luis Gomes",       psnId: "Laferia",         time: "", gap: "",          penalty: "", points: 2,  pole: false, fastestLap: false },
+                { pos: 10, name: "Hugo Costa",       driverRef: "Hugo Costa",       psnId: "Hugo Costa",      time: "", gap: "+1 Volta",  penalty: "", points: 1,  pole: false, fastestLap: false }
               ]
             }
           ]
