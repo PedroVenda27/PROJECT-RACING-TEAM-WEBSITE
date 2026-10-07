@@ -26,7 +26,7 @@ const SITE_DATA = {
       gtName: "Caceteira_RTP",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Caceteira/Caceteira_Preto.png",
+      image: "images/drivers/Caceteira/Caceteira_Rosa.png",
       flag: "🇵🇹"
     },
     {
@@ -37,7 +37,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Rui Silva/RuiSilva_Preto.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      pilotoComunidadeMes: true
     },
     {
       name: "Rafael Agostinho",
@@ -57,8 +58,7 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Elias Torres/EliasTorres_Preto.png",
-      flag: "🇵🇹",
-      pilotoComunidadeMes: true
+      flag: "🇵🇹"
     },
     {
       name: "Bruno Teixeira",
@@ -68,7 +68,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Laranja.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      pilotoMes: true
     },
     {
       name: "João Festas",
@@ -129,8 +130,7 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Sérgio Marques/SergioMarques_Laranja.png",
-      flag: "🇵🇹",
-      pilotoMes: true
+      flag: "🇵🇹"
     },
     {
       name: "Rodrigo Marques",
