@@ -318,12 +318,16 @@ const SITE_DATA = {
   ],
 
   /* ─────────────────────────────────────────────
-     SPONSORS
+     SPONSORS — logos live in images/patrocinadores/
      Fields: name, logo, url
+       code     (optional) discount code shown on the card with a copy button
+       showLink (optional) true adds a "Comprar na <name>" button to the card
+       logoBg   (optional) "light" puts dark logos on a white plate so they
+                stay visible on the dark cards
      ───────────────────────────────────────────── */
   sponsors: [
-    { name: "Instant Gaming", logo: "images/logo-instant-gaming-dark.png", url: "https://www.instant-gaming.com/?igr=racingteamproject" },
-    { name: "", logo: "", url: "" },
+    { name: "Instant Gaming", logo: "images/patrocinadores/instant-gaming.png", url: "https://www.instant-gaming.com/?igr=racingteamproject", showLink: true },
+    { name: "Zumub", logo: "images/patrocinadores/zumub.png", url: "http://zumu.be/RTPRACING", code: "RTPRACING", logoBg: "light" },
     { name: "", logo: "", url: "" },
     { name: "", logo: "", url: "" },
     { name: "", logo: "", url: "" },

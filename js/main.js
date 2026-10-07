@@ -483,13 +483,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sponsorsContainer && SITE_DATA.sponsors) {
     function sponsorCard(s, i) {
       const isEmpty = !s.name && !s.logo;
-      const tag = isEmpty ? 'div' : 'a';
-      const attrs = isEmpty
-        ? `class="sponsor-card sponsor-gold sponsor-empty anim-fade-up delay-${Math.min(i % 3, 2)}"`
-        : `href="${s.url}" target="_blank" rel="noopener noreferrer" class="sponsor-card sponsor-gold anim-fade-up delay-${Math.min(i % 3, 2)}" aria-label="${s.name}"`;
-      return `
-        <${tag} ${attrs}>
-          <div class="sponsor-logo-wrap">
+      const delay = `anim-fade-up delay-${Math.min(i % 3, 2)}`;
+      const logoHTML = `
+          <div class="sponsor-logo-wrap${s.logoBg === 'light' ? ' sponsor-logo-light' : ''}">
             ${isEmpty
               ? `<div class="sponsor-placeholder sponsor-available"><span>O seu logo aqui</span></div>`
               : s.logo
@@ -498,9 +494,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 : `<div class="sponsor-placeholder"><span>${s.name}</span></div>`
             }
           </div>
-          <span class="sponsor-name">${isEmpty ? 'Em Breve' : s.name}</span>
-        </${tag}>
-      `;
+          <span class="sponsor-name">${isEmpty ? 'Em Breve' : s.name}</span>`;
+
+      if (isEmpty) {
+        return `<div class="sponsor-card sponsor-gold sponsor-empty ${delay}">${logoHTML}</div>`;
+      }
+      const link = `href="${s.url}" target="_blank" rel="noopener noreferrer"`;
+      if (!s.code && !s.showLink) {
+        return `<a ${link} class="sponsor-card sponsor-gold ${delay}" aria-label="${s.name}">${logoHTML}</a>`;
+      }
+      // Sponsor with a discount code or a visible affiliate link: the logo
+      // links to the store, the code/link sits below with its own copy button
+      // (a button can't live inside <a>).
+      const extra = s.code
+        ? `<span class="sponsor-code-label">Código de desconto</span>
+            <button type="button" class="sponsor-code-btn" data-code="${s.code}" title="Copiar código">
+              <span class="sponsor-code-value">${s.code}</span>
+              <span class="sponsor-code-copy">Copiar</span>
+            </button>`
+        : `<a ${link} class="sponsor-shop-btn">Comprar na ${s.name}</a>`;
+      return `
+        <div class="sponsor-card sponsor-gold sponsor-has-code ${delay}">
+          <a ${link} class="sponsor-card-link" aria-label="${s.name}">${logoHTML}</a>
+          <div class="sponsor-code">${extra}</div>
+        </div>`;
     }
 
     const html = `<div class="sponsors-tier-section">
@@ -511,6 +528,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sponsorsContainer.innerHTML = html;
     sponsorsContainer.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
+
+    sponsorsContainer.addEventListener("click", async (e) => {
+      const btn = e.target.closest(".sponsor-code-btn");
+      if (!btn) return;
+      const label = btn.querySelector(".sponsor-code-copy");
+      try {
+        await navigator.clipboard.writeText(btn.dataset.code);
+        label.textContent = "Copiado!";
+      } catch (err) {
+        window.prompt("Copia o código:", btn.dataset.code);
+      }
+      setTimeout(() => { label.textContent = "Copiar"; }, 2000);
+    });
   }
 
   /* ══════════════════════════════════════════════════════════════════

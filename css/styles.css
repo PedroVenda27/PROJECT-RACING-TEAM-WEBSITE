@@ -3475,3 +3475,39 @@ img {
   .mcal-sync-btn { justify-content: center; }
   .mcal-sync-buttons { grid-template-columns: 1fr 1fr; }
 }
+
+/* Sponsor with discount code (e.g. Zumub) */
+.sponsor-has-code { padding-bottom: 1.5rem; }
+.sponsor-card-link {
+  display: flex; flex-direction: column; align-items: center;
+  color: inherit; text-decoration: none; width: 100%;
+}
+.sponsor-has-code:hover { transform: translateY(-6px); border-color: var(--yellow); }
+/* Dark logos on a white plate so they stay visible on the dark card */
+.sponsor-logo-wrap.sponsor-logo-light {
+  background: #fff; border-radius: 10px; padding: 0.5rem 0.75rem; box-sizing: border-box;
+}
+.sponsor-logo-wrap.sponsor-logo-light img { filter: none; }
+.sponsor-code { margin-top: 0.9rem; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.sponsor-code-label {
+  font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-400);
+}
+.sponsor-code-btn {
+  display: inline-flex; align-items: center; gap: 0.6rem; cursor: pointer;
+  background: transparent; color: var(--white);
+  border: 1px dashed var(--yellow); border-radius: 8px; padding: 0.45rem 0.75rem;
+  transition: background 0.2s;
+}
+.sponsor-code-btn:hover { background: rgba(255,107,0,0.12); }
+.sponsor-code-value { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.08em; }
+.sponsor-code-copy {
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--yellow); color: #000; border-radius: 4px; padding: 0.15rem 0.45rem;
+}
+.sponsor-shop-btn {
+  display: inline-block; text-decoration: none; cursor: pointer;
+  background: var(--yellow); color: #000; border-radius: 8px; padding: 0.55rem 1rem;
+  font-family: var(--font-display); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; transition: filter 0.2s;
+}
+.sponsor-shop-btn:hover { filter: brightness(1.12); color: #000; }
