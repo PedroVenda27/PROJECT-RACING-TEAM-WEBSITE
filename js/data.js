@@ -326,7 +326,7 @@ const SITE_DATA = {
                 stay visible on the dark cards
      ───────────────────────────────────────────── */
   sponsors: [
-    { name: "Instant Gaming", logo: "images/patrocinadores/instant-gaming.png", url: "https://www.instant-gaming.com/?igr=racingteamproject", showLink: true },
+    { name: "Instant Gaming", logo: "images/patrocinadores/instant-gaming.png", url: "https://www.instant-gaming.com/?igr=racingteamproject", showLink: true, logoBg: "light" },
     { name: "Zumub", logo: "images/patrocinadores/zumub.png", url: "http://zumu.be/RTPRACING", code: "RTPRACING", logoBg: "light" },
     { name: "", logo: "", url: "" },
     { name: "", logo: "", url: "" },
