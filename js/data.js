@@ -321,7 +321,7 @@ const SITE_DATA = {
      SPONSORS — logos live in images/patrocinadores/
      Fields: name, logo, url
        code     (optional) discount code shown on the card with a copy button
-       showLink (optional) true adds a "Comprar na <name>" button to the card
+       showLink (optional) true adds a "Comprar" button (same style as the code box)
        logoBg   (optional) "light" puts dark logos on a white plate so they
                 stay visible on the dark cards
      ───────────────────────────────────────────── */

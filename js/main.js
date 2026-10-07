@@ -512,7 +512,11 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="sponsor-code-value">${s.code}</span>
               <span class="sponsor-code-copy">Copiar</span>
             </button>`
-        : `<a ${link} class="sponsor-shop-btn">Comprar na ${s.name}</a>`;
+        : `<span class="sponsor-code-label">Compra com o nosso link</span>
+            <a ${link} class="sponsor-code-btn" title="Comprar na ${s.name}">
+              <span class="sponsor-code-value">${s.name}</span>
+              <span class="sponsor-code-copy">Comprar</span>
+            </a>`;
       return `
         <div class="sponsor-card sponsor-gold sponsor-has-code ${delay}">
           <a ${link} class="sponsor-card-link" aria-label="${s.name}">${logoHTML}</a>
@@ -530,7 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sponsorsContainer.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
 
     sponsorsContainer.addEventListener("click", async (e) => {
-      const btn = e.target.closest(".sponsor-code-btn");
+      const btn = e.target.closest(".sponsor-code-btn[data-code]");
       if (!btn) return;
       const label = btn.querySelector(".sponsor-code-copy");
       try {
