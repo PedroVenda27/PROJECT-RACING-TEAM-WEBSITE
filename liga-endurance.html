@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Inscrição, regulamento e calendário da Mazda MX-5 Cup, campeonato de Gran Turismo 7 organizado pela RTP Racing Team Project." />
-  <link rel="canonical" href="https://racingteamproject.eu/inscricao.html" />
+  <meta name="description" content="A RTP Racing Team Project na Liga Endurance: campeonato internacional de resistência por equipas em Gran Turismo 7. Calendário, pilotos, categorias e regulamento." />
+  <link rel="canonical" href="https://racingteamproject.eu/liga-endurance.html" />
   <link rel="icon" href="favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
   <link rel="apple-touch-icon" href="images/favicon-192.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="RTP Racing Team Project" />
   <meta property="og:locale" content="pt_PT" />
-  <meta property="og:title" content="Inscrição Mazda MX-5 Cup — RTP Racing Team Project" />
-  <meta property="og:description" content="Inscrição, regulamento e calendário da Mazda MX-5 Cup, campeonato de Gran Turismo 7 organizado pela RTP Racing Team Project." />
-  <meta property="og:url" content="https://racingteamproject.eu/inscricao.html" />
-  <meta property="og:image" content="https://racingteamproject.eu/images/WALPAPER_RTP1.jpeg" />
+  <meta property="og:title" content="Liga Endurance — RTP Racing Team Project" />
+  <meta property="og:description" content="A RTP Racing Team Project na Liga Endurance: campeonato internacional de resistência por equipas em Gran Turismo 7. Calendário, pilotos, categorias e regulamento." />
+  <meta property="og:url" content="https://racingteamproject.eu/liga-endurance.html" />
+  <meta property="og:image" content="https://racingteamproject.eu/images/LIGA%20ENDURANCE/LIGA_ENDURANCE_POST.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <title>Inscrição Mazda MX-5 Cup — RTP Racing Team Project</title>
+  <title>Liga Endurance — RTP Racing Team Project</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -195,6 +195,39 @@
       margin-bottom: 2rem;
       border-radius: 0 4px 4px 0;
     }
+    .reg-hero-cta-row .btn svg { vertical-align: -3px; margin-right: 0.35rem; }
+    /* logo file has a solid black background: blend it into the dark hero */
+    .reg-hero-icon, .round-card-soon img { mix-blend-mode: lighten; }
+    .reg-hero-icon { filter: none; width: 130px; height: 130px; }
+    .reg-posters { display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
+    .reg-posters .reg-poster-main { margin: 0; cursor: zoom-in; }
+    .reg-posters .reg-poster-main.is-square { max-width: 560px; flex: 1 1 320px; }
+    .reg-posters .reg-poster-main.is-story { max-width: 300px; flex: 0 1 240px; }
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+    .cat-card {
+      background: #111; border: 1px solid rgba(255,107,0,0.25); border-radius: 8px; padding: 1.4rem 1.5rem;
+    }
+    .cat-card-group { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; color: #FF6B00; text-transform: uppercase; }
+    .cat-card-name { font-family: 'Orbitron', sans-serif; font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0.35rem 0 0.25rem; }
+    .cat-card-car { color: #bbb; font-size: 0.95rem; }
+    .le-pilots { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+    .le-pilot {
+      background: #111; border: 1px solid rgba(255,107,0,0.2); border-radius: 8px; overflow: hidden; text-align: center;
+    }
+    .le-pilot-img { aspect-ratio: 1; background: #0b0b0b; display: flex; align-items: center; justify-content: center; }
+    .le-pilot-img img { width: 100%; height: 100%; object-fit: cover; }
+    .le-pilot-img span { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #FF6B00; }
+    .le-pilot-name { font-weight: 700; color: #fff; padding: 0.6rem 0.5rem 0.1rem; font-size: 0.9rem; }
+    .le-pilot-psn { color: #888; font-size: 0.75rem; padding-bottom: 0.7rem; }
+    .round-card-meta { padding: 0.5rem 1rem 0.7rem; color: #bbb; font-size: 0.8rem; line-height: 1.5; background: #111; }
+    .round-card-meta strong { color: #fff; }
+    .round-card-soon {
+      aspect-ratio: 3/4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem;
+      background: radial-gradient(ellipse at 50% 30%, rgba(255,107,0,0.12), transparent 70%), #0b0b0b;
+      color: #666; font-family: 'Orbitron', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;
+    }
+    .round-card-soon img { width: 45%; aspect-ratio: auto; opacity: 0.35; }
+    .round-card.is-soon { cursor: default; }
   </style>
 </head>
 <body>
@@ -224,51 +257,81 @@
   <!-- ==================== HERO ==================== -->
   <section class="reg-hero">
     <div class="reg-hero-badge">&#9971; A Decorrer</div>
-    <img src="images/MAZDA MX-5 CUP/MAZDA MX-5 CUP ICON.png" alt="Mazda MX-5 Cup" class="reg-hero-icon" />
-    <h1 class="reg-hero-title">Mazda <span class="text-yellow">MX-5</span> Cup</h1>
-    <p class="reg-hero-subtitle">Gran Turismo 7 &middot; RTP Racing Team Project</p>
+    <img src="images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png" alt="Liga Endurance" class="reg-hero-icon" />
+    <h1 class="reg-hero-title">Liga <span class="text-yellow">Endurance</span></h1>
+    <p class="reg-hero-subtitle">Gran Turismo 7 &middot; Campeonato internacional de resist&#234;ncia por equipas</p>
     <div class="reg-hero-cta-row">
-      <a href="standings.html#standings-mxcup" class="btn btn-primary">Ver Classifica&#231;&#245;es</a>
-      <a href="images/MAZDA MX-5 CUP/Regulamento_RTP.pdf" target="_blank" class="btn btn-outline">Ver Regulamento</a>
+      <a href="standings-endurance.html" class="btn btn-primary">Ver Classifica&#231;&#245;es</a>
+      <a href="images/LIGA%20ENDURANCE/Regulamento_Liga_Endurance.pdf" target="_blank" rel="noopener" class="btn btn-outline">Ver Regulamento</a>
+      <a href="https://www.youtube.com/live/RwNe1oVRsWs" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M21.54 7.2a2.74 2.74 0 0 0-1.94-1.93C17.88 4.8 12 4.8 12 4.8s-5.88 0-7.6.47A2.74 2.74 0 0 0 2.46 7.2 28.7 28.7 0 0 0 2 12a28.7 28.7 0 0 0 .46 4.8 2.74 2.74 0 0 0 1.94 1.93c1.72.47 7.6.47 7.6.47s5.88 0 7.6-.47a2.74 2.74 0 0 0 1.94-1.93A28.7 28.7 0 0 0 22 12a28.7 28.7 0 0 0-.46-4.8ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/></svg>Transmiss&#227;o
+      </a>
     </div>
   </section>
 
-  <!-- ==================== POSTER PRINCIPAL ==================== -->
+  <!-- ==================== POSTER OFICIAL ==================== -->
   <section class="reg-section" style="padding-bottom:2rem;">
     <div class="container" style="text-align:center;">
       <h2 class="reg-section-title">Poster Oficial</h2>
-      <img src="images/MAZDA MX-5 CUP/MAZDA MX-5 CUP POSTER GERAL.png" alt="Poster Mazda MX-5 Cup" class="reg-poster-main" />
+      <div class="reg-posters">
+        <img src="images/LIGA ENDURANCE/LIGA_ENDURANCE_POST.png" alt="A RTP na Liga Endurance" class="reg-poster-main is-square" onclick="openPoster(this.src, this.alt)" />
+        <img src="images/LIGA ENDURANCE/LIGA_ENDURANCE_STORIE.png" alt="Liga Endurance (story)" class="reg-poster-main is-story" onclick="openPoster(this.src, this.alt)" />
+      </div>
     </div>
   </section>
 
-  <!-- ==================== CALENDÁRIO DE RONDAS ==================== -->
+  <!-- ==================== CATEGORIAS ==================== -->
+  <section class="reg-section" style="padding-top:2rem; padding-bottom:2rem;">
+    <div class="container">
+      <h2 class="reg-section-title">Categorias</h2>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="cat-card-group">Grupo 1 &middot; Categoria</div>
+          <div class="cat-card-name">GR1</div>
+          <div class="cat-card-car">Porsche 963 &#8217;24</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card-group">Grupo 1 &middot; Categoria</div>
+          <div class="cat-card-name">GR3</div>
+          <div class="cat-card-car">Lamborghini Hurac&#225;n GT3 &#8217;15</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PILOTOS RTP ==================== -->
+  <section class="reg-section" style="padding-top:2rem; padding-bottom:2rem;">
+    <div class="container">
+      <h2 class="reg-section-title">Pilotos RTP</h2>
+      <!-- PSN IDs of our drivers in this league; photos/names come from js/data.js -->
+      <div class="le-pilots" id="le-pilots" data-psn="Wilson_TheFirst;Caceteira_RTP;pandafrass;RafaelAgostinh44"></div>
+    </div>
+  </section>
+
+  <!-- ==================== CALENDÁRIO DE ETAPAS ==================== -->
   <section class="reg-section" style="background:#080808; padding-top:3rem; padding-bottom:3rem;">
     <div class="container">
       <h2 class="reg-section-title">Calend&#225;rio</h2>
       <div class="rounds-grid">
-        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R1 POSTER.png','Ronda 1')">
-          <div class="round-card-label">Ronda 1</div>
-          <img src="images/MAZDA MX-5 CUP/R1 POSTER.png" alt="Ronda 1" />
+        <div class="round-card" onclick="openPoster('images/LIGA ENDURANCE/LIGA_ENDURANCE_RONDA1.jpeg','Ronda 1 - Laguna Seca')">
+          <div class="round-card-label">Ronda 1 &middot; 10/OUT</div>
+          <img src="images/LIGA ENDURANCE/LIGA_ENDURANCE_RONDA1.jpeg" alt="Ronda 1 - Laguna Seca" />
+          <div class="round-card-meta"><strong>Laguna Seca</strong><br>Quali 19:00 &middot; Corrida 19:30 &middot; 2h</div>
         </div>
-        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R2 POSTER.png','Ronda 2')">
-          <div class="round-card-label">Ronda 2</div>
-          <img src="images/MAZDA MX-5 CUP/R2 POSTER.png" alt="Ronda 2" />
+        <div class="round-card is-soon">
+          <div class="round-card-label">Ronda 2 &middot; 17/OUT</div>
+          <div class="round-card-soon"><img src="images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png" alt="" />Brevemente</div>
+          <div class="round-card-meta"><strong>Interlagos</strong></div>
         </div>
-        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R3 POSTER.png','Ronda 3')">
-          <div class="round-card-label">Ronda 3</div>
-          <img src="images/MAZDA MX-5 CUP/R3 POSTER.png" alt="Ronda 3" />
+        <div class="round-card is-soon">
+          <div class="round-card-label">Ronda 3 &middot; 24/OUT</div>
+          <div class="round-card-soon"><img src="images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png" alt="" />Brevemente</div>
+          <div class="round-card-meta"><strong>Spa-Francorchamps</strong></div>
         </div>
-        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R4 POSTER.png','Ronda 4')">
-          <div class="round-card-label">Ronda 4</div>
-          <img src="images/MAZDA MX-5 CUP/R4 POSTER.png" alt="Ronda 4" />
-        </div>
-        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R5 POSTER.png','Ronda 5')">
-          <div class="round-card-label">Ronda 5</div>
-          <img src="images/MAZDA MX-5 CUP/R5 POSTER.png" alt="Ronda 5" />
-        </div>
-        <div class="round-card" onclick="openPoster('images/MAZDA MX-5 CUP/R6 POSTER.png','Ronda 6')">
-          <div class="round-card-label">Ronda 6</div>
-          <img src="images/MAZDA MX-5 CUP/R6 POSTER.png" alt="Ronda 6" />
+        <div class="round-card is-soon">
+          <div class="round-card-label">Ronda 4 &middot; 31/OUT</div>
+          <div class="round-card-soon"><img src="images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png" alt="" />Brevemente</div>
+          <div class="round-card-meta"><strong>24 Heures du Mans (Le Mans)</strong></div>
         </div>
       </div>
 
@@ -281,38 +344,13 @@
   </section>
 
   <!-- ==================== REGULAMENTO ==================== -->
-  <section class="reg-section" style="padding-top:3rem; padding-bottom:2rem;">
+  <section class="reg-section" style="padding-top:3rem; padding-bottom:3rem;">
     <div class="container">
       <h2 class="reg-section-title">Regulamento</h2>
-      <a href="images/MAZDA MX-5 CUP/Regulamento_RTP.pdf" target="_blank" class="reg-doc-link">
+      <a href="images/LIGA%20ENDURANCE/Regulamento_Liga_Endurance.pdf" target="_blank" rel="noopener" class="reg-doc-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        Regulamento Mazda MX-5 Cup (PDF)
+        Regulamento Oficial &mdash; 1.&#186; Campeonato por Equipas (PDF)
       </a>
-    </div>
-  </section>
-
-  <!-- ==================== FORMULÁRIO DE INSCRIÇÃO ====================
-       Inscrições encerradas: secção mantida no código mas oculta.
-       Para reativar, remover o style="display:none;" abaixo. -->
-  <section id="inscricao" class="reg-section" style="display:none; padding-top:2rem;">
-    <div class="container">
-      <h2 class="reg-section-title">Formul&#225;rio de Inscri&#231;&#227;o</h2>
-      <div class="temp-banner">
-        &#9888; Esta p&#225;gina &#233; tempor&#225;ria e ser&#225; removida ap&#243;s o encerramento das inscri&#231;&#245;es.
-      </div>
-      <div class="reg-form-wrap">
-        <iframe
-          src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAbDu7E9UOUVOSE5OMldVQ0pXOVIzR0VFTlFDTzhMQi4u&embed=true"
-          frameborder="0"
-          marginwidth="0"
-          marginheight="0"
-          allowfullscreen
-          webkitallowfullscreen
-          mozallowfullscreen
-          msallowfullscreen
-          title="Formulario de Inscricao Mazda MX-5 Cup"
-        ></iframe>
-      </div>
     </div>
   </section>
 
@@ -369,8 +407,6 @@
   <script src="js/lang.js"></script>
   <script src="js/main.js"></script>
   <script>
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-
     function openPoster(src, alt) {
       const lb = document.getElementById('posterLightbox');
       const img = document.getElementById('posterLightboxImg');
@@ -385,6 +421,20 @@
     }
     document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePoster(); });
 
+    /* Pilots: match the PSN IDs listed in #le-pilots against SITE_DATA.drivers */
+    document.addEventListener('DOMContentLoaded', function () {
+      const wrap = document.getElementById('le-pilots');
+      const psns = wrap.dataset.psn.split(';').map(s => s.trim().toLowerCase());
+      const drivers = psns.map(p => SITE_DATA.drivers.find(d => (d.role || '').toLowerCase() === p)).filter(Boolean);
+      wrap.innerHTML = drivers.map(d => `
+        <div class="le-pilot">
+          <div class="le-pilot-img">${d.image
+            ? `<img src="${d.image}" alt="${d.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'), { textContent: '${d.number}' }))" />`
+            : `<span>${d.number}</span>`}</div>
+          <div class="le-pilot-name">${d.name}</div>
+          <div class="le-pilot-psn">${d.role}</div>
+        </div>`).join('');
+    });
   </script>
 
 </body>

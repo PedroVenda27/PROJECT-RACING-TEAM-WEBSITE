@@ -169,21 +169,24 @@ img {
   background: var(--white) !important;
   color: var(--black) !important;
 }
-.nav-mxcup {
+/* Highlighted nav tab for the competition currently being promoted */
+.nav-mxcup, .nav-highlight {
+  white-space: nowrap;
+  display: inline-block;
   background: linear-gradient(90deg, #CC5500, #FF6B00, #CC5500) !important;
   color: #000 !important;
   font-weight: 700 !important;
   border-radius: 4px !important;
   animation: mxcup-pulse 2.5s ease-in-out infinite;
 }
-.nav-mxcup:hover {
+.nav-mxcup:hover, .nav-highlight:hover {
   background: #fff !important;
   color: #000 !important;
   animation: none;
 }
 @keyframes mxcup-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 param($m); $m.Value -replace '245,197,24', '255,107,0'; }
-  50% { box-shadow: 0 0 8px 3px param($m); $m.Value -replace '245,197,24', '255,107,0'; }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); }
+  50% { box-shadow: 0 0 8px 3px rgba(255,107,0,0.5); }
 }
 
 /* Hamburger */

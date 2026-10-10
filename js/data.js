@@ -257,8 +257,8 @@ const SITE_DATA = {
       name: "Liga Endurance",
       platform: "GT7",
       description: "Campeonato de resistência de Gran Turismo 7 que junta várias equipas de todo o mundo em provas de longa duração.",
-      logo: "images/LIGA_ENDURANCE_LOGO.png",
-      url: "calendar.html#liga-endurance"
+      logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png",
+      url: "liga-endurance.html"
     },
     {
       name: "Street Car Pitbox Cup II",
@@ -853,7 +853,7 @@ const SITE_DATA = {
       competition: "endurance",
       title: "Liga Endurance",
       subtitle: "Gran Turismo 7 · Campeonato de resistência · Competição Externa",
-      logo: "images/LIGA_ENDURANCE_LOGO.png",
+      logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png",
       type: "drivers-external",
       drivers: []
     },
