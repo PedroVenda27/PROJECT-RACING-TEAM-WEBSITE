@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mazda-mx-5-cup-r1-high-speed-ring-20260717@racingteamproject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20260717
 DTEND;VALUE=DATE:20260718
 SUMMARY:🏁 Mazda MX-5 Cup — R1
@@ -22,7 +22,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:mazda-mx-5-cup-r2-michelin-raceway-road-atlanta-20260724@racingteamproj
  ect.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20260724
 DTEND;VALUE=DATE:20260725
 SUMMARY:🏁 Mazda MX-5 Cup — R2
@@ -34,7 +34,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:mazda-mx-5-cup-r3-tsukuba-circuit-20260731@racingteamproject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20260731
 DTEND;VALUE=DATE:20260801
 SUMMARY:🏁 Mazda MX-5 Cup — R3
@@ -46,7 +46,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:mazda-mx-5-cup-r4-watkins-glen-short-20260807@racingteamproject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20260807
 DTEND;VALUE=DATE:20260808
 SUMMARY:🏁 Mazda MX-5 Cup — R4
@@ -58,7 +58,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:mazda-mx-5-cup-r5-goodwood-motor-circuit-20260814@racingteamproject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20260814
 DTEND;VALUE=DATE:20260815
 SUMMARY:🏁 Mazda MX-5 Cup — R5
@@ -71,7 +71,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:mazda-mx-5-cup-r6-circuit-gilles-villeneuve-20260828@racingteamproject.
  eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20260828
 DTEND;VALUE=DATE:20260829
 SUMMARY:🏁 Mazda MX-5 Cup — R6
@@ -84,7 +84,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wrt-events-gilles-villeneuve-top-split-circuit-gilles-villeneuve-202608
  29@racingteamproject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20260829
 DTEND;VALUE=DATE:20260830
 SUMMARY:🏁 WRT Events — Gilles Villeneuve-Top Split
@@ -98,7 +98,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:campeonato-interno-rtp-r1-deep-forest-raceway-20261003@racingteamprojec
  t.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:🏁 Campeonato Interno RTP — R1
@@ -110,54 +110,54 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:liga-endurance-1-etapa-laguna-seca-20261010@racingteamproject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:🏁 Liga Endurance — 1ª Etapa
 LOCATION:Laguna Seca (Gran Turismo 7)
 DESCRIPTION:Liga Endurance · 1ª Etapa\nCircuito: Laguna Seca\nPilotos: Wi
- lson_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass\n\nhttps://ra
- cingteamproject.eu/calendar.html
+ lson_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass · RafaelAgos
+ tinh44\n\nhttps://racingteamproject.eu/calendar.html
 URL:https://racingteamproject.eu/calendar.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:liga-endurance-2-etapa-interlagos-20261017@racingteamproject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:🏁 Liga Endurance — 2ª Etapa
 LOCATION:Interlagos (Gran Turismo 7)
 DESCRIPTION:Liga Endurance · 2ª Etapa\nCircuito: Interlagos\nPilotos: Wil
- son_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass\n\nhttps://rac
- ingteamproject.eu/calendar.html
+ son_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass · RafaelAgost
+ inh44\n\nhttps://racingteamproject.eu/calendar.html
 URL:https://racingteamproject.eu/calendar.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:liga-endurance-3-etapa-spa-francorchamps-20261024@racingteamproject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:🏁 Liga Endurance — 3ª Etapa
 LOCATION:Spa-Francorchamps (Gran Turismo 7)
 DESCRIPTION:Liga Endurance · 3ª Etapa\nCircuito: Spa-Francorchamps\nPilot
- os: Wilson_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass\n\nhttp
- s://racingteamproject.eu/calendar.html
+ os: Wilson_TheFirst · SemDestino75 · Caceteira_RTP · pandafrass · Rafa
+ elAgostinh44\n\nhttps://racingteamproject.eu/calendar.html
 URL:https://racingteamproject.eu/calendar.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:liga-endurance-4-etapa-24-heures-du-mans-le-mans-20261031@racingteampro
  ject.eu
-DTSTAMP:20261005T204233Z
+DTSTAMP:20261010T184837Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:🏁 Liga Endurance — 4ª Etapa
 LOCATION:24 Heures du Mans (Le Mans) (Gran Turismo 7)
 DESCRIPTION:Liga Endurance · 4ª Etapa\nCircuito: 24 Heures du Mans (Le Ma
  ns)\nPilotos: Wilson_TheFirst · SemDestino75 · Caceteira_RTP · pandafra
- ss\n\nhttps://racingteamproject.eu/calendar.html
+ ss · RafaelAgostinh44\n\nhttps://racingteamproject.eu/calendar.html
 URL:https://racingteamproject.eu/calendar.html
 TRANSP:TRANSPARENT
 END:VEVENT
