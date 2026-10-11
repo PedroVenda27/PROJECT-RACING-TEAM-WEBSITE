@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const t = selectedTrack();
     const info = $("fc-track-info");
     info.hidden = !t;
-    $("fc-strategy-track").textContent = t ? ` · ${t.name}` : "";
+    updateStrategyLabel();
     if (!t) { info.innerHTML = ""; return; }
     info.innerHTML = `
       <div class="fc-track-head">
@@ -108,6 +108,49 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>`;
   }
   trackSel.addEventListener("change", () => { renderTrackInfo(); calc(); });
+
+  /* ── Car picker (data: js/garage-data.js), grouped by category ── */
+  const GROUPS = [["Gr.1", "Gr.1"], ["Gr.2", "Gr.2"], ["Gr.3", "Gr.3"], ["Gr.4", "Gr.4"], ["Gr.B", "Gr.B"], ["Road Car", "Estrada"]];
+  const groupLabel = g => (GROUPS.find(([k]) => k === g) || [g, g])[1];
+  const cars = typeof GARAGE_DATA !== "undefined" ? GARAGE_DATA : [];
+  const carSel = $("fc-car");
+  const groupOrder = [...GROUPS.map(([k]) => k), ...new Set(cars.map(c => c.group).filter(g => !GROUPS.some(([k]) => k === g)))];
+  groupOrder.forEach(g => {
+    const list = cars.filter(c => c.group === g).sort((a, b) => a.name.localeCompare(b.name, "pt"));
+    if (!list.length) return;
+    const group = document.createElement("optgroup");
+    group.label = `${groupLabel(g)} (${list.length})`;
+    list.forEach(c => {
+      const opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = c.name;
+      group.appendChild(opt);
+    });
+    carSel.appendChild(group);
+  });
+  const selectedCar = () => cars.find(c => c.id === carSel.value) || null;
+
+  function renderCarInfo() {
+    const c = selectedCar();
+    const info = $("fc-car-info");
+    info.hidden = !c;
+    updateStrategyLabel();
+    if (!c) { info.innerHTML = ""; return; }
+    info.innerHTML = `
+      ${c.thumbnail ? `<img src="${c.thumbnail}" alt="${c.name}" loading="lazy" onerror="this.remove()" />` : ""}
+      <div class="fc-car-meta">
+        <span class="fc-car-group">${groupLabel(c.group)}</span>
+        <strong>${c.name}</strong>
+        <span>${c.manufacturer}</span>
+      </div>`;
+  }
+  carSel.addEventListener("change", () => { renderCarInfo(); calc(); });
+
+  // "Estratégia · <track> · <car>"
+  function updateStrategyLabel() {
+    const t = selectedTrack(), c = selectedCar();
+    $("fc-strategy-track").textContent = [t && t.name, c && c.name].filter(Boolean).map(s => ` · ${s}`).join("");
+  }
 
   /* ── Custom strategy: the user sets the laps of each stint; the last
      stint always covers whatever laps are left. Switching to "custom"

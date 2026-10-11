@@ -80,6 +80,12 @@
           </div>
 
           <div class="fc-field">
+            <label class="fc-label" for="fc-car">Carro <small>Os carros da garagem RTP, por categoria</small></label>
+            <select id="fc-car"><option value="">&mdash; Escolhe o carro &mdash;</option></select>
+            <div class="fc-car-info" id="fc-car-info" hidden></div>
+          </div>
+
+          <div class="fc-field">
             <span class="fc-label">Formato da corrida</span>
             <div class="fc-toggle">
               <button type="button" class="active" data-mode="laps">Por voltas</button>
@@ -246,6 +252,7 @@
   <script src="js/data.js"></script>
   <script src="js/lang.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/garage-data.js"></script>
   <script src="js/gt7-tracks.js"></script>
   <script src="js/fuel-calculator.js"></script>
 </body>

@@ -3707,3 +3707,18 @@ a.sponsor-code-btn .sponsor-code-value { font-size: 0.62rem; letter-spacing: 0.0
 @media (max-width: 1100px) { .nav-links .nav-highlight { margin: 0.5rem 0 0.8rem; } }
 /* Space between the Contacto button and the language toggle */
 @media (min-width: 1101px) { .nav-links .lang-toggle { margin-left: 0.7rem; } }
+/* Car picker card */
+.fc-car-info {
+  display: flex; align-items: center; gap: 0.9rem; margin-top: 0.2rem; padding: 0.6rem;
+  border-radius: 10px; border: 1px solid rgba(255,107,0,0.3);
+  background: linear-gradient(135deg, rgba(255,107,0,0.12), transparent 70%), var(--gray-900);
+}
+.fc-car-info[hidden] { display: none; }
+.fc-car-info img { width: 7.5rem; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 6px; flex-shrink: 0; background: #000; }
+.fc-car-meta { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.fc-car-meta strong { color: var(--white); font-size: 0.92rem; }
+.fc-car-meta span { color: var(--gray-400); font-size: 0.78rem; }
+.fc-car-meta .fc-car-group {
+  align-self: flex-start; font-family: var(--font-display); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+  color: #000; background: var(--yellow); border-radius: 3px; padding: 0.1rem 0.4rem;
+}
