@@ -3702,3 +3702,8 @@ a.sponsor-code-btn .sponsor-code-value { font-size: 0.62rem; letter-spacing: 0.0
 @media (max-width: 860px) { .fc-hero-logo { height: 4.2rem; } }
 .fc-brand span { white-space: nowrap; }
 @media (max-width: 520px) { .fc-brand { gap: 0.5rem; padding: 0.4rem 0.8rem; } .fc-brand span { font-size: 0.6rem; letter-spacing: 0.12em; } }
+/* Keep the pulsing Liga Endurance tab clear of the Contacto button next to it */
+.nav-links .nav-highlight { margin: 0 0.8rem 0 0.45rem; }
+@media (max-width: 1100px) { .nav-links .nav-highlight { margin: 0.5rem 0 0.8rem; } }
+/* Space between the Contacto button and the language toggle */
+@media (min-width: 1101px) { .nav-links .lang-toggle { margin-left: 0.7rem; } }

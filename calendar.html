@@ -38,9 +38,9 @@
         <li><a href="index.html#drivers-section" data-i18n="nav.drivers">Drivers</a></li>
         <li><a href="garage.html" data-i18n="nav.garage">Garage</a></li>
         <li><a href="calendar.html" class="active" data-i18n="nav.calendar">Calendar</a></li>
-        <li><a href="liga-endurance.html" class="nav-highlight">&#127937; Liga Endurance</a></li>
         <li><a href="calculadora.html" data-i18n="nav.calculator">Calculadora</a></li>
         <li><a href="index.html#sponsors-section" data-i18n="nav.sponsors">Sponsors</a></li>
+        <li><a href="liga-endurance.html" class="nav-highlight">&#127937; Liga Endurance</a></li>
         <li><a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact Us</a></li>
         <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">🇵🇹 PT</button></li>
       </ul>
@@ -374,7 +374,7 @@
 
       </div><!-- /#tab-corridas -->
 
-      <!-- -- TAB 02 — TREINOS E EVENTOS -- -->
+      <!-- -- TAB 03 — TREINOS E EVENTOS -- -->
       <div class="cal-tab-content" id="tab-treinos" style="display:none;">
         <div class="cal-block">
           <div class="cal-block-header">
@@ -520,9 +520,14 @@
   <script>
     /* -- Tab switcher -- */
     function showCalTab(name) {
+      if (!document.getElementById('tab-' + name)) return;
       document.querySelectorAll('.cal-tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
       document.querySelectorAll('.cal-tab-content').forEach(c => c.style.display = c.id === 'tab-' + name ? 'block' : 'none');
+      // Keep a shareable URL (calendar.html#calculadora); the default tab has none.
+      history.replaceState(null, '', name === 'calendario' ? location.pathname : '#' + name);
     }
+    // Open the tab named in the URL (e.g. links to calendar.html#calculadora)
+    if (location.hash) showCalTab(location.hash.slice(1));
     document.querySelectorAll('.cal-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => showCalTab(btn.dataset.tab));
     });
