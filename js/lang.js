@@ -15,6 +15,7 @@ const TRANSLATIONS = {
     "nav.calendar":         "Calendar",
     "nav.sponsors":         "Sponsors",
     "nav.contact":          "Contact Us",
+    "nav.calculator":       "Fuel Calc",
 
     // Hero (index.html)
     "hero.line1":           "RTP",
@@ -135,6 +136,7 @@ const TRANSLATIONS = {
     "nav.calendar":         "Calend\u00E1rio",
     "nav.sponsors":         "Patrocinadores",
     "nav.contact":          "Contacto",
+    "nav.calculator":       "Calculadora",
 
     // Hero (index.html)
     "hero.line1":           "RTP",

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculadora de combustível para sim racing (Gran Turismo 7): carga inicial, voltas previstas, autonomia e plano de paragens para corridas por voltas ou por tempo." />
+  <link rel="canonical" href="https://racingteamproject.eu/calculadora.html" />
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
+  <link rel="apple-touch-icon" href="images/favicon-192.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RTP Racing Team Project" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:title" content="Calculadora de Combustível — RTP Racing Team Project" />
+  <meta property="og:description" content="Calculadora de combustível para sim racing: carga inicial, autonomia e plano de paragens." />
+  <meta property="og:url" content="https://racingteamproject.eu/calculadora.html" />
+  <meta property="og:image" content="https://racingteamproject.eu/images/WALPAPER_RTP1.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Calculadora de Combustível — RTP Racing Team Project</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAV ==================== -->
+  <header id="site-header">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="RTP Racing Team Project Home">
+        <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project Logo" class="logo-img" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="index.html#drivers-section" data-i18n="nav.drivers">Drivers</a></li>
+        <li><a href="garage.html" data-i18n="nav.garage">Garage</a></li>
+        <li><a href="calendar.html" data-i18n="nav.calendar">Calendar</a></li>
+        <li><a href="liga-endurance.html" class="nav-highlight">&#127937; Liga Endurance</a></li>
+        <li><a href="calculadora.html" class="active" data-i18n="nav.calculator">Calculadora</a></li>
+        <li><a href="standings.html">Classificações</a></li>
+        <li><a href="index.html#sponsors-section" data-i18n="nav.sponsors">Sponsors</a></li>
+        <li><a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact Us</a></li>
+        <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">🇵🇹 PT</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==================== PAGE HERO ==================== -->
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project" class="fc-hero-logo anim-fade-down" />
+      <div class="fc-brand anim-fade-down">
+        <span>Fuel Strategy</span><span class="fc-brand-sep"></span><span>Gran Turismo 7</span>
+      </div>
+      <h1 class="page-hero-title anim-fade-down">Calculadora de <span class="text-yellow">Combustível</span></h1>
+      <p class="page-hero-sub anim-fade-up">A ferramenta de estratégia da RTP: combustível, stints e paragens para corridas por voltas ou por tempo.</p>
+    </div>
+  </section>
+
+  <!-- ==================== FUEL CALCULATOR ==================== -->
+  <section class="section fc-section">
+    <div class="container">
+      <div class="fc-layout">
+        <form class="cal-block fc-form" id="fuel-form" autocomplete="off">
+          <div class="fc-card-head">
+            <img src="images/RTP_LOGO.png" alt="RTP" />
+            <div>
+              <span class="fc-card-title">RTP Fuel Strategy</span>
+              <span class="fc-card-sub">Dados da corrida</span>
+            </div>
+          </div>
+          <div class="fc-field">
+            <label class="fc-label" for="fc-track">Pista <small>Os 121 traçados do Gran Turismo 7</small></label>
+            <select id="fc-track"><option value="">&mdash; Escolhe a pista &mdash;</option></select>
+            <div class="fc-track-info" id="fc-track-info" hidden></div>
+          </div>
+
+          <div class="fc-field">
+            <span class="fc-label">Formato da corrida</span>
+            <div class="fc-toggle">
+              <button type="button" class="active" data-mode="laps">Por voltas</button>
+              <button type="button" data-mode="time">Por tempo</button>
+            </div>
+          </div>
+
+          <div class="fc-field" data-show="laps">
+            <label class="fc-label" for="fc-laps">Número de voltas <small>Voltas de corrida completas</small></label>
+            <div class="fc-chips" data-for="fc-laps">
+              <button type="button" data-v="10">10</button><button type="button" data-v="20">20</button><button type="button" data-v="30">30</button><button type="button" data-v="60">60</button>
+            </div>
+            <input type="number" id="fc-laps" min="1" step="1" value="20" inputmode="numeric" />
+          </div>
+
+          <div class="fc-field" data-show="time" hidden>
+            <label class="fc-label" for="fc-duration">Duração da corrida <small>Minutos</small></label>
+            <div class="fc-chips" data-for="fc-duration">
+              <button type="button" data-v="20">20</button><button type="button" data-v="30">30</button><button type="button" data-v="60">60</button><button type="button" data-v="120">120</button>
+            </div>
+            <input type="number" id="fc-duration" min="1" step="1" value="120" inputmode="numeric" />
+          </div>
+
+          <div class="fc-field" data-show="time" hidden>
+            <label class="fc-label" for="fc-laptime">Tempo médio por volta <small>Formato m:ss.sss — ex. 1:42.350</small></label>
+            <input type="text" id="fc-laptime" value="1:42.000" inputmode="decimal" />
+          </div>
+
+          <div class="fc-field">
+            <label class="fc-label" for="fc-perlap">Consumo por volta <small>Litros, ou % do depósito no GT7</small></label>
+            <input type="number" id="fc-perlap" min="0" step="0.01" value="2.4" inputmode="decimal" />
+          </div>
+
+          <div class="fc-field">
+            <label class="fc-label" for="fc-reserve">Reserva de segurança <small>Voltas extra de margem</small></label>
+            <div class="fc-chips" data-for="fc-reserve">
+              <button type="button" data-v="0.5">0.5</button><button type="button" data-v="1">1</button><button type="button" data-v="1.5">1.5</button><button type="button" data-v="2">2</button>
+            </div>
+            <input type="number" id="fc-reserve" min="0" step="0.1" value="1" inputmode="decimal" />
+          </div>
+
+          <div class="fc-field">
+            <label class="fc-label" for="fc-formation">Volta de formação <small>Voltas equivalentes gastas antes da partida</small></label>
+            <input type="number" id="fc-formation" min="0" step="0.1" value="0" inputmode="decimal" />
+          </div>
+
+          <div class="fc-field">
+            <label class="fc-label" for="fc-tank">Capacidade do depósito <small>Partida sempre com o depósito cheio (100 no GT7)</small></label>
+            <div class="fc-chips" data-for="fc-tank">
+              <button type="button" data-v="50">50</button><button type="button" data-v="75">75</button><button type="button" data-v="100">100</button><button type="button" data-v="120">120</button>
+            </div>
+            <input type="number" id="fc-tank" min="0" step="1" value="100" inputmode="decimal" />
+          </div>
+
+          <div class="fc-field">
+            <label class="fc-label" for="fc-step">Arredondamento <small>Arredonda sempre para cima</small></label>
+            <div class="fc-chips" data-for="fc-step">
+              <button type="button" data-v="0.1">0.1</button><button type="button" data-v="0.5">0.5</button><button type="button" data-v="1">1</button>
+            </div>
+            <input type="number" id="fc-step" min="0" step="0.1" value="0.1" inputmode="decimal" />
+          </div>
+
+          <div class="fc-field fc-mandatory">
+            <label class="fc-check">
+              <input type="checkbox" id="fc-mandatory" />
+              <span>Paragens obrigatórias <small>O regulamento obriga a um número mínimo de paragens nas boxes.</small></span>
+            </label>
+            <div class="fc-field" id="fc-mandatory-field" hidden>
+              <label class="fc-label" for="fc-mandatory-stops">Número de paragens obrigatórias <small>Mínimo de paragens que tens de fazer</small></label>
+              <input type="number" id="fc-mandatory-stops" min="1" step="1" value="1" inputmode="numeric" />
+            </div>
+          </div>
+
+          <label class="fc-check" data-show="time" hidden>
+            <input type="checkbox" id="fc-extra" />
+            <span>Contar mais uma volta depois de o tempo acabar <small>Ativa se o regulamento deixa começar mais uma volta quando o tempo termina.</small></span>
+          </label>
+        </form>
+
+        <aside class="fc-results" id="fc-results" aria-live="polite">
+          <div class="cal-block fc-hero-result">
+            <span class="fc-result-label">Paragens necessárias</span>
+            <span class="fc-load" id="fc-load">—</span>
+            <span class="fc-load-sub" id="fc-load-sub"></span>
+          </div>
+          <div class="fc-stats">
+            <div class="fc-stat"><span class="fc-stat-label">Voltas previstas</span><span class="fc-stat-value" id="fc-laps-out">—</span><span class="fc-stat-note" id="fc-laps-note"></span><span class="fc-stat-note" id="fc-distance"></span></div>
+            <div class="fc-stat"><span class="fc-stat-label">Combustível da corrida</span><span class="fc-stat-value" id="fc-race-fuel">—</span><span class="fc-stat-note">sem reserva</span></div>
+            <div class="fc-stat"><span class="fc-stat-label">Autonomia do depósito</span><span class="fc-stat-value" id="fc-range">—</span></div>
+            <div class="fc-stat"><span class="fc-stat-label">Total a abastecer</span><span class="fc-stat-value" id="fc-refuel">—</span><span class="fc-stat-note">nas boxes</span></div>
+          </div>
+          <div class="cal-block fc-strategy">
+            <img src="images/RTP_LOGO.png" alt="" class="fc-watermark" aria-hidden="true" />
+            <div class="fc-strategy-head">
+              <span class="fc-result-label">Estratégia<span class="fc-strategy-track" id="fc-strategy-track"></span></span>
+              <div class="fc-toggle fc-toggle-sm" id="fc-strategy-toggle">
+                <button type="button" class="active" data-strategy="auto">Automática</button>
+                <button type="button" data-strategy="custom">Personalizada</button>
+              </div>
+            </div>
+            <div class="fc-timeline" id="fc-timeline"></div>
+            <div class="fc-custom" id="fc-custom" hidden></div>
+            <div class="fc-plan" id="fc-plan"></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="fc-help">
+        <div class="cal-block">
+          <h2 class="fc-help-title">Como é calculado</h2>
+          <p>O combustível da corrida é o número de voltas multiplicado pelo consumo por volta. A carga recomendada soma a reserva de segurança e a volta de formação e arredonda sempre para cima. Nas corridas por tempo, as voltas previstas são arredondadas para cima; liga a volta extra só se o regulamento deixar começar mais uma volta quando o tempo acaba.</p>
+        </div>
+        <div class="cal-block">
+          <h2 class="fc-help-title">Dicas para o GT7</h2>
+          <p>Mede o consumo em várias voltas limpas com o mesmo carro, afinação, multiplicador de combustível e condições da corrida. No GT7 o depósito vai de 0 a 100, por isso podes usar o consumo em % por volta com depósito 100. Uma volta de reserva é um bom ponto de partida, mas não serve para todas as provas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="RTP Racing Team Project Home">
+            <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project Logo" class="logo-img" style="height:52px;" /><span class="logo-text">RTP Racing Team Project</span>
+          </a>
+          <p class="footer-desc">A competitive sim racing team dedicated to pushing the boundaries of virtual motorsport across multiple platforms worldwide.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="garage.html">Garage</a></li>
+            <li><a href="index.html#drivers-section">Drivers</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5Zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@RTPRacingTeamProject" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.54 7.2a2.74 2.74 0 0 0-1.94-1.93C17.88 4.8 12 4.8 12 4.8s-5.88 0-7.6.47A2.74 2.74 0 0 0 2.46 7.2 28.7 28.7 0 0 0 2 12a28.7 28.7 0 0 0 .46 4.8 2.74 2.74 0 0 0 1.94 1.93c1.72.47 7.6.47 7.6.47s5.88 0 7.6-.47a2.74 2.74 0 0 0 1.94-1.93A28.7 28.7 0 0 0 22 12a28.7 28.7 0 0 0-.46-4.8ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a>
+            <a href="mailto:prt.rtpracingteamproject@gmail.com" class="social-icon" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> RTP Racing Team Project. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/gt7-tracks.js"></script>
+  <script src="js/fuel-calculator.js"></script>
+</body>
+</html>
