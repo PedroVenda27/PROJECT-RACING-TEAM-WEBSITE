@@ -330,7 +330,7 @@
     <div class="container">
       <h2 class="reg-section-title">Pilotos RTP</h2>
       <!-- PSN IDs of our drivers in this league; photos/names come from js/data.js -->
-      <div class="le-pilots" id="le-pilots" data-psn="Wilson_TheFirst;SemDestino75;pandafrass;RafaelAgostinh44"></div>
+      <div class="le-pilots" id="le-pilots" data-psn="Wilson_TheFirst;SemDestino75;pandafrass;RafaelAgostinh44" data-black-suit="RafaelAgostinh44"></div>
     </div>
   </section>
 
@@ -456,10 +456,13 @@
       const wrap = document.getElementById('le-pilots');
       const psns = wrap.dataset.psn.split(';').map(s => s.trim().toLowerCase());
       const drivers = psns.map(p => SITE_DATA.drivers.find(d => (d.role || '').toLowerCase() === p)).filter(Boolean);
+      // PSN IDs in data-black-suit use their black-suit ("_Preto") photo on this page
+      const blackSuit = (wrap.dataset.blackSuit || '').split(';').map(s => s.trim().toLowerCase());
+      const photo = d => blackSuit.includes((d.role || '').toLowerCase()) ? d.image.replace('_Laranja.', '_Preto.') : d.image;
       wrap.innerHTML = drivers.map(d => `
         <div class="le-pilot">
           <div class="le-pilot-img">${d.image
-            ? `<img src="${d.image}" alt="${d.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'), { textContent: '${d.number}' }))" />`
+            ? `<img src="${photo(d)}" alt="${d.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'), { textContent: '${d.number}' }))" />`
             : `<span>${d.number}</span>`}</div>
           <div class="le-pilot-name">${d.name}</div>
           <div class="le-pilot-psn">${d.role}</div>
