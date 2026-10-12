@@ -23,16 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="st-avatar-placeholder" style="display:none;">${name.charAt(0)}</div>`;
   }
 
-  /* Team tag chip next to a driver's name: explicit `tag` on the entry,
-     otherwise "RTP" for our drivers (ourDriver flag or on the RTP roster). */
-  const normName = n => (n || "").toLowerCase().normalize("NFD").replace(/[^a-z0-9]/g, "");
-  const tagByName = {};
-  Object.entries(SITE_DATA.teamTags || {}).forEach(([tag, names]) => names.forEach(n => { tagByName[normName(n)] = tag; }));
+  /* Team tag chip next to a driver's name — only for entries that carry an
+     explicit `tag` (currently just the Liga Endurance). */
   function teamTag(d) {
-    const tag = d.tag !== undefined ? d.tag
-      : (d.ourDriver || (d.driverRef || d.name).toLowerCase() in driverImgMap) ? "RTP"
-      : tagByName[normName(d.name)] || "";
-    return tag ? ` <span class="st-team-tag">${tag}</span>` : "";
+    return d.tag ? ` <span class="st-team-tag">${d.tag}</span>` : "";
   }
 
   /* ── Position-change helpers (+/- column) ──
