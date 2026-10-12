@@ -3722,3 +3722,12 @@ a.sponsor-code-btn .sponsor-code-value { font-size: 0.62rem; letter-spacing: 0.0
   align-self: flex-start; font-family: var(--font-display); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
   color: #000; background: var(--yellow); border-radius: 3px; padding: 0.1rem 0.4rem;
 }
+/* Multi-class external standings (Liga Endurance) */
+.st-class-driver { display: flex; flex-direction: column; line-height: 1.25; }
+.st-class-driver small { font-size: 0.72em; color: var(--gray-400); }
+.st-team-tag {
+  display: inline-block; margin-left: 0.3rem; padding: 0 0.3rem; border: 1px solid rgba(255,107,0,0.5);
+  border-radius: 3px; font-size: 0.62em; font-weight: 700; letter-spacing: 0.05em; color: var(--yellow); vertical-align: middle;
+}
+.st-team-logo { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; object-fit: cover; background: #000; }
+.st-team-logo-fallback { display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,107,0,0.5); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.03em; color: var(--yellow); }

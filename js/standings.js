@@ -339,8 +339,179 @@ document.addEventListener("DOMContentLoaded", () => {
     }).join("");
   }
 
+  /* ── Multi-class championship (e.g. Liga Endurance GR1 + GR3): one
+     overall table plus one per class, switched with tabs. Drivers are
+     listed in overall order; class positions follow that order. ── */
+  const classState = {};
+  function renderClassStandings(s) {
+    const compId = s.competition;
+    const cls = classState[compId] || "all";
+    const tabs = [["all", "Geral"], ...s.classes.map(c => [c, c]), ["teams", "Equipas"]];
+    const tabsHtml = `
+      <div class="race-subtabs" data-comp="${compId}" style="margin-bottom:1rem;">
+        ${tabs.map(([k, label]) => `<button class="race-subtab ext-class-tab${k === cls ? " active" : ""}" data-cls="${k}">${label}</button>`).join("")}
+      </div>`;
+    if (cls === "teams") return tabsHtml + renderTeamStandings(s);
+    const list = s.drivers.filter(d => cls === "all" || d.cls === cls);
+    const rows = list.map((d, i) => {
+      const pos = i + 1;
+      return `
+        <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${d.ourDriver ? " row-pitbox" : ""}">
+          <td class="cell-pos">${pos}</td>
+          <td class="cell-name">
+            <div class="st-driver-wrap">
+              ${getDriverImg(d.name, d.driverRef)}
+              <span class="st-class-driver">
+                <span>${d.name}${d.tag ? ` <span class="st-team-tag">${d.tag}</span>` : ""}</span>
+                <small>#${d.number} · ${d.cls}</small>
+              </span>
+            </div>
+          </td>
+          <td class="cell-car">${d.car}</td>
+          <td class="cell-car">${d.team}</td>
+          <td class="cell-round">${d.wins}</td>
+          <td class="cell-round">${d.podiums}</td>
+          <td class="cell-total">${d.points}</td>
+        </tr>`;
+    }).join("");
+    return tabsHtml + `
+      <div class="standings-table-wrap" style="margin-bottom:3rem;">
+        <div class="standings-table-scroll">
+          <table class="standings-table">
+            <thead><tr>
+              <th class="th-pos">POS</th><th class="th-name">Piloto</th><th class="th-name">Carro</th><th class="th-name">Equipa</th>
+              <th class="th-round">Vit.</th><th class="th-round">Pódios</th><th class="th-total">Pontos</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>${cls === "all" ? "" : renderClassRounds(s, cls)}`;
+  }
+
+  /* Teams championship: sum of each team's drivers (grouped by team tag),
+     so it updates automatically with the driver standings. Logos come from
+     s.teamLogos[tag]; teams without one show their tag as a badge. */
+  function renderTeamStandings(s) {
+    const teams = {};
+    s.drivers.forEach(d => {
+      const key = d.tag || d.team;
+      const t = teams[key] || (teams[key] = { name: d.team, tag: d.tag, drivers: 0, wins: 0, points: 0, ours: false });
+      t.drivers++; t.wins += d.wins; t.points += d.points;
+      if (d.team.length > t.name.length) t.name = d.team;
+      if (d.ourDriver) t.ours = true;
+    });
+    const list = Object.values(teams).sort((a, b) => b.points - a.points || b.wins - a.wins);
+    const logos = s.teamLogos || {};
+    const rows = list.map((t, i) => {
+      const pos = i + 1;
+      const logo = logos[t.tag]
+        ? `<img class="st-team-logo" src="${encodeURI(logos[t.tag])}" alt="${t.name}" loading="lazy" />`
+        : `<span class="st-team-logo st-team-logo-fallback">${t.tag || t.name.charAt(0)}</span>`;
+      return `
+        <tr class="${pos <= 3 ? "row-pos-" + pos : ""}${t.ours ? " row-pitbox" : ""}">
+          <td class="cell-pos">${String(pos).padStart(2, "0")}</td>
+          <td class="cell-name">
+            <div class="st-driver-wrap">
+              ${logo}
+              <span class="st-class-driver">
+                <span>${t.name}</span>
+                <small>[${t.tag}]</small>
+              </span>
+            </div>
+          </td>
+          <td class="cell-round">${t.drivers}</td>
+          <td class="cell-round">${t.wins}</td>
+          <td class="cell-total">${t.points}</td>
+        </tr>`;
+    }).join("");
+    return `
+      <div class="standings-table-wrap" style="margin-bottom:3rem;">
+        <div class="standings-table-scroll">
+          <table class="standings-table">
+            <thead><tr>
+              <th class="th-pos">POS</th><th class="th-name">Equipa</th>
+              <th class="th-round">Pilotos</th><th class="th-round">Vit.</th><th class="th-total">Pontos</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>`;
+  }
+
+  /* Round-by-round results inside one class tab (GR1 / GR3), in the same
+     format as the other championships: round tabs, Qualificação / Corrida
+     sub-tabs, podium + table. Round data holds both classes; each entry's
+     `ref` links it to the standings driver (class, avatar, highlight). */
+  const classRoundState = {};
+  function buildClassSessions(s, round, cls) {
+    const byRef = ref => s.drivers.find(x => x.name === ref) || {};
+    const minLap = list => list.reduce((m, r) => (!m || (r.bestLap && r.bestLap < m) ? r.bestLap : m), "");
+    const sessions = [];
+    if (round.qualy && round.qualy[cls]) {
+      const results = round.qualy[cls].map((q, i) => {
+        const d = byRef(q.ref);
+        return { pos: i + 1, name: d.name || q.name, driverRef: d.driverRef, ourDriver: d.ourDriver,
+          gap: i === 0 ? "" : q.gap, bestLap: q.lap, pole: i === 0, fastestLap: i === 0 };
+      });
+      sessions.push({ label: "Qualificação", type: "qualifying", results });
+    }
+    if (round.race) {
+      const entries = round.race.filter(r => byRef(r.ref).cls === cls);
+      const fastest = minLap(entries);
+      /* Race gaps are to the overall winner; when the class winner was
+         lapped by it, show the class's gaps relative to its own winner. */
+      const laps = t => { const m = /^(\d+) Voltas?$/.exec(t || ""); return m ? +m[1] : null; };
+      const leadLaps = entries.length ? laps(entries[0].time) : null;
+      const classTime = (t, i) => {
+        if (leadLaps === null) return t;
+        if (i === 0) return "Vencedor " + cls;
+        const n = laps(t);
+        if (n === null) return t;
+        const diff = n - leadLaps;
+        return diff ? `+${diff} Volta${diff > 1 ? "s" : ""}` : "Mesma volta";
+      };
+      const results = entries.map((r, i) => {
+        const d = byRef(r.ref);
+        const t = classTime(r.time, i);
+        return { pos: i + 1, name: d.name || r.name, driverRef: d.driverRef, ourDriver: d.ourDriver,
+          time: t, gap: t, bestLap: r.bestLap, fastestLap: r.bestLap === fastest };
+      });
+      sessions.push({ label: "Corrida", type: "race", duration: round.duration, fastestLapTime: fastest, results });
+    }
+    return sessions;
+  }
+
+  function renderClassRounds(s, cls) {
+    const rounds = s.rounds || [];
+    if (!rounds.length) return "";
+    const compId = s.competition;
+    /* Default to the latest round that already has results. */
+    const lastPlayed = rounds.reduce((m, r, i) => (r.qualy || r.race ? i : m), 0);
+    const st = classRoundState[compId] || (classRoundState[compId] = { roundIdx: lastPlayed, sessIdx: 0 });
+    const round = rounds[st.roundIdx];
+    const sessions = buildClassSessions(s, round, cls);
+    if (st.sessIdx >= sessions.length) st.sessIdx = 0;
+    const roundTabs = rounds.map((r, i) =>
+      `<button class="standings-tab ec-round-tab${i === st.roundIdx ? " active" : ""}" data-round-idx="${i}">${r.short}</button>`).join("");
+    const sessTabs = sessions.map((x, i) =>
+      `<button class="race-subtab ec-sess-tab${i === st.sessIdx ? " active" : ""}" data-sess-idx="${i}">${x.label}</button>`).join("");
+    const legend = `<span class="race-badge badge-pole">P</span> Pole Position ${cls} &nbsp;·&nbsp;
+      <span class="race-badge badge-fl">VR</span> Volta Mais Rápida ${cls}`;
+    return `
+      <div class="race-results-block" data-comp="${compId}">
+        <h3 class="race-results-title">Resultados das Corridas · ${cls}</h3>
+        <div class="standings-tabs" data-comp="${compId}">${roundTabs}</div>
+        <div class="race-info-bar">
+          <div><span class="race-info-label">${round.name}</span>${round.date ? " · " + round.date : ""}</div>
+        </div>
+        <div class="race-subtabs" data-comp="${compId}">${sessTabs}</div>
+        ${sessions.length ? renderSessionBlock(sessions[st.sessIdx], legend) : `<div class="race-coming-soon">Brevemente</div>`}
+      </div>`;
+  }
+
   function renderExternalStandingContent(s) {
     const isRace = s.format === "race" && s.events;
+    if (!isRace && s.classes && s.drivers.length) return renderClassStandings(s);
     if (!isRace) {
       return `
         <div class="standings-table-wrap" style="margin-bottom:3rem;">
@@ -529,6 +700,22 @@ document.addEventListener("DOMContentLoaded", () => {
   contentEl.innerHTML = standingsToShow.map(renderCompetition).join("");
 
   contentEl.addEventListener("click", (e) => {
+    const classBtn = e.target.closest(".ext-class-tab");
+    if (classBtn) {
+      const compId = classBtn.closest("[data-comp]").dataset.comp;
+      classState[compId] = classBtn.dataset.cls;
+      refreshExternalStanding(compId);
+      return;
+    }
+    const ecBtn = e.target.closest(".ec-round-tab, .ec-sess-tab");
+    if (ecBtn) {
+      const compId = ecBtn.closest("[data-comp]").dataset.comp;
+      const st = classRoundState[compId];
+      if (ecBtn.classList.contains("ec-round-tab")) { st.roundIdx = +ecBtn.dataset.roundIdx; st.sessIdx = 0; }
+      else st.sessIdx = +ecBtn.dataset.sessIdx;
+      refreshExternalStanding(compId);
+      return;
+    }
     const roundBtn = e.target.closest(".race-round-tab");
     if (roundBtn) {
       const compId = roundBtn.closest("[data-comp]").dataset.comp;
