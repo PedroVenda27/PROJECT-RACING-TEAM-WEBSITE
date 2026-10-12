@@ -334,11 +334,30 @@ const SITE_DATA = {
     { name: "", logo: "", url: "" }
   ],
 
+  /* Team tags of drivers from other teams, shown as a chip next to their
+     name in every competition. RTP drivers get "RTP" automatically.
+     Names are matched ignoring case, spaces and symbols. */
+  teamTags: {
+    BPF:    ["Parafuso_106", "NexuS_BPF", "SLbenfica"],
+    PITBOX: ["RaulPombal", "Brissos69 Pitbox", "Ratax5", "ricardinho_RS3", "GodDevil", "Sarking8", "Fortunato73",
+             "B.Moreira", "Vini", "#96 Gtc_P.Pires", "JohnnyRenas", "JhonnyRenas", "Pedro Oliveira", "Nuno\"TheSnail\"PT",
+             "Marco Silva", "Oliveira", "Rsantos059", "Thetruevirex", "Verdelho92", "Basaroco"],
+    LSR:    ["Edgar", "L.S.R._Sapo_666", "Santimoreira", "Xapas"],
+    F2R:    ["GT3RT_Flecha", "Jatedoarroz"],
+    TBT:    ["Andrerson Costa", "Zeuskunha"],
+    WRT:    ["Décio.H", "WRT_Patrício", "YT_RapidusJD", "Mira"],
+    LDRS:   ["LDRS_TelmoTomas7", "LDRS_ACoelho129"],
+    RTW:    ["RTW_Vag,tdi.pt", "RTW_SaVaGeGT"],
+    "2R4":  ["2R4_Capucho_44", "2R4@.M.C", "2R4_X_Ghost_X"],
+    iMD:    ["Batigol_IMD"]
+  },
+
   /* ─────────────────────────────────────────────
      STANDINGS
      type "drivers": roundLabels + drivers[{name, rounds[], total}]
      rounds: null = DNS/DNP, number = points scored
      ───────────────────────────────────────────── */
+
   standings: [
     {
       competition: "mxcup",

@@ -23,6 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="st-avatar-placeholder" style="display:none;">${name.charAt(0)}</div>`;
   }
 
+  /* Team tag chip next to a driver's name: explicit `tag` on the entry,
+     otherwise "RTP" for our drivers (ourDriver flag or on the RTP roster). */
+  const normName = n => (n || "").toLowerCase().normalize("NFD").replace(/[^a-z0-9]/g, "");
+  const tagByName = {};
+  Object.entries(SITE_DATA.teamTags || {}).forEach(([tag, names]) => names.forEach(n => { tagByName[normName(n)] = tag; }));
+  function teamTag(d) {
+    const tag = d.tag !== undefined ? d.tag
+      : (d.ourDriver || (d.driverRef || d.name).toLowerCase() in driverImgMap) ? "RTP"
+      : tagByName[normName(d.name)] || "";
+    return tag ? ` <span class="st-team-tag">${tag}</span>` : "";
+  }
+
   /* ── Position-change helpers (+/- column) ──
      A round counts as "completed" once at least one driver scored a
      non-zero value in it; rounds still at 0 for everyone are treated
@@ -89,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <td class="cell-name">
             <div class="st-driver-wrap">
               ${getDriverImg(d.name, d.driverRef)}
-              <span>${d.name}</span>
+              <span>${d.name}${teamTag(d)}</span>
             </div>
           </td>
           ${roundCells}
@@ -174,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <td class="cell-name">
           <div class="st-driver-wrap">
             ${getDriverImg(r.name, r.driverRef)}
-            <span>${r.name}</span>
+            <span>${r.name}${teamTag(r)}</span>
             ${r.pole ? '<span class="race-badge badge-pole" title="Pole Position">P</span>' : ""}
             ${r.fastestLap ? '<span class="race-badge badge-fl" title="Volta Mais Rápida">VR</span>' : ""}
           </div>
@@ -329,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <td class="cell-name">
             <div class="st-driver-wrap">
               ${getDriverImg(d.name, d.driverRef)}
-              <span>${d.name}</span>
+              <span>${d.name}${teamTag(d)}</span>
               ${isRace && d.fastestLap ? '<span class="race-badge badge-fl" title="Volta Mais Rápida">VR</span>' : ""}
             </div>
           </td>
@@ -450,7 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (round.qualy && round.qualy[cls]) {
       const results = round.qualy[cls].map((q, i) => {
         const d = byRef(q.ref);
-        return { pos: i + 1, name: d.name || q.name, driverRef: d.driverRef, ourDriver: d.ourDriver,
+        return { pos: i + 1, name: d.name || q.name, driverRef: d.driverRef, ourDriver: d.ourDriver, tag: d.tag || "",
           gap: i === 0 ? "" : q.gap, bestLap: q.lap, pole: i === 0, fastestLap: i === 0 };
       });
       sessions.push({ label: "Qualificação", type: "qualifying", results });
@@ -473,7 +485,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const results = entries.map((r, i) => {
         const d = byRef(r.ref);
         const t = classTime(r.time, i);
-        return { pos: i + 1, name: d.name || r.name, driverRef: d.driverRef, ourDriver: d.ourDriver,
+        return { pos: i + 1, name: d.name || r.name, driverRef: d.driverRef, ourDriver: d.ourDriver, tag: d.tag || "",
           time: t, gap: t, bestLap: r.bestLap, fastestLap: r.bestLap === fastest };
       });
       sessions.push({ label: "Corrida", type: "race", duration: round.duration, fastestLapTime: fastest, results });
