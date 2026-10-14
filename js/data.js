@@ -335,6 +335,38 @@ const SITE_DATA = {
   ],
 
   /* ─────────────────────────────────────────────
+     1KM TIME-TRIAL REAL LIFE (timetrial.html)
+     Real-life challenge: best time running 1 km. Runs until endDate.
+     time: "m:ss" or "m:ss.cc" (null = no time yet) · date: when it was done
+     ───────────────────────────────────────────── */
+  timeTrial: {
+    endDate: "2026-12-31T23:59:59",
+    entries: [
+      { driver: "Caceteira", time: null, date: null },
+      { driver: "Rui Silva", time: null, date: null },
+      { driver: "Rafael Agostinho", time: "5:30", date: null },
+      { driver: "Elias Torres", time: null, date: null },
+      { driver: "Bruno Teixeira", time: null, date: null },
+      { driver: "João Festas", time: null, date: null },
+      { driver: "Nuno Bravo", time: null, date: null },
+      { driver: "Luís Dantas", time: null, date: null },
+      { driver: "Pedro Dias", time: null, date: null },
+      { driver: "Pedro Venda", time: "4:49", date: null },
+      { driver: "Sérgio Marques", time: null, date: null },
+      { driver: "Rodrigo Marques", time: null, date: null },
+      { driver: "Pinto Moreira", time: null, date: null },
+      { driver: "Bruno Silva", time: null, date: null },
+      { driver: "Ricardo Gamito", time: null, date: null },
+      { driver: "Luís Garcia", time: null, date: null },
+      { driver: "Hugo Costa", time: null, date: null },
+      { driver: "Miguel Cabral", time: null, date: null },
+      { driver: "Wilson Barreto", time: null, date: null },
+      { driver: "Luis Gomes", time: null, date: null },
+      { driver: "Hugo Seixas", time: null, date: null }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────
      STANDINGS
      type "drivers": roundLabels + drivers[{name, rounds[], total}]
      rounds: null = DNS/DNP, number = points scored
