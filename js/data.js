@@ -822,25 +822,25 @@ const SITE_DATA = {
     {
       competition: "lpgt",
       title: "Liga Portugal GT",
-      subtitle: "Gran Turismo 7 · GT6 · Competição Externa · Após Ronda 3",
+      subtitle: "Gran Turismo 7 · GT6 · Competição Externa · Após Ronda 4 (provisória)",
       logo: "images/LPGT_WORLDSERIES_LOGO.jpg",
       type: "drivers-external",
       drivers: [
-        { name: "GT3RT_Flecha",    driverRef: "GT3RT_Flecha",    points: 86 },
-        { name: "Jatedoarroz",     driverRef: "Jatedoarroz",     points: 65 },
-        { name: "Andrerson Costa", driverRef: "Andrerson Costa", points: 54 },
-        { name: "Santimoreira",    driverRef: "Santimoreira",    points: 49 },
-        { name: "Pedro Venda",     driverRef: "Pedro Venda",     points: 47, ourDriver: true },
+        { name: "GT3RT_Flecha",    driverRef: "GT3RT_Flecha",    points: 96 },
+        { name: "Jatedoarroz",     driverRef: "Jatedoarroz",     points: 76 },
+        { name: "Andrerson Costa", driverRef: "Andrerson Costa", points: 70 },
+        { name: "Pedro Venda",     driverRef: "Pedro Venda",     points: 68, ourDriver: true },
+        { name: "Santimoreira",    driverRef: "Santimoreira",    points: 57 },
+        { name: "Zeuskunha",       driverRef: "Zeuskunha",       points: 48 },
+        { name: "Sainz",           driverRef: "Sainz",           points: 42 },
         { name: "Miguel85",        driverRef: "Miguel85",        points: 36 },
-        { name: "Zeuskunha",       driverRef: "Zeuskunha",       points: 35 },
+        { name: "Clarinetes",      driverRef: "Clarinetes",      points: 34 },
         { name: "Tenworms",        driverRef: "Tenworms",        points: 24 },
-        { name: "Clarinetes",      driverRef: "Clarinetes",      points: 24 },
         { name: "Rafael Silva",    driverRef: "Rafael Silva",    points: 24 },
-        { name: "Sainz",           driverRef: "Sainz",           points: 17 },
         { name: "Sport-Evo_Bruno", driverRef: "Sport-Evo_Bruno", points: 16 },
         { name: "Xapas",           driverRef: "Xapas",           points: 15 },
         { name: "Nyx_Racer",       driverRef: "Nyx_Racer",       points: 11 },
-        { name: "Barbas77",        driverRef: "Barbas77",        points: 9  }
+        { name: "Barbas77",        driverRef: "Barbas77",        points: 6  }
       ]
     },
 
