@@ -51,6 +51,16 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
+      name: "Miguel Cabral",
+      number: "7",
+      role: "mattifroskes",
+      gtName: "MattiAzores",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "images/drivers/Miguel Cabral/MiguelCabral_Laranja.png",
+      flag: "🇵🇹"
+    },
+    {
       name: "Elias Torres",
       number: "11",
       role: "KajuNN",
@@ -190,16 +200,6 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Hugo Costa/HugoCosta_Preto.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Miguel Cabral",
-      number: "77",
-      role: "mattifroskes",
-      gtName: "MattiAzores",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "images/drivers/Miguel Cabral/MiguelCabral_Laranja.png",
       flag: "🇵🇹"
     },
     {
