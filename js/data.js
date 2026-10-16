@@ -36,7 +36,7 @@ const SITE_DATA = {
       gtName: "Pandex",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rui Silva/RuiSilva_Preto.png",
+      image: "images/drivers/Rui Silva/RuiSilva_Laranja.png",
       flag: "🇵🇹",
       pilotoComunidadeMes: true
     },
@@ -47,7 +47,7 @@ const SITE_DATA = {
       gtName: "R. Agostinho",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Laranja.png",
+      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -199,7 +199,7 @@ const SITE_DATA = {
       gtName: "Hugo Costa",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Hugo Costa/HugoCosta_Preto.png",
+      image: "images/drivers/Hugo Costa/HugoCosta_Laranja.png",
       flag: "🇵🇹"
     },
     {
