@@ -2,7 +2,7 @@
    GT7-TRACKS.JS — every Gran Turismo 7 track layout, used by the fuel
    calculator track picker.
    Source: https://www.gran-turismo.com/br/gt7/tracklist/
-   (41 locations / 121 layouts, as of December 2025).
+   (42 locations / 122 layouts, as of update 1.72 — October 2026).
    Row: [name, country, length (m), elevation change (m), corners, longest straight (m)]
    ===================================================================== */
 const GT7_TRACKS = [
@@ -108,6 +108,7 @@ const GT7_TRACKS = [
   ["Sardegna - Pista de asfalto C II (invertida)", "Itália", 2661, 54, 10, 915],
   ["Special Stage Route X", "Estados Unidos", 30283, 65, 2, 12000],
   ["Percurso Leste de Suzuka Circuit", "Japão", 2243, 33.6, 9, 800],
+  ["SUGO International Racing Course", "Japão", 3586, 69.8, 13, 704.5],   // GT7 1.72
   ["Suzuka Circuit", "Japão", 5807, 40, 20, 1200],
   ["Tokyo Expressway - Central em sentido horário", "Japão", 4405, 8, 13, 600],
   ["Tokyo Expressway - Central no sentido anti-horário", "Japão", 4369, 16, 14, 600],
