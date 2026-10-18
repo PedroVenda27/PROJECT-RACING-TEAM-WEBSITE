@@ -885,7 +885,7 @@ const SITE_DATA = {
     {
       competition: "endurance",
       title: "Liga Endurance",
-      subtitle: "Gran Turismo 7 · Campeonato de resistência · Competição Externa · Após Ronda 1",
+      subtitle: "Gran Turismo 7 · Campeonato de resistência · Competição Externa · Após Ronda 2 (provisória)",
       logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png",
       type: "drivers-external",
       /* Multi-class: overall order below; "Geral", "GR1" and "GR3" tabs.
@@ -931,25 +931,75 @@ const SITE_DATA = {
           { name: "R. Agostinho",     ref: "Rafael Agostinho",     car: "963 '24",                    time: "NT",          bestLap: "1:14.598" },
           { name: "Lopess",           ref: "Lopess",               car: "499P '23",                   time: "NT",          bestLap: "1:15.756" }
         ] },
-        { short: "R2", name: "Ronda 2 · Spa-Francorchamps (Layout 24h)", date: "17/OUT", duration: "2h" },
+        { short: "R2", name: "Ronda 2 · Spa-Francorchamps (Layout 24h)", date: "17/OUT", duration: "2h", qualy: {
+          GR1: [
+            { name: "Wilson_TheFirst",  ref: "Wilson Barreto",       car: "963 '24",              lap: "2:02.029", gap: "" },
+            { name: "CAVERITO_BR",      ref: "Victor Machado",       car: "M Hybrid V8 '25",      lap: "2:02.174", gap: "+00.145" },
+            { name: "OCR_Manopado",     ref: "OCR_Manopado",         car: "9X8 '25",              lap: "2:03.787", gap: "+01.758" },
+            { name: "Cologneze_BR_",    ref: "João Paulo Cologneze", car: "9X8 '25",              lap: "2:04.030", gap: "+02.001" },
+            { name: "angeloperuzzo03",  ref: "Angelo Peruzzo",       car: "GR010 HYBRID '21",     lap: "2:04.751", gap: "+02.722" },
+            { name: "viina_1",          ref: "viina_1",              car: "GR010 HYBRID '21",     lap: "2:07.232", gap: "+05.203" },
+            { name: "QIXSKATE",         ref: "QIXSKATE",             car: "499P '23",             lap: "2:03.175", gap: "+01.146" }
+          ],
+          GR3: [
+            { name: "RafaelAgostinh44", ref: "Rafael Agostinho GR3", car: "Huracán GT3 '15",      lap: "2:17.262", gap: "" },
+            { name: "Kaps_033",         ref: "Kauã Patrick",         car: "R8 LMS Evo '19",       lap: "2:17.946", gap: "+00.684" },
+            { name: "Josean-Dias",      ref: "Josean Dias",          car: "650S GT3 '15",         lap: "2:18.147", gap: "+00.885" },
+            { name: "B_Catatau",        ref: "B_Catatau",            car: "Mercedes-AMG GT3 '20", lap: "2:19.317", gap: "+02.055" },
+            { name: "ieieduda",         ref: "Jose Costa",           car: "296 GT3 '23",          lap: "2:19.738", gap: "+02.476" },
+            { name: "vininhokiler",     ref: "vininhokiler",         car: "911 GT3 R (992) '22",  lap: "2:21.509", gap: "+04.247" }
+          ]
+        },
+        race: [
+          { name: "CAVERITO_BR",      ref: "Victor Machado",       car: "M Hybrid V8 '25",      time: "2:01:23.512", bestLap: "2:02.849" },
+          { name: "Wilson_TheFirst",  ref: "Wilson Barreto",       car: "963 '24",              time: "+13.939",     bestLap: "2:01.950" },
+          { name: "Cologneze_BR_",    ref: "João Paulo Cologneze", car: "9X8 '25",              time: "2 Voltas",    bestLap: "2:04.923" },
+          { name: "OCR_Manopado",     ref: "OCR_Manopado",         car: "9X8 '25",              time: "2 Voltas",    bestLap: "2:03.475" },
+          { name: "angeloperuzzo03",  ref: "Angelo Peruzzo",       car: "GR010 HYBRID '21",     time: "2 Voltas",    bestLap: "2:04.388" },
+          { name: "Kaps_033",         ref: "Kauã Patrick",         car: "R8 LMS Evo '19",       time: "6 Voltas",    bestLap: "2:18.035" },
+          { name: "RafaelAgostinh44", ref: "Rafael Agostinho GR3", car: "Huracán GT3 '15",      time: "6 Voltas",    bestLap: "2:17.593" },
+          { name: "Josean-Dias",      ref: "Josean Dias",          car: "650S GT3 '15",         time: "7 Voltas",    bestLap: "2:18.745" },
+          { name: "B_Catatau",        ref: "B_Catatau",            car: "Mercedes-AMG GT3 '20", time: "7 Voltas",    bestLap: "2:19.536" },
+          { name: "vininhokiler",     ref: "vininhokiler",         car: "911 GT3 R (992) '22",  time: "8 Voltas",    bestLap: "2:20.348", penalty: "1:00.000" },
+          { name: "ieieduda",         ref: "Jose Costa",           car: "296 GT3 '23",          time: "10 Voltas",   bestLap: "2:23.655", penalty: "1:00.000" },
+          { name: "viina_1",          ref: "viina_1",              car: "GR010 HYBRID '21",     time: "DNF",         bestLap: "2:11.923" },
+          { name: "QIXSKATE",         ref: "QIXSKATE",             car: "499P '23",             time: "DNF",         bestLap: "2:07.777" }
+        ] },
         { short: "R3", name: "Ronda 3 · Interlagos", date: "24/OUT" },
         { short: "R4", name: "Ronda 4 · 24 Heures du Mans (Le Mans)", date: "31/OUT" }
       ],
       drivers: [
-        { name: "Victor Machado",       driverRef: "Victor Machado",       tag: "LET",   number: 5,  cls: "GR1", car: "M Hybrid V8 '25",            team: "LIGA ENDURANCE Racing Team",  wins: 1, podiums: 1, points: 160 },
-        { name: "Gabriel Sampaio",      driverRef: "Gabriel Sampaio",      tag: "URE",   number: 39, cls: "GR3", car: "M6 GT3 Endurance Model '16", team: "Ultimate Racing eSports",     wins: 1, podiums: 1, points: 150 },
-        { name: "Eduardo Freitas",      driverRef: "Eduardo Freitas",      tag: "MIT",   number: 12, cls: "GR1", car: "GR010 HYBRID '21",           team: "Mitsufans",                   wins: 0, podiums: 1, points: 110 },
-        { name: "Pandex",               driverRef: "Rui Silva",            tag: "RTP",   number: 33, cls: "GR3", car: "Huracán GT3 '15",            team: "Racing Team Project",         wins: 0, podiums: 1, points: 110, ourDriver: true },
-        { name: "Angelo Peruzzo",       driverRef: "Angelo Peruzzo",       tag: "CERT",  number: 3,  cls: "GR1", car: "GR010 HYBRID '21",           team: "Comando Estelar Racing Team", wins: 0, podiums: 1, points: 80 },
-        { name: "Sodre",                driverRef: "Sodre",                tag: "LET",   number: 8,  cls: "GR3", car: "R8 LMS Evo '19",             team: "LIGA ENDURANCE Racing Team",  wins: 0, podiums: 1, points: 80 },
-        { name: "João Paulo Cologneze", driverRef: "João Paulo Cologneze", tag: "GTONE", number: 99, cls: "GR1", car: "9X8 '25",                    team: "Liga GTOne",                  wins: 0, podiums: 0, points: 60 },
-        { name: "Ueslei Silva",         driverRef: "Ueslei Silva",         tag: "CERT",  number: 14, cls: "GR3", car: "911 GT3 R (992) '22",        team: "Comando Estelar Racing Team", wins: 0, podiums: 0, points: 60 },
-        { name: "Leandro Rezende",      driverRef: "Leandro Rezende",      tag: "SENNA", number: 77, cls: "GR3", car: "650S GT3 '15",               team: "Senna Legacy",                wins: 0, podiums: 0, points: 40 },
-        { name: "Jose Costa",           driverRef: "Jose Costa",           tag: "GTONE", number: 87, cls: "GR3", car: "296 GT3 '23",                team: "Liga GTOne",                  wins: 0, podiums: 0, points: 20 },
-        { name: "Rafael Agostinho",     driverRef: "Rafael Agostinho",     tag: "RTP",   number: 4,  cls: "GR1", car: "963 '24",                    team: "Racing Team Project",         wins: 0, podiums: 0, points: 10, ourDriver: true },
-        { name: "Henrique Correa",      driverRef: "Henrique Correa",      tag: "MIT",   number: 19, cls: "GR3", car: "GT3 '20",                    team: "Mitsufans",                   wins: 0, podiums: 0, points: 5 },
-        { name: "Lopess",               driverRef: "Lopess",               tag: "SENNA", number: 29, cls: "GR1", car: "499P '23",                   team: "Senna Legacy",                wins: 0, podiums: 0, points: 0 }
-      ]
+        { name: "Victor Machado",       driverRef: "Victor Machado",       tag: "LET",   number: 5,   cls: "GR1", car: "M Hybrid V8 '25",            team: "LIGA ENDURANCE Racing Team",  wins: 2, podiums: 2, points: 310 },
+        { name: "Gabriel Sampaio",      driverRef: "Gabriel Sampaio",      tag: "URE",   number: 39,  cls: "GR3", car: "M6 GT3 Endurance Model '16", team: "Ultimate Racing eSports",     wins: 1, podiums: 1, points: 150 },
+        { name: "Kauã Patrick",         driverRef: "Kauã Patrick",         tag: "LET",   number: 8,   cls: "GR3", car: "R8 LMS Evo '19",             team: "LIGA ENDURANCE Racing Team",  wins: 1, podiums: 1, points: 150 },
+        { name: "João Paulo Cologneze", driverRef: "João Paulo Cologneze", tag: "GTONE", number: 99,  cls: "GR1", car: "9X8 '25",                    team: "Liga GTOne",                  wins: 0, podiums: 1, points: 140 },
+        { name: "Wilson Barreto",       driverRef: "Wilson Barreto",       tag: "RTP",   number: 4,   cls: "GR1", car: "963 '24",                    team: "Racing Team Project",         wins: 0, podiums: 1, points: 130, ourDriver: true },
+        { name: "Rafael Agostinho",     key: "Rafael Agostinho GR3", driverRef: "Rafael Agostinho", tag: "RTP", number: 444, cls: "GR3", car: "Huracán GT3 '15", team: "Racing Team Project", wins: 0, podiums: 1, points: 130, ourDriver: true },
+        { name: "Angelo Peruzzo",       driverRef: "Angelo Peruzzo",       tag: "CERT",  number: 3,   cls: "GR1", car: "GR010 HYBRID '21",           team: "Comando Estelar Racing Team", wins: 0, podiums: 1, points: 120 },
+        { name: "Eduardo Freitas",      driverRef: "Eduardo Freitas",      tag: "MIT",   number: 12,  cls: "GR1", car: "GR010 HYBRID '21",           team: "Mitsufans",                   wins: 0, podiums: 1, points: 110 },
+        { name: "Pandex",               driverRef: "Rui Silva",            tag: "RTP",   number: 333, cls: "GR3", car: "Huracán GT3 '15",            team: "Racing Team Project",         wins: 0, podiums: 1, points: 110, ourDriver: true },
+        { name: "Sodre",                driverRef: "Sodre",                tag: "LET",   number: 888, cls: "GR3", car: "R8 LMS Evo '19",             team: "LIGA ENDURANCE Racing Team",  wins: 0, podiums: 1, points: 80 },
+        { name: "Josean Dias",          driverRef: "Josean Dias",          tag: "SENNA", number: 27,  cls: "GR3", car: "650S GT3 '15",               team: "Senna Legacy",                wins: 0, podiums: 1, points: 80 },
+        { name: "OCR_Manopado",         driverRef: "OCR_Manopado",         tag: "URE",   number: null, cls: "GR1", car: "9X8 '25",                   team: "Ultimate Racing eSports",     wins: 0, podiums: 0, points: 60 },
+        { name: "Ueslei Silva",         driverRef: "Ueslei Silva",         tag: "CERT",  number: 14,  cls: "GR3", car: "911 GT3 R (992) '22",        team: "Comando Estelar Racing Team", wins: 0, podiums: 0, points: 60 },
+        { name: "B_Catatau",            driverRef: "B_Catatau",            tag: "MIT",   number: null, cls: "GR3", car: "Mercedes-AMG GT3 '20",      team: "Mitsufans",                   wins: 0, podiums: 0, points: 60 },
+        { name: "Jose Costa",           driverRef: "Jose Costa",           tag: "GTONE", number: 87,  cls: "GR3", car: "296 GT3 '23",                team: "Liga GTOne",                  wins: 0, podiums: 0, points: 40 },
+        { name: "vininhokiler",         driverRef: "vininhokiler",         tag: "CERT",  number: null, cls: "GR3", car: "911 GT3 R (992) '22",       team: "Comando Estelar Racing Team", wins: 0, podiums: 0, points: 40 },
+        { name: "Leandro Rezende",      driverRef: "Leandro Rezende",      tag: "SENNA", number: 77,  cls: "GR3", car: "650S GT3 '15",               team: "Senna Legacy",                wins: 0, podiums: 0, points: 10 },
+        { name: "Rafael Agostinho",     driverRef: "Rafael Agostinho",     tag: "RTP",   number: 444, cls: "GR1", car: "963 '24",                    team: "Racing Team Project",         wins: 0, podiums: 0, points: 10, ourDriver: true },
+        { name: "Henrique Correa",      driverRef: "Henrique Correa",      tag: "MIT",   number: 19,  cls: "GR3", car: "Mercedes-AMG GT3 '20",       team: "Mitsufans",                   wins: 0, podiums: 0, points: 5 },
+        { name: "viina_1",              driverRef: "viina_1",              tag: "MIT",   number: null, cls: "GR1", car: "GR010 HYBRID '21",          team: "Mitsufans",                   wins: 0, podiums: 0, points: 0 },
+        { name: "QIXSKATE",             driverRef: "QIXSKATE",             tag: "SENNA", number: null, cls: "GR1", car: "499P '23",                  team: "Senna Legacy",                wins: 0, podiums: 0, points: 0 },
+        { name: "Lopess",               driverRef: "Lopess",               tag: "SENNA", number: 29,  cls: "GR1", car: "499P '23",                   team: "Senna Legacy",                wins: 0, podiums: 0, points: 0 }
+      ],
+      /* Team point adjustments (regulation art. 8.4: -20 when a team doesn't field both drivers) */
+      teamAdjust: { URE: { points: -20, note: "−20 pts na R2 (sem piloto Gr.3)" } },
+      /* Team points per round (Gr.1 + Gr.3 drivers, bonuses and adjustments included).
+         The total column must match the sum of the drivers' points + teamAdjust. */
+      teamRounds: {
+        R1: { LET: 240, URE: 150, CERT: 140, RTP: 120, MIT: 115, GTONE: 80, SENNA: 10 },
+        R2: { LET: 300, URE: 40,  CERT: 80,  RTP: 260, MIT: 60,  GTONE: 100, SENNA: 80 }
+      }
     },
     {
       competition: "pitbox",

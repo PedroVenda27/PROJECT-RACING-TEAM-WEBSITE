@@ -349,6 +349,23 @@ document.addEventListener("DOMContentLoaded", () => {
      overall table plus one per class, switched with tabs. Drivers are
      listed in overall order; class positions follow that order. ── */
   const classState = {};
+
+  /* Overall table: a driver who raced in both classes (e.g. GR1 in R1 and
+     GR3 in R2) appears once, with points/wins/podiums added up and both
+     classes and cars listed (most points first). */
+  function mergeClasses(drivers) {
+    const byDriver = new Map();
+    for (const d of [...drivers].sort((a, b) => b.points - a.points)) {
+      const id = `${d.tag}|${d.driverRef || d.name}`;
+      const m = byDriver.get(id);
+      if (!m) { byDriver.set(id, { ...d }); continue; }
+      m.points += d.points; m.wins += d.wins; m.podiums += d.podiums;
+      if (!m.cls.split(" / ").includes(d.cls)) m.cls += ` / ${d.cls}`;
+      if (d.car && !m.car.split(" / ").includes(d.car)) m.car += ` / ${d.car}`;
+    }
+    return [...byDriver.values()].sort((a, b) => b.points - a.points || b.wins - a.wins);
+  }
+
   function renderClassStandings(s) {
     const compId = s.competition;
     const cls = classState[compId] || "all";
@@ -358,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ${tabs.map(([k, label]) => `<button class="race-subtab ext-class-tab${k === cls ? " active" : ""}" data-cls="${k}">${label}</button>`).join("")}
       </div>`;
     if (cls === "teams") return tabsHtml + renderTeamStandings(s);
-    const list = s.drivers.filter(d => cls === "all" || d.cls === cls);
+    const list = cls === "all" ? mergeClasses(s.drivers) : s.drivers.filter(d => d.cls === cls);
     const rows = list.map((d, i) => {
       const pos = i + 1;
       return `
@@ -369,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${getDriverImg(d.name, d.driverRef)}
               <span class="st-class-driver">
                 <span>${d.name}${d.tag ? ` <span class="st-team-tag">${d.tag}</span>` : ""}</span>
-                <small>#${d.number} · ${d.cls}</small>
+                <small>${d.number ? `#${d.number} · ` : ""}${d.cls}</small>
               </span>
             </div>
           </td>
@@ -401,12 +418,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const teams = {};
     s.drivers.forEach(d => {
       const key = d.tag || d.team;
-      const t = teams[key] || (teams[key] = { name: d.team, tag: d.tag, drivers: 0, wins: 0, points: 0, ours: false });
-      t.drivers++; t.wins += d.wins; t.points += d.points;
+      const t = teams[key] || (teams[key] = { name: d.team, tag: d.tag, drivers: new Set(), wins: 0, points: 0, ours: false });
+      t.drivers.add(d.driverRef || d.name); t.wins += d.wins; t.points += d.points;
       if (d.team.length > t.name.length) t.name = d.team;
       if (d.ourDriver) t.ours = true;
     });
+    // official point adjustments per team (e.g. -20 for not fielding both drivers)
+    for (const [tag, adj] of Object.entries(s.teamAdjust || {})) {
+      const t = Object.values(teams).find(x => x.tag === tag);
+      if (t) { t.points += adj.points; t.note = adj.note; }
+    }
     const list = Object.values(teams).sort((a, b) => b.points - a.points || b.wins - a.wins);
+    // one column per round (R1, R2…): the team's points in that round, "—" if not raced yet
+    const rounds = (s.rounds || []).map(r => r.short);
+    const perRound = s.teamRounds || {};
+    const roundHeaders = rounds.map(r => `<th class="th-round">${r}</th>`).join("");
+    const roundCells = t => rounds.map(r => {
+      const v = perRound[r] && perRound[r][t.tag];
+      return v === undefined ? `<td class="cell-dns">—</td>` : `<td class="${v === 0 ? "cell-zero" : "cell-round"}">${v}</td>`;
+    }).join("");
     const logos = s.teamLogos || {};
     const rows = list.map((t, i) => {
       const pos = i + 1;
@@ -421,12 +451,13 @@ document.addEventListener("DOMContentLoaded", () => {
               ${logo}
               <span class="st-class-driver">
                 <span>${t.name}</span>
-                <small>[${t.tag}]</small>
+                <small>[${t.tag}]${t.note ? ` · ${t.note}` : ""}</small>
               </span>
             </div>
           </td>
-          <td class="cell-round">${t.drivers}</td>
+          <td class="cell-round">${t.drivers.size}</td>
           <td class="cell-round">${t.wins}</td>
+          ${roundCells(t)}
           <td class="cell-total">${t.points}</td>
         </tr>`;
     }).join("");
@@ -436,7 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <table class="standings-table">
             <thead><tr>
               <th class="th-pos">POS</th><th class="th-name">Equipa</th>
-              <th class="th-round">Pilotos</th><th class="th-round">Vit.</th><th class="th-total">Pontos</th>
+              <th class="th-round">Pilotos</th><th class="th-round">Vit.</th>${roundHeaders}<th class="th-total">Total</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>
@@ -450,7 +481,8 @@ document.addEventListener("DOMContentLoaded", () => {
      `ref` links it to the standings driver (class, avatar, highlight). */
   const classRoundState = {};
   function buildClassSessions(s, round, cls) {
-    const byRef = ref => s.drivers.find(x => x.name === ref) || {};
+    // `key` tells apart the same driver in two classes (e.g. GR1 in R1, GR3 in R2)
+    const byRef = ref => s.drivers.find(x => (x.key || x.name) === ref) || {};
     const minLap = list => list.reduce((m, r) => (!m || (r.bestLap && r.bestLap < m) ? r.bestLap : m), "");
     const sessions = [];
     if (round.qualy && round.qualy[cls]) {
@@ -480,7 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const d = byRef(r.ref);
         const t = classTime(r.time, i);
         return { pos: i + 1, name: d.name || r.name, driverRef: d.driverRef, ourDriver: d.ourDriver, tag: d.tag || "",
-          time: t, gap: t, bestLap: r.bestLap, fastestLap: r.bestLap === fastest };
+          time: t, gap: t, penalty: r.penalty, bestLap: r.bestLap, fastestLap: r.bestLap === fastest };
       });
       sessions.push({ label: "Corrida", type: "race", duration: round.duration, fastestLapTime: fastest, results });
     }
