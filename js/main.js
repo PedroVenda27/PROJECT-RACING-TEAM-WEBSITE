@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderFeaturedCard(driver, badgeLabel) {
       if (!driver) return '';
       return `
-      <article class="driver-card-potm-featured anim-fade-up" aria-label="${driver.name}">
+      <article class="driver-card-potm-featured anim-fade-up" aria-label="${driver.name}" data-pilot="${driver.role}">
         <div class="potm-featured-left">
           <div class="potm-featured-img-wrap">
             ${driver.image
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>` : '';
 
     const cardsHTML = rest.map((d, i) => `
-      <article class="driver-card anim-fade-up delay-${Math.min(i % 4, 3)}" aria-label="${d.name}">
+      <article class="driver-card anim-fade-up delay-${Math.min(i % 4, 3)}" aria-label="${d.name}" data-pilot="${d.role}">
         <div class="driver-img-wrap">
           ${d.image
             ? `<img src="${d.image}" alt="Photo of ${d.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
@@ -203,6 +203,15 @@ document.addEventListener("DOMContentLoaded", () => {
     `).join("");
 
     driversGrid.innerHTML = potmHTML + cardsHTML;
+    // each card opens the driver page (links inside the card keep working)
+    if (!driversGrid.dataset.pilotLinks) {
+      driversGrid.dataset.pilotLinks = "1";
+      driversGrid.addEventListener("click", e => {
+        if (e.target.closest("a")) return;
+        const card = e.target.closest("[data-pilot]");
+        if (card) location.href = "piloto.html?id=" + encodeURIComponent(card.dataset.pilot);
+      });
+    }
     driversGrid.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
   }
   renderDriversGrid();

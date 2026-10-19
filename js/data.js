@@ -334,6 +334,30 @@ const SITE_DATA = {
     { name: "", logo: "", url: "" }
   ],
 
+  /* Links dos perfis GT7 (gran-turismo.com) de cada piloto, pelo ID PSN (página do piloto) */
+  gt7Profiles: {
+    "Caceteira_RTP":    "https://www.gran-turismo.com/pt/gt7/user/mymenu/ac6369a4-1397-4617-8546-c83df21afc6f/profile",
+    "pandafrass":       "https://www.gran-turismo.com/gb/gt7/user/mymenu/44766b78-7558-4c0c-9d35-dabefca4e591/profile",
+    "RafaelAgostinh44": "https://www.gran-turismo.com/gb/gt7/user/mymenu/f1151e8f-2ec7-4321-8ce7-9e1e826b86d6/profile",
+    "mattifroskes":     "https://www.gran-turismo.com/pt/gt7/user/mymenu/acfe0a1e-769d-461e-a038-f2e47f57ca4e/profile",
+    "KajuNN":           "https://www.gran-turismo.com/gb/gt7/user/mymenu/385ddb6a-5dd5-4473-8b77-c52a5fb82072/profile",
+    "BrunoCm1997":      "https://www.gran-turismo.com/gb/gt7/user/mymenu/1c0df5de-6bf8-4579-b75e-93bcac9f2e17/profile",
+    "pastorenrabador":  "https://www.gran-turismo.com/pt/gt7/user/mymenu/5abbf7f3-391f-4b3b-977b-85dddb5c7ac4/profile",
+    "N17_nuno":         "https://www.gran-turismo.com/gb/gt7/user/mymenu/a3777f8b-b06e-4d15-a6d5-0cd2ae9d89a0/profile",
+    "Luisikon_TCHT":    "https://www.gran-turismo.com/gb/gt7/user/mymenu/f9f1903b-c8a2-4bc6-a6cc-b394712912dc/profile",
+    "Travincas24":      "https://www.gran-turismo.com/pt/gt7/user/mymenu/792aa5ca-2603-4e93-ac13-62816df53a11/profile",
+    "FVenda117":        "https://www.gran-turismo.com/gb/gt7/user/mymenu/14c41c0b-ec26-4e75-9547-2133fa557efc/profile",
+    "CyberserGT":       "https://www.gran-turismo.com/gb/gt7/user/mymenu/2d52f178-ddcc-4807-8f1e-ded9b417d2a6/profile",
+    "granadas10":       "https://www.gran-turismo.com/pt/gt7/user/mymenu/c9e11778-e02d-4eef-9093-7daec5ca1a05/profile",
+    "Pinto_Moreira":    "https://www.gran-turismo.com/gb/gt7/user/mymenu/2d896c68-4ef1-4d18-968b-106b8d474d9f/profile",
+    "Be_Mad_PT":        "https://www.gran-turismo.com/gb/gt7/user/mymenu/dbee5765-90cd-4a84-867d-4995064e36ef/profile",
+    "PUPILO_2GA":       "https://www.gran-turismo.com/gb/gt7/user/mymenu/a8070d34-ae5b-49b2-84e7-870d7226c913/profile",
+    "SemDestino75":     "https://www.gran-turismo.com/pt/gt7/user/mymenu/a4d2d4d0-937a-4992-b97d-ab2384cf2c40/profile",
+    "Wilson_TheFirst":  "https://www.gran-turismo.com/pt/gt7/user/mymenu/3f58b62d-2d23-4f15-9506-df3efe9e9b91/profile",
+    "laferia777":       "https://www.gran-turismo.com/gb/gt7/user/mymenu/ea843535-6436-41c5-bd7e-314ef3f80ca2/profile",
+    "h_seixas13":       "https://www.gran-turismo.com/pt/gt7/user/mymenu/7e3a2165-f780-4130-ac4c-895a1c6c576e/profile"
+  },
+
   /* ─────────────────────────────────────────────
      1KM TIME-TRIAL REAL LIFE (timetrial.html)
      Real-life challenge: best time running 1 km. Runs until endDate.
