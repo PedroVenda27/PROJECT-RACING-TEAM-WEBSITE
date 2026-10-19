@@ -48,6 +48,15 @@ document.addEventListener("DOMContentLoaded", () => {
     .map(r => ({ date: r[0], t: Date.parse(r[0] + "T12:00:00"), pts: r[1] }));
   let drDays = daysOf(typeof EDGE_DR !== "undefined" ? EDGE_DR : null);
   let drRange = "1y";
+  // "updatedAt" = moment the daily task collected the data (ISO with timezone)
+  const fmtStamp = iso => {
+    const dt = iso ? new Date(iso) : null;
+    if (!dt || isNaN(dt)) return "";
+    const o = { timeZone: "Europe/Lisbon" };
+    return `${dt.toLocaleDateString("pt-PT", o)} às ${dt.toLocaleTimeString("pt-PT", { ...o, hour: "2-digit", minute: "2-digit" })}`;
+  };
+  let drStamp = typeof EDGE_DR !== "undefined" ? EDGE_DR.updatedAt : "";
+  const statsStamp = typeof EDGE_STATS !== "undefined" ? EDGE_STATS.updatedAt : "";
   const RANGES = [["30d", "30 dias", 30], ["3m", "3 meses", 92], ["1y", "Ano", 366], ["all", "Tudo", Infinity]];
   const fmtPts = v => v.toLocaleString("pt-PT");
   const fmtShort = s => { const [y, m, dd] = s.split("-"); return `${dd}/${m}`; };
@@ -106,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="pl-dr-ranges">${RANGES.map(r => `<button type="button" class="pl-range${r[0] === drRange ? " active" : ""}" data-range="${r[0]}">${r[1]}</button>`).join("")}</div>
         </div>
         <div class="pl-chart-wrap" id="pl-dr-chart">${drChart(drRange)}</div>
-        <p class="pl-muted" id="pl-dr-note">Via DG-Edge · atualizado todos os dias às 09:00 · últimos dados: ${fmtDate(cur.date)}</p>
+        <p class="pl-muted" id="pl-dr-note">Última atualização: <strong>${fmtStamp(drStamp) || fmtDate(cur.date)}</strong> · via DG-Edge, todos os dias às 09:00</p>
       </div>`;
   }
   const stat = (label, value, extra = "") => `
@@ -127,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
-    <h3 class="race-results-title">Modo Sport ${now ? `<small class="pl-muted">· atualizado a ${fmtDate(now.date)}</small>` : ""}</h3>
+    <h3 class="race-results-title">Modo Sport ${now ? `<small class="pl-muted">· última atualização: ${fmtStamp(statsStamp) || fmtDate(now.date)}</small>` : ""}</h3>
     ${now ? `
     <div class="pl-main-stats">
       ${stat("DR", now.dr || "—")}
@@ -174,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const fresh = new Function(`${await res.text()}; return EDGE_DR;`)();
       const before = drDays.length && drDays[drDays.length - 1].date;
       const next = daysOf(fresh);
-      if (next.length) drDays = next;
+      if (next.length) { drDays = next; drStamp = fresh.updatedAt || drStamp; }
       const after = drDays.length && drDays[drDays.length - 1].date;
       msg = after !== before ? "✓ Novos pontos carregados" : "✓ Já tens os pontos mais recentes";
     } catch (err) {
@@ -182,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     drBox.innerHTML = drSection();
     const note = document.getElementById("pl-dr-note");
-    note.innerHTML = `<strong class="pl-refresh-msg">${msg}</strong> · ${note.textContent}`;
+    note.innerHTML = `<strong class="pl-refresh-msg">${msg}</strong> · ${note.innerHTML}`;
   }
 
 });

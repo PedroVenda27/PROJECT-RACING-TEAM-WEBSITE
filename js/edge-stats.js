@@ -7,6 +7,7 @@
    ===================================================================== */
 const EDGE_STATS = {
   updated: "2026-10-19",
+  updatedAt: "2026-10-19T15:09:00+01:00",
   fields: ["date", "dr", "sr", "score", "global", "country", "events", "delta"],
   history: {
     "Caceteira_RTP":    [["2026-10-19", "D",  "A", 71.28, "~210k", 3895, 6,   "+1.92%"]],
