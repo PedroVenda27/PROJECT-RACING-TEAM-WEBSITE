@@ -1,7 +1,7 @@
 /* =====================================================================
    EDGE-DR.JS — Driver Rating em pontos (DG-Edge) de cada piloto RTP, dia
    a dia, para o gráfico principal da página do piloto.
-   Atualizado todos os dias às 09:00 (tarefa "rtp-edge-diario").
+   Atualizado de hora a hora (tarefa "rtp-edge-diario").
    Chave = ID PSN. playerId = ID interno do DG-Edge. days = [[data, pontos], ...]
    (o DG-Edge só guarda os dias em que o DR foi atualizado; antes da tarefa
    diária há intervalos maiores entre registos)

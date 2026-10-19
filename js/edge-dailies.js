@@ -1,7 +1,7 @@
 /* =====================================================================
    EDGE-DAILIES.JS — as 3 Daily Races (A/B/C) da semana atual do GT7 e o
    tempo de cada piloto RTP em cada uma (DG-Edge). Página do piloto.
-   Atualizado todos os dias às 09:00 (tarefa "rtp-edge-diario",
+   Atualizado de hora a hora (tarefa "rtp-edge-diario",
    coletor tools/edge-dailies.js).
    races: lead = tempo do líder mundial em ms · times: { PSN: { A|B|C: {...} } }
    (piloto sem tempo numa diária = não correu essa diária ainda)

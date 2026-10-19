@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="pl-dr-ranges">${RANGES.map(r => `<button type="button" class="pl-range${r[0] === drRange ? " active" : ""}" data-range="${r[0]}">${r[1]}</button>`).join("")}</div>
         </div>
         <div class="pl-chart-wrap" id="pl-dr-chart">${drChart(drRange)}</div>
-        <p class="pl-muted" id="pl-dr-note">Última atualização: <strong>${fmtStamp(drStamp) || fmtDate(cur.date)}</strong> · via DG-Edge, todos os dias às 09:00</p>
+        <p class="pl-muted" id="pl-dr-note">Última atualização: <strong>${fmtStamp(drStamp) || fmtDate(cur.date)}</strong> · via DG-Edge, atualizado de hora a hora</p>
       </div>`;
   }
   /* ── Daily Races A/B/C of the week (js/edge-dailies.js) ──
