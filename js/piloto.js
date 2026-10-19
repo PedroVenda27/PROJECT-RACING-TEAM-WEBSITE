@@ -28,10 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const flagCode = { "Portugal": "pt", "Brasil": "br", "Cabo Verde": "cv" }[d.nationality] || "pt";
 
   /* ── EDGE history ── */
-  const hist = ((typeof EDGE_STATS !== "undefined" && EDGE_STATS.history[d.role]) || [])
-    .map(r => ({ date: r[0], dr: r[1], sr: r[2], score: r[3], global: r[4], country: r[5], events: r[6], delta: r[7] }));
-  const now = hist[hist.length - 1];
-  const prev = hist.length > 1 ? hist[hist.length - 2] : null;
+  // Local copies so the "Atualizar" button can swap in freshly loaded data
+  let STATS = typeof EDGE_STATS !== "undefined" ? EDGE_STATS : null;
+  let DAILIES = typeof EDGE_DAILIES !== "undefined" ? EDGE_DAILIES : null;
+  let now, prev;
+  const deriveStats = () => {
+    const hist = ((STATS && STATS.history[d.role]) || [])
+      .map(r => ({ date: r[0], dr: r[1], sr: r[2], score: r[3], global: r[4], country: r[5], events: r[6], delta: r[7] }));
+    now = hist[hist.length - 1];
+    prev = hist.length > 1 ? hist[hist.length - 2] : null;
+  };
+  deriveStats();
   const fmtNum = v => (typeof v === "number" ? v.toLocaleString("pt-PT") : (v || "—"));
   const trend = (a, b, lowerIsBetter) => {
     if (!b || typeof a !== "number" || typeof b !== "number" || a === b) return "";
@@ -56,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${dt.toLocaleDateString("pt-PT", o)} às ${dt.toLocaleTimeString("pt-PT", { ...o, hour: "2-digit", minute: "2-digit" })}`;
   };
   let drStamp = typeof EDGE_DR !== "undefined" ? EDGE_DR.updatedAt : "";
-  const statsStamp = typeof EDGE_STATS !== "undefined" ? EDGE_STATS.updatedAt : "";
   const RANGES = [["30d", "30 dias", 30], ["3m", "3 meses", 92], ["1y", "Ano", 366], ["all", "Tudo", Infinity]];
   const fmtPts = v => v.toLocaleString("pt-PT");
   const fmtShort = s => { const [y, m, dd] = s.split("-"); return `${dd}/${m}`; };
@@ -109,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="pl-dr-head">
           <div>
             <span class="pl-dr-label">Driver Rating · ${now && now.dr ? now.dr : ""}</span>
-            <div class="pl-dr-points">${fmtPts(cur.pts)} <span class="pl-dr-diff ${diff > 0 ? "up" : diff < 0 ? "down" : ""}">(${diff > 0 ? "+" : ""}${diff === 0 ? "=" : fmtPts(diff)})</span> <button type="button" class="pl-refresh" id="pl-refresh" title="Carregar os pontos mais recentes">↻ Atualizar</button></div>
+            <div class="pl-dr-points">${fmtPts(cur.pts)} <span class="pl-dr-diff ${diff > 0 ? "up" : diff < 0 ? "down" : ""}" title="${prevDay ? `Desde ${fmtDate(prevDay.date)} (${fmtPts(prevDay.pts)} pontos)` : ""}">${diff > 0 ? `▲ +${fmtPts(diff)}` : diff < 0 ? `▼ ${fmtPts(diff)}` : "= 0"}</span> <button type="button" class="pl-refresh" id="pl-refresh" title="Carregar os dados mais recentes (pontos, tempos, posições e deltas)">↻ Atualizar</button></div>
             <span class="pl-dr-high">Máximo do último ano: ${fmtPts(high)}</span>
           </div>
           <div class="pl-dr-ranges">${RANGES.map(r => `<button type="button" class="pl-range${r[0] === drRange ? " active" : ""}" data-range="${r[0]}">${r[1]}</button>`).join("")}</div>
@@ -118,8 +124,61 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="pl-muted" id="pl-dr-note">Última atualização: <strong>${fmtStamp(drStamp) || fmtDate(cur.date)}</strong> · via DG-Edge, todos os dias às 09:00</p>
       </div>`;
   }
+  /* ── Daily Races A/B/C of the week (js/edge-dailies.js) ──
+     Target = leader time × (1 + Avg. delta): a lap under it lowers the driver's average. */
+  const fmtLap = ms => {
+    if (typeof ms !== "number") return "";
+    const m = Math.floor(ms / 60000), s = ((ms % 60000) / 1000).toFixed(3).padStart(6, "0");
+    return `${m}:${s}`;
+  };
+  function dailiesSection() {
+    if (!DAILIES || !DAILIES.races.length) return "";
+    const mine = DAILIES.times[d.role] || {};
+    const avg = now && now.delta ? parseFloat(now.delta) : NaN;
+    const r0 = DAILIES.races[0];
+    const cards = DAILIES.races.map(r => {
+      const me = mine[r.type];
+      const target = r.lead && !isNaN(avg) ? Math.round(r.lead * (1 + avg / 100)) : null;
+      const myDelta = me && r.lead ? (me.ms / r.lead - 1) * 100 : null;
+      const ok = me && target ? me.ms <= target : false;
+      return `
+        <a class="pl-daily" href="${r.url}" target="_blank" rel="noopener">
+          <div class="pl-daily-top"><span class="pl-daily-tag">Daily ${r.type}</span><span class="pl-daily-car">${r.car} · ${r.tyres}</span></div>
+          <div class="pl-daily-track">${r.track}</div>
+          <div class="pl-daily-row">
+            <span class="race-stat-label">Tempo do piloto</span>
+            <span class="pl-daily-time">${me ? fmtLap(me.ms) : ""}</span>
+            ${me ? `<span class="pl-daily-sub">${me.pos.toLocaleString("pt-PT")}.º mundial · ${me.posPT}.º PT · +${myDelta.toFixed(2)}%</span>` : `<span class="pl-daily-sub"></span>`}
+          </div>
+          ${target ? `
+          <div class="pl-daily-row pl-daily-target${ok ? " ok" : ""}">
+            <span class="race-stat-label">Para melhorar o Avg. delta</span>
+            <span class="pl-daily-time">&lt; ${fmtLap(target)}</span>
+            <span class="pl-daily-sub">${ok ? "✓ Já abaixo do Avg. delta atual" : me ? `Faltam ${((me.ms - target) / 1000).toFixed(3)} s` : `Líder: ${fmtLap(r.lead)} · +${avg.toFixed(2)}%`}</span>
+          </div>` : ""}
+        </a>`;
+    }).join("");
+    return `
+    <h3 class="race-results-title">Daily Races <small class="pl-muted">· semana ${r0.week} · última atualização: ${fmtStamp(DAILIES.updatedAt) || fmtDate(DAILIES.updated)}</small></h3>
+    <div class="pl-dailies">${cards}</div>
+    <p class="pl-muted pl-dailies-note">Tempo-alvo = tempo do líder mundial × (1 + Avg. delta do piloto). Uma volta abaixo deste tempo baixa o Avg. delta.</p>`;
+  }
+
   const stat = (label, value, extra = "") => `
     <div class="race-stat"><span class="race-stat-label">${label}</span><span class="race-stat-value">${value}${extra}</span></div>`;
+  const sportSection = () => `
+    <h3 class="race-results-title">Modo Sport ${now ? `<small class="pl-muted">· última atualização: ${fmtStamp(STATS && STATS.updatedAt) || fmtDate(now.date)}</small>` : ""}</h3>
+    ${now ? `
+    <div class="pl-main-stats">
+      ${stat("DR", now.dr || "—")}
+      ${stat("SR", now.sr || "—")}
+      ${stat("Edge Score", now.score ?? "—", trend(now.score, prev && prev.score))}
+      ${stat("Avg. delta", now.delta || "—", trend(parseFloat(now.delta), prev && prev.delta ? parseFloat(prev.delta) : null, true))}
+    </div>
+    <p class="pl-pos">
+      <span>🌍 Mundial <strong>${fmtNum(now.global)}</strong>${trend(now.global, prev && prev.global, true)}</span>
+      <span><img src="https://flagcdn.com/w20/pt.png" alt="" width="18" height="13" /> Portugal <strong>${fmtNum(now.country)}</strong>${trend(now.country, prev && prev.country, true)}</span>
+    </p>` : `<p class="pl-muted">Ainda sem dados do DG-Edge para este piloto.</p>`}`;
 
   root.innerHTML = `
     <div class="pl-card">
@@ -136,19 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
-    <h3 class="race-results-title">Modo Sport ${now ? `<small class="pl-muted">· última atualização: ${fmtStamp(statsStamp) || fmtDate(now.date)}</small>` : ""}</h3>
-    ${now ? `
-    <div class="pl-main-stats">
-      ${stat("DR", now.dr || "—")}
-      ${stat("SR", now.sr || "—")}
-      ${stat("Edge Score", now.score ?? "—", trend(now.score, prev && prev.score))}
-    </div>
-    <p class="pl-pos">
-      <span>🌍 Mundial <strong>${fmtNum(now.global)}</strong>${trend(now.global, prev && prev.global, true)}</span>
-      <span><img src="https://flagcdn.com/w20/pt.png" alt="" width="18" height="13" /> Portugal <strong>${fmtNum(now.country)}</strong>${trend(now.country, prev && prev.country, true)}</span>
-    </p>    ` : `<p class="pl-muted">Ainda sem dados do DG-Edge para este piloto.</p>`}
+    <div id="pl-sport-box">${sportSection()}</div>
     <h3 class="race-results-title">Driver Rating</h3>
     <div id="pl-dr-box">${drSection()}</div>
+    <div id="pl-dailies-box">${dailiesSection()}</div>
 
     <div class="pl-live" id="pl-live">
       <div class="pl-live-head">
@@ -170,25 +220,34 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.closest("#pl-refresh")) refreshDR();
   });
 
-  // Re-loads js/edge-dr.js from the server (bypassing the cache) and redraws the chart.
-  // The DG-Edge API itself can't be called from this site (CORS + login), so this picks up
-  // the newest points saved by the daily 09:00 update.
+  // "Atualizar": re-loads the saved DG-Edge data (points, DR/SR, Edge Score, rankings,
+  // Avg. delta, Daily Race times) from the server, bypassing the cache, and redraws.
+  // DG-Edge itself can't be queried from a website (it blocks other sites and servers),
+  // so this shows the newest data collected by the update task.
+  const loadData = async (file, name) => {
+    const res = await fetch(`js/${file}?t=${Date.now()}`, { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status);
+    return new Function(`${await res.text()}; return ${name};`)();
+  };
   async function refreshDR() {
     const btn = document.getElementById("pl-refresh");
     btn.disabled = true; btn.textContent = "↻ A atualizar…";
     let msg = "";
     try {
-      const res = await fetch(`js/edge-dr.js?t=${Date.now()}`, { cache: "no-store" });
-      if (!res.ok) throw new Error(res.status);
-      const fresh = new Function(`${await res.text()}; return EDGE_DR;`)();
-      const before = drDays.length && drDays[drDays.length - 1].date;
-      const next = daysOf(fresh);
-      if (next.length) { drDays = next; drStamp = fresh.updatedAt || drStamp; }
-      const after = drDays.length && drDays[drDays.length - 1].date;
-      msg = after !== before ? "✓ Novos pontos carregados" : "✓ Já tens os pontos mais recentes";
+      const sig = () => JSON.stringify([drStamp, STATS && STATS.updatedAt, DAILIES && DAILIES.updatedAt, drDays[drDays.length - 1], now, DAILIES && DAILIES.times[d.role], DAILIES && DAILIES.races.map(r => r.lead)]);
+      const before = sig();
+      const [dr, stats, dailies] = await Promise.all([
+        loadData("edge-dr.js", "EDGE_DR"), loadData("edge-stats.js", "EDGE_STATS"), loadData("edge-dailies.js", "EDGE_DAILIES")
+      ]);
+      const next = daysOf(dr);
+      if (next.length) { drDays = next; drStamp = dr.updatedAt || drStamp; }
+      STATS = stats; DAILIES = dailies; deriveStats();
+      msg = sig() !== before ? "✓ Dados atualizados" : `Sem dados novos desde a última atualização. <a href="#pl-live">Ver agora no DG-Edge ↓</a>`;
     } catch (err) {
       msg = "Não foi possível atualizar agora";
     }
+    document.getElementById("pl-sport-box").innerHTML = sportSection();
+    document.getElementById("pl-dailies-box").innerHTML = dailiesSection();
     drBox.innerHTML = drSection();
     const note = document.getElementById("pl-dr-note");
     note.innerHTML = `<strong class="pl-refresh-msg">${msg}</strong> · ${note.innerHTML}`;
