@@ -11,7 +11,7 @@
    • id          — unique identifier (use lowercase, no spaces, e.g., "porsche-911-gt3")
    • name        — display name shown under the thumbnail
    • manufacturer— car manufacturer (used in the Manufacturer text filter)
-   • group       — one of: "Gr.1", "Gr.2", "Gr.3", "Gr.4", "Gr.B", "Road Car"
+   • group       — one of: "Gr.1", "Gr.2", "Gr.3", "Gr.4", "Gr.B", "Others"
    • competition — one of: "LPGT", "TPGT", "NCM", "GT3TC", "LE", "SCPC"
    • thumbnail   — path to thumbnail image (leave "" if no image yet)
    • fullsize    — path to full-size image (leave "" if no image yet)
@@ -93,7 +93,7 @@ const GARAGE_DATA = [
   { id: "lexus-rc-f-gt3-17",             name: "Lexus RC F GT3 '17",                             manufacturer: "Lexus",         group: "Gr.3", competition: "", thumbnail: "images/garage/cars/Gr.3/Lexus RC F GT3 '17/Lexus RC F GT3 '17.jpg", fullsize: "images/garage/cars/Gr.3/Lexus RC F GT3 '17/Lexus RC F GT3 '17.jpg" },
   { id: "mazda-atenza-gr3",               name: "Mazda Atenza Gr.3",                              manufacturer: "Mazda",         group: "Gr.3", competition: "", thumbnail: "images/garage/cars/Gr.3/Mazda Atenza Gr.3/Mazda Atenza Gr3.jpg", fullsize: "images/garage/cars/Gr.3/Mazda Atenza Gr.3/Mazda Atenza Gr3.jpg" },
   { id: "mazda-rx-vision-gt3-concept",    name: "MAZDA RX-VISION GT3 CONCEPT",                    manufacturer: "Mazda",         group: "Gr.3", competition: "", thumbnail: "images/garage/cars/Gr.3/MAZDA RX-VISION GT3 CONCEPT/MAZDA RX-VISION GT3 CONCEPT.jpg", fullsize: "images/garage/cars/Gr.3/MAZDA RX-VISION GT3 CONCEPT/MAZDA RX-VISION GT3 CONCEPT.jpg" },
-  { id: "mazda-rx-vision-gt3-evo-26",     name: "MAZDA RX-VISION GT3 EVO '26",                 manufacturer: "Mazda",         group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },   // GT7 1.72 — foto: images/garage/cars/Gr.3/MAZDA RX-VISION GT3 EVO '26/
+  { id: "mazda-rx-vision-gt3-evo-26",     name: "MAZDA RX-VISION GT3 EVO '26",                 manufacturer: "Mazda",         group: "Gr.3", competition: "", thumbnail: "images/garage/cars/Gr.3/MAZDA RX-VISION GT3 EVO '26/MAZDA RX-VISION GT3 EVO '26.jpg", fullsize: "images/garage/cars/Gr.3/MAZDA RX-VISION GT3 EVO '26/MAZDA RX-VISION GT3 EVO '26.jpg" },
   { id: "mclaren-650s-gt3-15",            name: "McLaren 650S GT3 '15",                           manufacturer: "McLaren",       group: "Gr.3", competition: "", thumbnail: "images/garage/cars/Gr.3/McLaren 650S GT3 '15/McLaren 650S GT3 '15.jpg", fullsize: "images/garage/cars/Gr.3/McLaren 650S GT3 '15/McLaren 650S GT3 '15.jpg" },
   { id: "mclaren-f1-gtr-bmw-95",          name: "McLaren F1 GTR - BMW '95",                       manufacturer: "McLaren",       group: "Gr.3", competition: "", thumbnail: "", fullsize: "" },
   { id: "mercedes-amg-gt3-16",            name: "Mercedes-AMG GT3 '16",                           manufacturer: "Mercedes-AMG",  group: "Gr.3", competition: "", thumbnail: "images/garage/cars/Gr.3/Mercedes-AMG GT3 '16/Mercedes-AMG GT3 '16.jpg", fullsize: "images/garage/cars/Gr.3/Mercedes-AMG GT3 '16/Mercedes-AMG GT3 '16.jpg" },
@@ -171,7 +171,8 @@ const GARAGE_DATA = [
   { id: "toyota-86-grb",                       name: "TOYOTA 86 Gr.B Rally Car",                                manufacturer: "Toyota",     group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
   { id: "toyota-celica-gt-four-st205-95",      name: "Toyota Celica GT-FOUR Rally Car (ST205) '95",             manufacturer: "Toyota",     group: "Gr.B", competition: "", thumbnail: "", fullsize: "" },
 
-  // ─── ROAD CAR ───
-  { id: "caterham-seven-superlight-r500-08",   name: "Caterham Seven Superlight R500 '08",                      manufacturer: "Caterham",   group: "Road Car", competition: "", thumbnail: "images/garage/cars/Estrada/Caterham Seven Superlight R500 '08/Caterham Seven Superlight R500 '08.jpg", fullsize: "images/garage/cars/Estrada/Caterham Seven Superlight R500 '08/Caterham Seven Superlight R500 '08.jpg" },
-  { id: "mazda-spirit-racing-roadster-12r-25", name: "Mazda Spirit Racing Roadster 12R '25",                    manufacturer: "Mazda",      group: "Road Car", competition: "", thumbnail: "images/garage/cars/Estrada/MAZDA SPIRIT RACING ROADSTER 12R '25/MAZDA SPIRIT RACING ROADSTER 12R '25.jpg", fullsize: "images/garage/cars/Estrada/MAZDA SPIRIT RACING ROADSTER 12R '25/MAZDA SPIRIT RACING ROADSTER 12R '25.jpg" },
+  // ─── OTHERS ───
+  { id: "caterham-seven-superlight-r500-08",   name: "Caterham Seven Superlight R500 '08",                      manufacturer: "Caterham",   group: "Others",   competition: "", thumbnail: "images/garage/cars/Others/Caterham Seven Superlight R500 '08/Caterham Seven Superlight R500 '08.jpg", fullsize: "images/garage/cars/Others/Caterham Seven Superlight R500 '08/Caterham Seven Superlight R500 '08.jpg" },
+  { id: "mazda-spirit-racing-roadster-12r-25", name: "Mazda Spirit Racing Roadster 12R '25",                    manufacturer: "Mazda",      group: "Others",   competition: "", thumbnail: "images/garage/cars/Others/MAZDA SPIRIT RACING ROADSTER 12R '25/MAZDA SPIRIT RACING ROADSTER 12R '25.jpg", fullsize: "images/garage/cars/Others/MAZDA SPIRIT RACING ROADSTER 12R '25/MAZDA SPIRIT RACING ROADSTER 12R '25.jpg" },
+  { id: "gran-turismo-red-bull-x2014-junior", name: "Gran Turismo Red Bull X2014 Junior",                     manufacturer: "Gran Turismo", group: "Others", competition: "", thumbnail: "images/garage/cars/Others/Gran Turismo Red Bull X2014 Junior/Gran Turismo Red Bull X2014 Junior.jpg", fullsize: "images/garage/cars/Others/Gran Turismo Red Bull X2014 Junior/Gran Turismo Red Bull X2014 Junior.jpg" },
 ];
