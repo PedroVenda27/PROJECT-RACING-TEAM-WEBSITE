@@ -232,6 +232,16 @@ const SITE_DATA = {
       image: "images/drivers/Hugo Seixas/HugoSeixas_Preto.png",
       flag: "🇵🇹"
     },
+    {
+      name: "Leonnardo Raucci",
+      number: "87",
+      role: "LeonnardoYR_",
+      gtName: "L.Raucci",
+      nationality: "Brasil",
+      series: "Gran Turismo 7",
+      image: "images/drivers/Leonnardo Raucci/LeonnardoRaucci_Laranja.png",
+      flag: "🇧🇷"
+    },
   ],
 
   /* ─────────────────────────────────────────────
@@ -354,6 +364,7 @@ const SITE_DATA = {
     "PUPILO_2GA":       "https://www.gran-turismo.com/gb/gt7/user/mymenu/a8070d34-ae5b-49b2-84e7-870d7226c913/profile",
     "SemDestino75":     "https://www.gran-turismo.com/pt/gt7/user/mymenu/a4d2d4d0-937a-4992-b97d-ab2384cf2c40/profile",
     "Wilson_TheFirst":  "https://www.gran-turismo.com/pt/gt7/user/mymenu/3f58b62d-2d23-4f15-9506-df3efe9e9b91/profile",
+    "LeonnardoYR_":     "https://www.gran-turismo.com/gb/gt7/user/mymenu/936be38f-a657-480b-a821-350c53f8faa9/profile",
     "laferia777":       "https://www.gran-turismo.com/gb/gt7/user/mymenu/ea843535-6436-41c5-bd7e-314ef3f80ca2/profile",
     "h_seixas13":       "https://www.gran-turismo.com/pt/gt7/user/mymenu/7e3a2165-f780-4130-ac4c-895a1c6c576e/profile"
   },

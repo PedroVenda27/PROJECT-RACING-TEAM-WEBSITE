@@ -28,6 +28,7 @@ const EDGE_DAILIES = {
     "LuisHGarcia": {"B":{"ms":95829,"time":"01:35.829","pos":8792,"posPT":175,"car":"BMW M6 GT3 Sprint Model '16"}},
     "FVenda117": {"C":{"ms":108027,"time":"01:48.027","pos":1687,"posPT":27,"car":"Nissan GT-R NISMO GT500 '16"},"B":{"ms":94665,"time":"01:34.665","pos":1222,"posPT":23,"car":"Nissan GT-R NISMO GT3 '18"}},
     "granadas10": {"B":{"ms":94271,"time":"01:34.271","pos":953,"posPT":22,"car":"Mitsubishi Lancer Evolution Final Gr.3"}},
-    "Travincas24": {"B":{"ms":93833,"time":"01:33.833","pos":695,"posPT":18,"car":"Jaguar F-type Gr.3"}}
+    "Travincas24": {"B":{"ms":93833,"time":"01:33.833","pos":695,"posPT":18,"car":"Jaguar F-type Gr.3"}},
+    "LeonnardoYR_": {"B":{"ms":93377,"time":"01:33.377","pos":132,"posPT":2,"car":"Toyota GR Supra Racing Concept '18"}}
   }
 };
