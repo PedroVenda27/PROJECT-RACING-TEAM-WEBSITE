@@ -213,13 +213,23 @@ const SITE_DATA = {
       flag: "🇨🇻"
     },
     {
+      name: "Leonnardo Raucci",
+      number: "87",
+      role: "LeonnardoYR_",
+      gtName: "L.Raucci",
+      nationality: "Brasil",
+      series: "Gran Turismo 7",
+      image: "images/drivers/Leonnardo Raucci/LeonnardoRaucci_Laranja.png",
+      flag: "🇧🇷"
+    },
+    {
       name: "Luis Gomes",
       number: "88",
       role: "laferia777",
       gtName: "Laferia",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Luis Gomes/LuisGomes_Laranja.png",
+      image: "images/drivers/Luis Gomes/LuisGomes_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -229,18 +239,8 @@ const SITE_DATA = {
       gtName: "Hyoogo",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Hugo Seixas/HugoSeixas_Preto.png",
+      image: "images/drivers/Hugo Seixas/HugoSeixas_Laranja.png",
       flag: "🇵🇹"
-    },
-    {
-      name: "Leonnardo Raucci",
-      number: "87",
-      role: "LeonnardoYR_",
-      gtName: "L.Raucci",
-      nationality: "Brasil",
-      series: "Gran Turismo 7",
-      image: "images/drivers/Leonnardo Raucci/LeonnardoRaucci_Laranja.png",
-      flag: "🇧🇷"
     },
   ],
 
