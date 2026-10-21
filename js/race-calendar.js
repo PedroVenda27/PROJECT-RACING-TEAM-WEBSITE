@@ -83,7 +83,7 @@
       const comp = title ? text(title[1]) : '';
       (chunk.match(/<tbody[\s\S]*?<\/tbody>/g) || []).forEach(tbody => {
         (tbody.match(/<tr[^>]*>[\s\S]*?<\/tr>/g) || []).forEach(tr => {
-          if (/class="[^"]*cal-empty/.test(tr)) return;
+          if (/class="[^"]*(cal-empty|cal-out)/.test(tr)) return;
           const cells = (tr.match(/<td[^>]*>[\s\S]*?<\/td>/g) || []).map(text);
           if (cells.length >= 4) events.push(...makeEvent(comp, cells));
         });

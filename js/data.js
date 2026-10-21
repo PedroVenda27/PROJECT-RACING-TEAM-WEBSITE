@@ -278,6 +278,20 @@ const SITE_DATA = {
       url: "calendar.html#street-car-pitbox-cup"
     },
     {
+      name: "Pitbox Endurance",
+      platform: "GT7",
+      description: "Campeonato de resistência da Pitbox com 6 rondas, de Spa a Le Mans. A RTP corre na Sala B com Wilson Barreto e Rafael Agostinho.",
+      logo: "images/pitbox-logo.png",
+      url: "calendar.html#pitbox-endurance"
+    },
+    {
+      name: "Pitbox Kart Cup",
+      platform: "GT7",
+      description: "Taça de karts da Pitbox com o Gran Turismo Racing Kart 125 Shifter: 4 corridas em 2 noites, em Kyoto, Eiger, Lago Maggiore e Nürburgring.",
+      logo: "images/pitbox-logo.png",
+      url: "calendar.html#pitbox-kart-cup"
+    },
+    {
       name: "TT Motorfest CUP - NCM",
       platform: "GT7",
       description: "Campeonato Solidário organizado pela NCM com entuito de levar a diversão do Gran Turismo 7 a crianças carenciadas.",
