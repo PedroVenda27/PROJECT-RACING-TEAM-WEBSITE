@@ -292,6 +292,13 @@ const SITE_DATA = {
       url: "calendar.html#pitbox-kart-cup"
     },
     {
+      name: "CPGT Teams 26",
+      platform: "GT7",
+      description: "Campeonato Portugal GT por equipas: 4 rondas e 8 corridas em Interlagos, Monza, Barcelona e Daytona, de 24 a 27 de novembro.",
+      logo: "images/CPGT/CPGT_TEAMS26_CALENDARIO.webp",
+      url: "calendar.html#cpgt-teams-26"
+    },
+    {
       name: "TT Motorfest CUP - NCM",
       platform: "GT7",
       description: "Campeonato Solidário organizado pela NCM com entuito de levar a diversão do Gran Turismo 7 a crianças carenciadas.",
