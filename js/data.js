@@ -295,7 +295,7 @@ const SITE_DATA = {
       name: "CPGT Teams 26",
       platform: "GT7",
       description: "Campeonato Portugal GT por equipas: 4 rondas e 8 corridas em Interlagos, Monza, Barcelona e Daytona, de 24 a 27 de novembro.",
-      logo: "images/CPGT/CPGT_TEAMS26_CALENDARIO.webp",
+      logo: "images/CPGT/CPGT_LOGO.png",
       url: "calendar.html#cpgt-teams-26"
     },
     {
