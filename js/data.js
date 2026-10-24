@@ -400,7 +400,7 @@ const SITE_DATA = {
     entries: [
       { driver: "Caceteira", time: null, date: null },
       { driver: "Rui Silva", time: null, date: null },
-      { driver: "Rafael Agostinho", time: "5:30", date: null },
+      { driver: "Rafael Agostinho", time: "3:20", date: null },
       { driver: "Elias Torres", time: null, date: null },
       { driver: "Bruno Teixeira", time: null, date: null },
       { driver: "João Festas", time: null, date: null },
@@ -416,7 +416,8 @@ const SITE_DATA = {
       { driver: "Luís Garcia", time: null, date: null },
       { driver: "Hugo Costa", time: null, date: null },
       { driver: "Miguel Cabral", time: null, date: null },
-      { driver: "Wilson Barreto", time: null, date: null },
+      { driver: "Wilson Barreto", time: "6:24", date: null },
+      { driver: "Leonnardo Raucci", time: null, date: null },
       { driver: "Luis Gomes", time: null, date: null },
       { driver: "Hugo Seixas", time: null, date: null }
     ]
