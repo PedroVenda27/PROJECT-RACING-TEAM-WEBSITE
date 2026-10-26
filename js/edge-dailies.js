@@ -8,13 +8,14 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-10-26",
-  updatedAt: "2026-10-26T11:46:00+00:00",
+  updatedAt: "2026-10-26T11:57:00+00:00",
   races: [
     {"type":"A","id":681,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Nissan Fairlady Z (Z34) '08","tyres":"SH","lead":95198,"leader":"holl01","players":1906,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-a-sugo-international-racing-course/681"},
     {"type":"B","id":682,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"Willow Springs International Raceway — Big Willow","car":"Gr.4","tyres":"RH","lead":79178,"leader":"S. Inui","players":3384,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-b-willow-springs-international-raceway-big-willow/682"},
-    {"type":"C","id":683,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Gr.3","tyres":"RM, RS","lead":76383,"leader":"M. Sedziak","players":5612,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-c-sugo-international-racing-course/683"}
+    {"type":"C","id":683,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Gr.3","tyres":"RM, RS","lead":76279,"leader":"J. Veyrunes","players":6378,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-c-sugo-international-racing-course/683"}
   ],
   times: {
+    "FVenda117": {"C":{"ms":80279,"time":"01:20.279","pos":3548,"posPT":28,"car":"Subaru BRZ GT300 '21"}},
     "SemDestino75": {"B":{"ms":81824,"time":"01:21.824","pos":1186,"posPT":14,"car":"Hyundai ELANTRA N TC '24"}}
   }
 };
