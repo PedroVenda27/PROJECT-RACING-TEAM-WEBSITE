@@ -3872,3 +3872,8 @@ a.sponsor-code-btn .sponsor-code-value { font-size: 0.62rem; letter-spacing: 0.0
 .pl-daily-target.ok .pl-daily-sub { color: #4ade80; }
 .pl-dailies-note { margin: 0.7rem 0 2.5rem; }
 @media (max-width: 760px) { .pl-dailies { grid-template-columns: 1fr; } }
+.pl-dailies-head { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem 1.2rem; flex-wrap: wrap; }
+.pl-dailies-head .race-results-title { margin-bottom: 0; }
+.pl-week-select { background: var(--gray-800); color: var(--white); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.5rem 0.8rem; font-family: inherit; font-size: 0.85rem; cursor: pointer; }
+.pl-week-select:hover, .pl-week-select:focus { border-color: var(--yellow); outline: none; }
+.pl-dailies-head + .pl-dailies { margin-top: 1rem; }

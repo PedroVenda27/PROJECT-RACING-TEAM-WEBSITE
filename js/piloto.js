@@ -131,12 +131,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const m = Math.floor(ms / 60000), s = ((ms % 60000) / 1000).toFixed(3).padStart(6, "0");
     return `${m}:${s}`;
   };
+  // Weeks available: the current one plus DAILIES.history (newest first)
+  let dailyWeek = 0; // index into dailyWeeks(); 0 = current week
+  const dailyWeeks = () => DAILIES && DAILIES.races.length
+    ? [{ week: DAILIES.races[0].week, year: DAILIES.races[0].year, races: DAILIES.races, times: DAILIES.times, current: true }, ...(DAILIES.history || [])]
+    : [];
+  const weekRange = w => {
+    const f = s => { const [y, m, dd] = (s || "").slice(0, 10).split("-"); return y ? `${dd}/${m}` : ""; };
+    return w.races.length ? `${f(w.races[0].from)}–${f(w.races[0].to)}` : "";
+  };
   function dailiesSection() {
-    if (!DAILIES || !DAILIES.races.length) return "";
-    const mine = DAILIES.times[d.role] || {};
-    const avg = now && now.delta ? parseFloat(now.delta) : NaN;
-    const r0 = DAILIES.races[0];
-    const cards = DAILIES.races.map(r => {
+    const weeks = dailyWeeks();
+    if (!weeks.length) return "";
+    if (dailyWeek >= weeks.length) dailyWeek = 0;
+    const W = weeks[dailyWeek];
+    const mine = W.times[d.role] || {};
+    // the target only makes sense for the week still running
+    const avg = W.current && now && now.delta ? parseFloat(now.delta) : NaN;
+    const r0 = W.races[0];
+    const picker = `<select class="pl-week-select" id="pl-week-select" aria-label="Escolher semana">${weeks.map((w, i) =>
+      `<option value="${i}"${i === dailyWeek ? " selected" : ""}>Semana ${w.week}${w.current ? " (atual)" : ""} · ${weekRange(w)}</option>`).join("")}</select>`;
+    const cards = W.races.map(r => {
       const me = mine[r.type];
       const target = r.lead && !isNaN(avg) ? Math.round(r.lead * (1 + avg / 100)) : null;
       const myDelta = me && r.lead ? (me.ms / r.lead - 1) * 100 : null;
@@ -155,13 +170,23 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="race-stat-label">Para melhorar o Avg. delta</span>
             <span class="pl-daily-time">&lt; ${fmtLap(target)}</span>
             <span class="pl-daily-sub">${ok ? "✓ Já abaixo do Avg. delta atual" : me ? `Faltam ${((me.ms - target) / 1000).toFixed(3)} s` : `Líder: ${fmtLap(r.lead)} · +${avg.toFixed(2)}%`}</span>
-          </div>` : ""}
+          </div>` : W.current ? "" : `
+          <div class="pl-daily-row pl-daily-target">
+            <span class="race-stat-label">Líder mundial</span>
+            <span class="pl-daily-time">${fmtLap(r.lead)}</span>
+            <span class="pl-daily-sub">${r.leader || ""}${r.players ? ` · ${r.players.toLocaleString("pt-PT")} pilotos` : ""}</span>
+          </div>`}
         </a>`;
     }).join("");
     return `
-    <h3 class="race-results-title">Daily Races <small class="pl-muted">· semana ${r0.week} · última atualização: ${fmtStamp(DAILIES.updatedAt) || fmtDate(DAILIES.updated)}</small></h3>
+    <div class="pl-dailies-head">
+      <h3 class="race-results-title">Daily Races <small class="pl-muted">· ${W.current ? `última atualização: ${fmtStamp(DAILIES.updatedAt) || fmtDate(DAILIES.updated)}` : "semana terminada · resultados finais"}</small></h3>
+      ${picker}
+    </div>
     <div class="pl-dailies">${cards}</div>
-    <p class="pl-muted pl-dailies-note">Tempo-alvo = tempo do líder mundial × (1 + Avg. delta do piloto). Uma volta abaixo deste tempo baixa o Avg. delta.</p>`;
+    <p class="pl-muted pl-dailies-note">${W.current
+      ? "Tempo-alvo = tempo do líder mundial × (1 + Avg. delta do piloto). Uma volta abaixo deste tempo baixa o Avg. delta."
+      : "Tempos finais do piloto nessa semana. Em branco = não correu essa diária."}</p>`;
   }
 
   const stat = (label, value, extra = "") => `
@@ -218,6 +243,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("pl-dr-chart").innerHTML = drChart(drRange);
     }
     if (e.target.closest("#pl-refresh")) refreshDR();
+  });
+
+  // Daily Races week picker (the box is re-rendered, so the listener sits on the box)
+  const dailiesBox = document.getElementById("pl-dailies-box");
+  dailiesBox.addEventListener("change", e => {
+    if (e.target.id !== "pl-week-select") return;
+    dailyWeek = +e.target.value;
+    dailiesBox.innerHTML = dailiesSection();
   });
 
   // "Atualizar": re-loads the saved DG-Edge data (points, DR/SR, Edge Score, rankings,
