@@ -9,20 +9,20 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-10-26",
-  updatedAt: "2026-10-26T20:39:00+00:00",
+  updatedAt: "2026-10-26T21:06:00+00:00",
   races: [
-    {"type":"A","id":681,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Nissan Fairlady Z (Z34) '08","tyres":"SH","lead":94762,"leader":"K. Drumont","players":5951,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-a-sugo-international-racing-course/681"},
-    {"type":"B","id":682,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"Willow Springs International Raceway — Big Willow","car":"Gr.4","tyres":"RH","lead":79141,"leader":"S. Inui","players":8343,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-b-willow-springs-international-raceway-big-willow/682"},
-    {"type":"C","id":683,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Gr.3","tyres":"RM, RS","lead":76089,"leader":"K. Drumont","players":10898,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-c-sugo-international-racing-course/683"}
+    {"type":"A","id":681,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Nissan Fairlady Z (Z34) '08","tyres":"SH","lead":94762,"leader":"K. Drumont","players":6260,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-a-sugo-international-racing-course/681"},
+    {"type":"B","id":682,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"Willow Springs International Raceway — Big Willow","car":"Gr.4","tyres":"RH","lead":79141,"leader":"S. Inui","players":8643,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-b-willow-springs-international-raceway-big-willow/682"},
+    {"type":"C","id":683,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Gr.3","tyres":"RM, RS","lead":76089,"leader":"K. Drumont","players":11143,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-c-sugo-international-racing-course/683"}
   ],
   times: {
-    "mattifroskes": {"B":{"ms":80651,"time":"01:20.651","pos":958,"posPT":17,"car":"Hyundai ELANTRA N TC '24"}},
-    "pandafrass": {"C":{"ms":77492,"time":"01:17.492","pos":539,"posPT":8,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79920,"time":"01:19.920","pos":150,"posPT":3,"car":"Lamborghini Huracán Gr.4"}},
-    "FVenda117": {"C":{"ms":77885,"time":"01:17.885","pos":1074,"posPT":13,"car":"Subaru BRZ GT300 '21"}},
     "Wilson_TheFirst": {"C":{"ms":77389,"time":"01:17.389","pos":209,"posPT":2,"car":"Subaru BRZ GT300 '21"}},
-    "SemDestino75": {"B":{"ms":81003,"time":"01:21.003","pos":1677,"posPT":28,"car":"Hyundai ELANTRA N TC '24"}},
+    "pandafrass": {"C":{"ms":77492,"time":"01:17.492","pos":539,"posPT":8,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79920,"time":"01:19.920","pos":150,"posPT":3,"car":"Lamborghini Huracán Gr.4"}},
+    "mattifroskes": {"B":{"ms":80576,"time":"01:20.576","pos":904,"posPT":17,"car":"Audi TT Cup '16"}},
+    "FVenda117": {"C":{"ms":77885,"time":"01:17.885","pos":1074,"posPT":13,"car":"Subaru BRZ GT300 '21"}},
+    "Pinto_Moreira": {"B":{"ms":80233,"time":"01:20.233","pos":427,"posPT":22,"car":"Audi TT Cup '16"}},
     "LeonnardoYR_": {"C":{"ms":77934,"time":"01:17.934","pos":1352,"posPT":18,"car":"Subaru BRZ GT300 '21"}},
-    "Pinto_Moreira": {"B":{"ms":80438,"time":"01:20.438","pos":624,"posPT":35,"car":"Hyundai ELANTRA N TC '24"}}
+    "SemDestino75": {"B":{"ms":81003,"time":"01:21.003","pos":1677,"posPT":28,"car":"Hyundai ELANTRA N TC '24"}}
   },
   // past weeks, newest first (kept for the week selector on the driver page)
   history: [
