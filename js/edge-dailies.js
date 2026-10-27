@@ -9,20 +9,20 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-10-27",
-  updatedAt: "2026-10-27T01:49:00+00:00",
+  updatedAt: "2026-10-27T14:13:00+00:00",
   races: [
-    {"type":"A","id":681,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Nissan Fairlady Z (Z34) '08","tyres":"SH","lead":94669,"leader":"ニャオハ","players":8038,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-a-sugo-international-racing-course/681"},
-    {"type":"B","id":682,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"Willow Springs International Raceway — Big Willow","car":"Gr.4","tyres":"RH","lead":79137,"leader":"Titus-2","players":14240,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-b-willow-springs-international-raceway-big-willow/682"},
-    {"type":"C","id":683,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Gr.3","tyres":"RM, RS","lead":76089,"leader":"K. Drumont","players":26962,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-c-sugo-international-racing-course/683"}
+    {"type":"A","id":681,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Nissan Fairlady Z (Z34) '08","tyres":"SH","lead":94669,"leader":"ニャオハ","players":8930,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-a-sugo-international-racing-course/681"},
+    {"type":"B","id":682,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"Willow Springs International Raceway — Big Willow","car":"Gr.4","tyres":"RH","lead":79137,"leader":"Titus-2","players":14956,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-b-willow-springs-international-raceway-big-willow/682"},
+    {"type":"C","id":683,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Gr.3","tyres":"RM, RS","lead":76089,"leader":"K. Drumont","players":27593,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-c-sugo-international-racing-course/683"}
   ],
   times: {
-    "Wilson_TheFirst": {"C":{"ms":77389,"time":"01:17.389","pos":209,"posPT":2,"car":"Subaru BRZ GT300 '21"}},
-    "mattifroskes": {"B":{"ms":80576,"time":"01:20.576","pos":904,"posPT":17,"car":"Audi TT Cup '16"}},
-    "SemDestino75": {"B":{"ms":81003,"time":"01:21.003","pos":1677,"posPT":28,"car":"Hyundai ELANTRA N TC '24"}},
-    "pandafrass": {"C":{"ms":77492,"time":"01:17.492","pos":539,"posPT":8,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79920,"time":"01:19.920","pos":150,"posPT":3,"car":"Lamborghini Huracán Gr.4"}},
+    "Wilson_TheFirst": {"C":{"ms":77389,"time":"01:17.389","pos":653,"posPT":10,"car":"Subaru BRZ GT300 '21"}},
     "LeonnardoYR_": {"C":{"ms":77934,"time":"01:17.934","pos":1352,"posPT":18,"car":"Subaru BRZ GT300 '21"}},
-    "FVenda117": {"C":{"ms":77885,"time":"01:17.885","pos":1074,"posPT":13,"car":"Subaru BRZ GT300 '21"}},
-    "Pinto_Moreira": {"B":{"ms":80063,"time":"01:20.063","pos":304,"posPT":18,"car":"Audi TT Cup '16"}}
+    "pandafrass": {"C":{"ms":77492,"time":"01:17.492","pos":718,"posPT":12,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79892,"time":"01:19.892","pos":201,"posPT":3,"car":"Lamborghini Huracán Gr.4"}},
+    "SemDestino75": {"B":{"ms":81003,"time":"01:21.003","pos":1677,"posPT":28,"car":"Hyundai ELANTRA N TC '24"}},
+    "FVenda117": {"C":{"ms":77885,"time":"01:17.885","pos":1842,"posPT":31,"car":"Subaru BRZ GT300 '21"},"B":{"ms":80508,"time":"01:20.508","pos":1142,"posPT":20,"car":"Audi TT Cup '16"}},
+    "Pinto_Moreira": {"B":{"ms":80063,"time":"01:20.063","pos":304,"posPT":18,"car":"Audi TT Cup '16"}},
+    "mattifroskes": {"B":{"ms":80576,"time":"01:20.576","pos":904,"posPT":17,"car":"Audi TT Cup '16"}}
   },
   // past weeks, newest first (kept for the week selector on the driver page)
   history: [
