@@ -48,7 +48,7 @@ const EDGE_DAILIES = {
         "Wilson_TheFirst": {"B":{"ms":93310,"time":"01:33.310","pos":430,"posPT":12,"car":"Nissan GT-R NISMO GT3 '18"}},
         "pandafrass": {"B":{"ms":93590,"time":"01:33.590","pos":888,"posPT":22,"car":"Toyota GR Supra Racing Concept '18"}},
         "LuisHGarcia": {"B":{"ms":95829,"time":"01:35.829","pos":25119,"posPT":462,"car":"BMW M6 GT3 Sprint Model '16"}},
-        "pastorenrabador": {"B":{"ms":94681,"time":"01:34.681","pos":7066,"posPT":136,"car":"Volkswagen Beetle Gr.3"}}
+        "temp-0955713": {"B":{"ms":94681,"time":"01:34.681","pos":7066,"posPT":136,"car":"Volkswagen Beetle Gr.3"}}
       }
     },
     { week: 42, year: 2026,
@@ -69,12 +69,11 @@ const EDGE_DAILIES = {
         "mattifroskes": {"B":{"ms":139037,"time":"02:19.037","pos":4573,"posPT":95,"car":"BMW M6 GT3 Sprint Model '16"},"A":{"ms":89790,"time":"01:29.790","pos":731,"posPT":24,"car":"Gran Turismo Red Bull X2014 Junior"}},
         "RafaelAgostinh44": {"B":{"ms":138725,"time":"02:18.725","pos":2906,"posPT":62,"car":"Jaguar F-type Gr.3"},"A":{"ms":88958,"time":"01:28.958","pos":61,"posPT":3,"car":"Gran Turismo Red Bull X2014 Junior"}},
         "Travincas24": {"B":{"ms":138876,"time":"02:18.876","pos":3634,"posPT":81,"car":"Hyundai Genesis Gr.3"}},
-        "PUPILO_2GA": {"B":{"ms":140909,"time":"02:20.909","pos":24018,"posPT":429,"car":"Hyundai Genesis Gr.3"}},
         "N17_nuno": {"B":{"ms":139717,"time":"02:19.717","pos":9935,"posPT":189,"car":"Hyundai Genesis Gr.3"}},
         "Wilson_TheFirst": {"B":{"ms":138235,"time":"02:18.235","pos":1230,"posPT":20,"car":"BMW M6 GT3 Sprint Model '16"},"A":{"ms":89034,"time":"01:29.034","pos":93,"posPT":5,"car":"Gran Turismo Red Bull X2014 Junior"}},
         "pandafrass": {"C":{"ms":84393,"time":"01:24.393","pos":2113,"posPT":38,"car":"Hyundai ELANTRA N TC '24"},"B":{"ms":138597,"time":"02:18.597","pos":2337,"posPT":47,"car":"Jaguar F-type Gr.3"},"A":{"ms":89316,"time":"01:29.316","pos":215,"posPT":8,"car":"Gran Turismo Red Bull X2014 Junior"}},
         "LuisHGarcia": {"B":{"ms":140350,"time":"02:20.350","pos":16866,"posPT":298,"car":"Hyundai Genesis Gr.3"}},
-        "pastorenrabador": {"B":{"ms":140341,"time":"02:20.341","pos":16780,"posPT":294,"car":"Jaguar F-type Gr.3"},"A":{"ms":89985,"time":"01:29.985","pos":1092,"posPT":32,"car":"Gran Turismo Red Bull X2014 Junior"}}
+        "temp-0955713": {"B":{"ms":140341,"time":"02:20.341","pos":16780,"posPT":294,"car":"Jaguar F-type Gr.3"},"A":{"ms":89985,"time":"01:29.985","pos":1092,"posPT":32,"car":"Gran Turismo Red Bull X2014 Junior"}}
       }
     },
     { week: 41, year: 2026,
@@ -89,9 +88,8 @@ const EDGE_DAILIES = {
         "mattifroskes": {"C":{"ms":105950,"time":"01:45.950","pos":6849,"posPT":146,"car":"Jaguar F-type Gr.3"},"B":{"ms":103527,"time":"01:43.527","pos":1395,"posPT":32,"car":"Hyundai ELANTRA N TC '24"}},
         "RafaelAgostinh44": {"B":{"ms":103314,"time":"01:43.314","pos":860,"posPT":20,"car":"Hyundai ELANTRA N TC '24"}},
         "Travincas24": {"C":{"ms":105757,"time":"01:45.757","pos":5061,"posPT":109,"car":"Jaguar F-type Gr.3"}},
-        "PUPILO_2GA": {"C":{"ms":108587,"time":"01:48.587","pos":38540,"posPT":648,"car":"Jaguar F-type Gr.3"},"B":{"ms":104341,"time":"01:44.341","pos":5590,"posPT":125,"car":"Hyundai ELANTRA N TC '24"}},
         "Wilson_TheFirst": {"C":{"ms":105028,"time":"01:45.028","pos":1028,"posPT":31,"car":"Jaguar F-type Gr.3"},"B":{"ms":103420,"time":"01:43.420","pos":1106,"posPT":24,"car":"Hyundai ELANTRA N TC '24"}},
-        "pastorenrabador": {"B":{"ms":103501,"time":"01:43.501","pos":1333,"posPT":27,"car":"Hyundai ELANTRA N TC '24"}},
+        "temp-0955713": {"B":{"ms":103501,"time":"01:43.501","pos":1333,"posPT":27,"car":"Hyundai ELANTRA N TC '24"}},
         "SemDestino75": {"C":{"ms":106526,"time":"01:46.526","pos":13427,"posPT":265,"car":"Jaguar F-type Gr.3"},"B":{"ms":105417,"time":"01:45.417","pos":15598,"posPT":325,"car":"Hyundai ELANTRA N TC '24"}},
         "laferia777": {"C":{"ms":106972,"time":"01:46.972","pos":19382,"posPT":346,"car":"Jaguar F-type Gr.3"},"B":{"ms":106434,"time":"01:46.434","pos":25728,"posPT":509,"car":"Hyundai ELANTRA N TC '24"}},
         "pandafrass": {"C":{"ms":105410,"time":"01:45.410","pos":2574,"posPT":62,"car":"Jaguar F-type Gr.3"},"B":{"ms":103374,"time":"01:43.374","pos":993,"posPT":23,"car":"Hyundai ELANTRA N TC '24"}}

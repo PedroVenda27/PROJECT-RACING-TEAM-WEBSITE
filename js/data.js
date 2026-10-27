@@ -36,7 +36,7 @@ const SITE_DATA = {
       gtName: "Pandex",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rui Silva/RuiSilva_Laranja.png",
+      image: "images/drivers/Rui Silva/RuiSilva_Preto.png",
       flag: "🇵🇹",
       pilotoComunidadeMes: true
     },
@@ -47,7 +47,7 @@ const SITE_DATA = {
       gtName: "R. Agostinho",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Preto.png",
+      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -57,7 +57,7 @@ const SITE_DATA = {
       gtName: "MattiAzores",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Miguel Cabral/MiguelCabral_Laranja.png",
+      image: "images/drivers/Miguel Cabral/MiguelCabral_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -67,7 +67,7 @@ const SITE_DATA = {
       gtName: "KezwiiK",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Elias Torres/EliasTorres_Preto.png",
+      image: "images/drivers/Elias Torres/EliasTorres_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -77,18 +77,18 @@ const SITE_DATA = {
       gtName: "RTP_Brunocm97",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Laranja.png",
+      image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Preto.png",
       flag: "🇵🇹",
       pilotoMes: true
     },
     {
       name: "João Festas",
       number: "16",
-      role: "pastorenrabador",
+      role: "temp-0955713",
       gtName: "Festas Racing",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/João Festas/JoaoFestas_Preto.png",
+      image: "images/drivers/João Festas/JoaoFestas_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -98,7 +98,7 @@ const SITE_DATA = {
       gtName: "N17",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Nuno Bravo/NunoBravo_Laranja.png",
+      image: "images/drivers/Nuno Bravo/NunoBravo_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -108,7 +108,7 @@ const SITE_DATA = {
       gtName: "Luisikon_TCHT",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Luís Dantas/LuisDantas_Preto.png",
+      image: "images/drivers/Luís Dantas/LuisDantas_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -118,7 +118,7 @@ const SITE_DATA = {
       gtName: "RTP_Travincas24",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Pedro Dias/PedroDias_Laranja.png",
+      image: "images/drivers/Pedro Dias/PedroDias_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -128,7 +128,7 @@ const SITE_DATA = {
       gtName: "Pedro Venda",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Pedro Venda/PedroVenda_Preto.png",
+      image: "images/drivers/Pedro Venda/PedroVenda_Laranja.png",
       flag: "🇵🇹",
       federado: true
     },
@@ -139,7 +139,7 @@ const SITE_DATA = {
       gtName: "S. Marques",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Sérgio Marques/SergioMarques_Laranja.png",
+      image: "images/drivers/Sérgio Marques/SergioMarques_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -149,7 +149,7 @@ const SITE_DATA = {
       gtName: "100maneiraz",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rodrigo Marques/RodrigoMarques_Preto.png",
+      image: "images/drivers/Rodrigo Marques/RodrigoMarques_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -159,7 +159,7 @@ const SITE_DATA = {
       gtName: "LOrD_TrïPeïRo",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Pinto Moreira/PintoMoreira_Laranja.png",
+      image: "images/drivers/Pinto Moreira/PintoMoreira_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -169,17 +169,7 @@ const SITE_DATA = {
       gtName: "Be_Mad_PT",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Bruno Silva/BrunoSilva_Preto.png",
-      flag: "🇵🇹"
-    },
-    {
-      name: "Ricardo Gamito",
-      number: "45",
-      role: "PUPILO_2GA",
-      gtName: "PUPILO",
-      nationality: "Portugal",
-      series: "Gran Turismo 7",
-      image: "images/drivers/Ricardo Gamito/RicardoGamito_Laranja.png",
+      image: "images/drivers/Bruno Silva/BrunoSilva_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -373,7 +363,7 @@ const SITE_DATA = {
     "mattifroskes":     "https://www.gran-turismo.com/pt/gt7/user/mymenu/acfe0a1e-769d-461e-a038-f2e47f57ca4e/profile",
     "KajuNN":           "https://www.gran-turismo.com/gb/gt7/user/mymenu/385ddb6a-5dd5-4473-8b77-c52a5fb82072/profile",
     "BrunoCm1997":      "https://www.gran-turismo.com/gb/gt7/user/mymenu/1c0df5de-6bf8-4579-b75e-93bcac9f2e17/profile",
-    "pastorenrabador":  "https://www.gran-turismo.com/pt/gt7/user/mymenu/5abbf7f3-391f-4b3b-977b-85dddb5c7ac4/profile",
+    "temp-0955713":     "https://www.gran-turismo.com/pt/gt7/user/mymenu/5abbf7f3-391f-4b3b-977b-85dddb5c7ac4/profile",
     "N17_nuno":         "https://www.gran-turismo.com/gb/gt7/user/mymenu/a3777f8b-b06e-4d15-a6d5-0cd2ae9d89a0/profile",
     "Luisikon_TCHT":    "https://www.gran-turismo.com/gb/gt7/user/mymenu/f9f1903b-c8a2-4bc6-a6cc-b394712912dc/profile",
     "Travincas24":      "https://www.gran-turismo.com/pt/gt7/user/mymenu/792aa5ca-2603-4e93-ac13-62816df53a11/profile",
@@ -382,7 +372,6 @@ const SITE_DATA = {
     "granadas10":       "https://www.gran-turismo.com/pt/gt7/user/mymenu/c9e11778-e02d-4eef-9093-7daec5ca1a05/profile",
     "Pinto_Moreira":    "https://www.gran-turismo.com/gb/gt7/user/mymenu/2d896c68-4ef1-4d18-968b-106b8d474d9f/profile",
     "Be_Mad_PT":        "https://www.gran-turismo.com/gb/gt7/user/mymenu/dbee5765-90cd-4a84-867d-4995064e36ef/profile",
-    "PUPILO_2GA":       "https://www.gran-turismo.com/gb/gt7/user/mymenu/a8070d34-ae5b-49b2-84e7-870d7226c913/profile",
     "SemDestino75":     "https://www.gran-turismo.com/pt/gt7/user/mymenu/a4d2d4d0-937a-4992-b97d-ab2384cf2c40/profile",
     "Wilson_TheFirst":  "https://www.gran-turismo.com/pt/gt7/user/mymenu/3f58b62d-2d23-4f15-9506-df3efe9e9b91/profile",
     "LeonnardoYR_":     "https://www.gran-turismo.com/gb/gt7/user/mymenu/936be38f-a657-480b-a821-350c53f8faa9/profile",
@@ -412,7 +401,6 @@ const SITE_DATA = {
       { driver: "Rodrigo Marques", time: null, date: null },
       { driver: "Pinto Moreira", time: null, date: null },
       { driver: "Bruno Silva", time: null, date: null },
-      { driver: "Ricardo Gamito", time: null, date: null },
       { driver: "Luís Garcia", time: null, date: null },
       { driver: "Hugo Costa", time: null, date: null },
       { driver: "Miguel Cabral", time: null, date: null },
