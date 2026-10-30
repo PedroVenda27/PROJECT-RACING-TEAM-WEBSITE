@@ -757,12 +757,11 @@ document.addEventListener("DOMContentLoaded", () => {
         : `<span class="fc-st-tyre${changed ? "" : " is-kept"}"><i class="fc-tyre-dot ${st.tyre}"></i>${changed ? tyreLabel(st.tyre) : `mantém ${tyreLabel(st.tyre)}`}</span>`;
       // compact rows: [when] [tyres] [fuel] [time] — then the stint that follows
       const row = (title, when, st, tyres, fuel, time) => `
-        <div class="fc-stop${title === "Partida" ? " is-start" : ""}">
-          <div class="fc-stop-when"><strong>${title}</strong><span>${when}</span></div>
+        <div class="fc-stop${title === "Partida" ? " is-start" : ""}${withTyres ? "" : " no-tyres"}">
+          <div class="fc-stop-when"><strong>${title}</strong><span>${when}</span><em>stint de ${st.laps} ${st.laps === 1 ? "volta" : "voltas"}</em></div>
           ${withTyres ? `<div class="fc-stop-tyre">${tyres}</div>` : ""}
           <div class="fc-stop-fuel">${fuel}</div>
           ${withTyres ? `<div class="fc-stop-time">${time}</div>` : ""}
-          <div class="fc-stop-stint">stint de ${st.laps} ${st.laps === 1 ? "volta" : "voltas"}</div>
         </div>`;
       const rows = [row("Partida", "volta 0", stints[0], tyreCell(stints[0], true), `<span class="fc-st-none">depósito cheio</span>`, "")];
       for (let i = 1; i < stints.length; i++) {
@@ -859,6 +858,39 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>${strategy === "custom" ? "Estratégia personalizada" : "Estratégia automática"}</span>
         </div>
       </div>`;
+    // cards: track · car · race data (with each tyre's life and lap time)
+    const tyres = TYRES.map(([k, label]) => ({ k, label, life: $(`fc-tyre-${k}-life`).value.trim(), lap: $(`fc-tyre-${k}-time`).value.trim() }))
+      .filter(x => x.life || x.lap);
+    const pits = [["Só paragem", "fc-pit-stop"], ["Com pneus", "fc-pit-tyres"], ["Pneus + comb.", "fc-pit-both"]]
+      .map(([l, id]) => [l, $(id).value.trim()]).filter(([, v]) => v);
+    const cards = document.createElement("div");
+    cards.className = "fc-ex-cards";
+    cards.innerHTML = `
+      ${t ? `<div class="fc-ex-card">
+        <span class="fc-ex-label">Pista</span>
+        <div class="fc-ex-row">${FLAG[t.country] ? `<img src="https://flagcdn.com/w40/${FLAG[t.country]}.png" alt="" class="fc-ex-flag" crossorigin="anonymous" />` : ""}<strong>${t.name}</strong></div>
+        <span class="fc-ex-small">${t.country} · ${fmtNum(t.length / 1000, 3)} km · ${t.corners} curvas</span>
+      </div>` : ""}
+      ${c ? `<div class="fc-ex-card fc-ex-car">
+        ${c.thumbnail ? `<img src="${c.thumbnail}" alt="" class="fc-ex-carimg" />` : ""}
+        <div>
+          <span class="fc-ex-label">Carro · ${groupLabel(c.group)}</span>
+          <strong>${c.name}</strong>
+          <span class="fc-ex-small">${c.manufacturer}</span>
+        </div>
+      </div>` : ""}
+      <div class="fc-ex-card">
+        <span class="fc-ex-label">Dados da corrida</span>
+        <div class="fc-ex-kv"><span>Consumo por volta</span><strong>${$("fc-perlap").value}</strong></div>
+        <div class="fc-ex-kv"><span>Depósito</span><strong>${$("fc-tank").value}</strong></div>
+        <div class="fc-ex-kv"><span>Reserva</span><strong>${$("fc-reserve").value} v</strong></div>
+        ${pits.map(([l, v]) => `<div class="fc-ex-kv"><span>${l}</span><strong>${v} s</strong></div>`).join("")}
+      </div>
+      ${tyres.length ? `<div class="fc-ex-card">
+        <span class="fc-ex-label">Pneus</span>
+        ${tyres.map(x => `<div class="fc-ex-kv"><span><i class="fc-tyre-dot ${x.k}"></i>${x.label}</span><strong>${x.life ? `${x.life} v` : "—"} · ${x.lap || "—"}</strong></div>`).join("")}
+      </div>` : ""}`;
+    sheet.appendChild(cards);
     const keep = el => { if (el && !el.hidden) sheet.appendChild(el.cloneNode(true)); };
     keep($("fc-timeline"));
     keep($("fc-total"));
@@ -869,6 +901,14 @@ document.addEventListener("DOMContentLoaded", () => {
     foot.className = "fc-ex-foot";
     foot.textContent = `RTP Racing Team Project · racingteamproject.eu · ${today}`;
     sheet.appendChild(foot);
+    // tyre rings drawn with CSS borders render too high in html2canvas: use a coloured glyph
+    const DOT = { soft: "#e53935", medium: "#fdd835", hard: "#f5f5f5" };
+    sheet.querySelectorAll(".fc-tyre-dot").forEach(dot => {
+      const k = ["soft", "medium", "hard"].find(x => dot.classList.contains(x));
+      const g = document.createElement("span");
+      g.className = "fc-ex-dot"; g.textContent = "◉"; g.style.color = DOT[k] || "#fff";
+      dot.replaceWith(g);
+    });
     // opened straight from the disk (file://): local pictures would block the
     // export, so the logo becomes text there (on the website it stays an image)
     if (location.protocol === "file:") {
