@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://racingteamproject.eu/images/WALPAPER_RTP1.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>Calculadora de Combustível — RTP Racing Team Project</title>
-  <link rel="stylesheet" href="css/styles.css?v=20261027a" />
+  <link rel="stylesheet" href="css/styles.css?v=20261030x" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -110,8 +110,8 @@
           </div>
 
           <div class="fc-field" data-show="time" hidden>
-            <label class="fc-label" for="fc-laptime">Tempo médio por volta <small>Formato m:ss.sss — ex. 1:42.350</small></label>
-            <input type="text" id="fc-laptime" value="1:42.000" inputmode="decimal" />
+            <label class="fc-label" for="fc-laptime">Tempo médio por volta <small>Opcional — se ficar vazio, usa o tempo do pneu mais rápido</small></label>
+            <input type="text" id="fc-laptime" placeholder="1:42.350 (opcional)" inputmode="decimal" />
           </div>
 
           <div class="fc-field">
@@ -146,6 +146,47 @@
               <button type="button" data-v="0.1">0.1</button><button type="button" data-v="0.5">0.5</button><button type="button" data-v="1">1</button>
             </div>
             <input type="number" id="fc-step" min="0" step="0.1" value="0.1" inputmode="decimal" />
+          </div>
+
+          <div class="fc-field fc-tyres-field">
+            <span class="fc-label">Pneus <small>Duração (voltas) e tempo por volta de cada composto — deixa em branco os que não usas</small></span>
+            <div class="fc-tyres" id="fc-tyres">
+              <div class="fc-tyre-head"><span></span><span>Duração</span><span>Tempo por volta</span></div>
+              <div class="fc-tyre" data-tyre="soft">
+                <span class="fc-tyre-name"><i class="fc-tyre-dot soft"></i>Soft</span>
+                <input type="text" id="fc-tyre-soft-life" placeholder="voltas" inputmode="numeric" aria-label="Duração do pneu soft em voltas" />
+                <input type="text" id="fc-tyre-soft-time" placeholder="1:40.500" inputmode="decimal" aria-label="Tempo por volta com pneu soft" />
+              </div>
+              <div class="fc-tyre" data-tyre="medium">
+                <span class="fc-tyre-name"><i class="fc-tyre-dot medium"></i>Médio</span>
+                <input type="text" id="fc-tyre-medium-life" placeholder="voltas" inputmode="numeric" aria-label="Duração do pneu médio em voltas" />
+                <input type="text" id="fc-tyre-medium-time" placeholder="1:41.200" inputmode="decimal" aria-label="Tempo por volta com pneu médio" />
+              </div>
+              <div class="fc-tyre" data-tyre="hard">
+                <span class="fc-tyre-name"><i class="fc-tyre-dot hard"></i>Hard</span>
+                <input type="text" id="fc-tyre-hard-life" placeholder="voltas" inputmode="numeric" aria-label="Duração do pneu hard em voltas" />
+                <input type="text" id="fc-tyre-hard-time" placeholder="1:42.000" inputmode="decimal" aria-label="Tempo por volta com pneu hard" />
+              </div>
+            </div>
+            <p class="fc-tyre-max" id="fc-tyre-max" hidden></p>
+            <label class="fc-check">
+              <input type="checkbox" id="fc-tyre-mand" />
+              <span>Pneus obrigatórios <small>O regulamento obriga a usar um composto — não é preciso um stint inteiro, basta calçá-lo uma volta.</small></span>
+            </label>
+            <div class="fc-tyre-mand-opts" id="fc-tyre-mand-opts" hidden>
+              <label><input type="checkbox" id="fc-tyre-mand-soft" /><i class="fc-tyre-dot soft"></i>Soft</label>
+              <label><input type="checkbox" id="fc-tyre-mand-medium" /><i class="fc-tyre-dot medium"></i>Médio</label>
+              <label><input type="checkbox" id="fc-tyre-mand-hard" /><i class="fc-tyre-dot hard"></i>Hard</label>
+            </div>
+            <span class="fc-label fc-pit-title">Tempo perdido por paragem <small>Segundos desde a entrada até à saída das boxes</small></span>
+            <div class="fc-pits">
+              <label class="fc-pit-box"><span>Só paragem <small>sem trocar pneus</small></span>
+                <input type="text" id="fc-pit-stop" placeholder="ex. 25.5" inputmode="decimal" aria-label="Tempo perdido numa paragem sem trocar pneus" /></label>
+              <label class="fc-pit-box"><span>Com pneus <small>só troca de pneus</small></span>
+                <input type="text" id="fc-pit-tyres" placeholder="ex. 25.5" inputmode="decimal" aria-label="Tempo perdido numa paragem com troca de pneus" /></label>
+              <label class="fc-pit-box"><span>Pneus + combustível <small>troca e abastece</small></span>
+                <input type="text" id="fc-pit-both" placeholder="ex. 25.5" inputmode="decimal" aria-label="Tempo perdido numa paragem com pneus e combustível" /></label>
+            </div>
           </div>
 
           <div class="fc-field fc-mandatory">
@@ -185,10 +226,23 @@
                 <button type="button" class="active" data-strategy="auto">Automática</button>
                 <button type="button" data-strategy="custom">Personalizada</button>
               </div>
+              <select class="fc-strategy-tyre" id="fc-strategy-tyre" aria-label="Pneu da estratégia" hidden>
+                <option value="auto">Pneus: o melhor</option>
+                <option value="soft">Pneus: Soft</option>
+                <option value="medium">Pneus: Médio</option>
+                <option value="hard">Pneus: Hard</option>
+                <option value="none">Sem pneus</option>
+              </select>
             </div>
             <div class="fc-timeline" id="fc-timeline"></div>
+            <p class="fc-drag-hint" id="fc-drag-hint" hidden>↔ Arrasta um stint para outro lugar para mudar a ordem</p>
+            <div class="fc-total" id="fc-total" hidden></div>
             <div class="fc-custom" id="fc-custom" hidden></div>
             <div class="fc-plan" id="fc-plan"></div>
+          </div>
+          <div class="cal-block fc-tyre-result" id="fc-tyre-result" hidden>
+            <span class="fc-result-label">Pneus</span>
+            <div id="fc-tyre-table"></div>
           </div>
         </aside>
       </div>
@@ -259,11 +313,11 @@
     </div>
   </footer>
 
-  <script src="js/data.js?v=20261027a"></script>
-  <script src="js/lang.js?v=20261027a"></script>
-  <script src="js/main.js?v=20261027a"></script>
-  <script src="js/garage-data.js?v=20261027a"></script>
+  <script src="js/data.js?v=20261030x"></script>
+  <script src="js/lang.js?v=20261030x"></script>
+  <script src="js/main.js?v=20261030x"></script>
+  <script src="js/garage-data.js?v=20261030x"></script>
   <script src="js/gt7-tracks.js"></script>
-  <script src="js/fuel-calculator.js?v=20261027a"></script>
+  <script src="js/fuel-calculator.js?v=20261030x"></script>
 </body>
 </html>
