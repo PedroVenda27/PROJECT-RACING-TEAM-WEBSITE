@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "Indica a duração, o consumo e o tempo por volta (médio ou de um pneu).";
       ["fc-laps-out", "fc-race-fuel", "fc-range", "fc-refuel"].forEach(id => $(id).textContent = "—");
       $("fc-laps-note").textContent = ""; $("fc-distance").textContent = "";
-      $("fc-timeline").innerHTML = ""; $("fc-total").hidden = true;
+      $("fc-timeline").innerHTML = ""; $("fc-total").hidden = true; $("fc-export-btns").hidden = true;
       $("fc-plan").innerHTML = "";
       renderTyres(0, 0);
       $("fc-strategy-tyre").hidden = true;
@@ -681,7 +681,7 @@ document.addEventListener("DOMContentLoaded", () => {
       $("fc-load").textContent = "—";
       $("fc-load-sub").textContent = "O depósito não chega para a reserva e a volta de formação.";
       $("fc-refuel").textContent = "—";
-      $("fc-timeline").innerHTML = ""; $("fc-total").hidden = true;
+      $("fc-timeline").innerHTML = ""; $("fc-total").hidden = true; $("fc-export-btns").hidden = true;
       $("fc-plan").innerHTML = `<p class="fc-plan-warn">Aumenta a capacidade do depósito ou reduz a reserva.</p>`;
       return;
     }
@@ -778,6 +778,7 @@ document.addEventListener("DOMContentLoaded", () => {
       plan += `<p class="fc-plan-note">Estimativa: ${withTyres ? "usa a duração e os tempos por volta dos pneus que escreveste" : "preenche os pneus para a estratégia incluir as trocas"}; o clima e o desgaste real podem mudar a melhor opção.</p>`;
     }
     $("fc-plan").innerHTML = plan;
+    $("fc-export-btns").hidden = false;
 
     /* Total of the proposed strategy: time on track (laps × each stint's
        tyre lap time) + time in the pits. Timed races: laps done instead. */
@@ -823,6 +824,103 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
+  /* ── Export the strategy as an image (PNG) or PDF ──
+     Builds a clean sheet (header with track / car / race, the timeline, the
+     total and the stops) off-screen, renders it with html2canvas and, for the
+     PDF, puts that image on an A4 page with jsPDF. Both libraries are only
+     loaded the first time someone exports. */
+  const loadScript = src => new Promise((res, rej) => {
+    if (document.querySelector(`script[src="${src}"]`)) return res();
+    const s = document.createElement("script");
+    s.src = src; s.onload = res; s.onerror = () => rej(new Error("load " + src));
+    document.head.appendChild(s);
+  });
+  const H2C = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+  const JSPDF = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+  const slug = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase();
+
+  function buildExportSheet() {
+    const t = selectedTrack(), c = selectedCar();
+    const race = mode === "laps" ? `${$("fc-laps").value} voltas` : `${num("fc-duration")} min`;
+    const today = new Date().toLocaleDateString("pt-PT");
+    const sheet = document.createElement("div");
+    sheet.className = "fc-export-sheet";
+    sheet.innerHTML = `
+      <div class="fc-ex-head">
+        <img src="images/RTP_LOGO.png" alt="RTP" />
+        <div>
+          <div class="fc-ex-title">Estratégia de corrida</div>
+          <div class="fc-ex-sub">${[t && t.name, c && c.name].filter(Boolean).join(" · ") || "Gran Turismo 7"}</div>
+        </div>
+        <div class="fc-ex-meta">
+          <span>${race}</span>
+          <span>Consumo ${$("fc-perlap").value}/volta · depósito ${$("fc-tank").value}</span>
+          <span>${strategy === "custom" ? "Estratégia personalizada" : "Estratégia automática"}</span>
+        </div>
+      </div>`;
+    const keep = el => { if (el && !el.hidden) sheet.appendChild(el.cloneNode(true)); };
+    keep($("fc-timeline"));
+    keep($("fc-total"));
+    const plan = $("fc-plan").cloneNode(true);
+    plan.querySelectorAll(".fc-plan-note").forEach(n => n.remove());
+    sheet.appendChild(plan);
+    const foot = document.createElement("div");
+    foot.className = "fc-ex-foot";
+    foot.textContent = `RTP Racing Team Project · racingteamproject.eu · ${today}`;
+    sheet.appendChild(foot);
+    // opened straight from the disk (file://): local pictures would block the
+    // export, so the logo becomes text there (on the website it stays an image)
+    if (location.protocol === "file:") {
+      sheet.querySelectorAll("img").forEach(img => {
+        const s = document.createElement("span");
+        s.className = "fc-ex-logo-txt"; s.textContent = "RTP";
+        img.replaceWith(s);
+      });
+    }
+    document.body.appendChild(sheet);
+    return { sheet, name: `estrategia-rtp-${slug(t ? t.name : "corrida")}-${today.replace(/\//g, "-")}` };
+  }
+
+  $("fc-export-btns").addEventListener("click", async e => {
+    const btn = e.target.closest("[data-export]");
+    if (!btn) return;
+    const kind = btn.dataset.export, label = btn.textContent;
+    btn.disabled = true; btn.textContent = "A preparar…";
+    let sheet;
+    try {
+      await loadScript(H2C);
+      if (kind === "pdf") await loadScript(JSPDF);
+      const built = buildExportSheet(); sheet = built.sheet;
+      const canvas = await window.html2canvas(sheet, { backgroundColor: "#0f0f10", scale: 2, useCORS: true, logging: false });
+      if (kind === "png") {
+        const a = document.createElement("a");
+        a.download = built.name + ".png";
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+      } else {
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({ orientation: canvas.width > canvas.height ? "landscape" : "portrait", unit: "mm", format: "a4" });
+        const pw = pdf.internal.pageSize.getWidth(), ph = pdf.internal.pageSize.getHeight(), m = 8;
+        const ratio = Math.min((pw - 2 * m) / canvas.width, (ph - 2 * m) / canvas.height);
+        const w = canvas.width * ratio, h = canvas.height * ratio;
+        pdf.setFillColor(15, 15, 16); pdf.rect(0, 0, pw, ph, "F");
+        pdf.addImage(canvas.toDataURL("image/jpeg", 0.95), "JPEG", (pw - w) / 2, m, w, h);
+        pdf.save(built.name + ".pdf");
+      }
+    } catch (err) {
+      console.error("Exportar estratégia:", err);
+      const why = /^load /.test(err.message)
+        ? "Não consegui carregar a ferramenta de exportação (cdnjs.cloudflare.com). Verifica a internet ou se um antivírus / bloqueador está a bloquear esse site."
+        : /taint|insecure|SecurityError/i.test(String(err.message) + err.name)
+          ? "O browser bloqueou a criação da imagem por segurança. Abre a calculadora no site (racingteamproject.eu/calculadora.html) em vez do ficheiro no PC."
+          : "Erro: " + err.message;
+      alert("Não foi possível exportar.\n\n" + why);
+    } finally {
+      if (sheet) sheet.remove();
+      btn.disabled = false; btn.textContent = label;
+    }
+  });
 
   form.addEventListener("input", calc);
   form.addEventListener("change", calc);
