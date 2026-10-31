@@ -9,7 +9,7 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-10-31",
-  updatedAt: "2026-10-31T00:44:00+00:00",
+  updatedAt: "2026-10-31T01:09:00+00:00",
   races: [
     {"type":"A","id":681,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Nissan Fairlady Z (Z34) '08","tyres":"SH","lead":94466,"leader":"AT__1826","players":20251,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-a-sugo-international-racing-course/681"},
     {"type":"B","id":682,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"Willow Springs International Raceway — Big Willow","car":"Gr.4","tyres":"RH","lead":78911,"leader":"L. Pobric","players":32725,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-b-willow-springs-international-raceway-big-willow/682"},
