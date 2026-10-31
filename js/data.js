@@ -1073,7 +1073,7 @@ const SITE_DATA = {
           { name: "Josean-Dias",      ref: "Josean Dias",          car: "650S GT3 '15",         time: "DNF",         bestLap: "1:33.489" },
           { name: "ieieduda",         ref: "Jose Costa",           car: "296 GT3 '23",          time: "DNF",         bestLap: "1:33.277" }
         ] },
-        { short: "R4", name: "Ronda 4 · 24 Heures du Mans (Le Mans)", date: "31/OUT" }
+        { short: "R4", name: "Ronda 4 · Daytona Road Course", date: "31/OUT" }
       ],
       drivers: [
         { name: "Victor Machado",       driverRef: "Victor Machado",       tag: "LET",   number: 5,   cls: "GR1", car: "M Hybrid V8 '25",            team: "LIGA ENDURANCE Racing Team",  wins: 2, podiums: 2, points: 310 },
