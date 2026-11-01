@@ -9,25 +9,25 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-01",
-  updatedAt: "2026-11-01T18:10:00+00:00",
+  updatedAt: "2026-11-01T19:06:00+00:00",
   races: [
-    {"type":"A","id":681,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Nissan Fairlady Z (Z34) '08","tyres":"SH","lead":94466,"leader":"AT__1826","players":26165,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-a-sugo-international-racing-course/681"},
-    {"type":"B","id":682,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"Willow Springs International Raceway — Big Willow","car":"Gr.4","tyres":"RH","lead":78825,"leader":"RTR_Nyjah","players":41059,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-b-willow-springs-international-raceway-big-willow/682"},
-    {"type":"C","id":683,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Gr.3","tyres":"RM, RS","lead":75972,"leader":"K. Drumont","players":67080,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-c-sugo-international-racing-course/683"}
+    {"type":"A","id":681,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Nissan Fairlady Z (Z34) '08","tyres":"SH","lead":94466,"leader":"AT__1826","players":26185,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-a-sugo-international-racing-course/681"},
+    {"type":"B","id":682,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"Willow Springs International Raceway — Big Willow","car":"Gr.4","tyres":"RH","lead":78825,"leader":"RTR_Nyjah","players":41071,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-b-willow-springs-international-raceway-big-willow/682"},
+    {"type":"C","id":683,"week":44,"year":2026,"from":"2026-10-26 08:00:00","to":"2026-11-02 07:59:59","track":"SUGO International Racing Course","car":"Gr.3","tyres":"RM, RS","lead":75972,"leader":"K. Drumont","players":67087,"url":"https://www.dg-edge.com/events/dailies/week-44-2026-race-c-sugo-international-racing-course/683"}
   ],
   times: {
-    "Wilson_TheFirst": {"C":{"ms":77124,"time":"01:17.124","pos":791,"posPT":12,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79494,"time":"01:19.494","pos":241,"posPT":7,"car":"Audi TT Cup '16"}},
+    "pandafrass": {"C":{"ms":77413,"time":"01:17.413","pos":1803,"posPT":28,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79696,"time":"01:19.696","pos":546,"posPT":16,"car":"Lamborghini Huracán Gr.4"}},
+    "mattifroskes": {"B":{"ms":79596,"time":"01:19.596","pos":365,"posPT":13,"car":"Audi TT Cup '16"}},
     "BrunoCm1997": {"B":{"ms":79341,"time":"01:19.341","pos":115,"posPT":3,"car":"Audi TT Cup '16"}},
     "Caceteira_RTP": {"B":{"ms":79442,"time":"01:19.442","pos":193,"posPT":5,"car":"Audi TT Cup '16"}},
-    "LeonnardoYR_": {"C":{"ms":77934,"time":"01:17.934","pos":5394,"posPT":82,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79570,"time":"01:19.570","pos":330,"posPT":10,"car":"Audi TT Cup '16"}},
-    "pandafrass": {"C":{"ms":77413,"time":"01:17.413","pos":1767,"posPT":28,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79696,"time":"01:19.696","pos":536,"posPT":16,"car":"Lamborghini Huracán Gr.4"}},
-    "mattifroskes": {"B":{"ms":79596,"time":"01:19.596","pos":365,"posPT":13,"car":"Audi TT Cup '16"}},
-    "granadas10": {"C":{"ms":78039,"time":"01:18.039","pos":6365,"posPT":104,"car":"Subaru BRZ GT300 '21"}},
-    "LuisHGarcia": {"B":{"ms":80602,"time":"01:20.602","pos":4036,"posPT":78,"car":"Audi TT Cup '16"}},
-    "laferia777": {"C":{"ms":78908,"time":"01:18.908","pos":17468,"posPT":266,"car":"Subaru BRZ GT300 '21"},"B":{"ms":81584,"time":"01:21.584","pos":11723,"posPT":204,"car":"Audi TT Cup '16"}},
     "FVenda117": {"C":{"ms":77885,"time":"01:17.885","pos":5095,"posPT":81,"car":"Subaru BRZ GT300 '21"},"B":{"ms":80116,"time":"01:20.116","pos":1699,"posPT":29,"car":"Audi TT Cup '16"}},
+    "LeonnardoYR_": {"C":{"ms":77934,"time":"01:17.934","pos":5394,"posPT":82,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79570,"time":"01:19.570","pos":330,"posPT":10,"car":"Audi TT Cup '16"}},
     "Pinto_Moreira": {"B":{"ms":79704,"time":"01:19.704","pos":548,"posPT":25,"car":"Audi TT Cup '16"}},
-    "SemDestino75": {"C":{"ms":78880,"time":"01:18.880","pos":17037,"posPT":261,"car":"BMW M6 GT3 Sprint Model '16"},"B":{"ms":80706,"time":"01:20.706","pos":4717,"posPT":89,"car":"Audi TT Cup '16"}}
+    "Wilson_TheFirst": {"C":{"ms":77124,"time":"01:17.124","pos":791,"posPT":12,"car":"Subaru BRZ GT300 '21"},"B":{"ms":79494,"time":"01:19.494","pos":241,"posPT":7,"car":"Audi TT Cup '16"}},
+    "laferia777": {"C":{"ms":78908,"time":"01:18.908","pos":17468,"posPT":266,"car":"Subaru BRZ GT300 '21"},"B":{"ms":81584,"time":"01:21.584","pos":11723,"posPT":204,"car":"Audi TT Cup '16"}},
+    "LuisHGarcia": {"B":{"ms":80602,"time":"01:20.602","pos":4036,"posPT":78,"car":"Audi TT Cup '16"}},
+    "SemDestino75": {"C":{"ms":78880,"time":"01:18.880","pos":17037,"posPT":261,"car":"BMW M6 GT3 Sprint Model '16"},"B":{"ms":80706,"time":"01:20.706","pos":4717,"posPT":89,"car":"Audi TT Cup '16"}},
+    "granadas10": {"C":{"ms":78039,"time":"01:18.039","pos":6365,"posPT":104,"car":"Subaru BRZ GT300 '21"}}
   },
   history: [
     { week: 43, year: 2026,
