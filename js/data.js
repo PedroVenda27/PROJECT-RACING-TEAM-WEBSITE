@@ -264,21 +264,21 @@ const SITE_DATA = {
       name: "Street Car Pitbox Cup II",
       platform: "GT7",
       description: "Taça de carros de estrada de Gran Turismo 7 organizada pela Pitbox, com 8 corridas em circuitos clássicos.",
-      logo: "images/pitbox-logo.png",
+      logo: "images/PITBOX_TEAM_LOGO.png",
       url: "calendar.html#street-car-pitbox-cup"
     },
     {
       name: "Pitbox Endurance",
       platform: "GT7",
       description: "Campeonato de resistência da Pitbox com 6 rondas, de Spa a Le Mans. A RTP corre na Sala B com Wilson Barreto e Rafael Agostinho.",
-      logo: "images/pitbox-logo.png",
+      logo: "images/PITBOX_TEAM_LOGO.png",
       url: "calendar.html#pitbox-endurance"
     },
     {
       name: "Pitbox Kart Cup",
       platform: "GT7",
       description: "Taça de karts da Pitbox com o Gran Turismo Racing Kart 125 Shifter: 4 corridas em 2 noites, em Kyoto, Eiger, Lago Maggiore e Nürburgring.",
-      logo: "images/pitbox-logo.png",
+      logo: "images/PITBOX_TEAM_LOGO.png",
       url: "calendar.html#pitbox-kart-cup"
     },
     {
@@ -1157,7 +1157,7 @@ const SITE_DATA = {
       competition: "pitboxend",
       title: "Pitbox Endurance — Sala B",
       subtitle: "Gran Turismo 7 · Competição Externa · Após Ronda 1 · Grupo A: Gr.1 nas R1–R3 e Gr.3 nas R4–R6 · Grupo B: ao contrário · R1: volta mais rápida (+1) Mira e Ricardinho · −10 pts (decalque) a Saraiva, Mira e Barreto",
-      logo: "images/pitbox-logo.png",
+      logo: "images/PITBOX_TEAM_LOGO.png",
       type: "drivers",
       nullLabel: "—",
       roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6"],
@@ -1192,7 +1192,7 @@ const SITE_DATA = {
       competition: "pitbox",
       title: "Street Car Pitbox Cup II",
       subtitle: "Gran Turismo 7 · Taça de carros de estrada · Competição Externa · Classificação Final",
-      logo: "images/pitbox-logo.png",
+      logo: "images/PITBOX_TEAM_LOGO.png",
       type: "drivers",
       nullLabel: "NC",
       raceLegend: '<span class="race-badge badge-pole">P</span> Pole Position (+2 pontos) &nbsp;·&nbsp; <span class="race-badge badge-fl">VR</span> Volta Mais Rápida (+1 ponto) &nbsp;·&nbsp; NC = Não Classificado',
