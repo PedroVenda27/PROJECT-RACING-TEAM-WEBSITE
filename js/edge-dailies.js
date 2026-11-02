@@ -9,17 +9,17 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-02",
-  updatedAt: "2026-11-02T16:09:00+00:00",
+  updatedAt: "2026-11-02T17:07:00+00:00",
   races: [
-    {"type":"A","id":689,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Dragon Trail — Gardens","car":"Chevrolet Corvette Convertible (C3) '69","tyres":"CS","lead":112105,"leader":"holl01","players":2962,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-a-dragon-trail-gardens/689"},
-    {"type":"B","id":690,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Grand Valley — Highway 1","car":"Gr.3","tyres":"RM","lead":106854,"leader":"Calster","players":7792,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-b-grand-valley-highway-1/690"},
+    {"type":"A","id":689,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Dragon Trail — Gardens","car":"Chevrolet Corvette Convertible (C3) '69","tyres":"CS","lead":112105,"leader":"holl01","players":3437,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-a-dragon-trail-gardens/689"},
+    {"type":"B","id":690,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Grand Valley — Highway 1","car":"Gr.3","tyres":"RM","lead":106758,"leader":"K. Drumont","players":8374,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-b-grand-valley-highway-1/690"},
     {"type":"C","id":691,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Watkins Glen International — Long Course","car":"Gr.4","tyres":"RH, RM","lead":114018,"leader":"S. Inui","players":7067,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-c-watkins-glen-international-long-course/691"}
   ],
   times: {
-    "FVenda117": {"C":{"ms":116106,"time":"01:56.106","pos":712,"posPT":17,"car":"Audi TT Cup '16"}},
     "pandafrass": {"C":{"ms":114922,"time":"01:54.922","pos":166,"posPT":8,"car":"Audi TT Cup '16"},"B":{"ms":108948,"time":"01:48.948","pos":697,"posPT":9,"car":"Mitsubishi Lancer Evolution Final Gr.3"}},
     "KajuNN": {"C":{"ms":114495,"time":"01:54.495","pos":38,"posPT":3,"car":"Audi TT Cup '16"},"B":{"ms":108121,"time":"01:48.121","pos":214,"posPT":2,"car":"Mitsubishi Lancer Evolution Final Gr.3"}},
-    "Wilson_TheFirst": {"B":{"ms":107945,"time":"01:47.945","pos":132,"posPT":1,"car":"BMW M3 GT '11"}},
+    "FVenda117": {"C":{"ms":116106,"time":"01:56.106","pos":1124,"posPT":27,"car":"Audi TT Cup '16"}},
+    "Wilson_TheFirst": {"B":{"ms":107945,"time":"01:47.945","pos":169,"posPT":1,"car":"BMW M3 GT '11"}},
     "SemDestino75": {"B":{"ms":110767,"time":"01:50.767","pos":2745,"posPT":25,"car":"Mitsubishi Lancer Evolution Final Gr.3"}}
   },
   history: [
