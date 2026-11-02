@@ -71,7 +71,7 @@ const TRANSLATIONS = {
     "footer.desc":          "A competitive sim racing team dedicated to pushing the boundaries of virtual motorsport across multiple platforms worldwide.",
     "footer.links":         "Quick Links",
     "footer.follow":        "Follow Us",
-    "footer.copy":          "RTP Racing Team Project. All rights reserved.",
+    "footer.copy":          "RTP - Racing Team Project. All rights reserved.",
     "footer.tagline":       "Competitive sim racing at its finest.",
 
     // Garage page
@@ -192,7 +192,7 @@ const TRANSLATIONS = {
     "footer.desc":          "Uma equipa competitiva de sim racing dedicada a ultrapassar os limites do desporto motorizado virtual em m\u00FAltiplas plataformas em todo o mundo.",
     "footer.links":         "Links R\u00E1pidos",
     "footer.follow":        "Segue-nos",
-    "footer.copy":          "RTP Racing Team Project. Todos os direitos reservados.",
+    "footer.copy":          "RTP - Racing Team Project. Todos os direitos reservados.",
     "footer.tagline":       "Sim racing competitivo ao mais alto n\u00EDvel.",
 
     // Garage page
