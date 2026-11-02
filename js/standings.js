@@ -511,18 +511,19 @@ document.addEventListener("DOMContentLoaded", () => {
           </td>
           <td class="cell-car">${t.room}</td>
           <td class="cell-round">${t.drivers}</td>
+          <td class="cell-round" style="opacity:0.55;">${t.groupPoints}</td>
           <td class="cell-round">${t.wins}</td>
           <td class="cell-total">${t.points}</td>
         </tr>`;
     }).join("");
     return `
-      <p class="cal-comp-sub" style="margin:0 0 1rem;">${fp.note} · pontos da fase de grupos</p>
+      <p class="cal-comp-sub" style="margin:0 0 1rem;">${fp.note}</p>
       <div class="standings-table-wrap" style="margin-bottom:3rem;">
         <div class="standings-table-scroll">
           <table class="standings-table">
             <thead><tr>
               <th class="th-pos">#</th><th class="th-name">Equipa</th><th class="th-name">Sala</th>
-              <th class="th-round">Pilotos</th><th class="th-round">Vit.</th><th class="th-total">Pontos</th>
+              <th class="th-round">Pilotos</th><th class="th-round" title="Pontos na fase de grupos (só referência)">Fase grupos</th><th class="th-round">Vit.</th><th class="th-total">Pontos</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>

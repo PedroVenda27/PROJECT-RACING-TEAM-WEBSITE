@@ -1140,18 +1140,19 @@ const SITE_DATA = {
         R4: { LET: 230, URE: -20, CERT: 120, RTP: 210, MIT: 140, GTONE: 80,  SENNA: 140 }
       },
       /* Final phase: the top 4 teams of Sala A (this table) + top 3 of Sala B.
-         Points = group-phase totals. Sala A teams are marked "Fase Final" in
+         Points start again from 0 in the final phase
+         (groupWins / groupPoints = group-phase record, shown for reference). Sala A teams are marked "Fase Final" in
          the Equipas tab; the "Fase Final" tab lists all 7. */
       finalPhase: {
-        note: "Sábado 07/NOV · 2 corridas de 2h em Le Mans (Circuit de la Sarthe) · GR1 + GR3 · Apuradas: 4 equipas da Sala A e 3 da Sala B",
+        note: "Sábado 07/NOV · 2 corridas de 2h em Le Mans (Circuit de la Sarthe) · GR1 + GR3 · Pontuação a zeros: todas as equipas começam com 0 pts · Apuradas: 4 equipas da Sala A e 3 da Sala B",
         teams: [
-          { room: "Sala A", tag: "LET",  name: "LIGA ENDURANCE Racing Team",  drivers: 4, wins: 3, points: 960 },
-          { room: "Sala A", tag: "RTP",  name: "Racing Team Project",         drivers: 4, wins: 3, points: 920 },
-          { room: "Sala A", tag: "MIT",  name: "Mitsufans",                   drivers: 4, wins: 1, points: 515 },
-          { room: "Sala A", tag: "CERT", name: "Comando Estelar Racing Team", drivers: 3, wins: 0, points: 440 },
-          { room: "Sala B", tag: "BPM",  name: "BrakingPoint Motorsport",     drivers: 4, wins: 7, points: 1280 },
-          { room: "Sala B", tag: "F14",  name: "FourteenRace",                drivers: 4, wins: 0, points: 460 },
-          { room: "Sala B", tag: "VM",   name: "Vanguard Motorsport",         drivers: 2, wins: 1, points: 440 }
+          { room: "Sala A", tag: "LET",  name: "LIGA ENDURANCE Racing Team",  drivers: 4, wins: 0, points: 0, groupWins: 3, groupPoints: 960 },
+          { room: "Sala A", tag: "RTP",  name: "Racing Team Project",         drivers: 4, wins: 0, points: 0, groupWins: 3, groupPoints: 920 },
+          { room: "Sala A", tag: "MIT",  name: "Mitsufans",                   drivers: 4, wins: 0, points: 0, groupWins: 1, groupPoints: 515 },
+          { room: "Sala A", tag: "CERT", name: "Comando Estelar Racing Team", drivers: 3, wins: 0, points: 0, groupWins: 0, groupPoints: 440 },
+          { room: "Sala B", tag: "BPM",  name: "BrakingPoint Motorsport",     drivers: 4, wins: 0, points: 0, groupWins: 7, groupPoints: 1280 },
+          { room: "Sala B", tag: "F14",  name: "FourteenRace",                drivers: 4, wins: 0, points: 0, groupWins: 0, groupPoints: 460 },
+          { room: "Sala B", tag: "VM",   name: "Vanguard Motorsport",         drivers: 2, wins: 0, points: 0, groupWins: 1, groupPoints: 440 }
         ]
       }
     },
