@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const compLabels = {
     "LPGT":  "Liga Portugal GT",
     "TPGT":  "Taça de Portugal",
-    "NCM":   "NCM TT Motorfest",
     "GT3TC": "GT3 Touring Chalange",
     "LE":    "Liga Endurance",
     "SCPC":  "Street Car Pitbox Cup II"

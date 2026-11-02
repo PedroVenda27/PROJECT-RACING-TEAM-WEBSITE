@@ -289,13 +289,6 @@ const SITE_DATA = {
       url: "calendar.html#cpgt-teams-26"
     },
     {
-      name: "TT Motorfest CUP - NCM",
-      platform: "GT7",
-      description: "Campeonato Solidário organizado pela NCM com entuito de levar a diversão do Gran Turismo 7 a crianças carenciadas.",
-      logo: "images/NCM_MOTORFEST_LOGO.jpg",
-      url: "https://www.youtube.com/@NacionalCrewMotorsport2025"
-    },
-    {
       name: "Greyhound <br> Motorsports",
       platform: "GT7",
       description: "Organização de Eventos Sim Racing especializada em eventos Endurance.",
