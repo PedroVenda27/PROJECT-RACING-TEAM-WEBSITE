@@ -104,7 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }).join("");
 
-    return headerHTML + `
+    // competitions with s.teams get Pilotos / Equipas buttons over one table
+    const viewTabs = s.teams ? `
+      <div class="race-subtabs" data-comp="${s.competition}" style="margin-bottom:1rem;">
+        <button class="race-subtab st-view-tab active" data-view="drivers">Pilotos</button>
+        <button class="race-subtab st-view-tab" data-view="teams">Equipas</button>
+      </div>` : "";
+    const teamsPane = s.teams ? `<div class="st-view-pane" data-view="teams" hidden>${renderTeams(s, true)}</div>` : "";
+
+    return headerHTML + viewTabs + `
+      <div class="st-view-pane" data-view="drivers">
       <div class="standings-table-wrap" style="margin-bottom:1.5rem;">
         <div class="standings-table-scroll">
           <table class="standings-table">
@@ -121,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </table>
         </div>
       </div>
+      </div>${teamsPane}
       ${renderRaceResultsSection(s)}
     `;
   }
@@ -257,9 +267,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function renderTeams(s) {
+  function renderTeams(s, noHeader) {
     const logo = s.logo ? `<img src="${s.logo}" alt="${s.label}" class="cal-comp-logo" />` : "";
-    const headerHTML = `
+    const headerHTML = noHeader ? "" : `
       <div class="cal-block" id="standings-${s.competition.toLowerCase()}" style="margin-bottom:1.5rem;">
         <div class="cal-block-header">
           ${logo}
@@ -742,6 +752,14 @@ document.addEventListener("DOMContentLoaded", () => {
   contentEl.innerHTML = standingsToShow.map(renderCompetition).join("");
 
   contentEl.addEventListener("click", (e) => {
+    const viewBtn = e.target.closest(".st-view-tab");
+    if (viewBtn) {
+      const bar = viewBtn.parentElement;
+      bar.querySelectorAll(".st-view-tab").forEach(b => b.classList.toggle("active", b === viewBtn));
+      for (let el = bar.nextElementSibling; el && el.classList.contains("st-view-pane"); el = el.nextElementSibling)
+        el.hidden = el.dataset.view !== viewBtn.dataset.view;
+      return;
+    }
     const classBtn = e.target.closest(".ext-class-tab");
     if (classBtn) {
       const compId = classBtn.closest("[data-comp]").dataset.comp;

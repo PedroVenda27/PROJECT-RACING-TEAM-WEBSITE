@@ -1150,7 +1150,8 @@ const SITE_DATA = {
        Pitbox Endurance — Sala B (EXTERNAL, 6 rounds, 14 drivers in 7 pairs).
        Group A drives Gr.1 in R1–R3 and Gr.3 in R4–R6; group B the other way
        round. Round value = points + pole + fastest lap − penalties (from the
-       organiser's sheet). Teams = the two drivers of each pair added up.
+       organiser's sheet). Teams = the two drivers of each pair added up
+       (same table, switched with the Pilotos / Equipas buttons).
        ───────────────────────────────────────────── */
     {
       competition: "pitboxend",
@@ -1176,14 +1177,7 @@ const SITE_DATA = {
         { name: "GodDeviL",         driverRef: "GodDeviL",         tag: "Grupo B", rounds: [0, null, null, null, null, null], total: 0 },
         { name: "Morais228",        driverRef: "Morais228",        tag: "Grupo B", rounds: [0, null, null, null, null, null], total: 0 }
       ],
-    },
-    {
-      competition: "pitboxend-teams",
-      title: "Pitbox Endurance — Sala B · Equipas",
-      subtitle: "Soma dos pontos dos dois pilotos de cada dupla",
-      logo: "images/pitbox-logo.png",
-      type: "teams",
-      roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6"],
+      /* team (pair) standings, shown behind the "Equipas" button */
       teams: [
         { name: "Equipa 6 · RTP", drivers: ["Rafael Agostinho", "Wilson Barreto"], rounds: [26, null, null, null, null, null], total: 26, logo: "images/RTP_LOGO.png" },
         { name: "Equipa 5", drivers: ["Mira", "Décio"], rounds: [23, null, null, null, null, null], total: 23 },
