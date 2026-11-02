@@ -271,6 +271,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
+    // optional points columns (rounds + total) when the competition has them
+    const withPts = !!s.roundLabels && s.teams.some(t => t.total !== undefined);
     const rows = s.teams.map((team, i) => {
       const pos = i + 1;
       const isPitbox = team.name.toUpperCase().includes("RTP");
@@ -287,6 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="st-driver-wrap">${logoHTML}<span>${team.name}</span></div>
           </td>
           <td class="cell-name" style="font-size:0.85em;opacity:0.85;">${driversHTML}</td>
+          ${withPts ? (team.rounds || []).map(v => `<td class="${v === null ? "cell-dns" : v === 0 ? "cell-zero" : "cell-round"}">${v === null ? "—" : v}</td>`).join("") + `<td class="cell-total">${team.total}</td>` : ""}
         </tr>
       `;
     }).join("");
@@ -300,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <th class="th-pos">POS</th>
                 <th class="th-name">Equipa</th>
                 <th class="th-name">Pilotos</th>
+                ${withPts ? s.roundLabels.map(r => `<th class="th-round">${r}</th>`).join("") + '<th class="th-total">Total</th>' : ""}
               </tr>
             </thead>
             <tbody>${rows}</tbody>

@@ -1146,6 +1146,54 @@ const SITE_DATA = {
         R4: { LET: 230, URE: -20, CERT: 120, RTP: 210, MIT: 140, GTONE: 80,  SENNA: 140 }
       }
     },
+    /* ─────────────────────────────────────────────
+       Pitbox Endurance — Sala B (EXTERNAL, 6 rounds, 14 drivers in 7 pairs).
+       Group A drives Gr.1 in R1–R3 and Gr.3 in R4–R6; group B the other way
+       round. Round value = points + pole + fastest lap − penalties (from the
+       organiser's sheet). Teams = the two drivers of each pair added up.
+       ───────────────────────────────────────────── */
+    {
+      competition: "pitboxend",
+      title: "Pitbox Endurance — Sala B",
+      subtitle: "Gran Turismo 7 · Competição Externa · Após Ronda 1 · Grupo A: Gr.1 nas R1–R3 e Gr.3 nas R4–R6 · Grupo B: ao contrário · R1: volta mais rápida (+1) Mira e Ricardinho · −10 pts (decalque) a Saraiva, Mira e Barreto",
+      logo: "images/pitbox-logo.png",
+      type: "drivers",
+      nullLabel: "—",
+      roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6"],
+      drivers: [
+        { name: "Ricardinho_RS3",   driverRef: "Ricardinho_RS3",   tag: "Grupo B", rounds: [17, null, null, null, null, null], total: 17 },
+        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", tag: "Grupo A", rounds: [16, null, null, null, null, null], total: 16, ourDriver: true },
+        { name: "Décio",            driverRef: "Décio",            tag: "Grupo B", rounds: [12, null, null, null, null, null], total: 12 },
+        { name: "Mira",             driverRef: "Mira",             tag: "Grupo A", rounds: [11, null, null, null, null, null], total: 11 },
+        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   tag: "Grupo B", rounds: [10, null, null, null, null, null], total: 10, ourDriver: true },
+        { name: "Pedro Pires",      driverRef: "Pedro Pires",      tag: "Grupo A", rounds: [9, null, null, null, null, null], total: 9 },
+        { name: "Marco Silva",      driverRef: "Marco Silva",      tag: "Grupo B", rounds: [9, null, null, null, null, null], total: 9 },
+        { name: "Saraiva",          driverRef: "Saraiva",          tag: "Grupo A", rounds: [2, null, null, null, null, null], total: 2 },
+        { name: "Bruno Moreira",    driverRef: "Bruno Moreira",    tag: "Grupo A", rounds: [0, null, null, null, null, null], total: 0 },
+        { name: "Mad Max",          driverRef: "Mad Max",          tag: "Grupo A", rounds: [0, null, null, null, null, null], total: 0 },
+        { name: "minidred",         driverRef: "minidred",         tag: "Grupo A", rounds: [0, null, null, null, null, null], total: 0 },
+        { name: "Brissos69",        driverRef: "Brissos69",        tag: "Grupo B", rounds: [0, null, null, null, null, null], total: 0 },
+        { name: "GodDeviL",         driverRef: "GodDeviL",         tag: "Grupo B", rounds: [0, null, null, null, null, null], total: 0 },
+        { name: "Morais228",        driverRef: "Morais228",        tag: "Grupo B", rounds: [0, null, null, null, null, null], total: 0 }
+      ],
+    },
+    {
+      competition: "pitboxend-teams",
+      title: "Pitbox Endurance — Sala B · Equipas",
+      subtitle: "Soma dos pontos dos dois pilotos de cada dupla",
+      logo: "images/pitbox-logo.png",
+      type: "teams",
+      roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6"],
+      teams: [
+        { name: "Equipa 6 · RTP", drivers: ["Rafael Agostinho", "Wilson Barreto"], rounds: [26, null, null, null, null, null], total: 26, logo: "images/RTP_LOGO.png" },
+        { name: "Equipa 5", drivers: ["Mira", "Décio"], rounds: [23, null, null, null, null, null], total: 23 },
+        { name: "Equipa 1", drivers: ["Pedro Pires", "Marco Silva"], rounds: [18, null, null, null, null, null], total: 18 },
+        { name: "Equipa 4", drivers: ["Mad Max", "Ricardinho_RS3"], rounds: [17, null, null, null, null, null], total: 17 },
+        { name: "Equipa 2", drivers: ["Saraiva", "Brissos69"], rounds: [2, null, null, null, null, null], total: 2 },
+        { name: "Equipa 3", drivers: ["Bruno Moreira", "GodDeviL"], rounds: [0, null, null, null, null, null], total: 0 },
+        { name: "Equipa 7", drivers: ["minidred", "Morais228"], rounds: [0, null, null, null, null, null], total: 0 }
+      ]
+    },
     {
       competition: "pitbox",
       title: "Street Car Pitbox Cup II",
