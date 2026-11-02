@@ -9,18 +9,18 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-02",
-  updatedAt: "2026-11-02T14:06:00+00:00",
+  updatedAt: "2026-11-02T15:06:00+00:00",
   races: [
-    {"type":"A","id":689,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Dragon Trail — Gardens","car":"Chevrolet Corvette Convertible (C3) '69","tyres":"CS","lead":112331,"leader":"holl01","players":2161,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-a-dragon-trail-gardens/689"},
-    {"type":"B","id":690,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Grand Valley — Highway 1","car":"Gr.3","tyres":"RM","lead":106864,"leader":"TAK","players":6519,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-b-grand-valley-highway-1/690"},
-    {"type":"C","id":691,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Watkins Glen International — Long Course","car":"Gr.4","tyres":"RH, RM","lead":114163,"leader":"M.Voloshin","players":5785,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-c-watkins-glen-international-long-course/691"}
+    {"type":"A","id":689,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Dragon Trail — Gardens","car":"Chevrolet Corvette Convertible (C3) '69","tyres":"CS","lead":112225,"leader":"holl01","players":2498,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-a-dragon-trail-gardens/689"},
+    {"type":"B","id":690,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Grand Valley — Highway 1","car":"Gr.3","tyres":"RM","lead":106854,"leader":"Calster","players":7132,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-b-grand-valley-highway-1/690"},
+    {"type":"C","id":691,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Watkins Glen International — Long Course","car":"Gr.4","tyres":"RH, RM","lead":114108,"leader":"S. Inui","players":6373,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-c-watkins-glen-international-long-course/691"}
   ],
   times: {
-    "pandafrass": {"C":{"ms":115037,"time":"01:55.037","pos":130,"posPT":6,"car":"Audi TT Cup '16"}},
-    "KajuNN": {"C":{"ms":114697,"time":"01:54.697","pos":45,"posPT":3,"car":"Audi TT Cup '16"},"B":{"ms":108121,"time":"01:48.121","pos":140,"posPT":1,"car":"Mitsubishi Lancer Evolution Final Gr.3"}},
-    "SemDestino75": {"B":{"ms":112018,"time":"01:52.018","pos":3932,"posPT":38,"car":"Mitsubishi Lancer Evolution Final Gr.3"}},
+    "pandafrass": {"C":{"ms":114922,"time":"01:54.922","pos":134,"posPT":7,"car":"Audi TT Cup '16"}},
     "FVenda117": {"C":{"ms":116106,"time":"01:56.106","pos":712,"posPT":17,"car":"Audi TT Cup '16"}},
-    "Wilson_TheFirst": {"B":{"ms":108467,"time":"01:48.467","pos":273,"posPT":5,"car":"BMW M3 GT '11"}}
+    "KajuNN": {"C":{"ms":114697,"time":"01:54.697","pos":45,"posPT":3,"car":"Audi TT Cup '16"},"B":{"ms":108121,"time":"01:48.121","pos":140,"posPT":1,"car":"Mitsubishi Lancer Evolution Final Gr.3"}},
+    "SemDestino75": {"B":{"ms":110767,"time":"01:50.767","pos":2745,"posPT":25,"car":"Mitsubishi Lancer Evolution Final Gr.3"}},
+    "Wilson_TheFirst": {"B":{"ms":107945,"time":"01:47.945","pos":132,"posPT":1,"car":"BMW M3 GT '11"}}
   },
   history: [
     { week: 44, year: 2026,
