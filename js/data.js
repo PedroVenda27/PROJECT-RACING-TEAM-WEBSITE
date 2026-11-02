@@ -961,7 +961,7 @@ const SITE_DATA = {
     {
       competition: "endurance",
       title: "Liga Endurance",
-      subtitle: "Gran Turismo 7 · Campeonato de resistência · Competição Externa · Após Ronda 4 (provisória)",
+      subtitle: "Gran Turismo 7 · Campeonato de resistência · Competição Externa · Fase de grupos concluída (Sala A) · RTP apurada para a Fase Final",
       logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png",
       type: "drivers-external",
       /* Multi-class: overall order below; "Geral", "GR1" and "GR3" tabs.
@@ -969,7 +969,8 @@ const SITE_DATA = {
       classes: ["GR1", "GR3"],
       teamLogos: {
         LET: "images/LIGA ENDURANCE/EQUIPAS/LET.jpg", URE: "images/LIGA ENDURANCE/EQUIPAS/URE.jpg", CERT: "images/LIGA ENDURANCE/EQUIPAS/CERT.png",
-        RTP: "images/RTP_LOGO.png", MIT: "images/LIGA ENDURANCE/EQUIPAS/MIT.jpg", GTONE: "images/LIGA ENDURANCE/EQUIPAS/GTONE.jpg", SENNA: "images/LIGA ENDURANCE/EQUIPAS/SENNA.png"
+        RTP: "images/RTP_LOGO.png", MIT: "images/LIGA ENDURANCE/EQUIPAS/MIT.jpg", GTONE: "images/LIGA ENDURANCE/EQUIPAS/GTONE.jpg", SENNA: "images/LIGA ENDURANCE/EQUIPAS/SENNA.png",
+        BPM: "images/LIGA ENDURANCE/EQUIPAS/BPM.png", F14: "images/LIGA ENDURANCE/EQUIPAS/F14.png", VM: "images/LIGA ENDURANCE/EQUIPAS/VM.png"
       },
       /* Per-round results. qualy: in-game name, ref = standings driver name */
       rounds: [
@@ -1144,6 +1145,21 @@ const SITE_DATA = {
         R2: { LET: 300, URE: 40,  CERT: 80,  RTP: 260, MIT: 60,  GTONE: 100, SENNA: 80 },
         R3: { LET: 190, URE: -20, CERT: 100, RTP: 330, MIT: 200, GTONE: 20,  SENNA: 60 },
         R4: { LET: 230, URE: -20, CERT: 120, RTP: 210, MIT: 140, GTONE: 80,  SENNA: 140 }
+      },
+      /* Final phase: the top 4 teams of Sala A (this table) + top 3 of Sala B.
+         Points = group-phase totals. Sala A teams are marked "Fase Final" in
+         the Equipas tab; the "Fase Final" tab lists all 7. */
+      finalPhase: {
+        note: "Sábado 07/NOV · 2 corridas de 2h em Le Mans (Circuit de la Sarthe) · GR1 + GR3 · Apuradas: 4 equipas da Sala A e 3 da Sala B",
+        teams: [
+          { room: "Sala A", tag: "LET",  name: "LIGA ENDURANCE Racing Team",  drivers: 4, wins: 3, points: 960 },
+          { room: "Sala A", tag: "RTP",  name: "Racing Team Project",         drivers: 4, wins: 3, points: 920 },
+          { room: "Sala A", tag: "MIT",  name: "Mitsufans",                   drivers: 4, wins: 1, points: 515 },
+          { room: "Sala A", tag: "CERT", name: "Comando Estelar Racing Team", drivers: 3, wins: 0, points: 440 },
+          { room: "Sala B", tag: "BPM",  name: "BrakingPoint Motorsport",     drivers: 4, wins: 7, points: 1280 },
+          { room: "Sala B", tag: "F14",  name: "FourteenRace",                drivers: 4, wins: 0, points: 460 },
+          { room: "Sala B", tag: "VM",   name: "Vanguard Motorsport",         drivers: 2, wins: 1, points: 440 }
+        ]
       }
     },
     /* ─────────────────────────────────────────────

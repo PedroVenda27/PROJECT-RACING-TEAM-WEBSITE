@@ -383,12 +383,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderClassStandings(s) {
     const compId = s.competition;
     const cls = classState[compId] || "all";
-    const tabs = [["all", "Geral"], ...s.classes.map(c => [c, c]), ["teams", "Equipas"]];
+    const tabs = [["all", "Geral"], ...s.classes.map(c => [c, c]), ["teams", "Equipas"], ...(s.finalPhase ? [["final", "Fase Final"]] : [])];
     const tabsHtml = `
       <div class="race-subtabs" data-comp="${compId}" style="margin-bottom:1rem;">
         ${tabs.map(([k, label]) => `<button class="race-subtab ext-class-tab${k === cls ? " active" : ""}" data-cls="${k}">${label}</button>`).join("")}
       </div>`;
     if (cls === "teams") return tabsHtml + renderTeamStandings(s);
+    if (cls === "final") return tabsHtml + renderFinalPhase(s);
     const list = cls === "all" ? mergeClasses(s.drivers) : s.drivers.filter(d => d.cls === cls);
     const rows = list.map((d, i) => {
       const pos = i + 1;
@@ -452,6 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return v === undefined ? `<td class="cell-dns">—</td>` : `<td class="${v === 0 ? "cell-zero" : "cell-round"}">${v}</td>`;
     }).join("");
     const logos = s.teamLogos || {};
+    const qualified = new Set(s.finalPhase ? s.finalPhase.teams.map(t => t.tag) : []);
     const rows = list.map((t, i) => {
       const pos = i + 1;
       const logo = logos[t.tag]
@@ -465,7 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${logo}
               <span class="st-class-driver">
                 <span>${t.name}</span>
-                <small>[${t.tag}]${t.note ? ` · ${t.note}` : ""}</small>
+                <small>[${t.tag}]${t.note ? ` · ${t.note}` : ""}${qualified.has(t.tag) ? ' <span class="st-qualified">Fase Final</span>' : ""}</small>
               </span>
             </div>
           </td>
@@ -482,6 +484,45 @@ document.addEventListener("DOMContentLoaded", () => {
             <thead><tr>
               <th class="th-pos">POS</th><th class="th-name">Equipa</th>
               <th class="th-round">Pilotos</th><th class="th-round">Vit.</th>${roundHeaders}<th class="th-total">Total</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>`;
+  }
+
+  /* Final phase: teams qualified from both rooms (Sala A + Sala B), with
+     their group-phase record; logos from s.teamLogos like the Equipas tab. */
+  function renderFinalPhase(s) {
+    const fp = s.finalPhase, logos = s.teamLogos || {};
+    const ours = new Set(s.drivers.filter(d => d.ourDriver).map(d => d.tag));
+    const rows = fp.teams.map((t, i) => {
+      const logo = logos[t.tag]
+        ? `<img class="st-team-logo" src="${encodeURI(logos[t.tag])}" alt="${t.name}" loading="lazy" />`
+        : `<span class="st-team-logo st-team-logo-fallback">${t.tag}</span>`;
+      return `
+        <tr class="${ours.has(t.tag) ? "row-pitbox" : ""}">
+          <td class="cell-pos">${String(i + 1).padStart(2, "0")}</td>
+          <td class="cell-name">
+            <div class="st-driver-wrap">
+              ${logo}
+              <span class="st-class-driver"><span>${t.name}</span><small>[${t.tag}]</small></span>
+            </div>
+          </td>
+          <td class="cell-car">${t.room}</td>
+          <td class="cell-round">${t.drivers}</td>
+          <td class="cell-round">${t.wins}</td>
+          <td class="cell-total">${t.points}</td>
+        </tr>`;
+    }).join("");
+    return `
+      <p class="cal-comp-sub" style="margin:0 0 1rem;">${fp.note} · pontos da fase de grupos</p>
+      <div class="standings-table-wrap" style="margin-bottom:3rem;">
+        <div class="standings-table-scroll">
+          <table class="standings-table">
+            <thead><tr>
+              <th class="th-pos">#</th><th class="th-name">Equipa</th><th class="th-name">Sala</th>
+              <th class="th-round">Pilotos</th><th class="th-round">Vit.</th><th class="th-total">Pontos</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>
