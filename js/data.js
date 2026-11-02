@@ -1180,11 +1180,11 @@ const SITE_DATA = {
       /* team (pair) standings, shown behind the "Equipas" button */
       teams: [
         { name: "Equipa 6 · RTP", drivers: ["Rafael Agostinho", "Wilson Barreto"], rounds: [26, null, null, null, null, null], total: 26, logo: "images/RTP_LOGO.png" },
-        { name: "Equipa 5", drivers: ["Mira", "Décio"], rounds: [23, null, null, null, null, null], total: 23 },
-        { name: "Equipa 1", drivers: ["Pedro Pires", "Marco Silva"], rounds: [18, null, null, null, null, null], total: 18 },
-        { name: "Equipa 4", drivers: ["Mad Max", "Ricardinho_RS3"], rounds: [17, null, null, null, null, null], total: 17 },
-        { name: "Equipa 2", drivers: ["Saraiva", "Brissos69"], rounds: [2, null, null, null, null, null], total: 2 },
-        { name: "Equipa 3", drivers: ["Bruno Moreira", "GodDeviL"], rounds: [0, null, null, null, null, null], total: 0 },
+        { name: "Equipa 5", drivers: ["Mira", "Décio"], rounds: [23, null, null, null, null, null], total: 23, logo: "images/WRT_LOGO.jpg" },
+        { name: "Equipa 1", drivers: ["Pedro Pires", "Marco Silva"], rounds: [18, null, null, null, null, null], total: 18, logo: "images/PITBOX_TEAM_LOGO.png" },
+        { name: "Equipa 4", drivers: ["Mad Max", "Ricardinho_RS3"], rounds: [17, null, null, null, null, null], total: 17, logo: "images/PITBOX_TEAM_LOGO.png" },
+        { name: "Equipa 2", drivers: ["Saraiva", "Brissos69"], rounds: [2, null, null, null, null, null], total: 2, logo: "images/PITBOX_TEAM_LOGO.png" },
+        { name: "Equipa 3", drivers: ["Bruno Moreira", "GodDeviL"], rounds: [0, null, null, null, null, null], total: 0, logo: "images/PITBOX_TEAM_LOGO.png" },
         { name: "Equipa 7", drivers: ["minidred", "Morais228"], rounds: [0, null, null, null, null, null], total: 0 }
       ]
     },
