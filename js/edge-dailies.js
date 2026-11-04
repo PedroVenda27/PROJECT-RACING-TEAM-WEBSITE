@@ -9,7 +9,7 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-04",
-  updatedAt: "2026-11-04T01:12:00+00:00",
+  updatedAt: "2026-11-04T02:06:00+00:00",
   races: [
     {"type":"A","id":689,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Dragon Trail — Gardens","car":"Chevrolet Corvette Convertible (C3) '69","tyres":"CS","lead":111828,"leader":"holl01","players":8277,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-a-dragon-trail-gardens/689"},
     {"type":"B","id":690,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Grand Valley — Highway 1","car":"Gr.3","tyres":"RM","lead":106537,"leader":"M. Janda","players":23312,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-b-grand-valley-highway-1/690"},
