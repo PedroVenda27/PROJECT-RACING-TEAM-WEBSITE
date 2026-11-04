@@ -1157,6 +1157,122 @@ const SITE_DATA = {
       }
     },
     /* ─────────────────────────────────────────────
+       Pitbox Kart Cup (EXTERNAL) — 4 races in 2 nights, Racing Kart 125
+       Shifter. Points 25·20·18·15·12·10·8·7·6·5·4·3·2·1·0·0, +1 pole,
+       +1 fastest lap. RTP: Pedro Venda in races 1–2, Brissos69 in 3–4.
+       ───────────────────────────────────────────── */
+    {
+      competition: "pitboxkart",
+      title: "Pitbox Kart Cup",
+      subtitle: "Gran Turismo 7 · Racing Kart 125 Shifter · Competição Externa · Após Corrida 2 · RTP: Pedro Venda (C1–C2) e Brissos69 (C3–C4)",
+      logo: "images/PITBOX_TEAM_LOGO.png",
+      type: "drivers",
+      nullLabel: "—",
+      raceLegend: "Pontuação: 25 · 20 · 18 · 15 · 12 · 10 · 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1 · 0 · 0 &nbsp;·&nbsp; <span class=\"race-badge badge-pole\">P</span> Pole (+1) &nbsp;·&nbsp; <span class=\"race-badge badge-fl\">VR</span> Volta mais rápida (+1)",
+      roundLabels: ["R1", "R2", "R3", "R4"],
+      drivers: [
+        { name: "RCE_S. Silva",      rounds: [27, 27, null, null], total: 54 },
+        { name: "SLbenfica",         rounds: [20, 18, null, null], total: 38 },
+        { name: "FRANCO.GREYHOUND",  rounds: [7, 20, null, null], total: 27 },
+        { name: "Rodinhas_09",       rounds: [18, 8, null, null], total: 26 },
+        { name: "R.Melo",            rounds: [15, 10, null, null], total: 25 },
+        { name: "Pedro Venda / Brissos69", rounds: [8, 12, null, null], total: 20, driverRef: "Pedro Venda", ourDriver: true },
+        { name: "Ninja_IMD",         rounds: [2, 15, null, null], total: 17 },
+        { name: "Vini",              rounds: [12, 2, null, null], total: 14 },
+        { name: "Dani MK6 GTI",      rounds: [10, 3, null, null], total: 13 },
+        { name: "Diogo Gonçalves",   rounds: [6, 6, null, null], total: 12 },
+        { name: "Greenwolf",         rounds: [4, 5, null, null], total: 9 },
+        { name: "Sarking8",          rounds: [5, 4, null, null], total: 9 },
+        { name: "BROLY_IMD",         rounds: [1, 7, null, null], total: 8 },
+        { name: "Zegus",             rounds: [3, 1, null, null], total: 4 },
+        { name: "Mad Max",           rounds: [0, 0, null, null], total: 0 }
+      ],
+      raceResults: [
+        {
+          round: 1,
+          label: "Corrida 1 · Kyoto",
+          date: "2 de Novembro de 2026",
+          track: "Kyoto Driving Park — Miyabi",
+          sessions: [
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "15 min",
+              fastestLapTime: "0:43.593 · RCE_S. Silva",
+              results: [
+                { pos: 1 , name: "RCE_S. Silva",      time: "15:28.408", gap: "",          penalty: "", points: 27, pole: true, fastestLap: true, bestLap: "0:43.593" },
+                { pos: 2 , name: "SLbenfica",         time: "", gap: "+14.378",   penalty: "+6.000", points: 20, pole: false, fastestLap: false, bestLap: "0:43.665" },
+                { pos: 3 , name: "Rodinhas_09",       time: "", gap: "+16.319",   penalty: "", points: 18, pole: false, fastestLap: false, bestLap: "0:44.023" },
+                { pos: 4 , name: "R.Melo",            time: "", gap: "+17.126",   penalty: "", points: 15, pole: false, fastestLap: false, bestLap: "0:43.747" },
+                { pos: 5 , name: "Vini",              time: "", gap: "1 Volta",   penalty: "", points: 12, pole: false, fastestLap: false, bestLap: "0:44.145" },
+                { pos: 6 , name: "Dani MK6 GTI",      time: "", gap: "1 Volta",   penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "0:43.771" },
+                { pos: 7 , name: "Pedro Venda",       time: "", gap: "1 Volta",   penalty: "", points: 8, pole: false, fastestLap: false, bestLap: "0:43.947", driverRef: "Pedro Venda", ourDriver: true },
+                { pos: 8 , name: "FRANCO.GREYHOUND",  time: "", gap: "1 Volta",   penalty: "", points: 7, pole: false, fastestLap: false, bestLap: "0:44.200" },
+                { pos: 9 , name: "Diogo Gonçalves",   time: "", gap: "1 Volta",   penalty: "", points: 6, pole: false, fastestLap: false, bestLap: "0:44.613" },
+                { pos: 10, name: "Sarking8",          time: "", gap: "1 Volta",   penalty: "", points: 5, pole: false, fastestLap: false, bestLap: "0:44.296" },
+                { pos: 11, name: "Greenwolf",         time: "", gap: "1 Volta",   penalty: "", points: 4, pole: false, fastestLap: false, bestLap: "0:44.578" },
+                { pos: 12, name: "Zegus",             time: "", gap: "1 Volta",   penalty: "", points: 3, pole: false, fastestLap: false, bestLap: "0:44.366" },
+                { pos: 13, name: "Ninja_IMD",         time: "", gap: "1 Volta",   penalty: "", points: 2, pole: false, fastestLap: false, bestLap: "0:44.050" },
+                { pos: 14, name: "BROLY_IMD",         time: "", gap: "2 Voltas",  penalty: "", points: 1, pole: false, fastestLap: false, bestLap: "0:44.327" },
+                { pos: 15, name: "Mad Max",           time: "", gap: "NC",        penalty: "", points: 0, pole: false, fastestLap: false, bestLap: "0:44.621" }
+              ]
+            }
+          ]
+        },
+        {
+          round: 2,
+          label: "Corrida 2 · Eiger",
+          date: "2 de Novembro de 2026",
+          track: "Eiger Nordwand",
+          sessions: [
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "15 min",
+              fastestLapTime: "1:09.161 · RCE_S. Silva",
+              results: [
+                { pos: 1 , name: "RCE_S. Silva",      time: "15:15.480", gap: "",          penalty: "", points: 27, pole: true, fastestLap: true, bestLap: "1:09.161" },
+                { pos: 2 , name: "FRANCO.GREYHOUND",  time: "", gap: "+14.253",   penalty: "", points: 20, pole: false, fastestLap: false, bestLap: "1:10.696" },
+                { pos: 3 , name: "SLbenfica",         time: "", gap: "+16.843",   penalty: "", points: 18, pole: false, fastestLap: false, bestLap: "1:10.459" },
+                { pos: 4 , name: "Ninja_IMD",         time: "", gap: "+23.835",   penalty: "", points: 15, pole: false, fastestLap: false, bestLap: "1:10.346" },
+                { pos: 5 , name: "Pedro Venda",       time: "", gap: "+31.293",   penalty: "", points: 12, pole: false, fastestLap: false, bestLap: "1:11.390", driverRef: "Pedro Venda", ourDriver: true },
+                { pos: 6 , name: "R.Melo",            time: "", gap: "+41.160",   penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "1:10.557" },
+                { pos: 7 , name: "Rodinhas_09",       time: "", gap: "+46.938",   penalty: "", points: 8, pole: false, fastestLap: false, bestLap: "1:11.433" },
+                { pos: 8 , name: "BROLY_IMD",         time: "", gap: "+47.582",   penalty: "", points: 7, pole: false, fastestLap: false, bestLap: "1:12.469" },
+                { pos: 9 , name: "Diogo Gonçalves",   time: "", gap: "+53.524",   penalty: "", points: 6, pole: false, fastestLap: false, bestLap: "1:12.234" },
+                { pos: 10, name: "Greenwolf",         time: "", gap: "+54.974",   penalty: "", points: 5, pole: false, fastestLap: false, bestLap: "1:11.688" },
+                { pos: 11, name: "Sarking8",          time: "", gap: "1 Volta",   penalty: "", points: 4, pole: false, fastestLap: false, bestLap: "1:11.436" },
+                { pos: 12, name: "Dani MK6 GTI",      time: "", gap: "1 Volta",   penalty: "", points: 3, pole: false, fastestLap: false, bestLap: "1:12.261" },
+                { pos: 13, name: "Vini",              time: "", gap: "1 Volta",   penalty: "", points: 2, pole: false, fastestLap: false, bestLap: "1:11.716" },
+                { pos: 14, name: "Zegus",             time: "", gap: "1 Volta",   penalty: "", points: 1, pole: false, fastestLap: false, bestLap: "1:12.245" },
+                { pos: 15, name: "Mad Max",           time: "", gap: "1 Volta",   penalty: "", points: 0, pole: false, fastestLap: false, bestLap: "1:12.657" }
+              ]
+            }
+          ]
+        },
+        {
+          round: 3,
+          label: "Corrida 3 · Lago Maggiore",
+          date: "4 de Novembro de 2026",
+          track: "Autodrome Lago Maggiore — East End",
+          car: "Tempo S01 · início da manhã · tempo progressivo x5 · 5 min quali + 15 min corrida · Piloto RTP: Brissos69",
+          sessions: [
+            { type: "race", label: "Corrida", duration: "15 min", results: [] }
+          ]
+        },
+        {
+          round: 4,
+          label: "Corrida 4 · Nürburgring",
+          date: "4 de Novembro de 2026",
+          track: "Nürburgring 24h",
+          car: "Tempo C05 · meia-noite · tempo progressivo x5 · 10 min quali + 2 voltas · Piloto RTP: Brissos69",
+          sessions: [
+            { type: "race", label: "Corrida", duration: "2 voltas", results: [] }
+          ]
+        }
+      ]
+    },
+    /* ─────────────────────────────────────────────
        Pitbox Endurance — Sala B (EXTERNAL, 6 rounds, 14 drivers in 7 pairs).
        Group A drives Gr.1 in R1–R3 and Gr.3 in R4–R6; group B the other way
        round. Round value = points + pole + fastest lap − penalties (from the

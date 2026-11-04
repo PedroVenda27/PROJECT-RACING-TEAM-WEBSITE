@@ -144,7 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!s.raceResults || !s.raceResults.length) return "";
     const compId = s.competition;
     if (!raceResultsState[compId]) {
-      raceResultsState[compId] = { roundIdx: s.raceResults.length - 1, raceIdx: 0 };
+      // open on the latest round that already has results (later ones may be placeholders)
+      const done = s.raceResults.map(r => r.sessions.some(x => x.results && x.results.length)).lastIndexOf(true);
+      raceResultsState[compId] = { roundIdx: done >= 0 ? done : s.raceResults.length - 1, raceIdx: 0 };
     }
     const roundTabs = s.raceResults.map((r, i) => `
       <button class="standings-tab race-round-tab${i === raceResultsState[compId].roundIdx ? " active" : ""}" data-round-idx="${i}">${r.label || "R" + r.round}</button>
