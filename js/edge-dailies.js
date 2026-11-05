@@ -8,25 +8,27 @@
    history: semanas anteriores { week, year, races, times }, mais recente primeiro
    ===================================================================== */
 const EDGE_DAILIES = {
-  updated: "2026-11-04",
-  updatedAt: "2026-11-04T17:06:00+00:00",
+  updated: "2026-11-05",
+  updatedAt: "2026-11-05T00:16:00+00:00",
   races: [
-    {"type":"A","id":689,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Dragon Trail — Gardens","car":"Chevrolet Corvette Convertible (C3) '69","tyres":"CS","lead":111748,"leader":"holl01","players":10604,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-a-dragon-trail-gardens/689"},
-    {"type":"B","id":690,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Grand Valley — Highway 1","car":"Gr.3","tyres":"RM","lead":106450,"leader":"Miumiu","players":31990,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-b-grand-valley-highway-1/690"},
-    {"type":"C","id":691,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Watkins Glen International — Long Course","car":"Gr.4","tyres":"RH, RM","lead":113917,"leader":"M. Rodríguez ","players":25630,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-c-watkins-glen-international-long-course/691"}
+    {"type":"A","id":689,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Dragon Trail — Gardens","car":"Chevrolet Corvette Convertible (C3) '69","tyres":"CS","lead":111748,"leader":"holl01","players":12484,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-a-dragon-trail-gardens/689"},
+    {"type":"B","id":690,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Grand Valley — Highway 1","car":"Gr.3","tyres":"RM","lead":106400,"leader":"J. Serrano","players":37558,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-b-grand-valley-highway-1/690"},
+    {"type":"C","id":691,"week":45,"year":2026,"from":"2026-11-02 08:00:00","to":"2026-11-09 07:59:59","track":"Watkins Glen International — Long Course","car":"Gr.4","tyres":"RH, RM","lead":113887,"leader":"Lukas","players":25836,"url":"https://www.dg-edge.com/events/dailies/week-45-2026-race-c-watkins-glen-international-long-course/691"}
   ],
   times: {
+    "Caceteira_RTP": {"C":{"ms":114724,"time":"01:54.724","pos":281,"posPT":10,"car":"Audi TT Cup '16"}},
     "pandafrass": {"C":{"ms":114922,"time":"01:54.922","pos":585,"posPT":22,"car":"Audi TT Cup '16"},"B":{"ms":108657,"time":"01:48.657","pos":1509,"posPT":22,"car":"Nissan GT-R NISMO GT3 '18"}},
     "mattifroskes": {"C":{"ms":114707,"time":"01:54.707","pos":270,"posPT":9,"car":"Audi TT Cup '16"}},
-    "Wilson_TheFirst": {"B":{"ms":107945,"time":"01:47.945","pos":379,"posPT":5,"car":"BMW M3 GT '11"}},
-    "Caceteira_RTP": {"C":{"ms":114724,"time":"01:54.724","pos":281,"posPT":10,"car":"Audi TT Cup '16"}},
     "KajuNN": {"C":{"ms":114495,"time":"01:54.495","pos":129,"posPT":5,"car":"Audi TT Cup '16"},"B":{"ms":107874,"time":"01:47.874","pos":321,"posPT":2,"car":"Toyota GR Supra Racing Concept '18"}},
-    "FVenda117": {"C":{"ms":116106,"time":"01:56.106","pos":3414,"posPT":77,"car":"Audi TT Cup '16"},"B":{"ms":109292,"time":"01:49.292","pos":3068,"posPT":40,"car":"Toyota GR Supra Racing Concept '18"}},
+    "LuisHGarcia": {"B":{"ms":110327,"time":"01:50.327","pos":6799,"posPT":85,"car":"BMW M6 GT3 Sprint Model '16"}},
+    "temp-0955713": {"C":{"ms":117391,"time":"01:57.391","pos":10534,"posPT":200,"car":"Audi TT Cup '16"},"B":{"ms":112141,"time":"01:52.141","pos":21548,"posPT":333,"car":"Toyota GR Supra Racing Concept '18"}},
     "SemDestino75": {"C":{"ms":117946,"time":"01:57.946","pos":11293,"posPT":198,"car":"Hyundai ELANTRA N TC '24"},"B":{"ms":109645,"time":"01:49.645","pos":4960,"posPT":66,"car":"Toyota GR Supra Racing Concept '18"}},
+    "LeonnardoYR_": {"C":{"ms":114564,"time":"01:54.564","pos":237,"posPT":10,"car":"Audi TT Cup '16"}},
     "granadas10": {"C":{"ms":115391,"time":"01:55.391","pos":1598,"posPT":44,"car":"Audi TT Cup '16"}},
-    "Pinto_Moreira": {"C":{"ms":114743,"time":"01:54.743","pos":298,"posPT":21,"car":"Audi TT Cup '16"}},
-    "laferia777": {"B":{"ms":111226,"time":"01:51.226","pos":13227,"posPT":197,"car":"BMW Z4 GT3 '11"}},
-    "LuisHGarcia": {"B":{"ms":110327,"time":"01:50.327","pos":6799,"posPT":85,"car":"BMW M6 GT3 Sprint Model '16"}}
+    "FVenda117": {"C":{"ms":116106,"time":"01:56.106","pos":3414,"posPT":77,"car":"Audi TT Cup '16"},"B":{"ms":109292,"time":"01:49.292","pos":3068,"posPT":40,"car":"Toyota GR Supra Racing Concept '18"}},
+    "laferia777": {"B":{"ms":109735,"time":"01:49.735","pos":6391,"posPT":93,"car":"Toyota GR Supra Racing Concept '18"}},
+    "Wilson_TheFirst": {"B":{"ms":107945,"time":"01:47.945","pos":536,"posPT":8,"car":"BMW M3 GT '11"}},
+    "Pinto_Moreira": {"C":{"ms":114743,"time":"01:54.743","pos":298,"posPT":21,"car":"Audi TT Cup '16"}}
   },
   history: [
     { week: 44, year: 2026,
