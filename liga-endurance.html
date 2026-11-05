@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://racingteamproject.eu/images/LIGA%20ENDURANCE/LIGA_ENDURANCE_POST.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>Liga Endurance — RTP Racing Team Project</title>
-  <link rel="stylesheet" href="css/styles.css?v=20261104e" />
+  <link rel="stylesheet" href="css/styles.css?v=20261105c" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -107,9 +107,18 @@
     }
     .rounds-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.2rem;
+      max-width: 760px;
+      margin: 0 auto;
     }
+    /* Final phase poster: bigger, gold highlight, above the rounds */
+    .round-final-wrap { display: flex; justify-content: center; margin-bottom: 2rem; }
+    .round-card-final { width: 100%; max-width: 520px; border: 2px solid #e0b04a; box-shadow: 0 0 0 1px rgba(224,176,74,0.35), 0 10px 40px rgba(224,176,74,0.22); }
+    .round-card-final:hover { border-color: #f5c96a; }
+    .round-card-final img { aspect-ratio: 2/3; }
+    .round-card-final .round-card-label { color: #f5c96a; font-size: 0.9rem; text-align: center; border-bottom-color: rgba(224,176,74,0.35); }
+    .round-card-final .round-card-meta { text-align: center; font-size: 0.9rem; }
     .round-card {
       background: #111;
       border: 1px solid rgba(255,107,0,0.2);
@@ -362,6 +371,14 @@
   <section class="reg-section" style="background:#080808; padding-top:3rem; padding-bottom:3rem;">
     <div class="container">
       <h2 class="reg-section-title">Calend&#225;rio</h2>
+      <!-- final phase: featured poster above the four group-phase rounds -->
+      <div class="round-final-wrap">
+        <div class="round-card round-card-final" onclick="openPoster('images/LIGA ENDURANCE/LIGA_ENDURANCE_FASEFINALDOURADO.png','Fase Final - Le Mans')">
+          <div class="round-card-label" data-date="2026-11-07">Fase Final &middot; 07/NOV<span class="live-chip" hidden><span class="live-dot"></span>Direto</span></div>
+          <img src="images/LIGA ENDURANCE/LIGA_ENDURANCE_FASEFINALDOURADO.png" alt="Fase Final - Le Mans" />
+          <div class="round-card-meta"><strong>Le Mans (Circuit de la Sarthe)</strong><br>Corrida 18:00 &middot; 2 + 2 horas</div>
+        </div>
+      </div>
       <div class="rounds-grid">
         <div class="round-card" onclick="openPoster('images/LIGA ENDURANCE/LIGA_ENDURANCE_RONDA1.jpeg','Ronda 1 - Laguna Seca')">
           <div class="round-card-label" data-date="2026-10-10">Ronda 1 &middot; 10/OUT<span class="live-chip" hidden><span class="live-dot"></span>Direto</span></div>
@@ -457,9 +474,9 @@
     </div>
   </footer>
 
-  <script src="js/data.js?v=20261104e"></script>
-  <script src="js/lang.js?v=20261104e"></script>
-  <script src="js/main.js?v=20261104e"></script>
+  <script src="js/data.js?v=20261105c"></script>
+  <script src="js/lang.js?v=20261105c"></script>
+  <script src="js/main.js?v=20261105c"></script>
   <script>
     function openPoster(src, alt) {
       const lb = document.getElementById('posterLightbox');
