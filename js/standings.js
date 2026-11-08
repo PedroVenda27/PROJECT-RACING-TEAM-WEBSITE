@@ -385,7 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderClassStandings(s) {
     const compId = s.competition;
     const cls = classState[compId] || "all";
-    const tabs = [["all", "Geral"], ...s.classes.map(c => [c, c]), ["teams", "Equipas"], ...(s.finalPhase ? [["final", "Fase Final"]] : [])];
+    const tabs = [["all", "Geral"], ...s.classes.map(c => [c, c]), ["teams", s.finalPhase ? "Equipas Fase A" : "Equipas"], ...(s.finalPhase ? [["final", "Fase Final"]] : [])];
     const tabsHtml = `
       <div class="race-subtabs" data-comp="${compId}" style="margin-bottom:1rem;">
         ${tabs.map(([k, label]) => `<button class="race-subtab ext-class-tab${k === cls ? " active" : ""}" data-cls="${k}">${label}</button>`).join("")}
@@ -498,39 +498,102 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderFinalPhase(s) {
     const fp = s.finalPhase, logos = s.teamLogos || {};
     const ours = new Set(s.drivers.filter(d => d.ourDriver).map(d => d.tag));
-    const rows = fp.teams.map((t, i) => {
+    const sessions = fp.sessions || [];
+    const races = sessions.filter(x => x.key !== "qualy");
+    const qualy = sessions.find(x => x.key === "qualy");
+    // team points split by race and class, fastest laps per race, pole; wins = class wins (tie-break)
+    const CLS = ["GR1", "GR3"];
+    const tally = {};
+    fp.teams.forEach(t => { tally[t.tag] = { cells: races.map(() => CLS.map(() => 0)), fl: races.map(() => 0), pole: 0, wins: 0 }; });
+    races.forEach((r, ri) => CLS.forEach((c, ci) => (r[c] || []).forEach((d, i) => {
+      const t = tally[d.team]; if (!t) return;
+      if (!d.nt) t.cells[ri][ci] += fp.points[i] || 0;
+      if (d.fl) t.fl[ri] += fp.fastestLap;
+      if (i === 0 && !d.nt) t.wins++;
+    })));
+    if (qualy) CLS.forEach(c => { const p = (qualy[c] || [])[0]; if (p && tally[p.team]) tally[p.team].pole += fp.pole; });
+    const sum = a => a.reduce((x, v) => x + v, 0);
+    const list = fp.teams.map(t => {
+      const x = tally[t.tag];
+      return { ...t, ...x, points: sum(x.cells.flat()) + sum(x.fl) + x.pole };
+    }).sort((a, b) => b.points - a.points || b.wins - a.wins);
+    const short = r => r.label.replace("Corrida ", "C");
+    const bonusCell = v => `<td class="cell-round">${v ? "+" + v : "—"}</td>`;
+    const done = races.length > 0;
+    const rows = list.map((t, i) => {
       const logo = logos[t.tag]
         ? `<img class="st-team-logo" src="${encodeURI(logos[t.tag])}" alt="${t.name}" loading="lazy" />`
         : `<span class="st-team-logo st-team-logo-fallback">${t.tag}</span>`;
       return `
-        <tr class="${ours.has(t.tag) ? "row-pitbox" : ""}">
+        <tr class="${done && i < 3 ? "row-pos-" + (i + 1) : ""}${ours.has(t.tag) ? " row-pitbox" : ""}">
           <td class="cell-pos">${String(i + 1).padStart(2, "0")}</td>
           <td class="cell-name">
             <div class="st-driver-wrap">
               ${logo}
-              <span class="st-class-driver"><span>${t.name}</span><small>[${t.tag}]</small></span>
+              <span class="st-class-driver"><span>${t.name}</span><small>[${t.tag}] · ${t.room}</small></span>
             </div>
           </td>
-          <td class="cell-car">${t.room}</td>
-          <td class="cell-round">${t.drivers}</td>
-          <td class="cell-round" style="opacity:0.55;">${t.groupPoints}</td>
-          <td class="cell-round">${t.wins}</td>
+          ${t.cells.flat().map(v => `<td class="${v ? "cell-round" : "cell-zero"}">${v}</td>`).join("")}
+          ${t.fl.map(bonusCell).join("")}
+          ${bonusCell(t.pole)}
           <td class="cell-total">${t.points}</td>
         </tr>`;
     }).join("");
+    // per-session class results (qualifying + races)
+    const teamName = tag => (fp.teams.find(t => t.tag === tag) || {}).name || tag;
+    const classTable = (sess, c) => {
+      const isQ = sess.key === "qualy";
+      const body = (sess[c] || []).map((d, i) => {
+        const pts = isQ ? (i === 0 ? "+" + fp.pole : "") : (d.nt ? 0 : fp.points[i] || 0) + (d.fl ? fp.fastestLap : 0);
+        return `<tr class="${ours.has(d.team) ? "row-pitbox" : ""}">
+          <td class="cell-pos">${i + 1}</td>
+          <td class="cell-name"><span>${d.name}</span> <span class="st-team-tag" title="${teamName(d.team)}">${d.team}</span>${isQ && i === 0 ? ' <span class="race-badge badge-pole" title="Pole Position">P</span>' : ""}${d.fl ? ' <span class="race-badge badge-fl" title="Volta Mais Rápida">VR</span>' : ""}${d.nt ? ' <small style="opacity:0.6">NT</small>' : ""}</td>
+          <td class="cell-gap${d.fl ? " cell-bestlap" : ""}">${d.lap || "—"}</td>
+          <td class="cell-total">${pts}</td>
+        </tr>`;
+      }).join("");
+      return `<div class="standings-table-wrap" style="margin-bottom:1rem;"><div class="standings-table-scroll"><table class="standings-table">
+        <thead><tr><th class="th-pos">${c}</th><th class="th-name">Piloto</th><th>Melhor volta</th><th class="th-total">${isQ ? "Bónus" : "Pts"}</th></tr></thead>
+        <tbody>${body}</tbody></table></div></div>`;
+    };
+    const sessHTML = sessions.map(x => `
+      <h3 class="race-results-title" style="margin-top:1.5rem;">${x.label}</h3>
+      <div class="final-class-grid">${classTable(x, "GR1")}${classTable(x, "GR3")}</div>`).join("");
+    // podium with the top 3 teams' logos (2nd · 1st · 3rd), once the races are in
+    const podium = done ? `
+      <div class="final-podium">${[1, 0, 2].filter(i => list[i]).map(i => {
+        const t = list[i];
+        const img = logos[t.tag]
+          ? `<img src="${encodeURI(logos[t.tag])}" alt="${t.name}" />`
+          : `<span class="final-podium-fb">${t.tag}</span>`;
+        return `
+        <div class="final-podium-step final-podium-p${i + 1}${ours.has(t.tag) ? " is-ours" : ""}">
+          <div class="final-podium-logo">${img}</div>
+          <div class="final-podium-name">${t.name}</div>
+          <div class="final-podium-pts">${t.points} pts</div>
+          <div class="final-podium-base">${i === 0 ? "🏆 1" : i + 1}</div>
+        </div>`;
+      }).join("")}
+      </div>` : "";
     return `
       <p class="cal-comp-sub" style="margin:0 0 1rem;">${fp.note}</p>
-      <div class="standings-table-wrap" style="margin-bottom:3rem;">
+      ${podium}
+      <div class="standings-table-wrap" style="margin-bottom:2rem;">
         <div class="standings-table-scroll">
           <table class="standings-table">
             <thead><tr>
-              <th class="th-pos">#</th><th class="th-name">Equipa</th><th class="th-name">Sala</th>
-              <th class="th-round">Pilotos</th><th class="th-round" title="Pontos na fase de grupos (só referência)">Fase grupos</th><th class="th-round">Vit.</th><th class="th-total">Pontos</th>
+              <th class="th-pos">#</th><th class="th-name">Equipa</th>
+              ${races.map(r => CLS.map(c => `<th class="th-round">${short(r)} ${c}</th>`).join("")).join("")}
+              ${races.map(r => `<th class="th-round" title="Volta mais rápida (+${fp.fastestLap} por categoria)">VMR ${short(r)}</th>`).join("")}
+              <th class="th-round" title="Pole position na qualificação (+${fp.pole})">Pole</th><th class="th-total">Total</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
-      </div>`;
+      </div>
+      <div class="standings-legend race-legend" style="margin-bottom:1rem;"><span class="race-badge badge-pole">P</span> Pole position (+${fp.pole}) &nbsp;·&nbsp; <span class="race-badge badge-fl">VR</span> Volta mais rápida da categoria (+${fp.fastestLap}) &nbsp;·&nbsp; NT = sem tempo final (0 pts)</div>
+      ${sessHTML}
+      <div style="margin-bottom:3rem;"></div>`;
   }
 
   /* Round-by-round results inside one class tab (GR1 / GR3), in the same

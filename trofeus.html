@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sala de troféus da RTP Racing Team Project: títulos coletivos e individuais em Gran Turismo 7." />
+  <link rel="canonical" href="https://racingteamproject.eu/trofeus.html" />
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
+  <link rel="apple-touch-icon" href="images/favicon-192.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RTP Racing Team Project" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:title" content="Sala de Troféus — RTP Racing Team Project" />
+  <meta property="og:description" content="Sala de troféus da RTP Racing Team Project: títulos coletivos e individuais em Gran Turismo 7." />
+  <meta property="og:url" content="https://racingteamproject.eu/trofeus.html" />
+  <meta property="og:image" content="https://racingteamproject.eu/images/WALPAPER_RTP1.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Sala de Troféus — RTP Racing Team Project</title>
+  <link rel="stylesheet" href="css/styles.css?v=20261108s" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAV ==================== -->
+  <header id="site-header">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="RTP Racing Team Project Home">
+        <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project Logo" class="logo-img" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="index.html#drivers-section" data-i18n="nav.drivers">Drivers</a></li>
+        <li><a href="garage.html" data-i18n="nav.garage">Garage</a></li>
+        <li><a href="calendar.html" data-i18n="nav.calendar">Calendar</a></li>
+        <li><a href="calculadora.html" data-i18n="nav.calculator">Calculadora</a></li>
+        <li><a href="standings.html">Classificações</a></li>
+        <li><a href="trofeus.html" class="active" data-i18n="nav.trophies">Troféus</a></li>
+        <li><a href="index.html#sponsors-section" data-i18n="nav.sponsors">Sponsors</a></li>
+        <li><a href="liga-endurance.html" class="nav-highlight">&#127937; Liga Endurance</a></li>
+        <li><a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact Us</a></li>
+        <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">🇵🇹 PT</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <h1 class="page-hero-title anim-fade-down">Sala de Troféus</h1>
+      <p class="page-hero-sub anim-fade-up">Os títulos conquistados pelos pilotos da RTP Racing Team Project.</p>
+    </div>
+  </section>
+
+  <!-- ==================== TROPHY ROOM ==================== -->
+  <section class="section trophy-section">
+    <div class="container">
+      <!-- medal count -->
+      <div class="trophy-counts" id="trophy-counts"></div>
+
+      <!-- centrepiece: latest team championship -->
+      <div class="trophy-feature" id="trophy-feature"></div>
+
+      <!-- filter -->
+      <div class="trophy-filter" id="trophy-filter">
+        <button class="trophy-filter-btn active" data-f="all">Todos</button>
+        <button class="trophy-filter-btn" data-f="team">Coletivos</button>
+        <button class="trophy-filter-btn" data-f="individual">Individuais</button>
+      </div>
+
+      <!-- cabinet: glass shelves -->
+      <div class="trophy-cabinet" id="trophy-cabinet"></div>
+    </div>
+  </section>
+
+  <!-- trophy detail -->
+  <div class="trophy-modal" id="trophy-modal" hidden>
+    <div class="trophy-modal-card" role="dialog" aria-modal="true">
+      <button class="trophy-modal-close" aria-label="Fechar">&times;</button>
+      <div id="trophy-modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+  // runs after js/data.js (loaded at the end of the page) so the driver photos are available
+  document.addEventListener("DOMContentLoaded", function () {
+    const TITLES = SITE_DATA.titles || [];
+    const MEDAL = { 1: { name: "Ouro", cls: "gold", label: "1.º Lugar" }, 2: { name: "Prata", cls: "silver", label: "2.º Lugar" }, 3: { name: "Bronze", cls: "bronze", label: "3.º Lugar" } };
+    const drv = n => (SITE_DATA.drivers || []).find(d => d.name === n);
+    let uid = 0;
+    let current = "all";
+    // individual titles show the driver; team titles (and the Coletivos view) are credited to RTP
+    const showDriver = t => t.individual && current !== "team";
+    const rtpChip = '<span><img src="images/RTP_LOGO.png" alt="" style="object-fit:contain;object-position:center;background:#000;padding:4px;">Racing Team Project</span>';
+
+    /* Classic cup shape made of tinted glass (gold / silver / bronze); ids are unique per trophy */
+    function cup(place, big) {
+      const id = "tg" + (uid++), m = MEDAL[place].cls;
+      const c = { gold: ["#fff4c2", "#f5c542", "#9a6f10"], silver: ["#ffffff", "#cfd8de", "#6f7a82"], bronze: ["#ffd9b5", "#d9823c", "#7a4116"] }[m];
+      return `<svg class="trophy-cup trophy-crystal is-${m}${big ? " is-big" : ""}" viewBox="0 0 120 150" aria-hidden="true">
+        <defs>
+          <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="${c[2]}" stop-opacity=".8"/><stop offset=".35" stop-color="${c[0]}" stop-opacity=".55"/><stop offset=".6" stop-color="${c[1]}" stop-opacity=".35"/><stop offset="1" stop-color="${c[2]}" stop-opacity=".75"/></linearGradient>
+          <linearGradient id="${id}e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="${c[1]}" stop-opacity=".7"/></linearGradient>
+          <linearGradient id="${id}p" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0c0c0c"/></linearGradient>
+          <radialGradient id="${id}r" cx=".35" cy=".25" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- handles -->
+        <path d="M31 22H15c0 18 8 28 20 30M89 22h16c0 18-8 28-20 30" fill="none" stroke="url(#${id}g)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M31 22H15c0 18 8 28 20 30M89 22h16c0 18-8 28-20 30" fill="none" stroke="url(#${id}e)" stroke-width="1.2" stroke-linecap="round" stroke-opacity=".8"/>
+        <!-- glass bowl -->
+        <path d="M30 13h60v27c0 22-13 38-30 38S30 62 30 40z" fill="url(#${id}g)" stroke="url(#${id}e)" stroke-width="1.6"/>
+        <path d="M30 13h60v27c0 22-13 38-30 38S30 62 30 40z" fill="url(#${id}r)"/>
+        <ellipse cx="60" cy="13" rx="30" ry="4" fill="${c[0]}" fill-opacity=".35" stroke="#fff" stroke-opacity=".7" stroke-width="1"/>
+        <!-- facets / refraction -->
+        <path d="M60 17v58M45 15c-3 18-1 34 8 50M75 15c3 18 1 34-8 50" stroke="#fff" stroke-opacity=".25" stroke-width=".9" fill="none"/>
+        <path d="M38 20c-2 14 0 26 7 36" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M80 22c1 8 0 14-3 20" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- engraved number in the bowl -->
+        <text x="60" y="52" text-anchor="middle" font-family="Orbitron, sans-serif" font-size="20" font-weight="900" fill="#fff" fill-opacity=".85" stroke="${c[2]}" stroke-opacity=".5" stroke-width=".6">${place}</text>
+        <!-- stem and foot (glass) -->
+        <path d="M53 77h14l-2 22h-10z" fill="url(#${id}g)" stroke="url(#${id}e)" stroke-width="1"/>
+        <path d="M56 79v18" stroke="#fff" stroke-opacity=".6" stroke-width="1.2"/>
+        <path d="M40 99h40l6 13H34z" fill="url(#${id}g)" stroke="url(#${id}e)" stroke-width="1.2"/>
+        <path d="M42 102h12" stroke="#fff" stroke-opacity=".6" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- glossy black plinth -->
+        <rect x="26" y="112" width="68" height="22" rx="3" fill="url(#${id}p)" stroke="${c[1]}" stroke-width="1.4"/>
+        <rect x="26" y="112" width="68" height="3" rx="1.5" fill="${c[1]}" fill-opacity=".7"/>
+        <text x="60" y="128" text-anchor="middle" font-family="Orbitron, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="${c[1]}">${MEDAL[place].label.toUpperCase()}</text>
+      </svg>`;
+    }
+
+    // medal counts
+    const count = (f, p) => TITLES.filter(t => (f === "all" || t[f]) && (!p || t.place === p)).length;
+    document.getElementById("trophy-counts").innerHTML = `
+      <div class="tc-card"><span class="tc-num">${count("team")}</span><span class="tc-lbl">Títulos coletivos</span></div>
+      <div class="tc-card"><span class="tc-num">${count("individual")}</span><span class="tc-lbl">Títulos individuais</span></div>
+      <div class="tc-card tc-gold"><span class="tc-num">${count("all", 1)}</span><span class="tc-lbl">🥇 Vitórias</span></div>
+      <div class="tc-card tc-silver"><span class="tc-num">${count("all", 2)}</span><span class="tc-lbl">🥈 2.º lugares</span></div>
+      <div class="tc-card tc-bronze"><span class="tc-num">${count("all", 3)}</span><span class="tc-lbl">🥉 3.º lugares</span></div>`;
+
+    // centrepiece
+    const feat = TITLES.find(t => t.featured);
+    if (feat) document.getElementById("trophy-feature").innerHTML = `
+      <div class="tf-glass">
+        <div class="tf-spot"></div>
+        ${cup(feat.place, true)}
+        <div class="tf-plaque">
+          <span class="tf-tag">🏆 Campeões · Título coletivo</span>
+          <h2>${feat.comp}</h2>
+          <p>${feat.detail} · ${feat.date}</p>
+          <div class="tf-drivers">${rtpChip}</div>
+          ${feat.link ? `<a class="tf-link" href="${feat.link}">Ver classificação →</a>` : ""}
+        </div>
+        ${feat.logo ? `<img class="tf-logo" src="${encodeURI(feat.logo)}" alt="${feat.comp}">` : ""}
+      </div>`;
+
+    // cabinet: shelves of up to 5 trophies, best first
+    const cabinet = document.getElementById("trophy-cabinet");
+    function render(f) {
+      current = f;
+      const list = TITLES.filter(t => !t.featured && (f === "all" || t[f])).sort((a, b) => a.place - b.place);
+      const shelves = [];
+      for (let i = 0; i < list.length; i += 5) shelves.push(list.slice(i, i + 5));
+      cabinet.innerHTML = shelves.map(row => `
+        <div class="tc-shelf">
+          ${row.map(t => `
+            <button class="trophy" data-i="${TITLES.indexOf(t)}" title="${t.comp} — ${MEDAL[t.place].label}">
+              ${cup(t.place)}
+              <span class="trophy-plate ${MEDAL[t.place].cls}">
+                <strong>${t.comp}</strong>
+                <small>${t.detail ? t.detail + " · " : ""}${MEDAL[t.place].label}</small>
+                <em>${showDriver(t) ? t.drivers.join(" & ") : "RTP"}</em>
+                ${t.link ? `<span class="trophy-link" data-href="${t.link}">Ver classificação →</span>` : ""}
+              </span>
+            </button>`).join("")}
+          <div class="tc-board"></div>
+        </div>`).join("") || `<p class="tc-empty">Sem títulos nesta categoria.</p>`;
+    }
+    // #coletivos / #individuais (links from the home page) open on that filter
+    const start = { "#coletivos": "team", "#individuais": "individual" }[location.hash] || "all";
+    document.querySelectorAll(".trophy-filter-btn").forEach(x => x.classList.toggle("active", x.dataset.f === start));
+    render(start);
+    document.getElementById("trophy-filter").addEventListener("click", e => {
+      const b = e.target.closest(".trophy-filter-btn"); if (!b) return;
+      document.querySelectorAll(".trophy-filter-btn").forEach(x => x.classList.toggle("active", x === b));
+      render(b.dataset.f);
+    });
+
+    // detail modal
+    const modal = document.getElementById("trophy-modal"), body = document.getElementById("trophy-modal-body");
+    cabinet.addEventListener("click", e => {
+      // the plate link opens the standings directly (a link can't sit inside the trophy button)
+      const go = e.target.closest(".trophy-link");
+      if (go) { location.href = go.dataset.href; return; }
+      const b = e.target.closest(".trophy"); if (!b) return;
+      const t = TITLES[+b.dataset.i];
+      body.innerHTML = `${cup(t.place, true)}
+        <span class="tf-tag">${MEDAL[t.place].label} · ${[t.team && "Coletivo", t.individual && "Individual"].filter(Boolean).join(" + ")}</span>
+        <h3>${t.comp}</h3>${t.detail ? `<p>${t.detail}</p>` : ""}
+        <div class="tf-drivers">${showDriver(t) ? t.drivers.map(n => { const d = drv(n); return `<span>${d && d.image ? `<img src="${encodeURI(d.image)}" alt="">` : ""}${n}${d ? ` <small>${d.role}</small>` : ""}</span>`; }).join("") : rtpChip}</div>
+        ${t.link ? `<a class="tf-link" href="${t.link}">Ver classificação →</a>` : ""}`;
+      modal.hidden = false;
+    });
+    modal.addEventListener("click", e => { if (e.target === modal || e.target.closest(".trophy-modal-close")) modal.hidden = true; });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") modal.hidden = true; });
+  });
+  </script>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="RTP Racing Team Project Home">
+            <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project Logo" class="logo-img" style="height:52px;" /><span class="logo-text">RTP - Racing Team Project</span>
+          </a>
+          <p class="footer-desc">A competitive sim racing team dedicated to pushing the boundaries of virtual motorsport across multiple platforms worldwide.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="garage.html">Garage</a></li>
+            <li><a href="index.html#drivers-section">Drivers</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/rtp_racingteamproject" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5Zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@RTPRacingTeamProject" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.54 7.2a2.74 2.74 0 0 0-1.94-1.93C17.88 4.8 12 4.8 12 4.8s-5.88 0-7.6.47A2.74 2.74 0 0 0 2.46 7.2 28.7 28.7 0 0 0 2 12a28.7 28.7 0 0 0 .46 4.8 2.74 2.74 0 0 0 1.94 1.93c1.72.47 7.6.47 7.6.47s5.88 0 7.6-.47a2.74 2.74 0 0 0 1.94-1.93A28.7 28.7 0 0 0 22 12a28.7 28.7 0 0 0-.46-4.8ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/></svg>
+            </a>
+            <!-- Twitch -->
+            <a href="https://www.twitch.tv/racingteamproject_rtp" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitch"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg></a>
+            <!-- Discord -->
+            <a href="https://discord.gg/CTrxTXyPJx" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06Z"/></svg>
+            </a>
+            <!-- Email -->
+            <a href="mailto:Racingteamprojectrtp@gmail.com" class="social-icon" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> RTP - Racing Team Project. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js?v=20261108s"></script>
+  <script src="js/lang.js?v=20261108s"></script>
+  <script src="js/main.js?v=20261108s"></script>
+</body>
+</html>

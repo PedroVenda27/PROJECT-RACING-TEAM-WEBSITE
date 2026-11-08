@@ -16,6 +16,7 @@ const TRANSLATIONS = {
     "nav.sponsors":         "Sponsors",
     "nav.contact":          "Contact Us",
     "nav.calculator":       "Fuel Calc",
+    "nav.trophies":         "Trophies",
 
     // Hero (index.html)
     "hero.line1":           "RTP",
@@ -137,6 +138,7 @@ const TRANSLATIONS = {
     "nav.sponsors":         "Patrocinadores",
     "nav.contact":          "Contacto",
     "nav.calculator":       "Calculadora",
+    "nav.trophies":         "Trof\u00E9us",
 
     // Hero (index.html)
     "hero.line1":           "RTP",

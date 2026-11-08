@@ -77,6 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (driverCountEl && typeof SITE_DATA !== "undefined") {
     driverCountEl.setAttribute("data-count", SITE_DATA.drivers.length);
   }
+  // Title counters (home) come from SITE_DATA.titles, same as the trophy room
+  if (typeof SITE_DATA !== "undefined" && SITE_DATA.titles) {
+    const setCount = (id, key) => { const el = document.getElementById(id); if (el) el.setAttribute("data-count", SITE_DATA.titles.filter(t => t[key]).length); };
+    setCount("team-title-count", "team");
+    setCount("individual-title-count", "individual");
+  }
 
   const counters = document.querySelectorAll(".stat-number[data-count]");
   const counterObs = new IntersectionObserver((entries) => {

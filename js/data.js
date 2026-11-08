@@ -18,6 +18,26 @@ const SITE_DATA = {
      Fields: name, number, role (PSN ID), gtName (in-game display
      name shown in race results), nationality, series, image, flag
      ───────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────
+     TITLES — trophy room (trofeus.html) and the home page counters.
+     place: 1/2/3 · team: counts as a team title · individual: counts as an
+     individual title · featured: shown in the main showcase (newest first wins)
+     ───────────────────────────────────────────── */
+  titles: [
+    { comp: "Liga Endurance Brasil", detail: "Fase Final · Le Mans", place: 1, date: "Nov 2026", team: true, individual: false, featured: true,
+      drivers: ["Wilson Barreto", "Rafael Agostinho", "Rui Silva", "Hugo Costa"], logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png", link: "standings-endurance.html" },
+    { comp: "5ª Liga BPF", detail: "Sala 6", place: 1, team: true, individual: true, drivers: ["Nuno Bravo"] },
+    { comp: "WRT Daytona", detail: "", place: 1, team: true, individual: true, drivers: ["Sérgio Marques"], logo: "images/WRT_LOGO.jpg", link: "standings-wrtdaytona.html" },
+    { comp: "WRT Fun Endurance", detail: "Spa", place: 1, team: true, individual: true, drivers: ["Elias Torres"], logo: "images/WRT_LOGO.jpg", link: "standings-wrtdaytona.html" },
+    { comp: "2H LeMans Grid Masters", detail: "", place: 2, team: true, individual: false, drivers: ["João Ferreira"] },
+    { comp: "WRT Daytona", detail: "", place: 2, team: true, individual: true, drivers: ["Wilson Barreto"], logo: "images/WRT_LOGO.jpg", link: "standings-wrtdaytona.html" },
+    { comp: "WRT x Pitbox", detail: "Nürburgring", place: 2, team: true, individual: true, drivers: ["Rodrigo Marques"], logo: "images/WRT_LOGO.jpg", link: "standings-wrtdaytona.html" },
+    { comp: "WRT Fun Endurance", detail: "Spa", place: 2, team: true, individual: true, drivers: ["Wilson Barreto"], logo: "images/WRT_LOGO.jpg", link: "standings-wrtdaytona.html" },
+    { comp: "Street Cars Pitbox Cup II", detail: "", place: 2, team: true, individual: true, drivers: ["Bruno Teixeira"], logo: "images/PITBOX_TEAM_LOGO.png", link: "standings-pitbox.html" },
+    { comp: "2H LeMans Grid Masters", detail: "", place: 3, team: true, individual: true, drivers: ["Nuno Bravo"] },
+    { comp: "WRT Daytona", detail: "", place: 3, team: true, individual: true, drivers: ["Elias Torres"], logo: "images/WRT_LOGO.jpg", link: "standings-wrtdaytona.html" }
+  ],
+
   drivers: [
     {
       name: "Caceteira",
@@ -954,7 +974,7 @@ const SITE_DATA = {
     {
       competition: "endurance",
       title: "Liga Endurance",
-      subtitle: "Gran Turismo 7 · Campeonato de resistência · Competição Externa · Fase de grupos concluída (Sala A) · RTP apurada para a Fase Final",
+      subtitle: "Gran Turismo 7 · Campeonato de resistência · Competição Externa · Fase Final concluída · RTP vence a Fase Final em Le Mans",
       logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png",
       type: "drivers-external",
       /* Multi-class: overall order below; "Geral", "GR1" and "GR3" tabs.
@@ -1144,7 +1164,74 @@ const SITE_DATA = {
          (groupWins / groupPoints = group-phase record, shown for reference). Sala A teams are marked "Fase Final" in
          the Equipas tab; the "Fase Final" tab lists all 7. */
       finalPhase: {
-        note: "Sábado 07/NOV · 2 corridas de 2h em Le Mans (Circuit de la Sarthe) · GR1 + GR3 · Pontuação a zeros: todas as equipas começam com 0 pts · Apuradas: 4 equipas da Sala A e 3 da Sala B",
+        note: "Sábado 07/NOV · Le Mans (Circuit de la Sarthe) · 2 corridas de 2h · GR1 + GR3 · Pontuação da Fase Final a partir do zero · 150/110/80/60/40/20/10 por categoria em cada corrida, pole +20 (só qualificação), volta mais rápida +10 por categoria em cada corrida",
+        /* Final phase results (regulation art. 8 and 9): points per class in each
+           race, pole +20 (qualifying only, race 1 grid), fastest lap +10 per class
+           per race. nt = no time (did not finish): 0 position points (art. 8.5,
+           under 50% completed). Team totals are added up by the page. */
+        points: [150, 110, 80, 60, 40, 20, 10], pole: 20, fastestLap: 10,
+        sessions: [
+          { key: "qualy", label: "Qualificação",
+            GR1: [
+              { name: "RafaelAgostinh44", team: "RTP", lap: "3:29.952" },
+              { name: "CAVERITO_BR", team: "LET", lap: "3:31.378" },
+              { name: "Doge_VII", team: "BPM", lap: "3:32.787" },
+              { name: "edupfr", team: "MIT", lap: "3:33.636" },
+              { name: "Ricardo_Melo_239", team: "VM", lap: "3:34.527" },
+              { name: "A_Charlles", team: "F14", lap: "3:35.205" },
+              { name: "vininhokiler", team: "CERT", lap: "3:36.258" }
+            ],
+            GR3: [
+              { name: "RiickCorreaBR", team: "MIT", lap: "3:59.970" },
+              { name: "BPM_Migas", team: "BPM", lap: "4:00.264" },
+              { name: "Wilson_TheFirst", team: "RTP", lap: "4:00.383" },
+              { name: "TDN_Roberto494", team: "VM", lap: "4:01.668" },
+              { name: "lua-leite_", team: "F14", lap: "4:02.768" },
+              { name: "mvmsodre", team: "LET", lap: "4:02.770" },
+              { name: "Uesleiues", team: "CERT", lap: "4:06.137" }
+            ]
+          },
+          { key: "race1", label: "Corrida 1",
+            GR1: [
+              { name: "V. Machado", team: "LET" },
+              { name: "Doge", team: "BPM" },
+              { name: "R. Agostinho", team: "RTP", fl: true },
+              { name: "Pinto", team: "MIT" },
+              { name: "A.Charlles", team: "F14" },
+              { name: "Viniolivotto", team: "CERT" },
+              { name: "Ricardo Melo", team: "VM" }
+            ],
+            GR3: [
+              { name: "BPM Migas", team: "BPM" },
+              { name: "Barreto", team: "RTP" },
+              { name: "R.Charynczuk", team: "VM", fl: true },
+              { name: "Sodré", team: "LET" },
+              { name: "Luã", team: "F14" },
+              { name: "Ueslei", team: "CERT" },
+              { name: "RiickCorreaBR", team: "MIT" }
+            ]
+          },
+          { key: "race2", label: "Corrida 2",
+            GR1: [
+              { name: "F14_MUMUzei", team: "F14", lap: "3:33.434" },
+              { name: "V. Machado", team: "LET", lap: "3:30.544", fl: true },
+              { name: "R. Agostinho", team: "RTP", lap: "3:31.685" },
+              { name: "BPM_Gacrux95", team: "BPM", lap: "3:32.345" },
+              { name: "Ricardo Melo", team: "VM", lap: "3:34.432" },
+              { name: "Viniolivotto", team: "CERT", lap: "3:33.741", nt: true },
+              { name: "Josean", team: "MIT", lap: "3:35.416", nt: true }
+            ],
+            GR3: [
+              { name: "Barreto", team: "RTP", lap: "4:00.243" },
+              { name: "R.Charynczuk", team: "VM", lap: "3:59.652", fl: true },
+              { name: "Sodré", team: "LET", lap: "4:02.687" },
+              { name: "Luã", team: "F14", lap: "4:05.237" },
+              { name: "Legadoft", team: "MIT", lap: "4:14.541" },
+              { name: "BPM_Mister", team: "BPM", lap: "4:03.321" },
+              { name: "Angelo Peruzzo", team: "CERT", lap: "4:04.401" }
+            ]
+          }
+        ],
         teams: [
           { room: "Sala A", tag: "LET",  name: "LIGA ENDURANCE Racing Team",  drivers: 4, wins: 0, points: 0, groupWins: 3, groupPoints: 960 },
           { room: "Sala A", tag: "RTP",  name: "Racing Team Project",         drivers: 4, wins: 0, points: 0, groupWins: 3, groupPoints: 920 },
