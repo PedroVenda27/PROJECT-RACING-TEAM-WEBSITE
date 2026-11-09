@@ -9,16 +9,17 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-09",
-  updatedAt: "2026-11-09T15:35:00+00:00",
+  updatedAt: "2026-11-09T16:10:00+00:00",
   races: [
     {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":60208,"leader":"DMC_A. Driaan","players":3390,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
     {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":119089,"leader":"Sillon","players":6437,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
-    {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":76134,"leader":"B. Hencsei","players":7921,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
+    {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":75939,"leader":"FleXXsyX-__-","players":8643,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
   ],
   times: {
-    "FVenda117": {"B":{"ms":122758,"time":"02:02.758","pos":945,"posPT":17,"car":"Audi TT Cup '16"}},
+    "pandafrass": {"C":{"ms":77436,"time":"01:17.436","pos":429,"posPT":7,"car":"Toyota GR Supra Racing Concept '18"}},
     "KajuNN": {"B":{"ms":120519,"time":"02:00.519","pos":47,"posPT":1,"car":"Audi TT Cup '16"}},
-    "Wilson_TheFirst": {"C":{"ms":77475,"time":"01:17.475","pos":390,"posPT":6,"car":"BMW M6 GT3 Endurance Model '16"}}
+    "FVenda117": {"B":{"ms":122758,"time":"02:02.758","pos":945,"posPT":17,"car":"Audi TT Cup '16"}},
+    "Wilson_TheFirst": {"C":{"ms":77435,"time":"01:17.435","pos":428,"posPT":6,"car":"Toyota GR Supra Racing Concept '18"}}
   },
   history: [
     { week: 45, year: 2026,
