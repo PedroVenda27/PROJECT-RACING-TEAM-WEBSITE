@@ -9,7 +9,7 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-09",
-  updatedAt: "2026-11-09T11:50:00+00:00",
+  updatedAt: "2026-11-09T11:58:00+00:00",
   races: [
     {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":null,"leader":"","players":null,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
     {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":null,"leader":"","players":null,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
