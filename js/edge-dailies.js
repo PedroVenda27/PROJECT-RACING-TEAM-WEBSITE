@@ -9,11 +9,11 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-09",
-  updatedAt: "2026-11-09T13:14:00+00:00",
+  updatedAt: "2026-11-09T14:09:00+00:00",
   races: [
-    {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":60296,"leader":"Diego Lobelos","players":2401,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
+    {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":60208,"leader":"DMC_A. Driaan","players":2913,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
     {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":119501,"leader":"きよれーしんぐ","players":4962,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
-    {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":null,"leader":"","players":null,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
+    {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":76262,"leader":"FleXXsyX-__-","players":7218,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
   ],
   times: {
     "FVenda117": {"B":{"ms":122758,"time":"02:02.758","pos":945,"posPT":17,"car":"Audi TT Cup '16"}}
