@@ -140,13 +140,20 @@ document.addEventListener("DOMContentLoaded", () => {
      re-render just that block instead of the whole page. */
   const raceResultsState = {};
 
+  // a round can hold placeholder sessions (e.g. qualifying still to come): open on the first one with results
+  function firstSessionWithResults(round) {
+    const i = (round && round.sessions || []).findIndex(x => x.results && x.results.length);
+    return i < 0 ? 0 : i;
+  }
+
   function renderRaceResultsSection(s) {
     if (!s.raceResults || !s.raceResults.length) return "";
     const compId = s.competition;
     if (!raceResultsState[compId]) {
       // open on the latest round that already has results (later ones may be placeholders)
       const done = s.raceResults.map(r => r.sessions.some(x => x.results && x.results.length)).lastIndexOf(true);
-      raceResultsState[compId] = { roundIdx: done >= 0 ? done : s.raceResults.length - 1, raceIdx: 0 };
+      const roundIdx = done >= 0 ? done : s.raceResults.length - 1;
+      raceResultsState[compId] = { roundIdx, raceIdx: firstSessionWithResults(s.raceResults[roundIdx]) };
     }
     const roundTabs = s.raceResults.map((r, i) => `
       <button class="standings-tab race-round-tab${i === raceResultsState[compId].roundIdx ? " active" : ""}" data-round-idx="${i}">${r.label || "R" + r.round}</button>
@@ -887,7 +894,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (roundBtn) {
       const compId = roundBtn.closest("[data-comp]").dataset.comp;
       raceResultsState[compId].roundIdx = parseInt(roundBtn.dataset.roundIdx, 10);
-      raceResultsState[compId].raceIdx = 0;
+      const st = SITE_DATA.standings.find(x => x.competition === compId);
+      raceResultsState[compId].raceIdx = firstSessionWithResults(st && st.raceResults[raceResultsState[compId].roundIdx]);
       refreshRaceResults(compId);
       return;
     }

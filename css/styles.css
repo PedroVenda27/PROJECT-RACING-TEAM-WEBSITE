@@ -4160,3 +4160,7 @@ a.sponsor-code-btn .sponsor-code-value { font-size: 0.62rem; letter-spacing: 0.0
 .trophy:hover .trophy-crystal { filter: drop-shadow(0 0 22px rgba(255, 235, 180, 0.6)) drop-shadow(0 8px 6px rgba(0, 0, 0, 0.7)); }
 .trophy-link { display: inline-block; margin-top: 0.35rem; color: #f5c96a; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; border-bottom: 1px solid rgba(245, 201, 106, 0.4); }
 .trophy-link:hover { color: #ffe08a; border-color: #ffe08a; }
+/* Liga Endurance page: champions poster */
+.le-champions-poster { width: 100%; max-width: 560px; border-radius: 12px; cursor: zoom-in; border: 3px solid #e0b04a; box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.35), 0 0 40px rgba(224, 176, 74, 0.3), 0 16px 40px rgba(0, 0, 0, 0.6); transition: transform 0.2s; }
+.le-champions-poster:hover { transform: scale(1.01); }
+.tf-link-alt { margin-left: 0.5rem; background: transparent; color: #f5c96a; border: 1px solid rgba(245, 201, 106, 0.6); }

@@ -25,7 +25,8 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   titles: [
     { comp: "Liga Endurance Brasil", detail: "Fase Final · Le Mans", place: 1, date: "Nov 2026", team: true, individual: false, featured: true,
-      drivers: ["Wilson Barreto", "Rafael Agostinho", "Rui Silva", "Hugo Costa"], logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png", link: "standings-endurance.html" },
+      drivers: ["Wilson Barreto", "Rafael Agostinho", "Rui Silva", "Hugo Costa"], logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png", link: "standings-endurance.html",
+      poster: "images/LIGA ENDURANCE/LIGA_ENDURANCE_CAMPEOES.png" },
     { comp: "5ª Liga BPF", detail: "Sala 6", place: 1, team: true, individual: true, drivers: ["Nuno Bravo"] },
     { comp: "WRT Daytona", detail: "", place: 1, team: true, individual: true, drivers: ["Sérgio Marques"], logo: "images/WRT_LOGO.jpg", link: "standings-wrtdaytona.html" },
     { comp: "WRT Fun Endurance", detail: "Spa", place: 1, team: true, individual: true, drivers: ["Elias Torres"], logo: "images/WRT_LOGO.jpg", link: "standings-wrtdaytona.html" },
@@ -250,6 +251,16 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Hugo Seixas/HugoSeixas_Laranja.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Tiago Freitas",
+      number: "272",
+      role: "tiagofreitas_27",
+      gtName: "Tiag0_27",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "images/drivers/Tiago Freitas/TiagoFreitas_Preto.png",
       flag: "🇵🇹"
     },
   ],
@@ -862,22 +873,24 @@ const SITE_DATA = {
       logo: "images/favicon-192.png",
       type: "drivers",
       nullLabel: "—",
-      raceLegend: "Pontuação F1: 25 · 18 · 15 · 12 · 10 · 8 · 6 · 4 · 2 · 1",
+      raceLegend: "Corrida (pontuação F1): 25 · 18 · 15 · 12 · 10 · 8 · 6 · 4 · 2 · 1 &nbsp;·&nbsp; Sprint: 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1",
       roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6", "R7"],
       drivers: [
-        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho", rounds: [25, 15, null, null, null, null, null], total: 40 },
-        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",   rounds: [12, 25, null, null, null, null, null], total: 37 },
-        { name: "Pedro Dias",       driverRef: "Pedro Dias",       rounds: [18, 12, null, null, null, null, null], total: 30 },
-        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   rounds: [6, 18, null, null, null, null, null], total: 24 },
-        { name: "Miguel Cabral",    driverRef: "Miguel Cabral",    rounds: [15, 1, null, null, null, null, null], total: 16 },
-        { name: "Rodrigo Marques",  driverRef: "Rodrigo Marques",  rounds: [4, 10, null, null, null, null, null], total: 14 },
-        { name: "Luís Dantas",      driverRef: "Luís Dantas",      rounds: [8, 2, null, null, null, null, null], total: 10 },
-        { name: "Rui Silva",        driverRef: "Rui Silva",        rounds: [10, null, null, null, null, null, null], total: 10 },
-        { name: "Hugo Costa",       driverRef: "Hugo Costa",       rounds: [1, 8, null, null, null, null, null], total: 9 },
-        { name: "Sérgio Marques",   driverRef: "Sérgio Marques",   rounds: [null, 6, null, null, null, null, null], total: 6 },
-        { name: "Leonnardo Raucci", driverRef: "Leonnardo Raucci", rounds: [null, 4, null, null, null, null, null], total: 4 },
-        { name: "Luis Gomes",       driverRef: "Luis Gomes",       rounds: [2, 0, null, null, null, null, null], total: 2 },
-        { name: "Pedro Venda",      driverRef: "Pedro Venda",      rounds: [null, 0, null, null, null, null, null], total: 0 }
+        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho",rounds: [25, 15, 25, null, null, null, null], total: 65 },
+        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",  rounds: [12, 25, 20, null, null, null, null], total: 57 },
+        { name: "Pedro Dias",       driverRef: "Pedro Dias",      rounds: [18, 12, 16, null, null, null, null], total: 46 },
+        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",  rounds: [6, 18, 20, null, null, null, null], total: 44 },
+        { name: "Tiago Freitas",    driverRef: "Tiago Freitas",   rounds: [null, null, 25, null, null, null, null], total: 25 },
+        { name: "Miguel Cabral",    driverRef: "Miguel Cabral",   rounds: [15, 1, 9, null, null, null, null], total: 25 },
+        { name: "Rui Silva",        driverRef: "Rui Silva",       rounds: [10, null, 6, null, null, null, null], total: 16 },
+        { name: "Rodrigo Marques",  driverRef: "Rodrigo Marques", rounds: [4, 10, null, null, null, null, null], total: 14 },
+        { name: "Luís Dantas",      driverRef: "Luís Dantas",     rounds: [8, 2, null, null, null, null, null], total: 10 },
+        { name: "Hugo Costa",       driverRef: "Hugo Costa",      rounds: [1, 8, 1, null, null, null, null], total: 10 },
+        { name: "Pinto Moreira",    driverRef: "Pinto Moreira",    rounds: [null, null, 9, null, null, null, null], total: 9 },
+        { name: "Sérgio Marques",   driverRef: "Sérgio Marques",  rounds: [null, 6, null, null, null, null, null], total: 6 },
+        { name: "Pedro Venda",      driverRef: "Pedro Venda",     rounds: [null, 0, 6, null, null, null, null], total: 6 },
+        { name: "Leonnardo Raucci", driverRef: "Leonnardo Raucci",rounds: [null, 4, null, null, null, null, null], total: 4 },
+        { name: "Luis Gomes",       driverRef: "Luis Gomes",      rounds: [2, 0, 0, null, null, null, null], total: 2 }
       ],
       raceResults: [
         {
@@ -926,6 +939,53 @@ const SITE_DATA = {
                 { pos: 10  , name: "Miguel Cabral",    driverRef: "Miguel Cabral",    psnId: "MattiAzores",     time: "",          gap: "+1 Volta",  penalty: "", points: 1 , pole: false, fastestLap: false, bestLap: "1:33.245" },
                 { pos: 11  , name: "Luis Gomes",       driverRef: "Luis Gomes",       psnId: "Laferia",         time: "",          gap: "+2 Voltas", penalty: "", points: 0 , pole: false, fastestLap: false, bestLap: "1:34.729" },
                 { pos: "NC", name: "Pedro Venda",      driverRef: "Pedro Venda",      psnId: "Pedro Venda",     time: "",          gap: "NC",        penalty: "", points: 0 , pole: false, fastestLap: false, bestLap: "1:33.561" }
+              ]
+            }
+          ]
+        },
+        {
+          round: 3,
+          label: "Ronda 3",
+          date: "8 de Novembro de 2026",
+          track: "Autodrome Lago Maggiore — Completo",
+          sessions: [
+            {
+              type: "qualifying",
+              label: "Qualificação",
+              results: []
+            },
+            {
+              type: "race",
+              label: "Sprint",
+              results: [
+                { pos: 1   , name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97",   time: "13:55.866", gap: "",          penalty: "", points: 8, pole: false, fastestLap: false },
+                { pos: 2   , name: "Rafael Agostinho", driverRef: "Rafael Agostinho",psnId: "R. Agostinho",    time: "", gap: "+02.209",   penalty: "", points: 7, pole: false, fastestLap: false },
+                { pos: 3   , name: "Pedro Dias",       driverRef: "Pedro Dias",      psnId: "RTP_Travincas24", time: "", gap: "+04.169",   penalty: "", points: 6, pole: false, fastestLap: false },
+                { pos: 4   , name: "Wilson Barreto",   driverRef: "Wilson Barreto",  psnId: "Barreto",         time: "", gap: "+05.477",   penalty: "+1.000", points: 5, pole: false, fastestLap: false },
+                { pos: 5   , name: "Rui Silva",        driverRef: "Rui Silva",       psnId: "Pandex",          time: "", gap: "+12.142",   penalty: "", points: 4, pole: false, fastestLap: false },
+                { pos: 6   , name: "Pinto Moreira",    driverRef: "Pinto Moreira",    psnId: "LOrD_TriPeiRo",   time: "", gap: "+13.764",   penalty: "", points: 3, pole: false, fastestLap: false },
+                { pos: 7   , name: "Pedro Venda",      driverRef: "Pedro Venda",     psnId: "Pedro Venda",     time: "", gap: "+22.825",   penalty: "", points: 2, pole: false, fastestLap: false },
+                { pos: 8   , name: "Miguel Cabral",    driverRef: "Miguel Cabral",   psnId: "MattiAzores",     time: "", gap: "+23.403",   penalty: "", points: 1, pole: false, fastestLap: false },
+                { pos: 9   , name: "Luis Gomes",       driverRef: "Luis Gomes",      psnId: "Laferia",         time: "", gap: "+37.338",   penalty: "", points: 0, pole: false, fastestLap: false },
+                { pos: 10  , name: "Hugo Costa",       driverRef: "Hugo Costa",      psnId: "Hugo Costa",      time: "", gap: "+52.563",   penalty: "", points: 0, pole: false, fastestLap: false },
+                { pos: 11  , name: "Tiago Freitas",    driverRef: "Tiago Freitas",   psnId: "Tiag0_27",        time: "", gap: "+57.978",   penalty: "", points: 0, pole: false, fastestLap: false }
+              ]
+            },
+            {
+              type: "race",
+              label: "Corrida",
+              results: [
+                { pos: 1   , name: "Tiago Freitas",    driverRef: "Tiago Freitas",   psnId: "Tiag0_27",        time: "40:29.465", gap: "",          penalty: "", points: 25, pole: false, fastestLap: false },
+                { pos: 2   , name: "Rafael Agostinho", driverRef: "Rafael Agostinho",psnId: "R. Agostinho",    time: "", gap: "+03.143",   penalty: "", points: 18, pole: false, fastestLap: false },
+                { pos: 3   , name: "Wilson Barreto",   driverRef: "Wilson Barreto",  psnId: "Barreto",         time: "", gap: "+07.039",   penalty: "", points: 15, pole: false, fastestLap: false },
+                { pos: 4   , name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97",   time: "", gap: "+15.637",   penalty: "", points: 12, pole: false, fastestLap: false },
+                { pos: 5   , name: "Pedro Dias",       driverRef: "Pedro Dias",      psnId: "RTP_Travincas24", time: "", gap: "+16.005",   penalty: "", points: 10, pole: false, fastestLap: false },
+                { pos: 6   , name: "Miguel Cabral",    driverRef: "Miguel Cabral",   psnId: "MattiAzores",     time: "", gap: "+43.488",   penalty: "", points: 8, pole: false, fastestLap: false },
+                { pos: 7   , name: "Pinto Moreira",    driverRef: "Pinto Moreira",    psnId: "LOrD_TriPeiRo",   time: "", gap: "+46.224",   penalty: "", points: 6, pole: false, fastestLap: false },
+                { pos: 8   , name: "Pedro Venda",      driverRef: "Pedro Venda",     psnId: "Pedro Venda",     time: "", gap: "+1:11.872", penalty: "", points: 4, pole: false, fastestLap: false },
+                { pos: 9   , name: "Rui Silva",        driverRef: "Rui Silva",       psnId: "Pandex",          time: "", gap: "Em pista",  penalty: "", points: 2, pole: false, fastestLap: false },
+                { pos: 10  , name: "Hugo Costa",       driverRef: "Hugo Costa",      psnId: "Hugo Costa",      time: "", gap: "+1 Volta",  penalty: "", points: 1, pole: false, fastestLap: false },
+                { pos: 11  , name: "Luis Gomes",       driverRef: "Luis Gomes",      psnId: "Laferia",         time: "", gap: "+1 Volta",  penalty: "", points: 0, pole: false, fastestLap: false }
               ]
             }
           ]

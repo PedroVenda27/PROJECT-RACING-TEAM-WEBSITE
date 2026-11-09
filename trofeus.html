@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://racingteamproject.eu/images/WALPAPER_RTP1.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>Sala de Troféus — RTP Racing Team Project</title>
-  <link rel="stylesheet" href="css/styles.css?v=20261108s" />
+  <link rel="stylesheet" href="css/styles.css?v=20261109c" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -156,6 +156,7 @@
           <p>${feat.detail} · ${feat.date}</p>
           <div class="tf-drivers">${rtpChip}</div>
           ${feat.link ? `<a class="tf-link" href="${feat.link}">Ver classificação →</a>` : ""}
+          ${feat.poster ? `<a class="tf-link tf-link-alt" href="${encodeURI(feat.poster)}" target="_blank" rel="noopener">Ver poster</a>` : ""}
         </div>
         ${feat.logo ? `<img class="tf-logo" src="${encodeURI(feat.logo)}" alt="${feat.comp}">` : ""}
       </div>`;
@@ -265,8 +266,8 @@
     </div>
   </footer>
 
-  <script src="js/data.js?v=20261108s"></script>
-  <script src="js/lang.js?v=20261108s"></script>
-  <script src="js/main.js?v=20261108s"></script>
+  <script src="js/data.js?v=20261109c"></script>
+  <script src="js/lang.js?v=20261109c"></script>
+  <script src="js/main.js?v=20261109c"></script>
 </body>
 </html>
