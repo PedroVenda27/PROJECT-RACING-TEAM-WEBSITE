@@ -902,6 +902,7 @@ const SITE_DATA = {
             {
               type: "race",
               label: "Corrida",
+              duration: "40 min",
               results: [
                 { pos: 1,  name: "Rafael Agostinho", driverRef: "Rafael Agostinho", psnId: "R. Agostinho",    time: "", gap: "",          penalty: "", points: 25, pole: false, fastestLap: false },
                 { pos: 2,  name: "Pedro Dias",       driverRef: "Pedro Dias",       psnId: "RTP_Travincas24", time: "", gap: "",          penalty: "", points: 18, pole: false, fastestLap: false },
@@ -926,6 +927,7 @@ const SITE_DATA = {
             {
               type: "race",
               label: "Corrida",
+              duration: "40 min",
               results: [
                 { pos: 1   , name: "Wilson Barreto",   driverRef: "Wilson Barreto",   psnId: "Barreto",         time: "40:39.354", gap: "",          penalty: "", points: 25, pole: false, fastestLap: false, bestLap: "1:32.415" },
                 { pos: 2   , name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   psnId: "RTP_Brunocm97",   time: "",          gap: "+05.121",   penalty: "", points: 18, pole: false, fastestLap: false, bestLap: "1:33.144" },
@@ -957,6 +959,7 @@ const SITE_DATA = {
             {
               type: "race",
               label: "Sprint",
+              duration: "7 voltas",
               results: [
                 { pos: 1   , name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",  psnId: "RTP_Brunocm97",   time: "13:55.866", gap: "",          penalty: "", points: 8, pole: false, fastestLap: false },
                 { pos: 2   , name: "Rafael Agostinho", driverRef: "Rafael Agostinho",psnId: "R. Agostinho",    time: "", gap: "+02.209",   penalty: "", points: 7, pole: false, fastestLap: false },
@@ -974,6 +977,7 @@ const SITE_DATA = {
             {
               type: "race",
               label: "Corrida",
+              duration: "40 min",
               results: [
                 { pos: 1   , name: "Tiago Freitas",    driverRef: "Tiago Freitas",   psnId: "Tiag0_27",        time: "40:29.465", gap: "",          penalty: "", points: 25, pole: false, fastestLap: false },
                 { pos: 2   , name: "Rafael Agostinho", driverRef: "Rafael Agostinho",psnId: "R. Agostinho",    time: "", gap: "+03.143",   penalty: "", points: 18, pole: false, fastestLap: false },
