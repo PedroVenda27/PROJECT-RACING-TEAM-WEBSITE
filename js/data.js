@@ -58,8 +58,7 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Rui Silva/RuiSilva_Preto.png",
-      flag: "🇵🇹",
-      pilotoComunidadeMes: true
+      flag: "🇵🇹"
     },
     {
       name: "Rafael Agostinho",
@@ -69,7 +68,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Laranja.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      pilotoMes: true
     },
     {
       name: "Miguel Cabral",
@@ -79,7 +79,8 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Miguel Cabral/MiguelCabral_Preto.png",
-      flag: "🇵🇹"
+      flag: "🇵🇹",
+      pilotoComunidadeMes: true
     },
     {
       name: "Elias Torres",
@@ -99,8 +100,7 @@ const SITE_DATA = {
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Preto.png",
-      flag: "🇵🇹",
-      pilotoMes: true
+      flag: "🇵🇹"
     },
     {
       name: "João Festas",
