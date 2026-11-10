@@ -8,20 +8,20 @@
    history: semanas anteriores { week, year, races, times }, mais recente primeiro
    ===================================================================== */
 const EDGE_DAILIES = {
-  updated: "2026-11-09",
-  updatedAt: "2026-11-09T23:27:00+00:00",
+  updated: "2026-11-10",
+  updatedAt: "2026-11-10T00:48:00+00:00",
   races: [
     {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":60063,"leader":"BW-_ららぴぴ","players":6554,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
     {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":119089,"leader":"Sillon","players":9451,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
     {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":75939,"leader":"FleXXsyX-__-","players":11706,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
   ],
   times: {
-    "Caceteira_RTP": {"A":{"ms":60715,"time":"01:00.715","pos":81,"posPT":1,"car":"Honda Integra Type R (DC2) '95"}},
+    "Wilson_TheFirst": {"C":{"ms":77085,"time":"01:17.085","pos":388,"posPT":7,"car":"BMW M6 GT3 Endurance Model '16"}},
     "pandafrass": {"C":{"ms":76937,"time":"01:16.937","pos":261,"posPT":5,"car":"Toyota GR Supra Racing Concept '18"}},
     "FVenda117": {"B":{"ms":122758,"time":"02:02.758","pos":945,"posPT":17,"car":"Audi TT Cup '16"}},
-    "granadas10": {"C":{"ms":77979,"time":"01:17.979","pos":2482,"posPT":44,"car":"Subaru WRX Gr.3"}},
-    "Wilson_TheFirst": {"C":{"ms":77085,"time":"01:17.085","pos":388,"posPT":7,"car":"BMW M6 GT3 Endurance Model '16"}},
+    "Caceteira_RTP": {"A":{"ms":60715,"time":"01:00.715","pos":81,"posPT":1,"car":"Honda Integra Type R (DC2) '95"}},
     "KajuNN": {"C":{"ms":76604,"time":"01:16.604","pos":78,"posPT":2,"car":"Toyota GR Supra Racing Concept '18"},"B":{"ms":120317,"time":"02:00.317","pos":39,"posPT":1,"car":"Audi TT Cup '16"}},
+    "granadas10": {"C":{"ms":77979,"time":"01:17.979","pos":2482,"posPT":44,"car":"Subaru WRX Gr.3"}},
     "Pinto_Moreira": {"B":{"ms":121305,"time":"02:01.305","pos":494,"posPT":37,"car":"Audi TT Cup '16"}},
     "tiagofreitas_27": {"C":{"ms":78255,"time":"01:18.255","pos":3615,"posPT":66,"car":"Lexus RC F GT3 '17"}}
   },
