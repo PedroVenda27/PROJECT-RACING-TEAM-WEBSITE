@@ -57,7 +57,7 @@ const SITE_DATA = {
       gtName: "Pandex",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rui Silva/RuiSilva_Preto.png",
+      image: "images/drivers/Rui Silva/RuiSilva_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -67,7 +67,7 @@ const SITE_DATA = {
       gtName: "R. Agostinho",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Laranja.png",
+      image: "images/drivers/Rafael Agostinho/RafaelAgostinho_Preto.png",
       flag: "🇵🇹",
       pilotoMes: true
     },
@@ -78,7 +78,7 @@ const SITE_DATA = {
       gtName: "MattiAzores",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Miguel Cabral/MiguelCabral_Preto.png",
+      image: "images/drivers/Miguel Cabral/MiguelCabral_Laranja.png",
       flag: "🇵🇹",
       pilotoComunidadeMes: true
     },
@@ -89,7 +89,7 @@ const SITE_DATA = {
       gtName: "KezwiiK",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Elias Torres/EliasTorres_Laranja.png",
+      image: "images/drivers/Elias Torres/EliasTorres_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -99,7 +99,7 @@ const SITE_DATA = {
       gtName: "RTP_Brunocm97",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Preto.png",
+      image: "images/drivers/Bruno Teixeira/BrunoTeixeira_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -109,7 +109,7 @@ const SITE_DATA = {
       gtName: "Festas Racing",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/João Festas/JoaoFestas_Laranja.png",
+      image: "images/drivers/João Festas/JoaoFestas_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -119,7 +119,7 @@ const SITE_DATA = {
       gtName: "N17",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Nuno Bravo/NunoBravo_Preto.png",
+      image: "images/drivers/Nuno Bravo/NunoBravo_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -129,7 +129,7 @@ const SITE_DATA = {
       gtName: "Luisikon_TCHT",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Luís Dantas/LuisDantas_Laranja.png",
+      image: "images/drivers/Luís Dantas/LuisDantas_Preto.png",
       flag: "🇵🇹"
     },
     {
@@ -139,7 +139,7 @@ const SITE_DATA = {
       gtName: "RTP_Travincas24",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Pedro Dias/PedroDias_Preto.png",
+      image: "images/drivers/Pedro Dias/PedroDias_Laranja.png",
       flag: "🇵🇹"
     },
     {
@@ -149,9 +149,19 @@ const SITE_DATA = {
       gtName: "Pedro Venda",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "images/drivers/Pedro Venda/PedroVenda_Laranja.png",
+      image: "images/drivers/Pedro Venda/PedroVenda_Preto.png",
       flag: "🇵🇹",
       federado: true
+    },
+    {
+      name: "Fábio Silva",
+      number: "28",
+      role: "shedowripper2896",
+      gtName: "Fabio Silva",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "images/drivers/Fábio Silva/FabioSilva_Laranja.png",
+      flag: "🇵🇹"
     },
     {
       name: "Sérgio Marques",
