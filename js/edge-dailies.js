@@ -9,11 +9,11 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-12",
-  updatedAt: "2026-11-12T16:36:00+00:00",
+  updatedAt: "2026-11-12T17:09:00+00:00",
   races: [
     {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":59950,"leader":"BW-_ららぴぴ","players":17698,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
-    {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":119089,"leader":"Sillon","players":34320,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
-    {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":75900,"leader":"K. de Bruin","players":43987,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
+    {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":119089,"leader":"Sillon","players":34340,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
+    {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":75900,"leader":"K. de Bruin","players":44002,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
   ],
   times: {
     "Wilson_TheFirst": {"C":{"ms":76841,"time":"01:16.841","pos":475,"posPT":12,"car":"Toyota GR Supra Racing Concept '18"}},
