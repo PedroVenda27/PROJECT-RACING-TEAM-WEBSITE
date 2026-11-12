@@ -9,29 +9,29 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-12",
-  updatedAt: "2026-11-12T00:09:00+00:00",
+  updatedAt: "2026-11-12T11:39:00+00:00",
   races: [
-    {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":59950,"leader":"BW-_ららぴぴ","players":14387,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
-    {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":119089,"leader":"Sillon","players":27997,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
-    {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":75918,"leader":"D. Chafe","players":43824,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
+    {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":59950,"leader":"BW-_ららぴぴ","players":17569,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
+    {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":119089,"leader":"Sillon","players":34250,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
+    {"type":"C","id":696,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Michelin Raceway Road Atlanta","car":"Gr.3","tyres":"RM, RS","lead":75918,"leader":"D. Chafe","players":43934,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-c-michelin-raceway-road-atlanta/696"}
   ],
   times: {
     "Caceteira_RTP": {"A":{"ms":60643,"time":"01:00.643","pos":115,"posPT":2,"car":"Honda Integra Type R (DC2) '95"}},
     "pandafrass": {"C":{"ms":76937,"time":"01:16.937","pos":450,"posPT":12,"car":"Toyota GR Supra Racing Concept '18"}},
+    "FVenda117": {"B":{"ms":121579,"time":"02:01.579","pos":1718,"posPT":41,"car":"Audi TT Cup '16"}},
+    "RafaelAgostinh44": {"C":{"ms":76849,"time":"01:16.849","pos":422,"posPT":11,"car":"Toyota GR Supra Racing Concept '18"}},
+    "LeonnardoYR_": {"C":{"ms":77501,"time":"01:17.501","pos":2119,"posPT":45,"car":"Toyota GR Supra Racing Concept '18"}},
+    "KajuNN": {"C":{"ms":76604,"time":"01:16.604","pos":228,"posPT":7,"car":"Toyota GR Supra Racing Concept '18"},"B":{"ms":120317,"time":"02:00.317","pos":123,"posPT":2,"car":"Audi TT Cup '16"}},
+    "SemDestino75": {"C":{"ms":78843,"time":"01:18.843","pos":9193,"posPT":169,"car":"Volkswagen Beetle Gr.3"}},
+    "Pinto_Moreira": {"B":{"ms":121236,"time":"02:01.236","pos":776,"posPT":47,"car":"Audi TT Cup '16"}},
+    "laferia777": {"C":{"ms":78939,"time":"01:18.939","pos":15506,"posPT":298,"car":"Toyota GR Supra Racing Concept '18"}},
+    "shedowripper2896": {"C":{"ms":81800,"time":"01:21.800","pos":36243,"posPT":644,"car":"Toyota GR Supra Racing Concept '18"}},
+    "granadas10": {"C":{"ms":77979,"time":"01:17.979","pos":2482,"posPT":44,"car":"Subaru WRX Gr.3"}},
+    "tiagofreitas_27": {"C":{"ms":78255,"time":"01:18.255","pos":3615,"posPT":66,"car":"Lexus RC F GT3 '17"}},
     "temp-0955713": {"B":{"ms":123118,"time":"02:03.118","pos":4259,"posPT":77,"car":"Audi TT Cup '16"}},
     "Travincas24": {"C":{"ms":77336,"time":"01:17.336","pos":1155,"posPT":23,"car":"BMW M6 GT3 Sprint Model '16"}},
-    "SemDestino75": {"C":{"ms":78843,"time":"01:18.843","pos":9193,"posPT":169,"car":"Volkswagen Beetle Gr.3"}},
-    "Wilson_TheFirst": {"C":{"ms":76841,"time":"01:16.841","pos":409,"posPT":10,"car":"Toyota GR Supra Racing Concept '18"}},
-    "LeonnardoYR_": {"C":{"ms":77501,"time":"01:17.501","pos":2119,"posPT":45,"car":"Toyota GR Supra Racing Concept '18"}},
-    "Pinto_Moreira": {"B":{"ms":121236,"time":"02:01.236","pos":776,"posPT":47,"car":"Audi TT Cup '16"}},
-    "tiagofreitas_27": {"C":{"ms":78255,"time":"01:18.255","pos":3615,"posPT":66,"car":"Lexus RC F GT3 '17"}},
     "mattifroskes": {"B":{"ms":120846,"time":"02:00.846","pos":365,"posPT":8,"car":"Audi TT Cup '16"}},
-    "laferia777": {"C":{"ms":78939,"time":"01:18.939","pos":15386,"posPT":295,"car":"Toyota GR Supra Racing Concept '18"}},
-    "shedowripper2896": {"C":{"ms":81800,"time":"01:21.800","pos":36243,"posPT":644,"car":"Toyota GR Supra Racing Concept '18"}},
-    "KajuNN": {"C":{"ms":76604,"time":"01:16.604","pos":78,"posPT":2,"car":"Toyota GR Supra Racing Concept '18"},"B":{"ms":120317,"time":"02:00.317","pos":39,"posPT":1,"car":"Audi TT Cup '16"}},
-    "granadas10": {"C":{"ms":77979,"time":"01:17.979","pos":2482,"posPT":44,"car":"Subaru WRX Gr.3"}},
-    "RafaelAgostinh44": {"C":{"ms":76849,"time":"01:16.849","pos":422,"posPT":11,"car":"Toyota GR Supra Racing Concept '18"}},
-    "FVenda117": {"B":{"ms":121579,"time":"02:01.579","pos":1718,"posPT":41,"car":"Audi TT Cup '16"}}
+    "Wilson_TheFirst": {"C":{"ms":76841,"time":"01:16.841","pos":409,"posPT":10,"car":"Toyota GR Supra Racing Concept '18"}}
   },
   history: [
     { week: 45, year: 2026,
