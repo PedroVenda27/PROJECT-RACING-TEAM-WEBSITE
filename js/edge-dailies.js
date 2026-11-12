@@ -9,7 +9,7 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-12",
-  updatedAt: "2026-11-12T11:39:00+00:00",
+  updatedAt: "2026-11-12T12:08:00+00:00",
   races: [
     {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":59950,"leader":"BW-_ららぴぴ","players":17569,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
     {"type":"B","id":695,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Trial Mountain Circuit","car":"Gr.4","tyres":"RM","lead":119089,"leader":"Sillon","players":34250,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-b-trial-mountain-circuit/695"},
@@ -18,7 +18,7 @@ const EDGE_DAILIES = {
   times: {
     "Caceteira_RTP": {"A":{"ms":60643,"time":"01:00.643","pos":115,"posPT":2,"car":"Honda Integra Type R (DC2) '95"}},
     "pandafrass": {"C":{"ms":76937,"time":"01:16.937","pos":450,"posPT":12,"car":"Toyota GR Supra Racing Concept '18"}},
-    "FVenda117": {"B":{"ms":121579,"time":"02:01.579","pos":1718,"posPT":41,"car":"Audi TT Cup '16"}},
+    "FVenda117": {"B":{"ms":121579,"time":"02:01.579","pos":1807,"posPT":41,"car":"Audi TT Cup '16"}},
     "RafaelAgostinh44": {"C":{"ms":76849,"time":"01:16.849","pos":422,"posPT":11,"car":"Toyota GR Supra Racing Concept '18"}},
     "LeonnardoYR_": {"C":{"ms":77501,"time":"01:17.501","pos":2119,"posPT":45,"car":"Toyota GR Supra Racing Concept '18"}},
     "KajuNN": {"C":{"ms":76604,"time":"01:16.604","pos":228,"posPT":7,"car":"Toyota GR Supra Racing Concept '18"},"B":{"ms":120317,"time":"02:00.317","pos":123,"posPT":2,"car":"Audi TT Cup '16"}},
