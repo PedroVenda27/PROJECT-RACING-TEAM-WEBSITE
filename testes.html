@@ -1,142 +1,253 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="utf-8">
+  <meta charset="UTF-8" />
   <!-- the GT7 site refuses its track logos when another site is sent as referrer -->
   <meta name="referrer" content="no-referrer" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Teste de Pneus e Combustível RTP — RTP Racing Team Project</title>
-<link rel="icon" href="favicon.ico" sizes="48x48" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-<style>
-  :root { --bg: #0b0b0c; --panel: #141416; --card: #18181b; --line: #27272a; --line2: #34343a; --txt: #f4f4f5; --muted: #a1a1aa;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Teste de pneus e combustível da RTP para Gran Turismo 7: desgaste de cada pneu e consumo e tempo por mapa, por piloto, categoria e pista." />
+  <link rel="canonical" href="https://racingteamproject.eu/testes.html" />
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
+  <link rel="apple-touch-icon" href="images/favicon-192.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RTP Racing Team Project" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:title" content="Teste de Pneus e Combustível RTP — RTP Racing Team Project" />
+  <meta property="og:description" content="Teste de pneus e combustível da RTP para Gran Turismo 7." />
+  <meta property="og:url" content="https://racingteamproject.eu/testes.html" />
+  <meta property="og:image" content="https://racingteamproject.eu/images/WALPAPER_RTP1.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Teste de Pneus e Combustível RTP — RTP Racing Team Project</title>
+  <link rel="stylesheet" href="css/styles.css?v=20261115d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+
+  .tt-app { --bg: #0b0b0c; --panel: #141416; --card: #18181b; --line: #27272a; --line2: #34343a; --txt: #f4f4f5; --muted: #a1a1aa;
           --acc: #ff6b00; --acc2: #ff9a3c; --ok: #4ade80; --radius: 12px; --bar: 64px; }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: radial-gradient(1200px 500px at 85% -10%, rgba(255,107,0,.10), transparent 60%), var(--bg); color: var(--txt);
-         font-family: 'Inter', 'Segoe UI', Arial, sans-serif; font-size: 14px; min-height: 100vh; }
-  .display { font-family: 'Orbitron', 'Segoe UI', sans-serif; }
 
-  /* top bar */
-  header { position: sticky; top: 0; z-index: 20; height: var(--bar); display: flex; align-items: center; gap: 14px; padding: 0 22px;
-           background: rgba(11,11,12,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-  header::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, var(--acc), transparent 70%); }
-  .logo { height: 38px; width: auto; display: block; }
-  .back { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700; border: 1px solid var(--line2); border-radius: 8px; padding: 6px 10px; }
-  .back:hover { color: var(--txt); border-color: var(--acc); }
-  h1 { font-size: 17px; margin: 0; letter-spacing: .04em; font-weight: 800; }
-  h1 span { color: var(--acc); }
-  .bop { font-size: 12px; color: #000; background: linear-gradient(180deg, var(--acc2), var(--acc)); padding: 4px 11px; border-radius: 999px; font-weight: 800; letter-spacing: .04em; }
-  .btns { margin-left: auto; display: flex; gap: 8px; align-items: center; }
-  button { background: var(--card); color: var(--txt); border: 1px solid var(--line2); border-radius: 8px; padding: 8px 14px; cursor: pointer; font-size: 13px; font-weight: 600; transition: border-color .15s, transform .1s, background .15s; }
-  button:hover { border-color: var(--acc); }
-  button:active { transform: translateY(1px); }
-  button.primary { background: var(--acc); border-color: var(--acc); color: #000; }
-  button.primary:hover { background: var(--acc2); }
-  button.save { background: #16a34a; border-color: #16a34a; color: #fff; }
-  button.save:hover { background: #22c55e; border-color: #22c55e; }
-  button.save:disabled { opacity: .6; cursor: wait; }
-  .rec { font-size: 12px; color: var(--muted); }
-  .rec.ok { color: var(--ok); } .rec.err { color: #f87171; }
-  .saved { color: var(--ok); font-size: 12px; opacity: 0; transition: opacity .3s; }
-  .saved.on { opacity: 1; }
+  .tt-app * { box-sizing: border-box; }
 
-  main { padding: 20px 22px 70px; max-width: 1700px; margin: 0 auto; }
+  .tt-app .bop { font-size: 12px; color: #000; background: linear-gradient(180deg, var(--acc2), var(--acc)); padding: 4px 11px; border-radius: 999px; font-weight: 800; letter-spacing: .04em; }
+
+  .tt-app .btns { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+
+  .tt-app button { background: var(--card); color: var(--txt); border: 1px solid var(--line2); border-radius: 8px; padding: 8px 14px; cursor: pointer; font-size: 13px; font-weight: 600; transition: border-color .15s, transform .1s, background .15s; }
+
+  .tt-app button:hover { border-color: var(--acc); }
+
+  .tt-app button:active { transform: translateY(1px); }
+
+  .tt-app button.primary { background: var(--acc); border-color: var(--acc); color: #000; }
+
+  .tt-app button.primary:hover { background: var(--acc2); }
+
+  .tt-app button.save { background: #16a34a; border-color: #16a34a; color: #fff; }
+
+  .tt-app button.save:hover { background: #22c55e; border-color: #22c55e; }
+
+  .tt-app button.save:disabled { opacity: .6; cursor: wait; }
+
+  .tt-app .rec { font-size: 12px; color: var(--muted); }
+
+  .tt-app .rec.ok { color: var(--ok); }
+ .tt-app .rec.err { color: #f87171; }
+
+  .tt-app .saved { color: var(--ok); font-size: 12px; opacity: 0; transition: opacity .3s; }
+
+  .tt-app .saved.on { opacity: 1; }
+
+
+  .tt-app { padding: 0;   }
+
 
   /* setup cards */
-  .setup { display: grid; grid-template-columns: 1.25fr 1.1fr .9fr; gap: 14px; margin-bottom: 16px; }
-  .card { background: linear-gradient(180deg, #1b1b1f, var(--panel)); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
-  .card h3 { margin: 0 0 12px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); font-weight: 800; display: flex; align-items: center; gap: 8px; }
-  .card h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
-  .field > span { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
-  .field input, .field select { width: 100%; background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
-  .field input:focus, .field select:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px rgba(255,107,0,.15); }
-  .pick { display: flex; align-items: center; gap: 10px; }
-  .pick > :last-child { flex: 1; min-width: 0; }
-  #driver-img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: top; background: #0f0f11; border: 2px solid var(--acc); flex-shrink: 0; }
-  .track-ico { width: 66px; height: 44px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid var(--line2); padding: 3px; flex-shrink: 0; }
-  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
-  .chip { position: relative; }
-  .chip input { position: absolute; opacity: 0; pointer-events: none; }
-  .chip label { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line2); background: #0f0f11; cursor: pointer; font-size: 13px; user-select: none; transition: all .15s; }
-  .chip label::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--acc)); opacity: .55; }
-  .chip input:checked + label { background: var(--c, var(--acc)); border-color: var(--c, var(--acc)); color: #000; font-weight: 800; }
-  .chip input:checked + label::before { background: #000; opacity: .45; }
-  #maps .chip label { min-width: 40px; justify-content: center; }
-  #maps .chip label::before { display: none; }
-  .setup .row { margin-top: 12px; }
+  .tt-app .setup { display: grid; grid-template-columns: 1.25fr 1.1fr .9fr; gap: 14px; margin-bottom: 16px; }
+
+  .tt-app .card { background: linear-gradient(180deg, #1b1b1f, var(--panel)); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+
+  .tt-app .card h3 { margin: 0 0 12px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); font-weight: 800; display: flex; align-items: center; gap: 8px; }
+
+  .tt-app .card h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .tt-app .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .tt-app .field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+
+  .tt-app .field > span { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+
+  .tt-app .field input, .tt-app .field select { width: 100%; background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+
+  .tt-app .field input:focus, .tt-app .field select:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px rgba(255,107,0,.15); }
+
+  .tt-app .pick { display: flex; align-items: center; gap: 10px; }
+
+  .tt-app .pick > :last-child { flex: 1; min-width: 0; }
+
+  .tt-app #driver-img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: top; background: #0f0f11; border: 2px solid var(--acc); flex-shrink: 0; }
+
+  .tt-app .track-ico { width: 66px; height: 44px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid var(--line2); padding: 3px; flex-shrink: 0; }
+
+  .tt-app .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .tt-app .chip { position: relative; }
+
+  .tt-app .chip input { position: absolute; opacity: 0; pointer-events: none; }
+
+  .tt-app .chip label { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line2); background: #0f0f11; cursor: pointer; font-size: 13px; user-select: none; transition: all .15s; }
+
+  .tt-app .chip label::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--acc)); opacity: .55; }
+
+  .tt-app .chip input:checked + label { background: var(--c, var(--acc)); border-color: var(--c, var(--acc)); color: #000; font-weight: 800; }
+
+  .tt-app .chip input:checked + label::before { background: #000; opacity: .45; }
+
+  .tt-app #maps .chip label { min-width: 40px; justify-content: center; }
+
+  .tt-app #maps .chip label::before { display: none; }
+
+  .tt-app .setup .row { margin-top: 12px; }
+
 
   /* session banner */
-  .banner { display: flex; align-items: center; gap: 18px; padding: 14px 18px; margin-bottom: 14px; border-radius: var(--radius);
+  .tt-app .banner { display: flex; align-items: center; gap: 18px; padding: 14px 18px; margin-bottom: 14px; border-radius: var(--radius);
             border: 1px solid rgba(255,107,0,.35); background: linear-gradient(100deg, rgba(255,107,0,.16), rgba(255,107,0,.03) 55%, transparent); }
-  .banner .b-photo { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--acc); background: #0f0f11; }
-  .banner .b-who { min-width: 0; }
-  .banner .b-who small { display: block; color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
-  .banner .b-who b { font-size: 20px; }
-  .banner .b-sep { width: 1px; align-self: stretch; background: var(--line2); }
-  .banner .b-track { display: flex; align-items: center; gap: 12px; min-width: 0; }
-  .banner .b-track img { width: 74px; height: 50px; object-fit: contain; background: #fff; border-radius: 8px; padding: 3px; }
-  .banner .b-track b { display: block; font-size: 15px; }
-  .banner .b-track span { color: var(--muted); font-size: 12px; }
-  .banner .b-prog { margin-left: auto; min-width: 230px; text-align: right; }
-  .banner .b-prog .progress { font-size: 13px; font-weight: 700; }
-  .bar { height: 8px; border-radius: 999px; background: #0f0f11; border: 1px solid var(--line2); overflow: hidden; margin-top: 7px; }
-  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--acc), var(--ok)); transition: width .3s; }
+
+  .tt-app .banner .b-photo { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--acc); background: #0f0f11; }
+
+  .tt-app .banner .b-who { min-width: 0; }
+
+  .tt-app .banner .b-who small { display: block; color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+
+  .tt-app .banner .b-who b { font-size: 20px; }
+
+  .tt-app .banner .b-sep { width: 1px; align-self: stretch; background: var(--line2); }
+
+  .tt-app .banner .b-track { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+  .tt-app .banner .b-track img { width: 74px; height: 50px; object-fit: contain; background: #fff; border-radius: 8px; padding: 3px; }
+
+  .tt-app .banner .b-track b { display: block; font-size: 15px; }
+
+  .tt-app .banner .b-track span { color: var(--muted); font-size: 12px; }
+
+  .tt-app .banner .b-prog { margin-left: auto; min-width: 230px; text-align: right; }
+
+  .tt-app .banner .b-prog .progress { font-size: 13px; font-weight: 700; }
+
+  .tt-app .bar { height: 8px; border-radius: 999px; background: #0f0f11; border: 1px solid var(--line2); overflow: hidden; margin-top: 7px; }
+
+  .tt-app .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--acc), var(--ok)); transition: width .3s; }
+
 
   /* tools row */
-  .filter { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; color: var(--muted); flex-wrap: wrap; }
-  .filter input[type=search] { background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 12px; width: 280px; }
-  .filter input[type=search]:focus { outline: none; border-color: var(--acc); }
-  .session { display: none; }
-  .sortby { display: flex; align-items: center; gap: 8px; color: var(--txt); font-weight: 700; }
-  .sortby select { background: #0f0f11; border: 1px solid var(--acc); color: var(--txt); border-radius: 8px; padding: 7px 10px; font-weight: 600; }
-  details.help { margin-left: auto; color: var(--muted); font-size: 13px; }
-  details.help summary { cursor: pointer; list-style: none; padding: 7px 12px; border: 1px solid var(--line2); border-radius: 8px; }
-  details.help[open] summary { border-color: var(--acc); color: var(--txt); }
-  details.help p { position: absolute; right: 22px; z-index: 15; max-width: 520px; margin: 8px 0 0; padding: 14px 16px; line-height: 1.55; background: var(--card); border: 1px solid var(--line2); border-radius: 10px; box-shadow: 0 14px 40px rgba(0,0,0,.5); }
+  .tt-app .filter { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; color: var(--muted); flex-wrap: wrap; }
+
+  .tt-app .filter input[type=search] { background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 12px; width: 280px; }
+
+  .tt-app .filter input[type=search]:focus { outline: none; border-color: var(--acc); }
+
+  .tt-app .session { display: none; }
+
+  .tt-app .sortby { display: flex; align-items: center; gap: 8px; color: var(--txt); font-weight: 700; }
+
+  .tt-app .sortby select { background: #0f0f11; border: 1px solid var(--acc); color: var(--txt); border-radius: 8px; padding: 7px 10px; font-weight: 600; }
+
+  .tt-app details.help { margin-left: auto; color: var(--muted); font-size: 13px; }
+
+  .tt-app details.help summary { cursor: pointer; list-style: none; padding: 7px 12px; border: 1px solid var(--line2); border-radius: 8px; }
+
+  .tt-app details.help[open] summary { border-color: var(--acc); color: var(--txt); }
+
+  .tt-app details.help p { position: absolute; right: 22px; z-index: 15; max-width: 520px; margin: 8px 0 0; padding: 14px 16px; line-height: 1.55; background: var(--card); border: 1px solid var(--line2); border-radius: 10px; box-shadow: 0 14px 40px rgba(0,0,0,.5); }
+
 
   /* table */
-  .wrap { overflow: auto; max-height: calc(100vh - var(--bar) - 40px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
-  table { border-collapse: separate; border-spacing: 0; width: 100%; }
-  th, td { border-bottom: 1px solid var(--line); padding: 6px 7px; text-align: center; white-space: nowrap; }
-  thead th { background: #1c1c20; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #d4d4d8; position: sticky; top: 0; z-index: 3; }
-  thead tr:nth-child(2) th { top: 33px; font-size: 10px; color: var(--muted); }
-  thead tr.grp th { font-size: 12px; font-weight: 800; border-bottom: 2px solid currentColor; }
-  thead th:first-child { left: 0; z-index: 4; }
-  tbody tr:nth-child(even) td { background-color: rgba(255,255,255,.015); }
-  tbody tr:hover td { background-color: rgba(255,107,0,.05); }
-  td.car { text-align: left; font-weight: 700; position: sticky; left: 0; background: var(--card); z-index: 2; min-width: 330px; border-right: 1px solid var(--line); }
-  tbody tr:hover td.car { background: #1f1a16; }
-  .car-wrap { display: flex; align-items: center; gap: 12px; }
-  .car-wrap img, .car-wrap .noimg { width: 104px; height: 58px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line2); flex-shrink: 0; background: #000; }
-  .car-wrap .noimg { display: inline-flex; align-items: center; justify-content: center; color: #555; font-size: 11px; }
-  td input { width: 68px; background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 6px; padding: 6px; text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; transition: border-color .15s, box-shadow .15s; }
-  td input.t { width: 84px; }
-  td input.note { width: 190px; text-align: left; }
-  td input:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px rgba(255,107,0,.18); }
-  td input:not(:placeholder-shown):not([value=""]) { border-color: #3f3f46; }
-  td.sorted input { border-color: var(--acc); }
-  td.calc { color: var(--ok); font-weight: 800; font-size: 12px; min-width: 56px; font-variant-numeric: tabular-nums; }
-  tr.done td.car { box-shadow: inset 4px 0 0 var(--ok); }
-  tr.done td.car span::after { content: " ✓"; color: var(--ok); }
-  td.del button { padding: 3px 8px; color: #f87171; background: transparent; border-color: transparent; }
-  td.del button:hover { border-color: #f87171; }
-  .empty { padding: 40px; text-align: center; color: var(--muted); }
+  .tt-app .wrap { overflow: auto; max-height: calc(100vh - var(--bar) - 40px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
 
-  .add { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
-  .add input { background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 12px; width: 320px; }
+  .tt-app table { border-collapse: separate; border-spacing: 0; width: 100%; }
 
-  @media (max-width: 1150px) { .setup { grid-template-columns: 1fr 1fr; } .banner { flex-wrap: wrap; } .banner .b-prog { margin-left: 0; width: 100%; text-align: left; } }
-  @media (max-width: 760px) { .setup { grid-template-columns: 1fr; } header { height: auto; flex-wrap: wrap; padding: 10px 14px; } .btns { margin-left: 0; } }
+  .tt-app th, .tt-app td { border-bottom: 1px solid var(--line); padding: 6px 7px; text-align: center; white-space: nowrap; }
+
+  .tt-app thead th { background: #1c1c20; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #d4d4d8; position: sticky; top: 0; z-index: 3; }
+
+  .tt-app thead tr:nth-child(2) th { top: 33px; font-size: 10px; color: var(--muted); }
+
+  .tt-app thead tr.grp th { font-size: 12px; font-weight: 800; border-bottom: 2px solid currentColor; }
+
+  .tt-app thead th:first-child { left: 0; z-index: 4; }
+
+  .tt-app tbody tr:nth-child(even) td { background-color: rgba(255,255,255,.015); }
+
+  .tt-app tbody tr:hover td { background-color: rgba(255,107,0,.05); }
+
+  .tt-app td.car { text-align: left; font-weight: 700; position: sticky; left: 0; background: var(--card); z-index: 2; min-width: 330px; border-right: 1px solid var(--line); }
+
+  .tt-app tbody tr:hover td.car { background: #1f1a16; }
+
+  .tt-app .car-wrap { display: flex; align-items: center; gap: 12px; }
+
+  .tt-app .car-wrap img, .tt-app .car-wrap .noimg { width: 104px; height: 58px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line2); flex-shrink: 0; background: #000; }
+
+  .tt-app .car-wrap .noimg { display: inline-flex; align-items: center; justify-content: center; color: #555; font-size: 11px; }
+
+  .tt-app td input { width: 68px; background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 6px; padding: 6px; text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; transition: border-color .15s, box-shadow .15s; }
+
+  .tt-app td input.t { width: 84px; }
+
+  .tt-app td input.note { width: 190px; text-align: left; }
+
+  .tt-app td input:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px rgba(255,107,0,.18); }
+
+  .tt-app td input:not(:placeholder-shown):not([value=""]) { border-color: #3f3f46; }
+
+  .tt-app td.sorted input { border-color: var(--acc); }
+
+  .tt-app td.calc { color: var(--ok); font-weight: 800; font-size: 12px; min-width: 56px; font-variant-numeric: tabular-nums; }
+
+  .tt-app tr.done td.car { box-shadow: inset 4px 0 0 var(--ok); }
+
+  .tt-app tr.done td.car span::after { content: " ✓"; color: var(--ok); }
+
+  .tt-app td.del button { padding: 3px 8px; color: #f87171; background: transparent; border-color: transparent; }
+
+  .tt-app td.del button:hover { border-color: #f87171; }
+
+  .tt-app .empty { padding: 40px; text-align: center; color: var(--muted); }
+
+
+  .tt-app .add { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .tt-app .add input { background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 12px; width: 320px; }
+
+
+  @media (max-width: 1150px) { .tt-app .setup { grid-template-columns: 1fr 1fr; }
+ .tt-app .banner { flex-wrap: wrap; }
+ .tt-app .banner .b-prog { margin-left: 0; width: 100%; text-align: left; }
+ }
+
+  @media (max-width: 760px) { .tt-app .setup { grid-template-columns: 1fr; }
+ .tt-app .btns { margin-left: 0; }
+ }
+
+.tt-app { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; color: var(--txt); --bar: 80px; }
+/* tool bar under the hero: BOP, save status and the buttons */
+.tt-app .tt-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; padding: 12px 16px; border-radius: var(--radius);
+  background: linear-gradient(180deg, #1b1b1f, var(--panel)); border: 1px solid var(--line); }
+.tt-app .tt-bar .btns { margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.tt-app .tt-back { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700; }
+.tt-app .tt-back:hover { color: var(--acc); }
+.tt-app .tt-bar .bop { font-size: 12px; color: #000; background: linear-gradient(180deg, var(--acc2), var(--acc)); padding: 5px 12px; border-radius: 999px; font-weight: 800; letter-spacing: .04em; }
+.tt-section { padding-top: 2.5rem; }
   #print { display: none; }
   /* print / PDF: same model as the fuel calculator export — dark sheet, header, info cards, footer */
   @page { size: A4 landscape; margin: 0; }
   @media print {
     html, body { background: #0f0f10 !important; margin: 0; }
     body { color: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    header, main { display: none !important; }
+    #site-header, .page-hero, .tt-section, .site-footer { display: none !important; }
     #print { display: block; }
     .ex-sheet { padding: 9mm 10mm 7mm; background: #0f0f10; color: #fff; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; display: flex; flex-direction: column; gap: 4mm; min-height: 100vh; }
     .ex-head { display: flex; align-items: center; gap: 18px; padding-bottom: 12px; border-bottom: 2px solid #ff6b00; }
@@ -168,84 +279,180 @@
     .ex-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
     .ex-foot { margin-top: auto; text-align: center; font-size: 11.5px; color: #888; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1); }
   }
-</style>
+  </style>
 </head>
 <body>
-<header>
-  <a href="ferramentas.html" title="Voltar às Ferramentas RTP"><img class="logo" src="images/RTP_LOGO.png" alt="RTP"></a>
-  <a href="ferramentas.html" class="back">← Ferramentas</a>
-  <h1 class="display">TESTE DE <span>PNEUS</span> &amp; <span>COMBUSTÍVEL</span> RTP</h1>
-  <span class="bop">BOP v1.72</span>
-  <div class="btns">
-    <span class="saved" id="saved">✓ guardado</span>
-    <span class="rec" id="rec-status"></span>
-    <button id="btn-save" class="save" title="Grava os dados deste piloto (categoria + pista)">💾 Gravar</button>
-    <button id="btn-csv" class="primary" title="Exporta a tabela atual para o Excel">⬇ Excel</button>
-    <button onclick="print()" title="Imprimir ou guardar em PDF">🖨 Imprimir / PDF</button>
-  </div>
-</header>
-<div id="print"></div>
 
-<main>
-  <section class="setup">
-    <div class="card">
-      <h3>Sessão</h3>
-      <div class="field"><span>Piloto</span>
-        <div class="pick"><img id="driver-img" alt="" hidden><select id="cfg-driver"></select></div></div>
-      <div class="grid2 row">
-        <label class="field"><span>Categoria</span><select id="cfg-cat"></select></label>
-        <div class="field"><span>Pista</span>
-          <div class="pick"><img id="track-img" class="track-ico" alt="" hidden><input id="cfg-track" list="tracks" placeholder="Escolhe ou escreve…"></div></div>
+  <!-- ==================== HEADER / NAV ==================== -->
+  <header id="site-header">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="RTP Racing Team Project Home">
+        <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project Logo" class="logo-img" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="index.html#drivers-section" data-i18n="nav.drivers">Drivers</a></li>
+        <li><a href="garage.html" data-i18n="nav.garage">Garage</a></li>
+        <li><a href="calendar.html" data-i18n="nav.calendar">Calendar</a></li>
+        <li><a href="ferramentas.html" class="active" data-i18n="nav.calculator">Ferramentas RTP</a></li>
+        <li><a href="standings.html">Classificações</a></li>
+        <li><a href="trofeus.html" data-i18n="nav.trophies">Troféus</a></li>
+        <li><a href="index.html#sponsors-section" data-i18n="nav.sponsors">Sponsors</a></li>
+        <li><a href="liga-endurance.html" class="nav-highlight">&#127937; Liga Endurance</a></li>
+        <li><a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact Us</a></li>
+        <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">🇵🇹 PT</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project" class="fc-hero-logo anim-fade-down" />
+      <div class="fc-brand anim-fade-down">
+        <span>Tyre &amp; Fuel Test</span><span class="fc-brand-sep"></span><span>Gran Turismo 7</span>
       </div>
-      <datalist id="tracks"></datalist>
-    </div>
-    <div class="card">
-      <h3>O que vais testar</h3>
-      <div class="field"><span>Pneus</span><div class="chips" id="tyres"></div></div>
-      <div class="field row"><span>Mapas de combustível</span><div class="chips" id="maps"></div></div>
-    </div>
-    <div class="card">
-      <h3>Definições da sala</h3>
-      <div class="grid2">
-        <label class="field"><span>Desgaste pneus</span><input id="cfg-tyrex"></label>
-        <label class="field"><span>Consumo</span><input id="cfg-fuelx"></label>
-      </div>
-      <div class="grid2 row">
-        <label class="field"><span>Combustível em</span><select id="cfg-unit"><option value="%">% do depósito</option><option value="L">Litros</option></select></label>
-        <div class="field"><span>Depósito</span><button id="btn-tank" title="Capacidade do depósito em litros (para calcular voltas quando anotas em litros)"><span id="tank-v">100</span> L</button></div>
-      </div>
+      <h1 class="page-hero-title anim-fade-down">Teste de Pneus e <span class="text-yellow">Combustível RTP</span></h1>
+      <p class="page-hero-sub anim-fade-up">Regista o desgaste de cada pneu e o consumo e tempo por mapa — por piloto, categoria e pista.</p>
     </div>
   </section>
 
-  <section class="banner">
-    <img class="b-photo" id="b-photo" alt="" hidden>
-    <div class="b-who"><small>Piloto</small><b id="b-driver">—</b></div>
-    <div class="b-sep"></div>
-    <div class="b-track"><img id="b-track-img" alt="" hidden><div><b id="b-track">—</b><span id="b-cat"></span></div></div>
-    <div class="b-prog"><span class="progress" id="progress"></span><div class="bar"><i id="progress-bar"></i></div></div>
+  <!-- ==================== TOOL ==================== -->
+  <section class="section tt-section">
+    <div class="container tt-app">
+      <div class="tt-bar">
+        <span class="bop">BOP v1.72</span>
+        <a href="ferramentas.html" class="tt-back">← Ferramentas RTP</a>
+        <div class="btns">
+          <span class="saved" id="saved">✓ guardado</span>
+          <span class="rec" id="rec-status"></span>
+          <button id="btn-save" class="save" title="Grava os dados deste piloto (categoria + pista)">💾 Gravar</button>
+          <button id="btn-csv" class="primary" title="Exporta a tabela atual para o Excel">⬇ Excel</button>
+          <button onclick="print()" title="Imprimir ou guardar em PDF">🖨 Imprimir / PDF</button>
+        </div>
+      </div>
+
+      <section class="setup">
+        <div class="card">
+          <h3>Sessão</h3>
+          <div class="field"><span>Piloto</span>
+            <div class="pick"><img id="driver-img" alt="" hidden><select id="cfg-driver"></select></div></div>
+          <div class="grid2 row">
+            <label class="field"><span>Categoria</span><select id="cfg-cat"></select></label>
+            <div class="field"><span>Pista</span>
+              <div class="pick"><img id="track-img" class="track-ico" alt="" hidden><input id="cfg-track" list="tracks" placeholder="Escolhe ou escreve…"></div></div>
+          </div>
+          <datalist id="tracks"></datalist>
+        </div>
+        <div class="card">
+          <h3>O que vais testar</h3>
+          <div class="field"><span>Pneus</span><div class="chips" id="tyres"></div></div>
+          <div class="field row"><span>Mapas de combustível</span><div class="chips" id="maps"></div></div>
+        </div>
+        <div class="card">
+          <h3>Definições da sala</h3>
+          <div class="grid2">
+            <label class="field"><span>Desgaste pneus</span><input id="cfg-tyrex"></label>
+            <label class="field"><span>Consumo</span><input id="cfg-fuelx"></label>
+          </div>
+          <div class="grid2 row">
+            <label class="field"><span>Combustível em</span><select id="cfg-unit"><option value="%">% do depósito</option><option value="L">Litros</option></select></label>
+            <div class="field"><span>Depósito</span><button id="btn-tank" title="Capacidade do depósito em litros (para calcular voltas quando anotas em litros)"><span id="tank-v">100</span> L</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="banner">
+        <img class="b-photo" id="b-photo" alt="" hidden>
+        <div class="b-who"><small>Piloto</small><b id="b-driver">—</b></div>
+        <div class="b-sep"></div>
+        <div class="b-track"><img id="b-track-img" alt="" hidden><div><b id="b-track">—</b><span id="b-cat"></span></div></div>
+        <div class="b-prog"><span class="progress" id="progress"></span><div class="bar"><i id="progress-bar"></i></div></div>
+      </section>
+
+      <div class="filter">
+        <span class="session" id="session"></span>
+        <input type="search" id="search" placeholder="🔍  Procurar carro…">
+        <label><input type="checkbox" id="only-todo"> só os que faltam</label>
+        <label class="sortby">↕ Ordenar <select id="sort"></select></label>
+        <details class="help"><summary>ℹ Como usar</summary>
+          <p>Escolhe o <b>piloto</b>, a <b>categoria</b>, a <b>pista</b>, os <b>pneus</b> e os <b>mapas</b> que vais testar — a tabela ajusta-se.
+          Para cada pneu anota o <b>desgaste numa volta</b> (%, ex.: 3,5); para cada mapa anota o <b>combustível gasto numa volta</b> e o <b>tempo</b>.
+          As colunas a verde calculam as voltas até o pneu acabar e as voltas por depósito cheio. <b>Enter</b> salta para o carro de baixo.
+          Cada combinação <b>piloto + categoria + pista</b> guarda os seus próprios dados neste computador.</p></details>
+      </div>
+      <div class="wrap"><table><thead id="thead"></thead><tbody id="rows"></tbody></table></div>
+      <div class="add">
+        <input type="text" id="new-car" placeholder="Adicionar carro a esta categoria…">
+        <button id="btn-add">+ Adicionar</button>
+      </div>
+
+    </div>
   </section>
+  <div id="print"></div>
 
-  <div class="filter">
-    <span class="session" id="session"></span>
-    <input type="search" id="search" placeholder="🔍  Procurar carro…">
-    <label><input type="checkbox" id="only-todo"> só os que faltam</label>
-    <label class="sortby">↕ Ordenar <select id="sort"></select></label>
-    <details class="help"><summary>ℹ Como usar</summary>
-      <p>Escolhe o <b>piloto</b>, a <b>categoria</b>, a <b>pista</b>, os <b>pneus</b> e os <b>mapas</b> que vais testar — a tabela ajusta-se.
-      Para cada pneu anota o <b>desgaste numa volta</b> (%, ex.: 3,5); para cada mapa anota o <b>combustível gasto numa volta</b> e o <b>tempo</b>.
-      As colunas a verde calculam as voltas até o pneu acabar e as voltas por depósito cheio. <b>Enter</b> salta para o carro de baixo.
-      Cada combinação <b>piloto + categoria + pista</b> guarda os seus próprios dados neste computador.</p></details>
-  </div>
-  <div class="wrap"><table><thead id="thead"></thead><tbody id="rows"></tbody></table></div>
-  <div class="add">
-    <input type="text" id="new-car" placeholder="Adicionar carro a esta categoria…">
-    <button id="btn-add">+ Adicionar</button>
-  </div>
-</main>
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="RTP Racing Team Project Home">
+            <img src="images/RTP_LOGO.png" alt="RTP Racing Team Project Logo" class="logo-img" style="height:52px;" /><span class="logo-text">RTP - Racing Team Project</span>
+          </a>
+          <p class="footer-desc">A competitive sim racing team dedicated to pushing the boundaries of virtual motorsport across multiple platforms worldwide.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="garage.html">Garage</a></li>
+            <li><a href="index.html#drivers-section">Drivers</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/rtp_racingteamproject" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5Zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@RTPRacingTeamProject" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.54 7.2a2.74 2.74 0 0 0-1.94-1.93C17.88 4.8 12 4.8 12 4.8s-5.88 0-7.6.47A2.74 2.74 0 0 0 2.46 7.2 28.7 28.7 0 0 0 2 12a28.7 28.7 0 0 0 .46 4.8 2.74 2.74 0 0 0 1.94 1.93c1.72.47 7.6.47 7.6.47s5.88 0 7.6-.47a2.74 2.74 0 0 0 1.94-1.93A28.7 28.7 0 0 0 22 12a28.7 28.7 0 0 0-.46-4.8ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/></svg>
+            </a>
+            <!-- Twitch -->
+            <a href="https://www.twitch.tv/racingteamproject_rtp" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitch"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg></a>
+            <!-- Discord -->
+            <a href="https://discord.gg/CTrxTXyPJx" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06Z"/></svg>
+            </a>
+            <!-- Email -->
+            <a href="mailto:Racingteamprojectrtp@gmail.com" class="social-icon" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> RTP - Racing Team Project. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-<script src="js/garage-data.js"></script>
-<script src="js/data.js"></script>
-<script>
+  <script src="js/data.js?v=20261115d"></script>
+  <script src="js/lang.js?v=20261115d"></script>
+  <script src="js/main.js?v=20261115d"></script>
+  <script src="js/garage-data.js?v=20261115d"></script>
+  <script>
 (function () {
   const GARAGE = typeof GARAGE_DATA !== "undefined" ? GARAGE_DATA : [];
   const THUMB = Object.fromEntries(GARAGE.map(g => [g.name, "" + g.thumbnail]));

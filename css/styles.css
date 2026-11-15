@@ -254,7 +254,7 @@ img {
 /* Compact desktop nav so every item fits on one line */
 @media (min-width: 1101px) {
   .nav-links { gap: 0; }
-  .nav-links a { font-size: 0.74rem; padding: 0.45rem 0.55rem; letter-spacing: 0.02em; }
+  .nav-links a { font-size: 0.74rem; padding: 0.45rem 0.55rem; letter-spacing: 0.02em; white-space: nowrap; }
   .nav-links .lang-toggle { padding: 0.35rem 0.55rem; font-size: 0.75rem; }
 }
 
