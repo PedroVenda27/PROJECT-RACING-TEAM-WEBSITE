@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testes de Pneus e Consumo — RTP Racing Team Project</title>
+<link rel="icon" href="favicon.ico" sizes="48x48" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0b0b0c; --panel: #141416; --card: #18181b; --line: #27272a; --line2: #34343a; --txt: #f4f4f5; --muted: #a1a1aa;
+          --acc: #ff6b00; --acc2: #ff9a3c; --ok: #4ade80; --radius: 12px; --bar: 64px; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(1200px 500px at 85% -10%, rgba(255,107,0,.10), transparent 60%), var(--bg); color: var(--txt);
+         font-family: 'Inter', 'Segoe UI', Arial, sans-serif; font-size: 14px; min-height: 100vh; }
+  .display { font-family: 'Orbitron', 'Segoe UI', sans-serif; }
+
+  /* top bar */
+  header { position: sticky; top: 0; z-index: 20; height: var(--bar); display: flex; align-items: center; gap: 14px; padding: 0 22px;
+           background: rgba(11,11,12,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, var(--acc), transparent 70%); }
+  .logo { height: 38px; width: auto; display: block; }
+  .back { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700; border: 1px solid var(--line2); border-radius: 8px; padding: 6px 10px; }
+  .back:hover { color: var(--txt); border-color: var(--acc); }
+  h1 { font-size: 17px; margin: 0; letter-spacing: .04em; font-weight: 800; }
+  h1 span { color: var(--acc); }
+  .bop { font-size: 12px; color: #000; background: linear-gradient(180deg, var(--acc2), var(--acc)); padding: 4px 11px; border-radius: 999px; font-weight: 800; letter-spacing: .04em; }
+  .btns { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+  button { background: var(--card); color: var(--txt); border: 1px solid var(--line2); border-radius: 8px; padding: 8px 14px; cursor: pointer; font-size: 13px; font-weight: 600; transition: border-color .15s, transform .1s, background .15s; }
+  button:hover { border-color: var(--acc); }
+  button:active { transform: translateY(1px); }
+  button.primary { background: var(--acc); border-color: var(--acc); color: #000; }
+  button.primary:hover { background: var(--acc2); }
+  button.save { background: #16a34a; border-color: #16a34a; color: #fff; }
+  button.save:hover { background: #22c55e; border-color: #22c55e; }
+  button.save:disabled { opacity: .6; cursor: wait; }
+  .rec { font-size: 12px; color: var(--muted); }
+  .rec.ok { color: var(--ok); } .rec.err { color: #f87171; }
+  .saved { color: var(--ok); font-size: 12px; opacity: 0; transition: opacity .3s; }
+  .saved.on { opacity: 1; }
+
+  main { padding: 20px 22px 70px; max-width: 1700px; margin: 0 auto; }
+
+  /* setup cards */
+  .setup { display: grid; grid-template-columns: 1.25fr 1.1fr .9fr; gap: 14px; margin-bottom: 16px; }
+  .card { background: linear-gradient(180deg, #1b1b1f, var(--panel)); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+  .card h3 { margin: 0 0 12px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); font-weight: 800; display: flex; align-items: center; gap: 8px; }
+  .card h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .field > span { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+  .field input, .field select { width: 100%; background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px rgba(255,107,0,.15); }
+  .pick { display: flex; align-items: center; gap: 10px; }
+  .pick > :last-child { flex: 1; min-width: 0; }
+  #driver-img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: top; background: #0f0f11; border: 2px solid var(--acc); flex-shrink: 0; }
+  .track-ico { width: 66px; height: 44px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid var(--line2); padding: 3px; flex-shrink: 0; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { position: relative; }
+  .chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip label { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line2); background: #0f0f11; cursor: pointer; font-size: 13px; user-select: none; transition: all .15s; }
+  .chip label::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--acc)); opacity: .55; }
+  .chip input:checked + label { background: var(--c, var(--acc)); border-color: var(--c, var(--acc)); color: #000; font-weight: 800; }
+  .chip input:checked + label::before { background: #000; opacity: .45; }
+  #maps .chip label { min-width: 40px; justify-content: center; }
+  #maps .chip label::before { display: none; }
+  .setup .row { margin-top: 12px; }
+
+  /* session banner */
+  .banner { display: flex; align-items: center; gap: 18px; padding: 14px 18px; margin-bottom: 14px; border-radius: var(--radius);
+            border: 1px solid rgba(255,107,0,.35); background: linear-gradient(100deg, rgba(255,107,0,.16), rgba(255,107,0,.03) 55%, transparent); }
+  .banner .b-photo { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--acc); background: #0f0f11; }
+  .banner .b-who { min-width: 0; }
+  .banner .b-who small { display: block; color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+  .banner .b-who b { font-size: 20px; }
+  .banner .b-sep { width: 1px; align-self: stretch; background: var(--line2); }
+  .banner .b-track { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .banner .b-track img { width: 74px; height: 50px; object-fit: contain; background: #fff; border-radius: 8px; padding: 3px; }
+  .banner .b-track b { display: block; font-size: 15px; }
+  .banner .b-track span { color: var(--muted); font-size: 12px; }
+  .banner .b-prog { margin-left: auto; min-width: 230px; text-align: right; }
+  .banner .b-prog .progress { font-size: 13px; font-weight: 700; }
+  .bar { height: 8px; border-radius: 999px; background: #0f0f11; border: 1px solid var(--line2); overflow: hidden; margin-top: 7px; }
+  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--acc), var(--ok)); transition: width .3s; }
+
+  /* tools row */
+  .filter { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; color: var(--muted); flex-wrap: wrap; }
+  .filter input[type=search] { background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 12px; width: 280px; }
+  .filter input[type=search]:focus { outline: none; border-color: var(--acc); }
+  .session { display: none; }
+  details.help { margin-left: auto; color: var(--muted); font-size: 13px; }
+  details.help summary { cursor: pointer; list-style: none; padding: 7px 12px; border: 1px solid var(--line2); border-radius: 8px; }
+  details.help[open] summary { border-color: var(--acc); color: var(--txt); }
+  details.help p { position: absolute; right: 22px; z-index: 15; max-width: 520px; margin: 8px 0 0; padding: 14px 16px; line-height: 1.55; background: var(--card); border: 1px solid var(--line2); border-radius: 10px; box-shadow: 0 14px 40px rgba(0,0,0,.5); }
+
+  /* table */
+  .wrap { overflow: auto; max-height: calc(100vh - var(--bar) - 40px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; }
+  th, td { border-bottom: 1px solid var(--line); padding: 6px 7px; text-align: center; white-space: nowrap; }
+  thead th { background: #1c1c20; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #d4d4d8; position: sticky; top: 0; z-index: 3; }
+  thead tr:nth-child(2) th { top: 33px; font-size: 10px; color: var(--muted); }
+  thead tr.grp th { font-size: 12px; font-weight: 800; border-bottom: 2px solid currentColor; }
+  thead th:first-child { left: 0; z-index: 4; }
+  tbody tr:nth-child(even) td { background-color: rgba(255,255,255,.015); }
+  tbody tr:hover td { background-color: rgba(255,107,0,.05); }
+  td.car { text-align: left; font-weight: 700; position: sticky; left: 0; background: var(--card); z-index: 2; min-width: 330px; border-right: 1px solid var(--line); }
+  tbody tr:hover td.car { background: #1f1a16; }
+  .car-wrap { display: flex; align-items: center; gap: 12px; }
+  .car-wrap img, .car-wrap .noimg { width: 104px; height: 58px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line2); flex-shrink: 0; background: #000; }
+  .car-wrap .noimg { display: inline-flex; align-items: center; justify-content: center; color: #555; font-size: 11px; }
+  td input { width: 68px; background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 6px; padding: 6px; text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; transition: border-color .15s, box-shadow .15s; }
+  td input.t { width: 84px; }
+  td input.note { width: 190px; text-align: left; }
+  td input:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px rgba(255,107,0,.18); }
+  td input:not(:placeholder-shown):not([value=""]) { border-color: #3f3f46; }
+  td.calc { color: var(--ok); font-weight: 800; font-size: 12px; min-width: 56px; font-variant-numeric: tabular-nums; }
+  tr.done td.car { box-shadow: inset 4px 0 0 var(--ok); }
+  tr.done td.car span::after { content: " ✓"; color: var(--ok); }
+  td.del button { padding: 3px 8px; color: #f87171; background: transparent; border-color: transparent; }
+  td.del button:hover { border-color: #f87171; }
+  .empty { padding: 40px; text-align: center; color: var(--muted); }
+
+  .add { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .add input { background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 12px; width: 320px; }
+
+  @media (max-width: 1150px) { .setup { grid-template-columns: 1fr 1fr; } .banner { flex-wrap: wrap; } .banner .b-prog { margin-left: 0; width: 100%; text-align: left; } }
+  @media (max-width: 760px) { .setup { grid-template-columns: 1fr; } header { height: auto; flex-wrap: wrap; padding: 10px 14px; } .btns { margin-left: 0; } }
+  #print { display: none; }
+  /* print / PDF: same model as the fuel calculator export — dark sheet, header, info cards, footer */
+  @page { size: A4 landscape; margin: 0; }
+  @media print {
+    html, body { background: #0f0f10 !important; margin: 0; }
+    body { color: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    header, main { display: none !important; }
+    #print { display: block; }
+    .ex-sheet { padding: 9mm 10mm 7mm; background: #0f0f10; color: #fff; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; display: flex; flex-direction: column; gap: 4mm; min-height: 100vh; }
+    .ex-head { display: flex; align-items: center; gap: 18px; padding-bottom: 12px; border-bottom: 2px solid #ff6b00; }
+    .ex-head img.ex-logo { height: 54px; }
+    .ex-title { font-family: 'Orbitron', 'Segoe UI', sans-serif; font-weight: 900; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
+    .ex-sub { color: #ff6b00; font-weight: 700; font-size: 15px; margin-top: 2px; }
+    .ex-meta { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: 12.5px; color: #bbb; }
+    .ex-meta span:first-child { color: #fff; font-weight: 700; font-size: 15px; }
+    .ex-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .ex-card { background: #1a1a1c; border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #ff6b00; border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+    .ex-card strong { color: #fff; font-size: 15px; }
+    .ex-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: #ff6b00; font-weight: 700; }
+    .ex-small { font-size: 12px; color: #aaa; }
+    .ex-row { display: flex; align-items: center; gap: 10px; }
+    .ex-photo { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid #ff6b00; }
+    .ex-tlogo { width: 64px; height: 42px; object-fit: contain; background: #fff; border-radius: 6px; padding: 2px; }
+    .ex-kv { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; color: #bbb; }
+    .ex-kv strong { font-size: 12.5px; }
+    .ex-dot { font-size: 1.05em; margin-right: 5px; line-height: 1; }
+    .ex-table { width: 100%; border-collapse: separate; border-spacing: 0; background: #1a1a1c; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; font-size: 11.5px; }
+    .ex-table th, .ex-table td { padding: 5px 7px; text-align: center; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .ex-table thead th { background: #232326; color: #ddd; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; }
+    .ex-table thead tr.g th { color: #ff6b00; font-size: 11px; border-bottom: 2px solid #ff6b00; }
+    .ex-table td.c { text-align: left; font-weight: 700; color: #fff; }
+    .ex-table td.c img { width: 58px; height: 32px; object-fit: cover; border-radius: 4px; vertical-align: middle; margin-right: 8px; }
+    .ex-table td.v { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .ex-table td.e { color: #555; }
+    .ex-table tr { break-inside: avoid; }
+    .ex-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .ex-foot { margin-top: auto; text-align: center; font-size: 11.5px; color: #888; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1); }
+  }
+</style>
+</head>
+<body>
+<header>
+  <a href="ferramentas.html" title="Voltar às Ferramentas RTP"><img class="logo" src="images/RTP_LOGO.png" alt="RTP"></a>
+  <a href="ferramentas.html" class="back">← Ferramentas</a>
+  <h1 class="display">TESTES DE <span>PNEUS</span> &amp; <span>CONSUMO</span></h1>
+  <span class="bop">BOP v1.72</span>
+  <div class="btns">
+    <span class="saved" id="saved">✓ guardado</span>
+    <span class="rec" id="rec-status"></span>
+    <button id="btn-save" class="save" title="Grava os dados deste piloto (categoria + pista)">💾 Gravar</button>
+    <button id="btn-csv" class="primary" title="Exporta a tabela atual para o Excel">⬇ Excel</button>
+    <button onclick="print()" title="Imprimir ou guardar em PDF">🖨 Imprimir / PDF</button>
+  </div>
+</header>
+<div id="print"></div>
+
+<main>
+  <section class="setup">
+    <div class="card">
+      <h3>Sessão</h3>
+      <div class="field"><span>Piloto</span>
+        <div class="pick"><img id="driver-img" alt="" hidden><select id="cfg-driver"></select></div></div>
+      <div class="grid2 row">
+        <label class="field"><span>Categoria</span><select id="cfg-cat"></select></label>
+        <div class="field"><span>Pista</span>
+          <div class="pick"><img id="track-img" class="track-ico" alt="" hidden><input id="cfg-track" list="tracks" placeholder="Escolhe ou escreve…"></div></div>
+      </div>
+      <datalist id="tracks"></datalist>
+    </div>
+    <div class="card">
+      <h3>O que vais testar</h3>
+      <div class="field"><span>Pneus</span><div class="chips" id="tyres"></div></div>
+      <div class="field row"><span>Mapas de combustível</span><div class="chips" id="maps"></div></div>
+    </div>
+    <div class="card">
+      <h3>Definições da sala</h3>
+      <div class="grid2">
+        <label class="field"><span>Desgaste pneus</span><input id="cfg-tyrex"></label>
+        <label class="field"><span>Consumo</span><input id="cfg-fuelx"></label>
+      </div>
+      <div class="grid2 row">
+        <label class="field"><span>Combustível em</span><select id="cfg-unit"><option value="%">% do depósito</option><option value="L">Litros</option></select></label>
+        <div class="field"><span>Depósito</span><button id="btn-tank" title="Capacidade do depósito em litros (para calcular voltas quando anotas em litros)"><span id="tank-v">100</span> L</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner">
+    <img class="b-photo" id="b-photo" alt="" hidden>
+    <div class="b-who"><small>Piloto</small><b id="b-driver">—</b></div>
+    <div class="b-sep"></div>
+    <div class="b-track"><img id="b-track-img" alt="" hidden><div><b id="b-track">—</b><span id="b-cat"></span></div></div>
+    <div class="b-prog"><span class="progress" id="progress"></span><div class="bar"><i id="progress-bar"></i></div></div>
+  </section>
+
+  <div class="filter">
+    <span class="session" id="session"></span>
+    <input type="search" id="search" placeholder="🔍  Procurar carro…">
+    <label><input type="checkbox" id="only-todo"> só os que faltam</label>
+    <details class="help"><summary>ℹ Como usar</summary>
+      <p>Escolhe o <b>piloto</b>, a <b>categoria</b>, a <b>pista</b>, os <b>pneus</b> e os <b>mapas</b> que vais testar — a tabela ajusta-se.
+      Para cada pneu anota o <b>desgaste numa volta</b> (%, ex.: 3,5); para cada mapa anota o <b>combustível gasto numa volta</b> e o <b>tempo</b>.
+      As colunas a verde calculam as voltas até o pneu acabar e as voltas por depósito cheio. <b>Enter</b> salta para o carro de baixo.
+      Cada combinação <b>piloto + categoria + pista</b> guarda os seus próprios dados neste computador.</p></details>
+  </div>
+  <div class="wrap"><table><thead id="thead"></thead><tbody id="rows"></tbody></table></div>
+  <div class="add">
+    <input type="text" id="new-car" placeholder="Adicionar carro a esta categoria…">
+    <button id="btn-add">+ Adicionar</button>
+  </div>
+</main>
+
+<script src="js/garage-data.js"></script>
+<script src="js/data.js"></script>
+<script>
+(function () {
+  const GARAGE = typeof GARAGE_DATA !== "undefined" ? GARAGE_DATA : [];
+  const THUMB = Object.fromEntries(GARAGE.map(g => [g.name, "" + g.thumbnail]));
+  const CATS = ["Gr.1", "Gr.2", "Gr.3", "Gr.4", "Gr.B", "Others"];
+  const TYRES = [
+    { id: "RH", label: "Duro (RH)",  c: "#e5e7eb" },
+    { id: "RM", label: "Médio (RM)", c: "#facc15" },
+    { id: "RS", label: "Macio (RS)", c: "#f87171" },
+    { id: "IM", label: "Inter (IM)", c: "#4ade80" },
+    { id: "W",  label: "Chuva (W)",  c: "#60a5fa" }
+  ];
+  const MAPS = [1, 2, 3, 4, 5, 6];
+  const BOP = "1.72";
+  // Google Sheet web app (Apps Script) that receives the "Gravar" data — see gravar-testes-apps-script.gs.
+  // Empty = data is only kept on this computer.
+  const SHEET_URL = "";
+  const DRIVER_LIST = typeof SITE_DATA !== "undefined" ? SITE_DATA.drivers : [];
+  const DRIVERS = DRIVER_LIST.map(d => d.name);
+  const driverPhoto = n => { const d = DRIVER_LIST.find(x => x.name === n); return d && d.image ? "" + d.image : ""; };
+  function showDriverPhoto() {
+    const img = $("driver-img"), src = driverPhoto(C.driver);
+    img.hidden = !src; if (src) { img.src = encodeURI(src); img.alt = C.driver; }
+  }
+  // official GT7 track list (gran-turismo.com/br/gt7/tracklist) — [layout, circuit logo file on that site]
+  const TRACK_LOGO_BASE = "https://www.gran-turismo.com/common/dist/gt7/tracklist/assets/";
+  const TRACK_LIST = [["24 Heures du Mans Racing Circuit","1d5980-BtTwZ0Sf.png"],["24 Heures du Mans Racing Circuit (sem chicane)","1d5980-BtTwZ0Sf.png"],["Alsace - Pista de testes","bbe708-D-n15MKA.png"],["Alsace - Pista de testes (invertida)","bbe708-D-n15MKA.png"],["Alsace - Vila","bbe708-D-n15MKA.png"],["Alsace - Vila (invertida)","bbe708-D-n15MKA.png"],["Autodrome Lago Maggiore - Centro","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Centro (invertida)","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Extremidade leste","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Extremidade leste (invertida)","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Extremidade oeste","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Extremidade oeste (invertida)","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Leste","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Leste (invertida)","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Oeste","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Oeste (invertida)","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Pista completa","39f155-Dg_fFdVS.png"],["Autodrome Lago Maggiore - Pista completa (invertida)","39f155-Dg_fFdVS.png"],["Autodromo Nazionale Monza","f8bd64-VsJVPuq0.png"],["Autodromo Nazionale Monza (sem chicanes)","f8bd64-VsJVPuq0.png"],["Autódromo de Interlagos","fe330b-CkMt1pQe.png"],["Autopolis International Racing Course","8d9953-CpR-SgHS.png"],["Autopolis International Racing Course - Pista Curta","8d9953-CpR-SgHS.png"],["BB Raceway","184eaa-J2LzjAgq.png"],["BB Raceway (invertida)","184eaa-J2LzjAgq.png"],["Blue Moon Bay Speedway","971481-BdMNGGxX.png"],["Blue Moon Bay Speedway (invertida)","971481-BdMNGGxX.png"],["Blue Moon Bay Speedway – Circuito A","971481-BdMNGGxX.png"],["Blue Moon Bay Speedway – Circuito A II (invertida)","971481-BdMNGGxX.png"],["Blue Moon Bay Speedway – Circuito B","971481-BdMNGGxX.png"],["Blue Moon Bay Speedway – Circuito B II (invertida)","971481-BdMNGGxX.png"],["Brands Hatch Grand Prix Circuit","f3d2aa-Bznbpc1M.png"],["Brands Hatch Indy Circuit","f3d2aa-Bznbpc1M.png"],["Circuit Gilles-Villeneuve","4b2a08-Ba_IZ90g.png"],["Circuit de Sainte-Croix - A","a768c9-D5wwglAF.png"],["Circuit de Sainte-Croix - A II (invertida)","a768c9-D5wwglAF.png"],["Circuit de Sainte-Croix - B","a768c9-D5wwglAF.png"],["Circuit de Sainte-Croix - B II (invertida)","a768c9-D5wwglAF.png"],["Circuit de Sainte-Croix - C","a768c9-D5wwglAF.png"],["Circuit de Sainte-Croix - C II (invertida)","a768c9-D5wwglAF.png"],["Circuit de Spa-Francorchamps","000971-B75flT8v.png"],["Layout das 24h de Spa","000971-B75flT8v.png"],["Layout Nacional do Circuito de Barcelona-Catalunha","083de2-BAGcmPUI.png"],["Layout de GP do Circuito de Barcelona-Catalunha","083de2-BAGcmPUI.png"],["Layout de GP do Circuito de Barcelona-Catalunha sem chicane","083de2-BAGcmPUI.png"],["Layout de Rallycross do Circuito de Barcelona-Catalunha","083de2-BAGcmPUI.png"],["Colorado Springs - Lago","cea600-88VGMk4c.png"],["Colorado Springs - Lago II (invertida)","cea600-88VGMk4c.png"],["Daytona Tri-Oval","d1f17e-BDsRccUh.png"],["Percurso de estrada de Daytona","d1f17e-BDsRccUh.png"],["Deep Forest Raceway","c81494-mSWpEt3H.png"],["Deep Forest Raceway (Invertida)","c81494-mSWpEt3H.png"],["Dragon Trail - Jardins","08df62-C045_y3b.png"],["Dragon Trail - Jardins (invertida)","08df62-C045_y3b.png"],["Dragon Trail - Litoral","08df62-C045_y3b.png"],["Dragon Trail - Litoral (invertida)","08df62-C045_y3b.png"],["Eiger Nordwand","678583-Clq7km73.png"],["Eiger Nordwand (invertida)","678583-Clq7km73.png"],["Fishermans Ranch","f2875b-WIuCWeyA.png"],["Fishermans Ranch (invertida)","f2875b-WIuCWeyA.png"],["Fuji International Speedway","664e17-DkicWsJ5.png"],["Fuji International Speedway - Curto","664e17-DkicWsJ5.png"],["Goodwood Motor Circuit","ee72eb--ow1Ep8G.png"],["Grand Valley - Autoestrada 1","df54ec-BTV8E4Ol.png"],["Grand Valley - Autoestrada 1 Invertida","df54ec-BTV8E4Ol.png"],["Grand Valley - Sul","df54ec-BTV8E4Ol.png"],["Grand Valley - Sul Invertida","df54ec-BTV8E4Ol.png"],["High Speed Ring","9a42fb-ctw1_rUB.png"],["High Speed Ring (Invertida)","9a42fb-ctw1_rUB.png"],["Kyoto Driving Park - Miyabi","16ccbf-HZopm0Jc.png"],["Kyoto Driving Park - Yamagiwa","16ccbf-HZopm0Jc.png"],["Kyoto Driving Park - Yamagiwa (invertida)","16ccbf-HZopm0Jc.png"],["Kyoto Driving Park - Yamagiwa+Miyabi","16ccbf-HZopm0Jc.png"],["Kyoto Driving Park - Yamagiwa+Miyabi (invertida)","16ccbf-HZopm0Jc.png"],["Lake Louise - Oval triangular","2b352d-D3Qc4hj4.png"],["Lake Louise - Oval triangular (invertida)","2b352d-D3Qc4hj4.png"],["Lake Louise - Pista curta","2b352d-D3Qc4hj4.png"],["Lake Louise - Pista curta (invertida)","2b352d-D3Qc4hj4.png"],["Lake Louise - Pista longa","2b352d-D3Qc4hj4.png"],["Lake Louise - Pista longa (invertida)","2b352d-D3Qc4hj4.png"],["Michelin Raceway Road Atlanta","051834-BK1vS4TT.png"],["Mount Panorama Motor Racing Circuit","28b64f-DwW557Cx.png"],["Northern Isle Speedway","512b99-DMLHKmp_.png"],["Nürburgring 24h","246f6d-B2a8UX0a.png"],["Nürburgring GP","246f6d-B2a8UX0a.png"],["Nürburgring Nordschleife","246f6d-B2a8UX0a.png"],["Nürburgring Nordschleife Turístico","246f6d-B2a8UX0a.png"],["Nürburgring Resistência","246f6d-B2a8UX0a.png"],["Nürburgring Resistência II","246f6d-B2a8UX0a.png"],["Nürburgring Sprint","246f6d-B2a8UX0a.png"],["Pista Curta do Red Bull Ring","f99788-CkF30Q0q.png"],["Red Bull Ring","f99788-CkF30Q0q.png"],["Sardegna - Moinhos de vento","71bfba-k6PRFKvP.png"],["Sardegna - Moinhos de vento II (invertida)","71bfba-k6PRFKvP.png"],["Sardegna - Pista de asfalto A","748156-BVeffrVD.png"],["Sardegna - Pista de asfalto A II (invertida)","748156-BVeffrVD.png"],["Sardegna - Pista de asfalto B","748156-BVeffrVD.png"],["Sardegna - Pista de asfalto B II (invertida)","748156-BVeffrVD.png"],["Sardegna - Pista de asfalto C","748156-BVeffrVD.png"],["Sardegna - Pista de asfalto C II (invertida)","748156-BVeffrVD.png"],["Special Stage Route X","de15df-CaSkkU0R.png"],["SUGO International Racing Course","30cb0b-C2qzNqBm.png"],["Percurso Leste de Suzuka Circuit","fd167d-J52xhRm4.png"],["Suzuka Circuit","fd167d-J52xhRm4.png"],["Tokyo Expressway - Central em sentido horário","e9dd33-B7sGBTmw.png"],["Tokyo Expressway - Central no sentido anti-horário","e9dd33-B7sGBTmw.png"],["Tokyo Expressway - Leste no sentido anti-horário","e9dd33-B7sGBTmw.png"],["Tokyo Expressway - Leste no sentido horário","e9dd33-B7sGBTmw.png"],["Tokyo Expressway - Sul no sentido anti-horário","e9dd33-B7sGBTmw.png"],["Tokyo Expressway - Sul no sentido horário","e9dd33-B7sGBTmw.png"],["Trial Mountain Circuit","e60841-DkNFRL37.png"],["Trial Mountain Circuit - Direção Invertida","e60841-DkNFRL37.png"],["Tsukuba Circuit","c5de8a-DX9dzSPz.png"],["Watkins Glen pista curta","e6ef89-CkruxU9Z.png"],["Watkins Glen pista longa","e6ef89-CkruxU9Z.png"],["WeatherTech Raceway Laguna Seca","c75e61-DBxJ7RQM.png"],["Willow Springs International Raceway: Big Willow","fb6d1f-DDZuZmtt.png"],["Willow Springs International Raceway: Horse Thief Mile","fb6d1f-DDZuZmtt.png"],["Willow Springs International Raceway: Horse Thief Mile (invertida)","fb6d1f-DDZuZmtt.png"],["Willow Springs International Raceway: Streets of Willow Springs","fb6d1f-DDZuZmtt.png"],["Willow Springs International Raceway: Streets of Willow Springs (invertida)","fb6d1f-DDZuZmtt.png"],["Yas Marina Circuit","27adb9-DCBqBoAB.png"]];
+  const TRACKS = TRACK_LIST.map(t => t[0]);
+  const trackLogo = t => { const m = TRACK_LIST.find(x => x[0] === t); return m ? TRACK_LOGO_BASE + m[1] : ""; };
+  function trackIcon(img, t) {
+    const src = trackLogo(t);
+    img.hidden = !src; img.onerror = () => { img.hidden = true; };
+    if (src) { img.src = src; img.alt = t; }
+  }
+  document.getElementById("tracks").innerHTML = TRACKS.map(t => `<option value="${t}">`).join("");
+
+  // state: cfg (current selection + settings), sessions["Gr.3|Nürburgring — GP"] = { cars: { name: { data, note } } }, extra[cat] = [added car names]
+  const KEY = "rtp-testes-v2", OLD = "rtp-testes-gr3-v1";
+  let state;
+  try { state = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+  if (!state) {
+    state = { cfg: { cat: "Gr.3", track: "Nürburgring GP", tyres: ["RM", "RS"], maps: [1, 2, 3], bop: "1.72", tyrex: "x1", fuelx: "x1", unit: "%", tank: 100 }, sessions: {}, extra: {}, removed: {} };
+    // bring over the first version of the page (Gr.3 at Nürburgring, medium/soft, maps 1–3)
+    try {
+      const old = JSON.parse(localStorage.getItem(OLD));
+      if (old && old.cars) {
+        const s = state.sessions["Gr.3|Nürburgring — GP"] = { cars: {} };
+        old.cars.forEach(c => {
+          const d = c.data || {}, nd = {};
+          if (d.tyreM || d.tyre) nd.tyre_RM = d.tyreM || d.tyre; if (d.tyreS) nd.tyre_RS = d.tyreS;
+          [1, 2, 3].forEach(m => { if (d["fuel" + m]) nd["fuel" + m] = d["fuel" + m]; if (d["time" + m]) nd["time" + m] = d["time" + m]; });
+          if (Object.keys(nd).length || c.note) s.cars[c.name] = { data: nd, note: c.note || "" };
+          if (!GARAGE.some(g => g.name === c.name) && (Object.keys(nd).length || c.note)) (state.extra["Gr.3"] = state.extra["Gr.3"] || []).push(c.name);
+        });
+        if (old.cfg) ["tyrex", "fuelx", "unit", "tank"].forEach(k => { if (old.cfg[k] != null) state.cfg[k] = old.cfg[k]; });
+      }
+    } catch (e) {}
+  }
+  state.sessions = state.sessions || {}; state.extra = state.extra || {}; state.removed = state.removed || {};
+  const C = state.cfg;
+  const OLD_TRACK = { "Nürburgring — GP": "Nürburgring GP", "Nürburgring — Nordschleife": "Nürburgring Nordschleife", "Nürburgring — 24h": "Nürburgring 24h",
+    "Spa-Francorchamps": "Circuit de Spa-Francorchamps", "Spa-Francorchamps — 24h": "Layout das 24h de Spa", "Le Mans — 24 Heures du Mans": "24 Heures du Mans Racing Circuit",
+    "Monza": "Autodromo Nazionale Monza", "Suzuka Circuit — East": "Percurso Leste de Suzuka Circuit", "Daytona — Road Course": "Percurso de estrada de Daytona",
+    "Daytona — Tri-Oval": "Daytona Tri-Oval", "Trial Mountain": "Trial Mountain Circuit", "Fuji Speedway": "Fuji International Speedway",
+    "Mount Panorama": "Mount Panorama Motor Racing Circuit", "Yas Marina": "Yas Marina Circuit", "Watkins Glen — Long Course": "Watkins Glen pista longa",
+    "Watkins Glen — Short Course": "Watkins Glen pista curta", "Autodrome Lago Maggiore — Completo": "Autodrome Lago Maggiore - Pista completa",
+    "Barcelona-Catalunya — GP": "Layout de GP do Circuito de Barcelona-Catalunha", "Brands Hatch — GP": "Brands Hatch Grand Prix Circuit", "Brands Hatch — Indy": "Brands Hatch Indy Circuit" };
+  if (OLD_TRACK[C.track]) C.track = OLD_TRACK[C.track];
+  Object.keys(state.sessions).forEach(k => {
+    const p = k.split("|"), i = p.length - 1;
+    if (OLD_TRACK[p[i]]) { p[i] = OLD_TRACK[p[i]]; const nk = p.join("|"); if (!state.sessions[nk]) state.sessions[nk] = state.sessions[k]; delete state.sessions[k]; }
+  });
+  function adoptOldSessions() {
+    if (!C.driver) return;
+    Object.keys(state.sessions).forEach(k => { if (k.split("|").length === 2) { state.sessions[C.driver + "|" + k] = state.sessions[k]; delete state.sessions[k]; } });
+  }
+
+  const $ = id => document.getElementById(id);
+  const num = v => { const n = parseFloat(String(v || "").replace(",", ".")); return isNaN(n) ? null : n; };
+  const fmt = n => n == null || !isFinite(n) ? "—" : n.toFixed(1).replace(".", ",");
+  const esc = s => String(s || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  let t;
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    $("saved").classList.add("on"); clearTimeout(t); t = setTimeout(() => $("saved").classList.remove("on"), 900);
+  }
+  const sessKey = () => `${C.driver || "—"}|${C.cat}|${(C.track || "").trim() || "Sem pista"}`;
+  const session = () => state.sessions[sessKey()] || (state.sessions[sessKey()] = { cars: {} });
+  const carsOf = cat => {
+    const removed = new Set(state.removed[cat] || []);
+    return [...new Set(GARAGE.filter(g => g.group === cat).map(g => g.name).concat(state.extra[cat] || []))].filter(n => !removed.has(n)).sort((a, b) => a.localeCompare(b));
+  };
+  const entry = name => { const s = session().cars; return s[name] || (s[name] = { data: {}, note: "" }); };
+  const tyreSel = () => TYRES.filter(x => C.tyres.includes(x.id));
+  const mapSel = () => MAPS.filter(m => C.maps.includes(m));
+  const lapsTyre = (e, id) => { const w = num(e.data["tyre_" + id]); return w ? 100 / w : null; };
+  const lapsFuel = (e, m) => { const f = num(e.data["fuel" + m]); return f ? (C.unit === "L" ? C.tank : 100) / f : null; };
+  const isDone = e => tyreSel().every(x => num(e.data["tyre_" + x.id]) != null) && mapSel().every(m => num(e.data["fuel" + m]) != null);
+
+  // ── controls ──
+  $("cfg-cat").innerHTML = CATS.map(c => `<option>${c}</option>`).join("");
+  $("tyres").innerHTML = TYRES.map(x => `<span class="chip" style="--c:${x.c}"><input type="checkbox" id="ty-${x.id}" value="${x.id}"><label for="ty-${x.id}">${x.label}</label></span>`).join("");
+  $("maps").innerHTML = MAPS.map(m => `<span class="chip"><input type="checkbox" id="mp-${m}" value="${m}"><label for="mp-${m}">${m}</label></span>`).join("");
+  $("cfg-driver").innerHTML = '<option value="">— escolhe o piloto —</option>' + DRIVERS.map(n => `<option>${n}</option>`).join("");
+  function syncControls() {
+    $("cfg-driver").value = C.driver || "";
+    showDriverPhoto();
+    $("cfg-cat").value = C.cat; $("cfg-track").value = C.track || "";
+    trackIcon($("track-img"), C.track);
+    TYRES.forEach(x => $("ty-" + x.id).checked = C.tyres.includes(x.id));
+    MAPS.forEach(m => $("mp-" + m).checked = C.maps.includes(m));
+    ["tyrex", "fuelx", "unit"].forEach(k => $("cfg-" + k).value = C[k] || "");
+    $("tank-v").textContent = C.tank;
+  }
+  $("cfg-driver").onchange = e => { C.driver = e.target.value; showDriverPhoto(); adoptOldSessions(); save(); render(); };
+  $("cfg-cat").onchange = e => { C.cat = e.target.value; save(); render(); };
+  $("cfg-track").onchange = e => { C.track = e.target.value.trim(); trackIcon($("track-img"), C.track); save(); render(); };
+  $("tyres").onchange = () => { C.tyres = TYRES.map(x => x.id).filter(id => $("ty-" + id).checked); save(); render(); };
+  $("maps").onchange = () => { C.maps = MAPS.filter(m => $("mp-" + m).checked); save(); render(); };
+  ["tyrex", "fuelx", "unit"].forEach(k => $("cfg-" + k).addEventListener("input", e => { C[k] = e.target.value; save(); if (k === "unit") render(); }));
+
+  // ── table ──
+  function render() {
+    const tys = tyreSel(), mps = mapSel();
+    updateBanner();
+    $("session").textContent = `${C.driver || "(sem piloto)"} · ${C.cat} · ${(C.track || "").trim() || "sem pista"}`;
+    const r = session().recorded; $("rec-status").textContent = r ? `Gravado ${r}` : ""; $("rec-status").className = "rec" + (r ? " ok" : "");
+    $("thead").innerHTML = `
+      <tr class="grp"><th rowspan="2" style="text-align:left">Carro</th>
+        ${tys.map(x => `<th colspan="2" style="color:${x.c};background:${x.c}14">Pneu ${x.label}</th>`).join("")}
+        ${mps.map(m => `<th colspan="3" style="color:var(--acc);background:rgba(255,107,0,${m % 2 ? .07 : .03})">Mapa ${m}</th>`).join("")}
+        <th rowspan="2">Notas</th><th rowspan="2"></th></tr>
+      <tr>${tys.map(x => `<th style="background:${x.c}14">%/volta</th><th style="background:${x.c}14">Voltas</th>`).join("")}
+        ${mps.map(m => `<th>Comb./volta</th><th>Tempo</th><th>Voltas dep.</th>`).join("")}</tr>`;
+    const q = $("search").value.trim().toLowerCase(), todo = $("only-todo").checked;
+    const names = carsOf(C.cat);
+    const rows = names.map(name => {
+      const e = entry(name);
+      if (q && !name.toLowerCase().includes(q)) return "";
+      if (todo && isDone(e)) return "";
+      const n = esc(name);
+      return `<tr class="${isDone(e) ? "done" : ""}" data-car="${n}">
+        <td class="car"><div class="car-wrap">${THUMB[name] ? `<img src="${encodeURI(THUMB[name])}" alt="" loading="lazy">` : `<span class="noimg">${C.cat}</span>`}<span>${n}</span></div></td>
+        ${tys.map(x => `<td style="background:${x.c}0d"><input data-k="tyre_${x.id}" value="${esc(e.data["tyre_" + x.id])}" inputmode="decimal"></td>
+          <td class="calc" data-calc="tyre_${x.id}" style="background:${x.c}0d">${fmt(lapsTyre(e, x.id))}</td>`).join("")}
+        ${mps.map(m => `<td><input data-k="fuel${m}" value="${esc(e.data["fuel" + m])}" inputmode="decimal"></td>
+          <td><input class="t" data-k="time${m}" value="${esc(e.data["time" + m])}" placeholder="0:00.000"></td>
+          <td class="calc" data-calc="fuel${m}">${fmt(lapsFuel(e, m))}</td>`).join("")}
+        <td><input class="note" data-k="note" value="${esc(e.note)}"></td>
+        <td class="del"><button data-del="${n}" title="Remover carro desta categoria">✕</button></td></tr>`;
+    }).join("");
+    $("rows").innerHTML = rows || `<tr><td class="empty" colspan="99">${names.length ? "Nenhum carro corresponde ao filtro." : "Não há carros nesta categoria — adiciona-os em baixo."}</td></tr>`;
+    if (!tys.length && !mps.length) $("rows").innerHTML = `<tr><td class="empty" colspan="99">Escolhe pelo menos um pneu ou um mapa.</td></tr>`;
+    updateProgress();
+  }
+  function updateProgress() {
+    const names = carsOf(C.cat), done = names.filter(n => isDone(entry(n))).length;
+    $("progress").textContent = `${done} / ${names.length} carros completos`;
+    $("progress-bar").style.width = names.length ? (done / names.length * 100) + "%" : "0";
+  }
+  function updateBanner() {
+    const ph = driverPhoto(C.driver), tl = trackLogo(C.track);
+    $("b-photo").hidden = !ph; if (ph) $("b-photo").src = encodeURI(ph);
+    $("b-driver").textContent = C.driver || "Escolhe o piloto";
+    $("b-track-img").hidden = !tl; if (tl) $("b-track-img").src = tl;
+    $("b-track").textContent = (C.track || "").trim() || "Escolhe a pista";
+    $("b-cat").textContent = C.cat + " · BOP v" + BOP;
+  }
+  $("rows").addEventListener("input", e => {
+    const el = e.target, tr = el.closest("tr[data-car]"); if (!el.dataset.k || !tr) return;
+    const name = tr.dataset.car.replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&amp;/g, "&");
+    const en = entry(name);
+    if (el.dataset.k === "note") en.note = el.value; else en.data[el.dataset.k] = el.value;
+    tr.querySelectorAll("[data-calc]").forEach(td => {
+      const k = td.dataset.calc;
+      td.textContent = fmt(k.startsWith("tyre_") ? lapsTyre(en, k.slice(5)) : lapsFuel(en, +k.slice(4)));
+    });
+    tr.classList.toggle("done", isDone(en)); updateProgress(); save();
+  });
+  // Enter jumps to the same field of the next car
+  $("rows").addEventListener("keydown", e => {
+    if (e.key !== "Enter" || !e.target.dataset.k) return;
+    e.preventDefault();
+    const list = [...document.querySelectorAll(`#rows input[data-k="${e.target.dataset.k}"]`)];
+    const nx = list[list.indexOf(e.target) + 1]; if (nx) { nx.focus(); nx.select(); }
+  });
+  $("rows").addEventListener("click", e => {
+    const b = e.target.closest("[data-del]"); if (!b) return;
+    const name = b.closest("tr").dataset.car.replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&amp;/g, "&");
+    if (!confirm(`Remover "${name}" da categoria ${C.cat}?`)) return;
+    (state.removed[C.cat] = state.removed[C.cat] || []).push(name);
+    save(); render();
+  });
+  $("btn-add").onclick = () => {
+    const v = $("new-car").value.trim(); if (!v) return;
+    (state.extra[C.cat] = state.extra[C.cat] || []).push(v);
+    state.removed[C.cat] = (state.removed[C.cat] || []).filter(n => n !== v);
+    $("new-car").value = ""; save(); render();
+  };
+  $("new-car").addEventListener("keydown", e => { if (e.key === "Enter") $("btn-add").click(); });
+  $("btn-tank").onclick = () => { const v = num(prompt("Capacidade do depósito (litros):", C.tank)); if (!v) return; C.tank = v; syncControls(); save(); render(); };
+  $("search").addEventListener("input", render);
+  $("only-todo").addEventListener("change", render);
+
+  // ── export / backup ──
+  const download = (name, text, type) => {
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
+  $("btn-csv").onclick = () => {
+    const tys = tyreSel(), mps = mapSel(), u = C.unit === "L" ? "L" : "%";
+    const q = v => `"${String(v == null ? "" : v).replace(/"/g, '""')}"`;
+    const head = ["Carro"].concat(...tys.map(x => [`${x.label} (%/volta)`, `${x.label} voltas`]), ...mps.map(m => [`M${m} Comb. (${u}/volta)`, `M${m} Tempo`, `M${m} Voltas depósito`]), ["Notas"]);
+    const lines = carsOf(C.cat).map(name => { const e = entry(name); return [name].concat(...tys.map(x => [e.data["tyre_" + x.id] || "", fmt(lapsTyre(e, x.id)).replace("—", "")]), ...mps.map(m => [e.data["fuel" + m] || "", e.data["time" + m] || "", fmt(lapsFuel(e, m)).replace("—", "")]), [e.note || ""]).map(q).join(";"); });
+    const meta = q(`BOP: v${BOP} | Piloto: ${C.driver || ""} | Categoria: ${C.cat} | Pista: ${C.track || ""} | Desgaste: ${C.tyrex || ""} | Consumo: ${C.fuelx || ""}`);
+    const file = `testes-${(C.driver || "piloto").replace(/[^\w]+/g, "-")}-${C.cat}-${(C.track || "pista").replace(/[^\w]+/g, "-")}.csv`.toLowerCase();
+    download(file, "﻿" + [meta, head.map(q).join(";")].concat(lines).join("\r\n"), "text/csv");
+  };
+
+  // print: clean sheet with the values typed in — tyre % per lap for each tyre, fuel per lap and lap time for each map
+  function buildPrint() {
+    const tys = tyreSel(), mps = mapSel(), u = C.unit === "L" ? "L" : "%";
+    const today = new Date().toLocaleDateString("pt-PT");
+    const ph = driverPhoto(C.driver), tl = trackLogo(C.track);
+    const d = DRIVER_LIST.find(x => x.name === C.driver) || {};
+    const v = x => x ? `<td class="v">${esc(x)}</td>` : '<td class="e">—</td>';
+    const dot = x => `<span class="ex-dot" style="color:${x.c}">◉</span>`;
+    const rows = carsOf(C.cat).map(name => {
+      const e = entry(name);
+      return `<tr><td class="c">${THUMB[name] ? `<img src="${encodeURI(THUMB[name])}" alt="">` : ""}${esc(name)}</td>
+        ${tys.map(x => v(e.data["tyre_" + x.id])).join("")}
+        ${mps.map(m => v(e.data["fuel" + m]) + v(e.data["time" + m])).join("")}</tr>`;
+    }).join("");
+    $("print").innerHTML = `<div class="ex-sheet">
+      <div class="ex-head">
+        <img class="ex-logo" src="images/RTP_LOGO.png" alt="RTP">
+        <div><div class="ex-title">Testes de pneus e consumo</div>
+          <div class="ex-sub">${esc(C.cat)} · ${esc(C.track || "Gran Turismo 7")}</div></div>
+        <div class="ex-meta"><span>BOP v${BOP}</span><span>Desgaste ${esc(C.tyrex || "—")} · Consumo ${esc(C.fuelx || "—")}</span><span>${today}</span></div>
+      </div>
+      <div class="ex-cards">
+        <div class="ex-card"><span class="ex-label">Piloto</span>
+          <div class="ex-row">${ph ? `<img class="ex-photo" src="${encodeURI(ph)}" alt="">` : ""}<div><strong>${esc(C.driver || "—")}</strong>${d.role ? `<div class="ex-small">${esc(d.role)}</div>` : ""}</div></div></div>
+        <div class="ex-card"><span class="ex-label">Pista</span>
+          <div class="ex-row">${tl ? `<img class="ex-tlogo" src="${tl}" alt="">` : ""}<strong>${esc(C.track || "—")}</strong></div></div>
+        <div class="ex-card"><span class="ex-label">Pneus testados</span>
+          ${tys.map(x => `<div class="ex-kv"><span>${dot(x)}${x.label}</span><strong>% / volta</strong></div>`).join("") || '<span class="ex-small">—</span>'}</div>
+        <div class="ex-card"><span class="ex-label">Dados do teste</span>
+          <div class="ex-kv"><span>Categoria</span><strong>${esc(C.cat)}</strong></div>
+          <div class="ex-kv"><span>Mapas</span><strong>${mps.join(" · ") || "—"}</strong></div>
+          <div class="ex-kv"><span>Combustível em</span><strong>${C.unit === "L" ? "litros (depósito " + C.tank + " L)" : "% do depósito"}</strong></div>
+          ${session().recorded ? `<div class="ex-kv"><span>Gravado</span><strong>${esc(session().recorded)}</strong></div>` : ""}</div>
+      </div>
+      <table class="ex-table"><thead>
+        <tr class="g"><th rowspan="2" style="text-align:left">Carro</th>${tys.length ? `<th colspan="${tys.length}">Pneu — % gasto por volta</th>` : ""}${mps.map(m => `<th colspan="2">Mapa ${m}</th>`).join("")}</tr>
+        <tr>${tys.map(x => `<th>${dot(x)}${x.label}</th>`).join("")}${mps.map(() => `<th>Comb./volta (${u})</th><th>Tempo/volta</th>`).join("")}</tr>
+      </thead><tbody>${rows}</tbody></table>
+      <div class="ex-foot">RTP Racing Team Project · racingteamproject.eu · ${today}</div>
+    </div>`;
+  }
+  window.addEventListener("beforeprint", buildPrint);
+  document.querySelector(".btns button[onclick]").onclick = () => { if (!C.driver && !confirm("Ainda não escolheste o piloto. Imprimir na mesma?")) return; print(); };
+
+  $("btn-save").onclick = async () => {
+    if (!C.driver) { alert("Escolhe primeiro o piloto."); $("cfg-driver").focus(); return; }
+    const tys = tyreSel(), mps = mapSel();
+    const rows = carsOf(C.cat).map(name => {
+      const e = entry(name);
+      const vals = {}; tys.forEach(x => vals["Pneu " + x.id + " %/volta"] = e.data["tyre_" + x.id] || "");
+      mps.forEach(m => { vals["Mapa " + m + " comb./volta"] = e.data["fuel" + m] || ""; vals["Mapa " + m + " tempo"] = e.data["time" + m] || ""; });
+      return Object.values(vals).some(v => v) || e.note ? Object.assign({ carro: name }, vals, { notas: e.note || "" }) : null;
+    }).filter(Boolean);
+    if (!rows.length) { alert("Ainda não há dados para gravar nesta tabela."); return; }
+    const stamp = new Date().toLocaleString("pt-PT", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    const st = $("rec-status"), btn = $("btn-save");
+    if (SHEET_URL) {
+      btn.disabled = true; st.className = "rec"; st.textContent = "A gravar…";
+      try {
+        // text/plain avoids the CORS preflight that Apps Script web apps don't answer
+        await fetch(SHEET_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ piloto: C.driver, categoria: C.cat, pista: C.track || "", bop: BOP, unidade: C.unit, desgaste: C.tyrex, consumo: C.fuelx, data: new Date().toISOString(), linhas: rows }) });
+        session().recorded = stamp + " · enviado"; save(); render();
+      } catch (err) { st.className = "rec err"; st.textContent = "Erro ao gravar: " + err.message; }
+      btn.disabled = false;
+    } else {
+      session().recorded = stamp + " (neste computador)"; save(); render();
+    }
+  };
+
+  syncControls(); render(); save();
+})();
+</script>
+</body>
+</html>

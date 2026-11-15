@@ -3678,6 +3678,7 @@ a.sponsor-code-btn .sponsor-code-value { font-size: 0.62rem; letter-spacing: 0.0
 .fc-track-info[hidden] { display: none; }
 .fc-track-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; font-size: 0.8rem; color: var(--gray-200); }
 .fc-track-head img { border-radius: 2px; }
+.fc-track-head img.fc-track-logo { width: 88px; height: 56px; object-fit: contain; background: #fff; border-radius: 8px; padding: 4px; }
 .fc-track-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
 .fc-track-stats div { display: flex; flex-direction: column; gap: 0.1rem; }
 .fc-track-stats span { font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); }
@@ -4164,3 +4165,12 @@ a.sponsor-code-btn .sponsor-code-value { font-size: 0.62rem; letter-spacing: 0.0
 .le-champions-poster { width: 100%; max-width: 560px; border-radius: 12px; cursor: zoom-in; border: 3px solid #e0b04a; box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.35), 0 0 40px rgba(224, 176, 74, 0.3), 0 16px 40px rgba(0, 0, 0, 0.6); transition: transform 0.2s; }
 .le-champions-poster:hover { transform: scale(1.01); }
 .tf-link-alt { margin-left: 0.5rem; background: transparent; color: #f5c96a; border: 1px solid rgba(245, 201, 106, 0.6); }
+/* Ferramentas RTP */
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 980px; margin: 0 auto; }
+.tool-card { display: flex; flex-direction: column; gap: 0.7rem; padding: 2rem; border-radius: 14px; text-decoration: none; color: var(--white);
+  background: linear-gradient(160deg, rgba(255,107,0,0.12), rgba(255,255,255,0.02)); border: 1px solid rgba(255,107,0,0.35); transition: transform .2s, border-color .2s, box-shadow .2s; }
+.tool-card:hover { transform: translateY(-4px); border-color: var(--yellow); box-shadow: 0 14px 40px rgba(255,107,0,0.18); }
+.tool-icon { font-size: 2.6rem; line-height: 1; }
+.tool-card h2 { font-family: var(--font-display); font-size: 1.2rem; margin: 0; }
+.tool-card p { color: var(--gray-200, #ccc); margin: 0; line-height: 1.55; flex: 1; }
+.tool-go { color: var(--yellow); font-weight: 700; }

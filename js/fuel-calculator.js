@@ -97,7 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!t) { info.innerHTML = ""; return; }
     info.innerHTML = `
       <div class="fc-track-head">
-        ${FLAG[t.country] ? `<img src="https://flagcdn.com/w40/${FLAG[t.country]}.png" alt="" width="24" height="16" />` : ""}
+        ${typeof gt7TrackLogo === "function" && gt7TrackLogo(t.name)
+          ? `<img class="fc-track-logo" src="${gt7TrackLogo(t.name)}" alt="${t.name}" />`
+          : FLAG[t.country] ? `<img src="https://flagcdn.com/w40/${FLAG[t.country]}.png" alt="" width="24" height="16" />` : ""}
         <span>${t.country}</span>
       </div>
       <div class="fc-track-stats">
