@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://racingteamproject.eu/images/WALPAPER_RTP1.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>Teste de Pneus e Combustível RTP — RTP Racing Team Project</title>
-  <link rel="stylesheet" href="css/styles.css?v=20261115e" />
+  <link rel="stylesheet" href="css/styles.css?v=20261115f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -244,6 +244,17 @@
 .tt-app .tt-back:hover { color: var(--acc); }
 .tt-app .tt-bar .bop { font-size: 12px; color: #000; background: linear-gradient(180deg, var(--acc2), var(--acc)); padding: 5px 12px; border-radius: 999px; font-weight: 800; letter-spacing: .04em; }
 .tt-section { padding-top: 2.5rem; }
+/* phones: narrow car column (small photo, wrapped name) so the values get most of the screen */
+@media (max-width: 760px) {
+  .tt-section { padding-top: 1.5rem; }
+  .tt-app .tt-bar { padding: 10px 12px; gap: 8px; }
+  .tt-app .tt-bar .btns { margin-left: 0; width: 100%; }
+  .tt-app .tt-bar .btns button { flex: 1 1 auto; }
+  .tt-app td.car { width: 128px; min-width: 128px; max-width: 128px; font-size: 11px; padding: 4px 6px; }
+  .tt-app .car-wrap { flex-direction: column; align-items: flex-start; gap: 3px; }
+  .tt-app .car-wrap img, .tt-app .car-wrap .noimg { width: 48px; height: 27px; }
+  .tt-app .wrap { max-height: calc(100vh - 150px); }
+}
   #print { display: none; }
   /* print / PDF: same model as the fuel calculator export — dark sheet, header, info cards, footer */
   @page { size: A4 landscape; margin: 0; }
@@ -450,10 +461,10 @@
     </div>
   </footer>
 
-  <script src="js/data.js?v=20261115e"></script>
-  <script src="js/lang.js?v=20261115e"></script>
-  <script src="js/main.js?v=20261115e"></script>
-  <script src="js/garage-data.js?v=20261115e"></script>
+  <script src="js/data.js?v=20261115f"></script>
+  <script src="js/lang.js?v=20261115f"></script>
+  <script src="js/main.js?v=20261115f"></script>
+  <script src="js/garage-data.js?v=20261115f"></script>
   <script>
 (function () {
   const GARAGE = typeof GARAGE_DATA !== "undefined" ? GARAGE_DATA : [];
