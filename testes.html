@@ -177,19 +177,22 @@
 
   .tt-app thead tr.grp th { font-size: 12px; font-weight: 800; border-bottom: 2px solid currentColor; }
 
-  .tt-app thead th:first-child { left: 0; z-index: 4; }
+  .tt-app thead tr:first-child th:first-child { left: 0; z-index: 4; }
 
   .tt-app tbody tr:nth-child(even) td { background-color: rgba(255,255,255,.015); }
 
   .tt-app tbody tr:hover td { background-color: rgba(255,107,0,.05); }
 
-  .tt-app td.car { text-align: left; font-weight: 700; position: sticky; left: 0; background: var(--card); z-index: 2; min-width: 330px; border-right: 1px solid var(--line); }
+  .tt-app td.car { text-align: left; font-weight: 700; position: sticky; left: 0; background: var(--card); z-index: 2; width: 230px; min-width: 230px; max-width: 230px; white-space: normal; font-size: 12.5px; line-height: 1.25; padding: 4px 8px; border-right: 1px solid var(--line); }
 
+  /* car column stays opaque on every row so the scrolled map columns slide under it */
+  .tt-app tbody tr td.car { background: var(--card); }
+  .tt-app tbody tr:nth-child(even) td.car { background: #1a1a1d; }
   .tt-app tbody tr:hover td.car { background: #1f1a16; }
 
-  .tt-app .car-wrap { display: flex; align-items: center; gap: 12px; }
+  .tt-app .car-wrap { display: flex; align-items: center; gap: 8px; }
 
-  .tt-app .car-wrap img, .tt-app .car-wrap .noimg { width: 104px; height: 58px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line2); flex-shrink: 0; background: #000; }
+  .tt-app .car-wrap img, .tt-app .car-wrap .noimg { width: 64px; height: 36px; object-fit: cover; border-radius: 5px; border: 1px solid var(--line2); flex-shrink: 0; background: #000; }
 
   .tt-app .car-wrap .noimg { display: inline-flex; align-items: center; justify-content: center; color: #555; font-size: 11px; }
 
@@ -580,10 +583,10 @@
     const r = session().recorded; $("rec-status").textContent = r ? `Gravado ${r}` : ""; $("rec-status").className = "rec" + (r ? " ok" : "");
     $("thead").innerHTML = `
       <tr class="grp"><th rowspan="2" style="text-align:left">Carro</th>
-        ${tys.map(x => `<th colspan="2" style="color:${x.c};background:${x.c}14">Pneu ${x.label}</th>`).join("")}
-        ${mps.map(m => `<th colspan="3" style="color:var(--acc);background:rgba(255,107,0,${m % 2 ? .07 : .03})">Mapa ${m}</th>`).join("")}
+        ${tys.map(x => `<th colspan="2" style="color:${x.c};background:linear-gradient(${x.c}14,${x.c}14),#1c1c20">Pneu ${x.label}</th>`).join("")}
+        ${mps.map(m => `<th colspan="3" style="color:var(--acc);background:linear-gradient(rgba(255,107,0,${m % 2 ? .07 : .03}),rgba(255,107,0,${m % 2 ? .07 : .03})),#1c1c20">Mapa ${m}</th>`).join("")}
         <th rowspan="2">Notas</th><th rowspan="2"></th></tr>
-      <tr>${tys.map(x => `<th style="background:${x.c}14">%/volta</th><th style="background:${x.c}14">Voltas</th>`).join("")}
+      <tr>${tys.map(x => `<th style="background:linear-gradient(${x.c}14,${x.c}14),#1c1c20">%/volta</th><th style="background:linear-gradient(${x.c}14,${x.c}14),#1c1c20">Voltas</th>`).join("")}
         ${mps.map(m => `<th>Comb./volta</th><th>Tempo</th><th>Voltas dep.</th>`).join("")}</tr>`;
     const q = $("search").value.trim().toLowerCase(), todo = $("only-todo").checked;
     sortOptions();
