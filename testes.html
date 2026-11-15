@@ -2,8 +2,10 @@
 <html lang="pt">
 <head>
 <meta charset="utf-8">
+  <!-- the GT7 site refuses its track logos when another site is sent as referrer -->
+  <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Testes de Pneus e Consumo — RTP Racing Team Project</title>
+<title>Teste de Pneus e Combustível RTP — RTP Racing Team Project</title>
 <link rel="icon" href="favicon.ico" sizes="48x48" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
@@ -88,6 +90,8 @@
   .filter input[type=search] { background: #0f0f11; border: 1px solid var(--line2); color: var(--txt); border-radius: 8px; padding: 8px 12px; width: 280px; }
   .filter input[type=search]:focus { outline: none; border-color: var(--acc); }
   .session { display: none; }
+  .sortby { display: flex; align-items: center; gap: 8px; color: var(--txt); font-weight: 700; }
+  .sortby select { background: #0f0f11; border: 1px solid var(--acc); color: var(--txt); border-radius: 8px; padding: 7px 10px; font-weight: 600; }
   details.help { margin-left: auto; color: var(--muted); font-size: 13px; }
   details.help summary { cursor: pointer; list-style: none; padding: 7px 12px; border: 1px solid var(--line2); border-radius: 8px; }
   details.help[open] summary { border-color: var(--acc); color: var(--txt); }
@@ -113,6 +117,7 @@
   td input.note { width: 190px; text-align: left; }
   td input:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px rgba(255,107,0,.18); }
   td input:not(:placeholder-shown):not([value=""]) { border-color: #3f3f46; }
+  td.sorted input { border-color: var(--acc); }
   td.calc { color: var(--ok); font-weight: 800; font-size: 12px; min-width: 56px; font-variant-numeric: tabular-nums; }
   tr.done td.car { box-shadow: inset 4px 0 0 var(--ok); }
   tr.done td.car span::after { content: " ✓"; color: var(--ok); }
@@ -169,7 +174,7 @@
 <header>
   <a href="ferramentas.html" title="Voltar às Ferramentas RTP"><img class="logo" src="images/RTP_LOGO.png" alt="RTP"></a>
   <a href="ferramentas.html" class="back">← Ferramentas</a>
-  <h1 class="display">TESTES DE <span>PNEUS</span> &amp; <span>CONSUMO</span></h1>
+  <h1 class="display">TESTE DE <span>PNEUS</span> &amp; <span>COMBUSTÍVEL</span> RTP</h1>
   <span class="bop">BOP v1.72</span>
   <div class="btns">
     <span class="saved" id="saved">✓ guardado</span>
@@ -224,6 +229,7 @@
     <span class="session" id="session"></span>
     <input type="search" id="search" placeholder="🔍  Procurar carro…">
     <label><input type="checkbox" id="only-todo"> só os que faltam</label>
+    <label class="sortby">↕ Ordenar <select id="sort"></select></label>
     <details class="help"><summary>ℹ Como usar</summary>
       <p>Escolhe o <b>piloto</b>, a <b>categoria</b>, a <b>pista</b>, os <b>pneus</b> e os <b>mapas</b> que vais testar — a tabela ajusta-se.
       Para cada pneu anota o <b>desgaste numa volta</b> (%, ex.: 3,5); para cada mapa anota o <b>combustível gasto numa volta</b> e o <b>tempo</b>.
@@ -374,7 +380,8 @@
       <tr>${tys.map(x => `<th style="background:${x.c}14">%/volta</th><th style="background:${x.c}14">Voltas</th>`).join("")}
         ${mps.map(m => `<th>Comb./volta</th><th>Tempo</th><th>Voltas dep.</th>`).join("")}</tr>`;
     const q = $("search").value.trim().toLowerCase(), todo = $("only-todo").checked;
-    const names = carsOf(C.cat);
+    sortOptions();
+    const names = sortedCars();
     const rows = names.map(name => {
       const e = entry(name);
       if (q && !name.toLowerCase().includes(q)) return "";
@@ -382,9 +389,9 @@
       const n = esc(name);
       return `<tr class="${isDone(e) ? "done" : ""}" data-car="${n}">
         <td class="car"><div class="car-wrap">${THUMB[name] ? `<img src="${encodeURI(THUMB[name])}" alt="" loading="lazy">` : `<span class="noimg">${C.cat}</span>`}<span>${n}</span></div></td>
-        ${tys.map(x => `<td style="background:${x.c}0d"><input data-k="tyre_${x.id}" value="${esc(e.data["tyre_" + x.id])}" inputmode="decimal"></td>
+        ${tys.map(x => `<td class="${C.sort === "tyre_" + x.id ? "sorted" : ""}" style="background:${x.c}0d"><input data-k="tyre_${x.id}" value="${esc(e.data["tyre_" + x.id])}" inputmode="decimal"></td>
           <td class="calc" data-calc="tyre_${x.id}" style="background:${x.c}0d">${fmt(lapsTyre(e, x.id))}</td>`).join("")}
-        ${mps.map(m => `<td><input data-k="fuel${m}" value="${esc(e.data["fuel" + m])}" inputmode="decimal"></td>
+        ${mps.map(m => `<td class="${C.sort === "fuel" + m ? "sorted" : ""}"><input data-k="fuel${m}" value="${esc(e.data["fuel" + m])}" inputmode="decimal"></td>
           <td><input class="t" data-k="time${m}" value="${esc(e.data["time" + m])}" placeholder="0:00.000"></td>
           <td class="calc" data-calc="fuel${m}">${fmt(lapsFuel(e, m))}</td>`).join("")}
         <td><input class="note" data-k="note" value="${esc(e.note)}"></td>
@@ -394,6 +401,24 @@
     if (!tys.length && !mps.length) $("rows").innerHTML = `<tr><td class="empty" colspan="99">Escolhe pelo menos um pneu ou um mapa.</td></tr>`;
     updateProgress();
   }
+  function sortOptions() {
+    const opts = [["name", "Nome (A–Z)"]]
+      .concat(tyreSel().map(x => ["tyre_" + x.id, `Menor desgaste — ${x.label}`]))
+      .concat(mapSel().map(m => ["fuel" + m, `Menor consumo — Mapa ${m}`]));
+    if (!opts.some(o => o[0] === C.sort)) C.sort = "name";
+    $("sort").innerHTML = opts.map(([v, l]) => `<option value="${v}"${v === C.sort ? " selected" : ""}>${l}</option>`).join("");
+  }
+  function sortedCars() {
+    const names = carsOf(C.cat), k = C.sort || "name";
+    if (k === "name") return names;
+    return names.slice().sort((a, b) => {
+      const va = num(entry(a).data[k]), vb = num(entry(b).data[k]);
+      if (va == null && vb == null) return a.localeCompare(b);
+      if (va == null) return 1; if (vb == null) return -1;
+      return va - vb || a.localeCompare(b);
+    });
+  }
+  const sortLabel = () => { const o = $("sort").selectedOptions[0]; return C.sort && C.sort !== "name" && o ? o.textContent : ""; };
   function updateProgress() {
     const names = carsOf(C.cat), done = names.filter(n => isDone(entry(n))).length;
     $("progress").textContent = `${done} / ${names.length} carros completos`;
@@ -442,6 +467,7 @@
   $("btn-tank").onclick = () => { const v = num(prompt("Capacidade do depósito (litros):", C.tank)); if (!v) return; C.tank = v; syncControls(); save(); render(); };
   $("search").addEventListener("input", render);
   $("only-todo").addEventListener("change", render);
+  $("sort").addEventListener("change", e => { C.sort = e.target.value; save(); render(); });
 
   // ── export / backup ──
   const download = (name, text, type) => {
@@ -452,7 +478,7 @@
     const tys = tyreSel(), mps = mapSel(), u = C.unit === "L" ? "L" : "%";
     const q = v => `"${String(v == null ? "" : v).replace(/"/g, '""')}"`;
     const head = ["Carro"].concat(...tys.map(x => [`${x.label} (%/volta)`, `${x.label} voltas`]), ...mps.map(m => [`M${m} Comb. (${u}/volta)`, `M${m} Tempo`, `M${m} Voltas depósito`]), ["Notas"]);
-    const lines = carsOf(C.cat).map(name => { const e = entry(name); return [name].concat(...tys.map(x => [e.data["tyre_" + x.id] || "", fmt(lapsTyre(e, x.id)).replace("—", "")]), ...mps.map(m => [e.data["fuel" + m] || "", e.data["time" + m] || "", fmt(lapsFuel(e, m)).replace("—", "")]), [e.note || ""]).map(q).join(";"); });
+    const lines = sortedCars().map(name => { const e = entry(name); return [name].concat(...tys.map(x => [e.data["tyre_" + x.id] || "", fmt(lapsTyre(e, x.id)).replace("—", "")]), ...mps.map(m => [e.data["fuel" + m] || "", e.data["time" + m] || "", fmt(lapsFuel(e, m)).replace("—", "")]), [e.note || ""]).map(q).join(";"); });
     const meta = q(`BOP: v${BOP} | Piloto: ${C.driver || ""} | Categoria: ${C.cat} | Pista: ${C.track || ""} | Desgaste: ${C.tyrex || ""} | Consumo: ${C.fuelx || ""}`);
     const file = `testes-${(C.driver || "piloto").replace(/[^\w]+/g, "-")}-${C.cat}-${(C.track || "pista").replace(/[^\w]+/g, "-")}.csv`.toLowerCase();
     download(file, "﻿" + [meta, head.map(q).join(";")].concat(lines).join("\r\n"), "text/csv");
@@ -466,7 +492,7 @@
     const d = DRIVER_LIST.find(x => x.name === C.driver) || {};
     const v = x => x ? `<td class="v">${esc(x)}</td>` : '<td class="e">—</td>';
     const dot = x => `<span class="ex-dot" style="color:${x.c}">◉</span>`;
-    const rows = carsOf(C.cat).map(name => {
+    const rows = sortedCars().map(name => {
       const e = entry(name);
       return `<tr><td class="c">${THUMB[name] ? `<img src="${encodeURI(THUMB[name])}" alt="">` : ""}${esc(name)}</td>
         ${tys.map(x => v(e.data["tyre_" + x.id])).join("")}
@@ -475,7 +501,7 @@
     $("print").innerHTML = `<div class="ex-sheet">
       <div class="ex-head">
         <img class="ex-logo" src="images/RTP_LOGO.png" alt="RTP">
-        <div><div class="ex-title">Testes de pneus e consumo</div>
+        <div><div class="ex-title">Teste de pneus e combustível RTP</div>
           <div class="ex-sub">${esc(C.cat)} · ${esc(C.track || "Gran Turismo 7")}</div></div>
         <div class="ex-meta"><span>BOP v${BOP}</span><span>Desgaste ${esc(C.tyrex || "—")} · Consumo ${esc(C.fuelx || "—")}</span><span>${today}</span></div>
       </div>
@@ -489,6 +515,7 @@
         <div class="ex-card"><span class="ex-label">Dados do teste</span>
           <div class="ex-kv"><span>Categoria</span><strong>${esc(C.cat)}</strong></div>
           <div class="ex-kv"><span>Mapas</span><strong>${mps.join(" · ") || "—"}</strong></div>
+          ${sortLabel() ? `<div class="ex-kv"><span>Ordenado por</span><strong>${esc(sortLabel())}</strong></div>` : ""}
           <div class="ex-kv"><span>Combustível em</span><strong>${C.unit === "L" ? "litros (depósito " + C.tank + " L)" : "% do depósito"}</strong></div>
           ${session().recorded ? `<div class="ex-kv"><span>Gravado</span><strong>${esc(session().recorded)}</strong></div>` : ""}</div>
       </div>

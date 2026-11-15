@@ -851,7 +851,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="fc-ex-head">
         <img src="images/RTP_LOGO.png" alt="RTP" />
         <div>
-          <div class="fc-ex-title">Estratégia de corrida</div>
+          <div class="fc-ex-title">Estrategista RTP</div>
           <div class="fc-ex-sub">${[t && t.name, c && c.name].filter(Boolean).join(" · ") || "Gran Turismo 7"}</div>
         </div>
         <div class="fc-ex-meta">
