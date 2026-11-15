@@ -299,7 +299,7 @@ const SITE_DATA = {
       platform: "GT7",
       description: "Campeonato de resistência de Gran Turismo 7 que junta várias equipas de todo o mundo em provas de longa duração.",
       logo: "images/LIGA ENDURANCE/LIGA_ENDURANCE_LOGO.png",
-      url: "liga-endurance.html"
+      url: "arquivo/liga-endurance.html"
     },
     {
       name: "Street Car Pitbox Cup II",
@@ -348,7 +348,7 @@ const SITE_DATA = {
       platform: "GT7",
       description: "Campeonato interno RTP Racing Team Project disputado no Gran Turismo 7 ao volante do Mazda MX-5, ao longo de 6 rondas.",
       logo: "images/MAZDA MX-5 CUP/MAZDA MX-5 CUP ICON.png",
-      url: "inscricao.html"
+      url: "arquivo/inscricao.html"
     },
     {
       name: "WRT Events",
