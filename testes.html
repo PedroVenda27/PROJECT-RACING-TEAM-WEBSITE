@@ -244,6 +244,32 @@
 .tt-app .tt-back:hover { color: var(--acc); }
 .tt-app .tt-bar .bop { font-size: 12px; color: #000; background: linear-gradient(180deg, var(--acc2), var(--acc)); padding: 5px 12px; border-radius: 999px; font-weight: 800; letter-spacing: .04em; }
 .tt-section { padding-top: 2.5rem; }
+/* latest uploaded tests */
+.tt-app .tt-latest { margin-bottom: 16px; padding: 14px 16px; border-radius: var(--radius); background: linear-gradient(180deg, #1b1b1f, var(--panel)); border: 1px solid var(--line); }
+.tt-app .tt-latest-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.tt-app .tt-latest-head h2 { margin: 0; font-family: 'Orbitron', sans-serif; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; color: var(--txt); }
+.tt-app .tt-latest-count { color: var(--muted); font-size: 12px; }
+.tt-app .tt-latest-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.tt-app .tt-up { display: flex; align-items: center; gap: 10px; text-align: left; padding: 10px 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--line2); color: var(--txt); cursor: pointer; font: inherit; transition: border-color .15s, background .15s; }
+.tt-app .tt-up:hover, .tt-app .tt-up.on { border-color: var(--acc); background: #1f1a16; }
+.tt-app .tt-up .ph { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--acc); flex-shrink: 0; background: #0f0f11; }
+.tt-app .tt-up .tl { width: 54px; height: 36px; object-fit: contain; background: #fff; border-radius: 6px; padding: 2px; flex-shrink: 0; margin-left: auto; }
+.tt-app .tt-up .tx { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.tt-app .tt-up .tx strong { font-size: 13.5px; }
+.tt-app .tt-up .tx span { font-size: 12px; color: var(--muted); }
+.tt-app .tt-up .tx .new { color: #000; background: var(--acc); border-radius: 999px; padding: 0 7px; font-size: 10px; font-weight: 800; width: fit-content; }
+.tt-app .tt-latest-view { margin-top: 12px; }
+.tt-app .tt-lv-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; font-size: 12.5px; color: var(--muted); }
+.tt-app .tt-lv-bar strong { color: var(--txt); }
+.tt-app .tt-lv-bar button { margin-left: auto; }
+.tt-app .tt-lv-wrap { overflow: auto; max-height: 520px; border: 1px solid var(--line); border-radius: 10px; }
+.tt-app .tt-lv { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+.tt-app .tt-lv th { position: sticky; top: 0; background: #1c1c20; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #d4d4d8; z-index: 1; }
+.tt-app .tt-lv td.c { text-align: left; font-weight: 700; white-space: normal; }
+.tt-app .tt-lv td.c img { display: inline-block; width: 54px; height: 30px; object-fit: cover; border-radius: 4px; vertical-align: middle; margin-right: 8px; border: 1px solid var(--line2); }
+.tt-app .tt-lv td.best { color: var(--ok); font-weight: 800; }
+.tt-app .tt-lv td.e { color: #555; }
+.tt-app .tt-lv td.pos { color: var(--muted); font-weight: 700; width: 34px; }
 /* phones: narrow car column (small photo, wrapped name) so the values get most of the screen */
 @media (max-width: 760px) {
   .tt-section { padding-top: 1.5rem; }
@@ -339,6 +365,14 @@
   <!-- ==================== TOOL ==================== -->
   <section class="section tt-section">
     <div class="container tt-app">
+      <div class="tt-latest" id="latest">
+        <div class="tt-latest-head">
+          <h2>📥 Últimos dados carregados</h2>
+          <span class="tt-latest-count" id="latest-count"></span>
+        </div>
+        <div class="tt-latest-list" id="latest-list"></div>
+        <div class="tt-latest-view" id="latest-view" hidden></div>
+      </div>
       <div class="tt-bar">
         <span class="bop">BOP v1.72</span>
         <a href="ferramentas.html" class="tt-back">← Ferramentas RTP</a>
@@ -467,6 +501,7 @@
   <script src="js/lang.js?v=20261116a"></script>
   <script src="js/main.js?v=20261116a"></script>
   <script src="js/garage-data.js?v=20261116a"></script>
+  <script src="js/test-results.js?v=20261116a"></script>
   <script>
 (function () {
   const GARAGE = typeof GARAGE_DATA !== "undefined" ? GARAGE_DATA : [];
@@ -776,6 +811,63 @@
       session().recorded = stamp + " (neste computador)"; save(); render();
     }
   };
+
+  // ── últimos dados carregados (js/test-results.js) ──
+  const RESULTS = typeof TEST_RESULTS !== "undefined" ? TEST_RESULTS : [];
+  const fmtDate = d => { const p = String(d || "").split("-"); return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : d || ""; };
+  let openIdx = -1;
+  function renderLatest() {
+    $("latest").hidden = !RESULTS.length;
+    if (!RESULTS.length) return;
+    $("latest-count").textContent = RESULTS.length === 1 ? "1 teste" : RESULTS.length + " testes";
+    $("latest-list").innerHTML = RESULTS.map((r, i) => {
+      const ph = driverPhoto(r.driver), tl = trackLogo(r.track), n = Object.keys(r.cars || {}).length;
+      const what = [(r.maps || []).length ? "Mapa " + r.maps.join(", ") : "", (r.tyres || []).length ? "Pneus " + r.tyres.join(", ") : ""].filter(Boolean).join(" · ");
+      return `<button type="button" class="tt-up${i === openIdx ? " on" : ""}" data-i="${i}">
+        ${ph ? `<img class="ph" src="${encodeURI(ph)}" alt="">` : ""}
+        <span class="tx">${i === 0 ? '<span class="new">MAIS RECENTE</span>' : ""}<strong>${esc(r.driver)} · ${esc(r.cat)}</strong>
+          <span>${esc(r.track)}</span><span>${fmtDate(r.uploaded)} · ${n} carros${what ? " · " + esc(what) : ""}</span></span>
+        ${tl ? `<img class="tl" src="${tl}" alt="" onerror="this.remove()">` : ""}</button>`;
+    }).join("");
+    const v = $("latest-view");
+    if (openIdx < 0 || !RESULTS[openIdx]) { v.hidden = true; v.innerHTML = ""; return; }
+    const r = RESULTS[openIdx], mps = r.maps || [], tys = TYRES.filter(x => (r.tyres || []).includes(x.id));
+    const key = mps.length ? "fuel" + mps[0] : tys.length ? "tyre_" + tys[0].id : null;
+    const names = Object.keys(r.cars).sort((a, b) => { const va = num(r.cars[a][key]), vb = num(r.cars[b][key]); if (va == null) return 1; if (vb == null) return -1; return va - vb || a.localeCompare(b); });
+    const best = {}; const keys = mps.map(m => "fuel" + m).concat(tys.map(x => "tyre_" + x.id));
+    keys.forEach(k => { const vals = names.map(n => num(r.cars[n][k])).filter(x => x != null); if (vals.length) best[k] = Math.min(...vals); });
+    const cell = (c, k) => { const x = c[k]; if (!x) return '<td class="e">—</td>'; return `<td class="${best[k] != null && num(x) === best[k] ? "best" : ""}">${esc(x)}</td>`; };
+    const hasNotes = names.some(n => r.cars[n].note);
+    v.innerHTML = `<div class="tt-lv-bar"><span>BOP <strong>v${esc(r.bop)}</strong> · Desgaste <strong>${esc(r.tyrex || "—")}</strong> · Consumo <strong>${esc(r.fuelx || "—")}</strong> · ordenado por ${mps.length ? "menor consumo no mapa " + mps[0] : "menor desgaste"}</span>
+        <button type="button" class="primary" id="latest-open">↓ Abrir na ferramenta</button></div>
+      <div class="tt-lv-wrap"><table class="tt-lv"><thead><tr><th>#</th><th style="text-align:left">Carro</th>
+        ${tys.map(x => `<th>${x.label}<br>% / volta</th>`).join("")}
+        ${mps.map(m => `<th>Mapa ${m}<br>Comb./volta (${esc(r.unit || "%")})</th><th>Mapa ${m}<br>Tempo</th><th>Mapa ${m}<br>Voltas dep.</th>`).join("")}
+        ${hasNotes ? "<th>Notas</th>" : ""}</tr></thead><tbody>
+        ${names.map((n, i) => { const c = r.cars[n]; return `<tr><td class="pos">${i + 1}</td>
+          <td class="c">${THUMB[n] ? `<img src="${encodeURI(THUMB[n])}" alt="" loading="lazy">` : ""}${esc(n)}</td>
+          ${tys.map(x => cell(c, "tyre_" + x.id)).join("")}
+          ${mps.map(m => cell(c, "fuel" + m) + (c["time" + m] ? `<td>${esc(c["time" + m])}</td>` : '<td class="e">—</td>') + (c["laps" + m] ? `<td>${esc(c["laps" + m])}</td>` : '<td class="e">—</td>')).join("")}
+          ${hasNotes ? `<td style="text-align:left">${esc(c.note || "")}</td>` : ""}</tr>`; }).join("")}
+      </tbody></table></div>`;
+    v.hidden = false;
+    $("latest-open").onclick = () => openInTool(r);
+  }
+  // load an uploaded test into the tool (fills only the empty cells of that driver/category/track)
+  function openInTool(r) {
+    C.driver = r.driver; C.cat = r.cat; C.track = r.track;
+    if (r.tyrex) C.tyrex = r.tyrex; if (r.fuelx) C.fuelx = r.fuelx; if (r.unit) C.unit = r.unit;
+    C.maps = MAPS.filter(m => C.maps.includes(m) || (r.maps || []).includes(m));
+    C.tyres = TYRES.map(x => x.id).filter(id => C.tyres.includes(id) || (r.tyres || []).includes(id));
+    Object.entries(r.cars).forEach(([name, vals]) => {
+      const e = entry(name);
+      Object.entries(vals).forEach(([k, v]) => { if (k === "note") { if (!e.note) e.note = v; } else if (!/^laps/.test(k) && !e.data[k]) e.data[k] = v; });
+    });
+    syncControls(); render(); save();
+    $("rows").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  $("latest-list").addEventListener("click", e => { const b = e.target.closest(".tt-up"); if (!b) return; openIdx = openIdx === +b.dataset.i ? -1 : +b.dataset.i; renderLatest(); });
+  renderLatest();
 
   syncControls(); render(); save();
 })();
