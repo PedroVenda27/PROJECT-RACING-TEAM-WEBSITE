@@ -389,7 +389,7 @@
         <div class="btns">
           <span class="saved" id="saved">✓ guardado</span>
           <span class="rec" id="rec-status"></span>
-          <button id="btn-save" class="save" title="Grava os dados deste piloto (categoria + pista)">💾 Gravar</button>
+          <button id="btn-save" class="save" title="Grava os teus dados no site — ficam disponíveis para todos os pilotos">💾 Gravar</button>
           <button id="btn-csv" class="primary" title="Exporta a tabela atual para o Excel">⬇ Excel</button>
           <button onclick="print()" title="Imprimir ou guardar em PDF">🖨 Imprimir / PDF</button>
         </div>
@@ -528,7 +528,7 @@
   const BOP = "1.72";
   // Google Sheet web app (Apps Script) that receives the "Gravar" data — see gravar-testes-apps-script.gs.
   // Empty = data is only kept on this computer.
-  const SHEET_URL = "";
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbxOISH1knFe6ApngwaTg6SKizIaJQa6ulDTWoHU5rlwmNFFSkls2pTL5OR5lsvL0EuX3g/exec";
   const DRIVER_LIST = typeof SITE_DATA !== "undefined" ? SITE_DATA.drivers : [];
   const DRIVERS = DRIVER_LIST.map(d => d.name);
   const driverPhoto = n => { const d = DRIVER_LIST.find(x => x.name === n); return d && d.image ? "" + d.image : ""; };
@@ -839,34 +839,67 @@
   window.addEventListener("beforeprint", buildPrint);
   document.querySelector(".btns button[onclick]").onclick = () => { if (!C.driver && !confirm("Ainda não escolheste o piloto. Imprimir na mesma?")) return; print(); };
 
+  // signed-in driver's key (js/tools-auth.js) — the Apps Script only accepts saves with it
+  const authKey = () => { try { const x = JSON.parse(localStorage.getItem("rtp-tools-auth") || "null"); return x && x.driver === C.driver ? x.key : ""; } catch (e) { return ""; } };
   $("btn-save").onclick = async () => {
-    if (!C.driver) { alert("Escolhe primeiro o piloto."); $("cfg-driver").focus(); return; }
-    const tys = tyreSel(), mps = mapSel();
-    const rows = carsOf(C.cat).map(name => {
+    if (!C.driver) { alert("Inicia sessão com o teu perfil de piloto."); return; }
+    if (!ready()) { alert("Escolhe a categoria, a pista, o desgaste e o consumo antes de gravar."); return; }
+    const tys = tyreSel(), mps = mapSel(), values = [];
+    // values on screen + empty ones for fields that are on the site and were cleared here
+    const remote = new Set(REMOTE_ROWS.filter(r => r.driver === C.driver && r.cat === C.cat && r.track === C.track.trim() && r.v !== "" &&
+      (r.kind === "pneus" ? normX(r.mult) === normX(C.tyrex) : r.kind === "combustivel" ? normX(r.mult) === normX(C.fuelx) : true)).map(r => r.car + "|" + r.k));
+    carsOf(C.cat).forEach(name => {
       const e = entry(name);
-      const vals = {}; tys.forEach(x => vals["Pneu " + x.id + " %/volta"] = e.data["tyre_" + x.id] || "");
-      mps.forEach(m => { vals["Mapa " + m + " comb./volta"] = e.data["fuel" + m] || ""; vals["Mapa " + m + " tempo"] = e.data["time" + m] || ""; });
-      return Object.values(vals).some(v => v) || e.note ? Object.assign({ carro: name }, vals, { notas: e.note || "" }) : null;
-    }).filter(Boolean);
-    if (!rows.length) { alert("Ainda não há dados para gravar nesta tabela."); return; }
+      const keys = tys.map(x => "tyre_" + x.id).concat(...mps.map(m => ["fuel" + m, "time" + m]));
+      keys.forEach(k => { const v = String(e.data[k] || "").trim(); if (v || remote.has(name + "|" + k)) values.push({ car: name, k, v }); });
+      const n = String(e.note || "").trim(); if (n || remote.has(name + "|note")) values.push({ car: name, k: "note", v: n });
+    });
+    if (!values.length) { alert("Ainda não há dados para gravar nesta folha."); return; }
     const stamp = new Date().toLocaleString("pt-PT", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
     const st = $("rec-status"), btn = $("btn-save");
-    if (SHEET_URL) {
-      btn.disabled = true; st.className = "rec"; st.textContent = "A gravar…";
-      try {
-        // text/plain avoids the CORS preflight that Apps Script web apps don't answer
-        await fetch(SHEET_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify({ piloto: C.driver, categoria: C.cat, pista: C.track || "", bop: BOP, unidade: C.unit, desgaste: C.tyrex, consumo: C.fuelx, data: new Date().toISOString(), linhas: rows }) });
-        session().recorded = stamp + " · enviado"; save(); render();
-      } catch (err) { st.className = "rec err"; st.textContent = "Erro ao gravar: " + err.message; }
-      btn.disabled = false;
-    } else {
-      session().recorded = stamp + " (neste computador)"; save(); render();
-    }
+    btn.disabled = true; st.className = "rec"; st.textContent = "A gravar no site…";
+    try {
+      // text/plain = simple request (no CORS preflight, which Apps Script doesn't answer)
+      const res = await fetch(SHEET_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ driver: C.driver, key: authKey(), cat: C.cat, track: C.track.trim(), tyrex: normX(C.tyrex), fuelx: normX(C.fuelx), values }) });
+      const out = await res.json();
+      if (!out.ok) throw new Error(out.error === "auth" ? "sessão inválida — sai e volta a entrar" : out.error || "erro");
+      session().recorded = stamp + " · no site"; save();
+      await loadShared(); render();
+    } catch (err) { st.className = "rec err"; st.textContent = "Erro ao gravar: " + err.message; }
+    btn.disabled = false;
   };
 
-  // ── últimos dados carregados (js/test-results.js) ──
+  // ── últimos dados carregados: Folha do Google partilhada (js/test-results.js só se o site não responder) ──
   var RESULTS = typeof TEST_RESULTS !== "undefined" ? TEST_RESULTS : [];
+  var REMOTE_ROWS = [];
+  function rowsToResults(rows) {
+    const groups = {}, notes = {};
+    rows.forEach(r => {
+      if (r.kind === "nota") { if (r.v) (notes[[r.driver, r.cat, r.track].join("|")] = notes[[r.driver, r.cat, r.track].join("|")] || {})[r.car] = r.v; return; }
+      if (!r.v) return;
+      const id = [r.driver, r.cat, r.track, r.kind, normX(r.mult)].join("|");
+      const g = groups[id] || (groups[id] = { driver: r.driver, cat: r.cat, track: r.track, bop: BOP, unit: "%", uploaded: "", maps: [], tyres: [], cars: {} });
+      if (r.kind === "pneus") g.tyrex = normX(r.mult); else g.fuelx = normX(r.mult);
+      (g.cars[r.car] = g.cars[r.car] || {})[r.k] = r.v;
+      const m = /^(?:fuel|time)(\d)$/.exec(r.k); if (m && !g.maps.includes(+m[1])) g.maps.push(+m[1]);
+      const t = /^tyre_(\w+)$/.exec(r.k); if (t && !g.tyres.includes(t[1])) g.tyres.push(t[1]);
+      if (String(r.updated) > g.uploaded) g.uploaded = String(r.updated);
+    });
+    return Object.values(groups).map(g => {
+      const nt = notes[[g.driver, g.cat, g.track].join("|")] || {};
+      Object.keys(g.cars).forEach(c => { if (nt[c]) g.cars[c].note = nt[c]; });
+      g.maps.sort(); g.tyres = TYRES.map(x => x.id).filter(id => g.tyres.includes(id));
+      return g;
+    }).sort((x, y) => y.uploaded.localeCompare(x.uploaded)).map(g => Object.assign(g, { uploaded: g.uploaded.slice(0, 10) }));
+  }
+  async function loadShared() {
+    if (!SHEET_URL) return;
+    try {
+      const out = await (await fetch(SHEET_URL, { cache: "no-store" })).json();
+      if (out && out.ok) { REMOTE_ROWS = out.rows || []; RESULTS = rowsToResults(REMOTE_ROWS); }
+    } catch (e) { /* offline: keep js/test-results.js */ }
+  }
   const fmtDate = d => { const p = String(d || "").split("-"); return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : d || ""; };
   let openIdx = -1;
   const samePlace = r => ready() && r.cat === C.cat && r.track === C.track.trim();
@@ -973,6 +1006,7 @@
   renderLatest();
 
   syncControls(); render(); save();
+  loadShared().then(() => render());
 })();
 </script>
   <script src="js/tools-auth.js?v=20261116c"></script>
