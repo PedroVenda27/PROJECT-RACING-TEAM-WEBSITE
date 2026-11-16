@@ -9,14 +9,21 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-16",
-  updatedAt: "2026-11-16T18:08:00+00:00",
+  updatedAt: "2026-11-16T22:10:00+00:00",
   races: [
-    {"type":"A","id":698,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Blue Moon Bay Speedway — Infield A","car":"Gr.4","tyres":"RM","lead":72633,"leader":"MAIKON__GT","players":3363,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-a-blue-moon-bay-speedway-infield-a/698"},
-    {"type":"B","id":699,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Deep Forest Raceway","car":"Gr.3","tyres":"RH","lead":87317,"leader":"Monkis","players":8022,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-b-deep-forest-raceway/699"},
-    {"type":"C","id":700,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Suzuka Circuit","car":"SF","tyres":"RS","lead":93046,"leader":"きよれーしんぐ","players":4994,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-c-suzuka-circuit/700"}
+    {"type":"A","id":698,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Blue Moon Bay Speedway — Infield A","car":"Gr.4","tyres":"RM","lead":72378,"leader":"G. De Nino","players":7129,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-a-blue-moon-bay-speedway-infield-a/698"},
+    {"type":"B","id":699,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Deep Forest Raceway","car":"Gr.3","tyres":"RH","lead":87317,"leader":"Monkis","players":11389,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-b-deep-forest-raceway/699"},
+    {"type":"C","id":700,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Suzuka Circuit","car":"SF","tyres":"RS","lead":92787,"leader":"N. Lanuza","players":8512,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-c-suzuka-circuit/700"}
   ],
   times: {
-    "Wilson_TheFirst": {"B":{"ms":88338,"time":"01:28.338","pos":224,"posPT":2,"car":"Jaguar F-type Gr.3"}}
+    "RafaelAgostinh44": {"C":{"ms":94832,"time":"01:34.832","pos":324,"posPT":10,"car":"Super Formula SF23 Super Formula / Toyota '23"},"B":{"ms":88321,"time":"01:28.321","pos":546,"posPT":13,"car":"Dodge Viper SRT GT3-R '15"}},
+    "Caceteira_RTP": {"A":{"ms":72928,"time":"01:12.928","pos":29,"posPT":1,"car":"Nissan GT-R Gr.4"}},
+    "pandafrass": {"A":{"ms":73179,"time":"01:13.179","pos":95,"posPT":6,"car":"Nissan GT-R Gr.4"}},
+    "KajuNN": {"C":{"ms":94317,"time":"01:34.317","pos":157,"posPT":3,"car":"Super Formula SF23 Super Formula / Toyota '23"},"B":{"ms":88121,"time":"01:28.121","pos":295,"posPT":6,"car":"Jaguar F-type Gr.3"}},
+    "mattifroskes": {"B":{"ms":88729,"time":"01:28.729","pos":1493,"posPT":32,"car":"Dodge Viper SRT GT3-R '15"}},
+    "Travincas24": {"B":{"ms":88048,"time":"01:28.048","pos":235,"posPT":4,"car":"Jaguar F-type Gr.3"}},
+    "Wilson_TheFirst": {"B":{"ms":88049,"time":"01:28.049","pos":226,"posPT":4,"car":"Jaguar F-type Gr.3"},"A":{"ms":73018,"time":"01:13.018","pos":45,"posPT":2,"car":"Nissan GT-R Gr.4"}},
+    "LeonnardoYR_": {"B":{"ms":88302,"time":"01:28.302","pos":517,"posPT":10,"car":"Jaguar F-type Gr.3"}}
   },
   history: [
     { week: 46, year: 2026,
