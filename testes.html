@@ -259,6 +259,13 @@
 .tt-app .tt-up .tx span { font-size: 12px; color: var(--muted); }
 .tt-app .tt-up .tx .new { color: #000; background: var(--acc); border-radius: 999px; padding: 0 7px; font-size: 10px; font-weight: 800; width: fit-content; }
 .tt-app .tt-latest-view { margin-top: 12px; }
+.tt-app .tt-latest-empty { margin: 0; color: var(--muted); font-size: 13px; }
+.tt-app #tt-ask { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,.65); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.tt-app .tt-ask-box { max-width: 460px; width: 100%; background: linear-gradient(160deg, #1d1d20, #141416); border: 1px solid var(--acc); border-radius: 14px; padding: 22px 20px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+.tt-app .tt-ask-box h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 16px; text-transform: uppercase; color: var(--acc); }
+.tt-app .tt-ask-box p { margin: 0 0 10px; color: var(--txt); font-size: 14px; line-height: 1.5; }
+.tt-app .tt-ask-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.tt-app .tt-ask-btns button { flex: 1 1 160px; padding: 11px 14px; font-size: 14px; }
 .tt-app .tt-lv-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; font-size: 12.5px; color: var(--muted); }
 .tt-app .tt-lv-bar strong { color: var(--txt); }
 .tt-app .tt-lv-bar button { margin-left: auto; }
@@ -405,8 +412,8 @@
         <div class="card">
           <h3>Definições da sala</h3>
           <div class="grid2">
-            <label class="field"><span>Desgaste pneus</span><input id="cfg-tyrex"></label>
-            <label class="field"><span>Consumo</span><input id="cfg-fuelx"></label>
+            <label class="field"><span>Desgaste pneus</span><input id="cfg-tyrex" placeholder="ex.: x4"></label>
+            <label class="field"><span>Consumo</span><input id="cfg-fuelx" placeholder="ex.: x4"></label>
           </div>
           <div class="grid2 row">
             <label class="field"><span>Combustível em</span><select id="cfg-unit"><option value="%">% do depósito</option><option value="L">Litros</option></select></label>
@@ -562,6 +569,11 @@
   }
   state.sessions = state.sessions || {}; state.extra = state.extra || {}; state.removed = state.removed || {};
   const C = state.cfg;
+  // multipliers as written in the room ("4", "X4", "x 4" → "x4")
+  const normX = v => { const t = String(v || "").trim().toLowerCase().replace(/\s+/g, ""); return !t ? "" : t[0] === "x" ? t : "x" + t; };
+  // sessions saved before the multipliers were part of the key: driver|cat|track → driver|cat|track|wear|fuel (with the room settings in use then)
+  Object.keys(state.sessions).forEach(k => { if (k.split("|").length === 3) { const nk = k + "|" + normX(C.tyrex || "x1") + "|" + normX(C.fuelx || "x1"); if (!state.sessions[nk]) state.sessions[nk] = state.sessions[k]; delete state.sessions[k]; } });
+  Object.assign(C, { driver: "", cat: "", track: "", tyrex: "", fuelx: "", tyres: [], maps: [], sort: "name" });
   const OLD_TRACK = { "Nürburgring — GP": "Nürburgring GP", "Nürburgring — Nordschleife": "Nürburgring Nordschleife", "Nürburgring — 24h": "Nürburgring 24h",
     "Spa-Francorchamps": "Circuit de Spa-Francorchamps", "Spa-Francorchamps — 24h": "Layout das 24h de Spa", "Le Mans — 24 Heures du Mans": "24 Heures du Mans Racing Circuit",
     "Monza": "Autodromo Nazionale Monza", "Suzuka Circuit — East": "Percurso Leste de Suzuka Circuit", "Daytona — Road Course": "Percurso de estrada de Daytona",
@@ -576,7 +588,7 @@
   });
   function adoptOldSessions() {
     if (!C.driver) return;
-    Object.keys(state.sessions).forEach(k => { if (k.split("|").length === 2) { state.sessions[C.driver + "|" + k] = state.sessions[k]; delete state.sessions[k]; } });
+    Object.keys(state.sessions).forEach(k => { if (k.split("|").length === 2) { state.sessions[C.driver + "|" + k + "|x1|x1"] = state.sessions[k]; delete state.sessions[k]; } });
   }
 
   const $ = id => document.getElementById(id);
@@ -588,7 +600,8 @@
     try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
     $("saved").classList.add("on"); clearTimeout(t); t = setTimeout(() => $("saved").classList.remove("on"), 900);
   }
-  const sessKey = () => `${C.driver || "—"}|${C.cat}|${(C.track || "").trim() || "Sem pista"}`;
+  const sessKey = () => `${C.driver || "—"}|${C.cat}|${(C.track || "").trim() || "Sem pista"}|${normX(C.tyrex)}|${normX(C.fuelx)}`;
+  const ready = () => !!(C.cat && (C.track || "").trim() && normX(C.tyrex) && normX(C.fuelx));
   const session = () => state.sessions[sessKey()] || (state.sessions[sessKey()] = { cars: {} });
   const carsOf = cat => {
     const removed = new Set(state.removed[cat] || []);
@@ -602,7 +615,7 @@
   const isDone = e => tyreSel().every(x => num(e.data["tyre_" + x.id]) != null) && mapSel().every(m => num(e.data["fuel" + m]) != null);
 
   // ── controls ──
-  $("cfg-cat").innerHTML = CATS.map(c => `<option>${c}</option>`).join("");
+  $("cfg-cat").innerHTML = '<option value="">— escolhe —</option>' + CATS.map(c => `<option>${c}</option>`).join("");
   $("tyres").innerHTML = TYRES.map(x => `<span class="chip" style="--c:${x.c}"><input type="checkbox" id="ty-${x.id}" value="${x.id}"><label for="ty-${x.id}">${x.label}</label></span>`).join("");
   $("maps").innerHTML = MAPS.map(m => `<span class="chip"><input type="checkbox" id="mp-${m}" value="${m}"><label for="mp-${m}">${m}</label></span>`).join("");
   $("cfg-driver").innerHTML = '<option value="">— escolhe o piloto —</option>' + DRIVERS.map(n => `<option>${n}</option>`).join("");
@@ -622,6 +635,7 @@
   $("tyres").onchange = () => { C.tyres = TYRES.map(x => x.id).filter(id => $("ty-" + id).checked); save(); render(); };
   $("maps").onchange = () => { C.maps = MAPS.filter(m => $("mp-" + m).checked); save(); render(); };
   ["tyrex", "fuelx", "unit"].forEach(k => $("cfg-" + k).addEventListener("input", e => { C[k] = e.target.value; save(); if (k === "unit") render(); }));
+  ["tyrex", "fuelx"].forEach(k => $("cfg-" + k).addEventListener("change", e => { C[k] = normX(e.target.value); e.target.value = C[k]; save(); render(); }));
 
   // ── table ──
   function render() {
@@ -656,6 +670,8 @@
     }).join("");
     $("rows").innerHTML = rows || `<tr><td class="empty" colspan="99">${names.length ? "Nenhum carro corresponde ao filtro." : "Não há carros nesta categoria — adiciona-os em baixo."}</td></tr>`;
     if (!tys.length && !mps.length) $("rows").innerHTML = `<tr><td class="empty" colspan="99">Escolhe pelo menos um pneu ou um mapa.</td></tr>`;
+    if (!ready()) $("rows").innerHTML = `<tr><td class="empty" colspan="99">Escolhe a categoria, a pista, o desgaste de pneus e o consumo para abrir a folha de testes.</td></tr>`;
+    afterParams();
     updateProgress();
   }
   function sortOptions() {
@@ -813,19 +829,28 @@
   };
 
   // ── últimos dados carregados (js/test-results.js) ──
-  const RESULTS = typeof TEST_RESULTS !== "undefined" ? TEST_RESULTS : [];
+  var RESULTS = typeof TEST_RESULTS !== "undefined" ? TEST_RESULTS : [];
   const fmtDate = d => { const p = String(d || "").split("-"); return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : d || ""; };
   let openIdx = -1;
+  const sameParams = r => ready() && r.cat === C.cat && r.track === C.track.trim() && normX(r.tyrex) === normX(C.tyrex) && normX(r.fuelx) === normX(C.fuelx);
+  const matches = () => RESULTS.filter(sameParams);
   function renderLatest() {
+    const list = matches();
     $("latest").hidden = !RESULTS.length;
     if (!RESULTS.length) return;
-    $("latest-count").textContent = RESULTS.length === 1 ? "1 teste" : RESULTS.length + " testes";
-    $("latest-list").innerHTML = RESULTS.map((r, i) => {
+    if (!list.includes(RESULTS[openIdx])) openIdx = -1;
+    $("latest-count").textContent = !ready() ? "" : list.length === 1 ? "1 teste com estes parâmetros" : list.length + " testes com estes parâmetros";
+    if (!list.length) {
+      $("latest-list").innerHTML = `<p class="tt-latest-empty">${ready() ? "Ainda não há dados carregados para esta categoria, pista, desgaste e consumo — começas com a folha em branco." : "Escolhe a categoria, a pista, o desgaste e o consumo: se já houver dados carregados com esses parâmetros aparecem aqui."}</p>`;
+      $("latest-view").hidden = true; $("latest-view").innerHTML = ""; return;
+    }
+    $("latest-list").innerHTML = list.map(r => {
+      const i = RESULTS.indexOf(r);
       const ph = driverPhoto(r.driver), tl = trackLogo(r.track), n = Object.keys(r.cars || {}).length;
       const what = [(r.maps || []).length ? "Mapa " + r.maps.join(", ") : "", (r.tyres || []).length ? "Pneus " + r.tyres.join(", ") : ""].filter(Boolean).join(" · ");
       return `<button type="button" class="tt-up${i === openIdx ? " on" : ""}" data-i="${i}">
         ${ph ? `<img class="ph" src="${encodeURI(ph)}" alt="">` : ""}
-        <span class="tx">${i === 0 ? '<span class="new">MAIS RECENTE</span>' : ""}<strong>${esc(r.driver)} · ${esc(r.cat)}</strong>
+        <span class="tx">${r === list[0] ? '<span class="new">MAIS RECENTE</span>' : ""}<strong>${esc(r.driver)} · ${esc(r.cat)}</strong>
           <span>${esc(r.track)}</span><span>${fmtDate(r.uploaded)} · ${n} carros${what ? " · " + esc(what) : ""}</span></span>
         ${tl ? `<img class="tl" src="${tl}" alt="" onerror="this.remove()">` : ""}</button>`;
     }).join("");
@@ -839,7 +864,7 @@
     const cell = (c, k) => { const x = c[k]; if (!x) return '<td class="e">—</td>'; return `<td class="${best[k] != null && num(x) === best[k] ? "best" : ""}">${esc(x)}</td>`; };
     const hasNotes = names.some(n => r.cars[n].note);
     v.innerHTML = `<div class="tt-lv-bar"><span>BOP <strong>v${esc(r.bop)}</strong> · Desgaste <strong>${esc(r.tyrex || "—")}</strong> · Consumo <strong>${esc(r.fuelx || "—")}</strong> · ordenado por ${mps.length ? "menor consumo no mapa " + mps[0] : "menor desgaste"}</span>
-        <button type="button" class="primary" id="latest-open">↓ Abrir na ferramenta</button></div>
+        <button type="button" class="primary" id="latest-open">↓ Trabalhar sobre estes dados</button></div>
       <div class="tt-lv-wrap"><table class="tt-lv"><thead><tr><th>#</th><th style="text-align:left">Carro</th>
         ${tys.map(x => `<th>${x.label}<br>% / volta</th>`).join("")}
         ${mps.map(m => `<th>Mapa ${m}<br>Comb./volta (${esc(r.unit || "%")})</th><th>Mapa ${m}<br>Tempo</th><th>Mapa ${m}<br>Voltas dep.</th>`).join("")}
@@ -855,16 +880,45 @@
   }
   // load an uploaded test into the tool (fills only the empty cells of that driver/category/track)
   function openInTool(r) {
-    C.driver = r.driver; C.cat = r.cat; C.track = r.track;
-    if (r.tyrex) C.tyrex = r.tyrex; if (r.fuelx) C.fuelx = r.fuelx; if (r.unit) C.unit = r.unit;
+    if (r.unit) C.unit = r.unit;
     C.maps = MAPS.filter(m => C.maps.includes(m) || (r.maps || []).includes(m));
     C.tyres = TYRES.map(x => x.id).filter(id => C.tyres.includes(id) || (r.tyres || []).includes(id));
     Object.entries(r.cars).forEach(([name, vals]) => {
       const e = entry(name);
       Object.entries(vals).forEach(([k, v]) => { if (k === "note") { if (!e.note) e.note = v; } else if (!/^laps/.test(k) && !e.data[k]) e.data[k] = v; });
     });
+    asked[sessKey()] = true;
     syncControls(); render(); save();
     $("rows").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  // 3. same parameters as an uploaded test and nothing written yet → blank sheet or uploaded data?
+  const asked = {};
+  const hasData = () => Object.values(session().cars || {}).some(e => e.note || Object.values(e.data || {}).some(Boolean));
+  function afterParams() {
+    if (typeof renderLatest === "function" && RESULTS) renderLatest();
+    // reopening a sheet that already has data: bring back the tyres and maps it uses
+    if (ready() && !C.maps.length && !C.tyres.length && hasData()) {
+      const keys = new Set(); Object.values(session().cars).forEach(e => Object.keys(e.data || {}).forEach(x => { if (e.data[x]) keys.add(x); }));
+      C.tyres = TYRES.map(x => x.id).filter(id => keys.has("tyre_" + id));
+      C.maps = MAPS.filter(m => keys.has("fuel" + m) || keys.has("time" + m));
+      if (C.maps.length || C.tyres.length) { syncControls(); save(); render(); return; }
+    }
+    const list = matches(), k = sessKey();
+    if (!list.length || asked[k] || hasData() || document.getElementById("tt-ask")) return;
+    asked[k] = true;
+    const r = list[0], n = Object.keys(r.cars || {}).length;
+    const m = document.createElement("div");
+    m.id = "tt-ask";
+    m.innerHTML = `<div class="tt-ask-box" role="dialog" aria-modal="true" aria-labelledby="tt-ask-t">
+      <h3 id="tt-ask-t">Já há dados carregados</h3>
+      <p>Para <b>${esc(r.cat)}</b> · <b>${esc(r.track)}</b> · desgaste <b>${esc(normX(r.tyrex))}</b> · consumo <b>${esc(normX(r.fuelx))}</b>
+        existe o teste de <b>${esc(r.driver)}</b> (${fmtDate(r.uploaded)}, ${n} carros${(r.maps || []).length ? ", mapa " + r.maps.join(", ") : ""}).</p>
+      <p>Queres trabalhar sobre uma folha em branco ou sobre os dados já carregados?</p>
+      <div class="tt-ask-btns"><button type="button" id="tt-ask-blank">📄 Folha em branco</button>
+        <button type="button" class="primary" id="tt-ask-data">📥 Dados já carregados</button></div></div>`;
+    document.querySelector(".tt-app").appendChild(m);
+    $("tt-ask-blank").onclick = () => m.remove();
+    $("tt-ask-data").onclick = () => { m.remove(); openIdx = RESULTS.indexOf(r); openInTool(r); };
   }
   $("latest-list").addEventListener("click", e => { const b = e.target.closest(".tt-up"); if (!b) return; openIdx = openIdx === +b.dataset.i ? -1 : +b.dataset.i; renderLatest(); });
   renderLatest();
