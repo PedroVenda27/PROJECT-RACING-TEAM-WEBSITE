@@ -45,9 +45,14 @@ const TOOLS_PASSWORD_HASH = {
       const host = document.querySelector(".page-hero .container") || document.body;
       host.insertBefore(chip, host.firstChild);
     }
-    // tyre & fuel test: start with the signed-in driver if none chosen yet
+    // tyre & fuel test: the driver is always the signed-in one and can't be changed on the page
     const sel = document.getElementById("cfg-driver");
-    if (sel && !sel.value && [...sel.options].some(o => o.value === s.driver)) { sel.value = s.driver; sel.dispatchEvent(new Event("change", { bubbles: true })); }
+    if (sel && [...sel.options].some(o => o.value === s.driver)) {
+      sel.innerHTML = `<option value="${esc(s.driver)}">${esc(s.driver)}</option>`;
+      sel.value = s.driver; sel.disabled = true; sel.classList.add("locked");
+      sel.title = "Sessão iniciada como " + s.driver + " — para mudar de piloto usa Sair";
+      sel.dispatchEvent(new Event("change", { bubbles: true }));
+    }
   }
 
   function gate() {
