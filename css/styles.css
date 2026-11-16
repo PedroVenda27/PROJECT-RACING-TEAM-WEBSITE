@@ -4194,3 +4194,31 @@ a.sponsor-code-btn .sponsor-code-value { font-size: 0.62rem; letter-spacing: 0.0
   .th-name, .cell-name { padding-left: 0.5rem; }
   .th-name { min-width: 120px; }
 }
+/* ══ Ferramentas RTP — sign-in for RTP drivers (js/tools-auth.js) ══ */
+html.rtp-locked body > *:not(#site-header):not(#rtp-gate):not(script) { display: none !important; }
+#rtp-gate { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 110px 16px 60px;
+  background: radial-gradient(ellipse at top, rgba(255,107,0,0.14), transparent 60%), var(--black); }
+.rtp-gate-card { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 0.9rem; padding: 2rem 1.6rem; border-radius: 16px;
+  background: linear-gradient(160deg, #1b1b1d, #121213); border: 1px solid rgba(255,107,0,0.35); box-shadow: 0 20px 60px rgba(0,0,0,0.5); text-align: center; }
+.rtp-gate-logo { height: 56px; width: auto; margin: 0 auto; }
+.rtp-gate-tag { font-family: var(--font-display); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); }
+.rtp-gate-card h1 { font-family: var(--font-display); font-size: 1.7rem; margin: 0; }
+.rtp-gate-sub { color: var(--gray-400); font-size: 0.9rem; margin: 0 0 0.4rem; line-height: 1.5; }
+.rtp-gate-card label { display: flex; flex-direction: column; gap: 0.35rem; text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-400); flex: 1; min-width: 0; }
+.rtp-gate-card select, .rtp-gate-card input { width: 100%; background: #0d0d0e; border: 1px solid rgba(255,255,255,0.14); color: var(--white); border-radius: 10px; padding: 0.75rem 0.85rem; font-size: 1rem; font-family: var(--font-body); text-transform: none; letter-spacing: 0; }
+.rtp-gate-card select:focus, .rtp-gate-card input:focus { outline: none; border-color: var(--yellow); box-shadow: 0 0 0 3px rgba(255,107,0,0.2); }
+.rtp-gate-who { display: flex; align-items: flex-end; gap: 0.8rem; }
+#rtp-gate-photo { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--yellow); background: #0d0d0e; flex-shrink: 0; }
+#rtp-gate-photo.is-logo { object-fit: contain; padding: 8px; }
+.rtp-gate-pass { position: relative; display: block; }
+.rtp-gate-pass input { padding-right: 2.8rem; }
+#rtp-gate-eye { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: none; border: 0; color: var(--gray-400); font-size: 1.1rem; cursor: pointer; padding: 0.3rem; }
+.rtp-gate-err { min-height: 1.2em; margin: 0; color: #f87171; font-size: 0.85rem; font-weight: 600; }
+.rtp-gate-go { width: 100%; justify-content: center; }
+.rtp-gate-help { margin: 0; font-size: 0.78rem; color: var(--gray-500); }
+#rtp-user-chip { display: flex; width: fit-content; align-items: center; gap: 0.55rem; margin: 0 auto 1.4rem; padding: 0.3rem 0.4rem 0.3rem 0.35rem; border-radius: 999px;
+  background: rgba(0,0,0,0.45); border: 1px solid rgba(255,107,0,0.4); font-size: 0.82rem; font-weight: 600; color: var(--white); position: relative; z-index: 2; }
+#rtp-user-chip img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; object-position: top; }
+#rtp-user-chip button { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--gray-300, #ccc); border-radius: 999px; padding: 0.2rem 0.7rem; font-size: 0.75rem; cursor: pointer; }
+#rtp-user-chip button:hover { border-color: var(--yellow); color: var(--yellow); }
+@media print { #rtp-user-chip { display: none !important; } }
