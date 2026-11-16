@@ -9,7 +9,7 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-16",
-  updatedAt: "2026-11-16T17:07:00+00:00",
+  updatedAt: "2026-11-16T18:08:00+00:00",
   races: [
     {"type":"A","id":698,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Blue Moon Bay Speedway — Infield A","car":"Gr.4","tyres":"RM","lead":72633,"leader":"MAIKON__GT","players":3363,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-a-blue-moon-bay-speedway-infield-a/698"},
     {"type":"B","id":699,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Deep Forest Raceway","car":"Gr.3","tyres":"RH","lead":87317,"leader":"Monkis","players":8022,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-b-deep-forest-raceway/699"},
