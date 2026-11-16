@@ -984,20 +984,25 @@
     }
     const list = matches(), k = askKey();
     if (!list.length || asked[k] || document.getElementById("tt-ask")) return;
-    const r = list[0], have = [...viewKeys()], haveT = have.some(isTyreKey), haveF = have.some(x => !isTyreKey(x));
-    // ask only when the matching kind of data is still empty on this sheet
-    if (!((fuelMatch(r) && !haveF) || (tyreMatch(r) && !haveT))) return;
+    // values of an uploaded test (matching kind) that this sheet doesn't have yet
+    const missing = t => { let c = 0; const f = fuelMatch(t), ty = tyreMatch(t), s = session().cars;
+      Object.entries(t.cars || {}).forEach(([name, vals]) => Object.entries(vals).forEach(([key, v]) => {
+        if (!v || key === "note" || /^laps/.test(key) || (isTyreKey(key) ? !ty : !f)) return;
+        const car = s[name]; if (!car || !car.data[key + suffix(key)]) c++;
+      })); return c; };
+    const r = list.find(t => missing(t) > 0); if (!r) return;
     asked[k] = true;
-    const n = Object.keys(r.cars || {}).length;
+    const n = Object.keys(r.cars || {}).length, miss = missing(r), mine = viewKeys().size > 0;
     const m = document.createElement("div");
     m.id = "tt-ask";
     m.innerHTML = `<div class="tt-ask-box" role="dialog" aria-modal="true" aria-labelledby="tt-ask-t">
       <h3 id="tt-ask-t">Já há dados carregados</h3>
       <p>Para <b>${esc(r.cat)}</b> · <b>${esc(r.track)}</b> já há dados de <b>${esc(matchLabel(r))}</b>
         do teste de <b>${esc(r.driver)}</b> (${fmtDate(r.uploaded)}, ${n} carros).</p>
-      <p>Queres trabalhar sobre uma folha em branco ou sobre os dados já carregados?</p>
-      <div class="tt-ask-btns"><button type="button" id="tt-ask-blank">📄 Folha em branco</button>
-        <button type="button" class="primary" id="tt-ask-data">📥 Dados já carregados</button></div></div>`;
+      ${mine ? `<p>A tua folha já tem dados, mas faltam-lhe <b>${miss}</b> valores deste teste. Queres juntá-los aos teus? (os teus valores não são alterados)</p>`
+        : "<p>Queres trabalhar sobre uma folha em branco ou sobre os dados já carregados?</p>"}
+      <div class="tt-ask-btns"><button type="button" id="tt-ask-blank">${mine ? "✋ Ficar só com os meus" : "📄 Folha em branco"}</button>
+        <button type="button" class="primary" id="tt-ask-data">${mine ? "📥 Juntar os dados carregados" : "📥 Dados já carregados"}</button></div></div>`;
     document.querySelector(".tt-app").appendChild(m);
     $("tt-ask-blank").onclick = () => m.remove();
     $("tt-ask-data").onclick = () => { m.remove(); openIdx = RESULTS.indexOf(r); openInTool(r); };
