@@ -886,19 +886,19 @@ const SITE_DATA = {
       raceLegend: "Corrida (pontuação F1): 25 · 18 · 15 · 12 · 10 · 8 · 6 · 4 · 2 · 1 &nbsp;·&nbsp; Sprint: 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1",
       roundLabels: ["R1", "R2", "R3", "R4", "R5", "R6", "R7"],
       drivers: [
-        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho",rounds: [25, 15, 25, null, null, null, null], total: 65 },
-        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",  rounds: [12, 25, 20, null, null, null, null], total: 57 },
-        { name: "Pedro Dias",       driverRef: "Pedro Dias",      rounds: [18, 12, 16, null, null, null, null], total: 46 },
-        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",  rounds: [6, 18, 20, null, null, null, null], total: 44 },
+        { name: "Rafael Agostinho", driverRef: "Rafael Agostinho",rounds: [25, 15, 25, 12, null, null, null], total: 77 },
+        { name: "Wilson Barreto",   driverRef: "Wilson Barreto",  rounds: [12, 25, 20, 15, null, null, null], total: 72 },
+        { name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",  rounds: [6, 18, 20, 25, null, null, null], total: 69 },
+        { name: "Pedro Dias",       driverRef: "Pedro Dias",      rounds: [18, 12, 16, 18, null, null, null], total: 64 },
+        { name: "Miguel Cabral",    driverRef: "Miguel Cabral",   rounds: [15, 1, 9, 8, null, null, null], total: 33 },
         { name: "Tiago Freitas",    driverRef: "Tiago Freitas",   rounds: [null, null, 25, null, null, null, null], total: 25 },
-        { name: "Miguel Cabral",    driverRef: "Miguel Cabral",   rounds: [15, 1, 9, null, null, null, null], total: 25 },
         { name: "Rui Silva",        driverRef: "Rui Silva",       rounds: [10, null, 6, null, null, null, null], total: 16 },
+        { name: "Hugo Costa",       driverRef: "Hugo Costa",      rounds: [1, 8, 1, 6, null, null, null], total: 16 },
+        { name: "Pedro Venda",      driverRef: "Pedro Venda",     rounds: [null, 0, 6, 10, null, null, null], total: 16 },
         { name: "Rodrigo Marques",  driverRef: "Rodrigo Marques", rounds: [4, 10, null, null, null, null, null], total: 14 },
         { name: "Luís Dantas",      driverRef: "Luís Dantas",     rounds: [8, 2, null, null, null, null, null], total: 10 },
-        { name: "Hugo Costa",       driverRef: "Hugo Costa",      rounds: [1, 8, 1, null, null, null, null], total: 10 },
         { name: "Pinto Moreira",    driverRef: "Pinto Moreira",    rounds: [null, null, 9, null, null, null, null], total: 9 },
         { name: "Sérgio Marques",   driverRef: "Sérgio Marques",  rounds: [null, 6, null, null, null, null, null], total: 6 },
-        { name: "Pedro Venda",      driverRef: "Pedro Venda",     rounds: [null, 0, 6, null, null, null, null], total: 6 },
         { name: "Leonnardo Raucci", driverRef: "Leonnardo Raucci",rounds: [null, 4, null, null, null, null, null], total: 4 },
         { name: "Luis Gomes",       driverRef: "Luis Gomes",      rounds: [2, 0, 0, null, null, null, null], total: 2 }
       ],
@@ -962,11 +962,6 @@ const SITE_DATA = {
           track: "Autodrome Lago Maggiore — Completo",
           sessions: [
             {
-              type: "qualifying",
-              label: "Qualificação",
-              results: []
-            },
-            {
               type: "race",
               label: "Sprint",
               duration: "7 voltas",
@@ -1000,6 +995,29 @@ const SITE_DATA = {
                 { pos: 9   , name: "Rui Silva",        driverRef: "Rui Silva",       psnId: "Pandex",          time: "", gap: "Em pista",  penalty: "", points: 2, pole: false, fastestLap: false },
                 { pos: 10  , name: "Hugo Costa",       driverRef: "Hugo Costa",      psnId: "Hugo Costa",      time: "", gap: "+1 Volta",  penalty: "", points: 1, pole: false, fastestLap: false },
                 { pos: 11  , name: "Luis Gomes",       driverRef: "Luis Gomes",      psnId: "Laferia",         time: "", gap: "+1 Volta",  penalty: "", points: 0, pole: false, fastestLap: false }
+              ]
+            }
+          ]
+        },
+        {
+          round: 4,
+          label: "Ronda 4",
+          date: "22 de Novembro de 2026",
+          track: "Spa-Francorchamps — Traçado 24h",
+          sessions: [
+            {
+              type: "race",
+              label: "Corrida",
+              duration: "40 min",
+              fastestLapTime: "2:03.698 · Wilson Barreto",
+              results: [
+                { pos: 1,   name: "Bruno Teixeira",   driverRef: "Bruno Teixeira",   psnId: "RTP_Brunocm97",   time: "40:56.007", gap: "",          penalty: "", points: 25, pole: false, fastestLap: false, bestLap: "2:06.011", car: "M Hybrid V8 '25" },
+                { pos: 2,   name: "Pedro Dias",       driverRef: "Pedro Dias",       psnId: "RTP_Travincas24", time: "",          gap: "+15.794",   penalty: "", points: 18, pole: false, fastestLap: false, bestLap: "2:08.261", car: "M Hybrid V8 '25" },
+                { pos: 3,   name: "Wilson Barreto",   driverRef: "Wilson Barreto",   psnId: "Barreto",         time: "",          gap: "+40.083",   penalty: "", points: 15, pole: false, fastestLap: true, bestLap: "2:03.698", car: "963 '24" },
+                { pos: 4,   name: "Rafael Agostinho", driverRef: "Rafael Agostinho", psnId: "R. Agostinho",    time: "",          gap: "+51.609",   penalty: "", points: 12, pole: false, fastestLap: false, bestLap: "2:07.624", car: "963 '24" },
+                { pos: 5,   name: "Pedro Venda",      driverRef: "Pedro Venda",      psnId: "Pedro Venda",     time: "",          gap: "+53.136",   penalty: "", points: 10, pole: false, fastestLap: false, bestLap: "2:10.545", car: "963 '24" },
+                { pos: 6,   name: "Miguel Cabral",    driverRef: "Miguel Cabral",    psnId: "MattiAzores",     time: "",          gap: "+1 Volta",  penalty: "", points: 8,  pole: false, fastestLap: false, bestLap: "2:07.943", car: "963 '24" },
+                { pos: 7,   name: "Hugo Costa",       driverRef: "Hugo Costa",       psnId: "Hugo Costa",      time: "",          gap: "+2 Voltas", penalty: "", points: 6,  pole: false, fastestLap: false, bestLap: "2:12.293", car: "M Hybrid V8 '25" }
               ]
             }
           ]
