@@ -8,30 +8,38 @@
    history: semanas anteriores { week, year, races, times }, mais recente primeiro
    ===================================================================== */
 const EDGE_DAILIES = {
-  updated: "2026-11-22",
-  updatedAt: "2026-11-22T22:40:00+00:00",
+  updated: "2026-11-23",
+  updatedAt: "2026-11-23T14:23:00+00:00",
   races: [
-    {"type":"A","id":698,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Blue Moon Bay Speedway — Infield A","car":"Gr.4","tyres":"RM","lead":72136,"leader":"RTR_Nyjah","players":31863,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-a-blue-moon-bay-speedway-infield-a/698"},
-    {"type":"B","id":699,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Deep Forest Raceway","car":"Gr.3","tyres":"RH","lead":87063,"leader":"L. Burton","players":63210,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-b-deep-forest-raceway/699"},
-    {"type":"C","id":700,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Suzuka Circuit","car":"SF","tyres":"RS","lead":92698,"leader":"Antonio Santos","players":35357,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-c-suzuka-circuit/700"}
+    {"type":"A","id":702,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Miyabi","car":"Gran Turismo Racing Kart 125 Shifter","tyres":"SS","lead":44096,"leader":"BW-_ららぴぴ","players":3194,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-a-kyoto-driving-park-miyabi/702"},
+    {"type":"B","id":703,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Yamagiwa","car":"Gr.4","tyres":"RM","lead":101982,"leader":"Sillon","players":6022,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-b-kyoto-driving-park-yamagiwa/703"},
+    {"type":"C","id":704,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"24 Heures du Mans Racing Circuit","car":"Gr.1","tyres":"RM, IM, W","lead":208709,"leader":"G. Humbert","players":3471,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-c-24-heures-du-mans-racing-circuit/704"}
   ],
   times: {
-    "Caceteira_RTP": {"B":{"ms":87819,"time":"01:27.819","pos":353,"posPT":8,"car":"Dodge Viper SRT GT3-R '15"},"A":{"ms":72851,"time":"01:12.851","pos":105,"posPT":6,"car":"Nissan GT-R Gr.4"}},
-    "pandafrass": {"B":{"ms":87972,"time":"01:27.972","pos":680,"posPT":16,"car":"Dodge Viper SRT GT3-R '15"},"A":{"ms":73007,"time":"01:13.007","pos":183,"posPT":7,"car":"Nissan GT-R Gr.4"}},
-    "RafaelAgostinh44": {"C":{"ms":94832,"time":"01:34.832","pos":993,"posPT":17,"car":"Super Formula SF23 Super Formula / Toyota '23"},"B":{"ms":87910,"time":"01:27.910","pos":520,"posPT":13,"car":"Dodge Viper SRT GT3-R '15"}},
-    "BrunoCm1997": {"A":{"ms":72682,"time":"01:12.682","pos":52,"posPT":2,"car":"Nissan GT-R Gr.4"}},
-    "Travincas24": {"B":{"ms":87920,"time":"01:27.920","pos":546,"posPT":15,"car":"Dodge Viper SRT GT3-R '15"}},
-    "shedowripper2896": {"B":{"ms":92530,"time":"01:32.530","pos":52119,"posPT":835,"car":"Toyota GR Supra Racing Concept '18"}},
-    "laferia777": {"B":{"ms":89287,"time":"01:29.287","pos":11649,"posPT":231,"car":"Dodge Viper SRT GT3-R '15"}},
-    "KajuNN": {"C":{"ms":94317,"time":"01:34.317","pos":450,"posPT":5,"car":"Super Formula SF23 Super Formula / Toyota '23"},"B":{"ms":88121,"time":"01:28.121","pos":1133,"posPT":23,"car":"Jaguar F-type Gr.3"}},
-    "Wilson_TheFirst": {"B":{"ms":87893,"time":"01:27.893","pos":483,"posPT":11,"car":"Dodge Viper SRT GT3-R '15"},"A":{"ms":72742,"time":"01:12.742","pos":62,"posPT":4,"car":"Nissan GT-R Gr.4"}},
-    "mattifroskes": {"B":{"ms":88386,"time":"01:28.386","pos":2242,"posPT":46,"car":"Dodge Viper SRT GT3-R '15"},"A":{"ms":76107,"time":"01:16.107","pos":13315,"posPT":252,"car":"Nissan GT-R Gr.4"}},
-    "Be_Mad_PT": {"B":{"ms":88692,"time":"01:28.692","pos":4550,"posPT":103,"car":"Dodge Viper SRT GT3-R '15"}},
-    "SemDestino75": {"B":{"ms":88978,"time":"01:28.978","pos":7626,"posPT":159,"car":"Dodge Viper SRT GT3-R '15"}},
-    "FVenda117": {"A":{"ms":73872,"time":"01:13.872","pos":1680,"posPT":43,"car":"Nissan GT-R Gr.4"}},
-    "LeonnardoYR_": {"B":{"ms":88302,"time":"01:28.302","pos":1850,"posPT":38,"car":"Jaguar F-type Gr.3"}}
   },
   history: [
+    { week: 47, year: 2026,
+      races: [
+        {"type":"A","id":698,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Blue Moon Bay Speedway — Infield A","car":"Gr.4","tyres":"RM","lead":72136,"leader":"RTR_Nyjah","players":31863,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-a-blue-moon-bay-speedway-infield-a/698"},
+        {"type":"B","id":699,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Deep Forest Raceway","car":"Gr.3","tyres":"RH","lead":87063,"leader":"L. Burton","players":63210,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-b-deep-forest-raceway/699"},
+        {"type":"C","id":700,"week":47,"year":2026,"from":"2026-11-16 08:00:00","to":"2026-11-23 07:59:59","track":"Suzuka Circuit","car":"SF","tyres":"RS","lead":92698,"leader":"Antonio Santos","players":35357,"url":"https://www.dg-edge.com/events/dailies/week-47-2026-race-c-suzuka-circuit/700"}
+      ],
+      times: {
+        "Caceteira_RTP": {"B":{"ms":87819,"time":"01:27.819","pos":353,"posPT":8,"car":"Dodge Viper SRT GT3-R '15"},"A":{"ms":72851,"time":"01:12.851","pos":105,"posPT":6,"car":"Nissan GT-R Gr.4"}},
+        "pandafrass": {"B":{"ms":87972,"time":"01:27.972","pos":680,"posPT":16,"car":"Dodge Viper SRT GT3-R '15"},"A":{"ms":73007,"time":"01:13.007","pos":183,"posPT":7,"car":"Nissan GT-R Gr.4"}},
+        "RafaelAgostinh44": {"C":{"ms":94832,"time":"01:34.832","pos":993,"posPT":17,"car":"Super Formula SF23 Super Formula / Toyota '23"},"B":{"ms":87910,"time":"01:27.910","pos":520,"posPT":13,"car":"Dodge Viper SRT GT3-R '15"}},
+        "BrunoCm1997": {"A":{"ms":72682,"time":"01:12.682","pos":52,"posPT":2,"car":"Nissan GT-R Gr.4"}},
+        "Travincas24": {"B":{"ms":87920,"time":"01:27.920","pos":546,"posPT":15,"car":"Dodge Viper SRT GT3-R '15"}},
+        "shedowripper2896": {"B":{"ms":92530,"time":"01:32.530","pos":52119,"posPT":835,"car":"Toyota GR Supra Racing Concept '18"}},
+        "laferia777": {"B":{"ms":89287,"time":"01:29.287","pos":11649,"posPT":231,"car":"Dodge Viper SRT GT3-R '15"}},
+        "KajuNN": {"C":{"ms":94317,"time":"01:34.317","pos":450,"posPT":5,"car":"Super Formula SF23 Super Formula / Toyota '23"},"B":{"ms":88121,"time":"01:28.121","pos":1133,"posPT":23,"car":"Jaguar F-type Gr.3"}},
+        "Wilson_TheFirst": {"B":{"ms":87893,"time":"01:27.893","pos":483,"posPT":11,"car":"Dodge Viper SRT GT3-R '15"},"A":{"ms":72742,"time":"01:12.742","pos":62,"posPT":4,"car":"Nissan GT-R Gr.4"}},
+        "mattifroskes": {"B":{"ms":88386,"time":"01:28.386","pos":2242,"posPT":46,"car":"Dodge Viper SRT GT3-R '15"},"A":{"ms":76107,"time":"01:16.107","pos":13315,"posPT":252,"car":"Nissan GT-R Gr.4"}},
+        "Be_Mad_PT": {"B":{"ms":88692,"time":"01:28.692","pos":4550,"posPT":103,"car":"Dodge Viper SRT GT3-R '15"}},
+        "SemDestino75": {"B":{"ms":88978,"time":"01:28.978","pos":7626,"posPT":159,"car":"Dodge Viper SRT GT3-R '15"}},
+        "FVenda117": {"A":{"ms":73872,"time":"01:13.872","pos":1680,"posPT":43,"car":"Nissan GT-R Gr.4"}},
+        "LeonnardoYR_": {"B":{"ms":88302,"time":"01:28.302","pos":1850,"posPT":38,"car":"Jaguar F-type Gr.3"}}
+      } },
     { week: 46, year: 2026,
       races: [
         {"type":"A","id":694,"week":46,"year":2026,"from":"2026-11-09 08:00:00","to":"2026-11-16 07:59:59","track":"Suzuka Circuit — East Course","car":"Honda Integra Type R (DC2) '95","tyres":"CS","lead":59939,"leader":"BW-_ららぴぴ","players":26294,"url":"https://www.dg-edge.com/events/dailies/week-46-2026-race-a-suzuka-circuit-east-course/694"},
