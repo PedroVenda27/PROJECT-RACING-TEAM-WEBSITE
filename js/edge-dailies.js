@@ -9,16 +9,16 @@
    ===================================================================== */
 const EDGE_DAILIES = {
   updated: "2026-11-24",
-  updatedAt: "2026-11-24T17:16:00+00:00",
+  updatedAt: "2026-11-24T18:09:00+00:00",
   races: [
-    {"type":"A","id":702,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Miyabi","car":"Gran Turismo Racing Kart 125 Shifter","tyres":"SS","lead":44096,"leader":"BW-_ららぴぴ","players":11160,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-a-kyoto-driving-park-miyabi/702"},
-    {"type":"B","id":703,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Yamagiwa","car":"Gr.4","tyres":"RM","lead":101780,"leader":"Ryun｜R. Hayashi","players":17216,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-b-kyoto-driving-park-yamagiwa/703"},
+    {"type":"A","id":702,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Miyabi","car":"Gran Turismo Racing Kart 125 Shifter","tyres":"SS","lead":44096,"leader":"BW-_ららぴぴ","players":11256,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-a-kyoto-driving-park-miyabi/702"},
+    {"type":"B","id":703,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Yamagiwa","car":"Gr.4","tyres":"RM","lead":101780,"leader":"Ryun｜R. Hayashi","players":17291,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-b-kyoto-driving-park-yamagiwa/703"},
     {"type":"C","id":704,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"24 Heures du Mans Racing Circuit","car":"Gr.1","tyres":"RM, IM, W","lead":207672,"leader":"K. Drumont","players":10684,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-c-24-heures-du-mans-racing-circuit/704"}
   ],
   times: {
-    "KajuNN": {"B":{"ms":102786,"time":"01:42.786","pos":93,"posPT":1,"car":"Lamborghini Huracán Gr.4"}},
+    "FVenda117": {"A":{"ms":44637,"time":"00:44.637","pos":436,"posPT":11,"car":"Gran Turismo Racing Kart 125 Shifter"}},
     "Wilson_TheFirst": {"A":{"ms":44425,"time":"00:44.425","pos":142,"posPT":4,"car":"Gran Turismo Racing Kart 125 Shifter"}},
-    "FVenda117": {"A":{"ms":44637,"time":"00:44.637","pos":436,"posPT":11,"car":"Gran Turismo Racing Kart 125 Shifter"}}
+    "KajuNN": {"B":{"ms":102786,"time":"01:42.786","pos":93,"posPT":1,"car":"Lamborghini Huracán Gr.4"}}
   },
   history: [
     { week: 47, year: 2026,
