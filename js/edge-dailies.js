@@ -8,15 +8,15 @@
    history: semanas anteriores { week, year, races, times }, mais recente primeiro
    ===================================================================== */
 const EDGE_DAILIES = {
-  updated: "2026-11-23",
-  updatedAt: "2026-11-23T21:10:00+00:00",
+  updated: "2026-11-24",
+  updatedAt: "2026-11-24T01:21:00+00:00",
   races: [
-    {"type":"A","id":702,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Miyabi","car":"Gran Turismo Racing Kart 125 Shifter","tyres":"SS","lead":44096,"leader":"BW-_ららぴぴ","players":6819,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-a-kyoto-driving-park-miyabi/702"},
-    {"type":"B","id":703,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Yamagiwa","car":"Gr.4","tyres":"RM","lead":101828,"leader":"SSXES2000","players":9192,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-b-kyoto-driving-park-yamagiwa/703"},
-    {"type":"C","id":704,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"24 Heures du Mans Racing Circuit","car":"Gr.1","tyres":"RM, IM, W","lead":207843,"leader":"N. Lanuza","players":7108,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-c-24-heures-du-mans-racing-circuit/704"}
+    {"type":"A","id":702,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Miyabi","car":"Gran Turismo Racing Kart 125 Shifter","tyres":"SS","lead":44096,"leader":"BW-_ららぴぴ","players":7562,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-a-kyoto-driving-park-miyabi/702"},
+    {"type":"B","id":703,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Yamagiwa","car":"Gr.4","tyres":"RM","lead":101828,"leader":"SSXES2000","players":16022,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-b-kyoto-driving-park-yamagiwa/703"},
+    {"type":"C","id":704,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"24 Heures du Mans Racing Circuit","car":"Gr.1","tyres":"RM, IM, W","lead":207843,"leader":"N. Lanuza","players":9311,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-c-24-heures-du-mans-racing-circuit/704"}
   ],
   times: {
-    "FVenda117": {"A":{"ms":44637,"time":"00:44.637","pos":249,"posPT":4,"car":"Gran Turismo Racing Kart 125 Shifter"}}
+    "FVenda117": {"A":{"ms":44637,"time":"00:44.637","pos":284,"posPT":7,"car":"Gran Turismo Racing Kart 125 Shifter"}}
   },
   history: [
     { week: 47, year: 2026,
