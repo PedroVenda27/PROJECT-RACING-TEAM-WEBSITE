@@ -8,18 +8,18 @@
    history: semanas anteriores { week, year, races, times }, mais recente primeiro
    ===================================================================== */
 const EDGE_DAILIES = {
-  updated: "2026-11-25",
-  updatedAt: "2026-11-25T18:09:00+00:00",
+  updated: "2026-11-26",
+  updatedAt: "2026-11-26T14:12:00+00:00",
   races: [
-    {"type":"A","id":702,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Miyabi","car":"Gran Turismo Racing Kart 125 Shifter","tyres":"SS","lead":44048,"leader":"BW-_ららぴぴ","players":16248,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-a-kyoto-driving-park-miyabi/702"},
-    {"type":"B","id":703,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Yamagiwa","car":"Gr.4","tyres":"RM","lead":101722,"leader":"RTR_Nyjah","players":25809,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-b-kyoto-driving-park-yamagiwa/703"},
-    {"type":"C","id":704,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"24 Heures du Mans Racing Circuit","car":"Gr.1","tyres":"RM, IM, W","lead":207318,"leader":"K. Drumont","players":15470,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-c-24-heures-du-mans-racing-circuit/704"}
+    {"type":"A","id":702,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Miyabi","car":"Gran Turismo Racing Kart 125 Shifter","tyres":"SS","lead":44048,"leader":"BW-_ららぴぴ","players":19404,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-a-kyoto-driving-park-miyabi/702"},
+    {"type":"B","id":703,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"Kyoto Driving Park — Yamagiwa","car":"Gr.4","tyres":"RM","lead":101722,"leader":"RTR_Nyjah","players":32044,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-b-kyoto-driving-park-yamagiwa/703"},
+    {"type":"C","id":704,"week":48,"year":2026,"from":"2026-11-23 08:00:00","to":"2026-11-30 07:59:59","track":"24 Heures du Mans Racing Circuit","car":"Gr.1","tyres":"RM, IM, W","lead":207189,"leader":"K. Drumont","players":18926,"url":"https://www.dg-edge.com/events/dailies/week-48-2026-race-c-24-heures-du-mans-racing-circuit/704"}
   ],
   times: {
-    "Wilson_TheFirst": {"A":{"ms":44425,"time":"00:44.425","pos":194,"posPT":4,"car":"Gran Turismo Racing Kart 125 Shifter"}},
-    "FVenda117": {"A":{"ms":44529,"time":"00:44.529","pos":358,"posPT":8,"car":"Gran Turismo Racing Kart 125 Shifter"}},
-    "laferia777": {"B":{"ms":107117,"time":"01:47.117","pos":16400,"posPT":259,"car":"Lamborghini Huracán Gr.4"}},
-    "KajuNN": {"B":{"ms":102786,"time":"01:42.786","pos":93,"posPT":1,"car":"Lamborghini Huracán Gr.4"}}
+    "KajuNN": {"B":{"ms":102786,"time":"01:42.786","pos":157,"posPT":1,"car":"Lamborghini Huracán Gr.4"}},
+    "laferia777": {"B":{"ms":107117,"time":"01:47.117","pos":20289,"posPT":318,"car":"Lamborghini Huracán Gr.4"}},
+    "FVenda117": {"B":{"ms":106108,"time":"01:46.108","pos":14542,"posPT":225,"car":"Lamborghini Huracán Gr.4"},"A":{"ms":44440,"time":"00:44.440","pos":294,"posPT":8,"car":"Gran Turismo Racing Kart 125 Shifter"}},
+    "Wilson_TheFirst": {"A":{"ms":44425,"time":"00:44.425","pos":269,"posPT":7,"car":"Gran Turismo Racing Kart 125 Shifter"}}
   },
   history: [
     { week: 47, year: 2026,
